@@ -37,7 +37,7 @@ class Product {
 Product copyWith({
   bool? isFavorite,
   int? quantity,
-  double? rating,  // أضف هذا
+  double? rating,
   int? reviews,
 }) {
   return Product(

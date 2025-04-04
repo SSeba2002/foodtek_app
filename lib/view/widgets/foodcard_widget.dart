@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/const/responsive.dart';
 import 'package:foodtek_project/view/screens/cart_screen.dart';
+import 'package:foodtek_project/view/screens/cart_screen.dart';
 
 class FoodCard extends StatelessWidget {
   final String imageUrl;
@@ -40,7 +41,6 @@ class FoodCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // صورة البرجر مع النجمة
           Stack(
             children: [
               Image.asset(
@@ -98,7 +98,7 @@ class FoodCard extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const CartScreen()),
+                      MaterialPageRoute(builder: (context) =>  CartScreen(cartItems: )),
                     );
                   },
                   backgroundColor: Colors.green,
@@ -113,4 +113,5 @@ class FoodCard extends StatelessWidget {
       ),
     );
   }
+
 }

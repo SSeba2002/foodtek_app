@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/view/screens/order_done_Screen.dart';
 
 class PriceDetailsWidget extends StatelessWidget {
   final double subtotal;
@@ -66,7 +67,13 @@ class PriceDetailsWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.r),
     ),
     ),
-            onPressed: onPlaceOrder,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OrderDoneScreen(estimatedDeliveryTime: 13)),
+              );
+            },
+            
             child: Text(
               'Place My Order',
               style: TextStyle(

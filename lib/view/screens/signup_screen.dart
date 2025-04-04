@@ -1,21 +1,4 @@
-<<<<<<< HEAD
-import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
-
-  @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<SignUpScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-||||||| 06fab62
-=======
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/widgets/signup_widget.dart';
@@ -64,4 +47,4 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
->>>>>>> origin/main
+

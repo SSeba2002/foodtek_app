@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/view/screens/reset_password_screen.dart';
 
 class OtpScreen extends StatefulWidget {
   @override
@@ -93,6 +94,12 @@ class _OtpScreenState extends State<OtpScreen> {
                               .map((controller) => controller.text)
                               .join();
                           print('Entered OTP: $otp');
+                          Navigator.push(
+          context,
+          MaterialPageRoute(
+          builder: (context) => ResetPasswordScreen()),
+          );
+
                         },
                         child: Text(
                           'Verify',

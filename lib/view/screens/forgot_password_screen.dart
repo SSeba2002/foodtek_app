@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/const/responsive.dart';
 import 'package:foodtek_project/view/screens/login_screen.dart';
+import 'package:foodtek_project/view/screens/otp_screen.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen.ForgetPasswordScreen({super.key});
@@ -99,7 +100,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     height: responsiveHeight(context, 48),
                     child: ElevatedButton(
                       onPressed: () {
-                        // send link to reset password
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+    builder: (context) => OtpScreen()),
+    );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromRGBO(37, 174, 75, 1),

@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/services.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/view/screens/login_screen.dart';
 
 class SignupWidget extends StatefulWidget {
   const SignupWidget({super.key});
@@ -136,7 +137,13 @@ class _SignupWidgetState extends State<SignupWidget> {
               ),
               SizedBox(width: 5.w),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => LoginScreen()),
+                  );
+                },
                 child: Text(
                   'Login',
                   style: TextStyle(
@@ -299,7 +306,13 @@ class _SignupWidgetState extends State<SignupWidget> {
             child: ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  // Handle successful validation
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+    builder: (context) => LoginScreen()),
+    );
+
+
                 }
               },
               style: ElevatedButton.styleFrom(
