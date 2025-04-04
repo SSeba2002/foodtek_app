@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+import 'package:flutter/material.dart';
+
+class CongrateWidget extends StatelessWidget {
+  const CongrateWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+||||||| 06fab62
+=======
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import 'dart:async';
@@ -103,3 +116,4 @@ class _CongrateWidgetState extends State<CongrateWidget>
     );
   }
 }
+>>>>>>> origin/main

@@ -1,3 +1,30 @@
+<<<<<<< HEAD
+import 'package:flutter/material.dart';
+import 'package:foodtek_project/view/screens/add_card_screen.dart';
+import 'package:foodtek_project/view/screens/main_screen.dart';
+import 'package:foodtek_project/view/screens/map_screen.dart';
+import 'package:foodtek_project/view/screens/order_details_screen.dart';
+
+void main() {
+  runApp(const MyApp());
+  
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
+      home:OrderDetailsScreen(),
+    );
+  }
+}
+||||||| 06fab62
+=======
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/screens/Checkout_Screen.dart';
@@ -115,3 +142,4 @@ class MyApp extends StatelessWidget {
     //   profileImageUrl: "https://media.istockphoto.com/id/1476170969/photo/portrait-of-young-man-ready-for-job-business-concept.jpg?s=2048x2048&w=is&k=20&c=yif473DFhN451o-tNC1tASFFoP5QTOYcqS26dhEbv6U=",
 
   }}
+>>>>>>> origin/main
