@@ -1,22 +1,8 @@
-<<<<<<< HEAD
-import 'package:flutter/material.dart';
-
-class CongrateWidget extends StatelessWidget {
-  const CongrateWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-||||||| 06fab62
-=======
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-
+import 'package:foodtek_project/view/screens/login_screen.dart';
 
 class CongrateWidget extends StatefulWidget {
   const CongrateWidget({super.key});
@@ -52,9 +38,10 @@ class _CongrateWidgetState extends State<CongrateWidget>
     _confettiController.play();
 
     Timer(Duration(seconds: 7), () {
-      Navigator.of(context).pop();
-      Navigator.pushReplacement;
-
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
     });
   }
 
@@ -116,4 +103,3 @@ class _CongrateWidgetState extends State<CongrateWidget>
     );
   }
 }
->>>>>>> origin/main

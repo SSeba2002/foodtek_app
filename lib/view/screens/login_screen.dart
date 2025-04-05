@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodtek_project/const/responsive.dart';
 import 'package:foodtek_project/view/screens/forgot_password_screen.dart';
 import 'package:foodtek_project/view/widgets/social_button_widget.dart';
+import 'package:foodtek_project/view/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -197,9 +198,16 @@ class _LoginScreenState extends State<LoginScreen> {
                               showErrorPassword = !isStrongPassword(
                                 password:
                                     passwordTextEditingController.text.trim(),
+
                               );
                             });
-                          },
+                          if (!showErrorEmail && !showErrorPassword) {
+                               Navigator.push(
+                              context,
+                            MaterialPageRoute(builder: (context) =>HomeScreen()),
+                               );
+                                 }
+                                },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromRGBO(37, 174, 75, 1),
                           ),

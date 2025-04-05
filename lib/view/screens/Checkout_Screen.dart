@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/notification_icon_widget.dart';
 import '../widgets/price_details_widget.dart';
-
+import 'package:foodtek_project/view/screens/map_screen.dart';
 class CheckoutScreen extends StatefulWidget {
   final double subtotal;
 
@@ -317,21 +317,3 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   }
 }
 
-class MapScreen extends StatelessWidget {
-  const MapScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('حدد موقعك')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context, 'عنوان جديد تم تحديده');
-          },
-          child: Text('تأكيد الموقع'),
-        ),
-      ),
-    );
-  }
-}
