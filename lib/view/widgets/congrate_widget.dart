@@ -84,7 +84,7 @@ class _CongrateWidgetState extends State<CongrateWidget>
                 gravity: 0.1,
                 numberOfParticles: 50,
               ),
-              Container(
+              SizedBox(
                 width: 89.w,
                 height: 153.55.h,
                 child: Image.asset(

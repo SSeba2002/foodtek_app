@@ -5,7 +5,7 @@ import 'package:foodtek_project/view/screens/filter_screen.dart';
 class SearchBarWidget extends StatelessWidget {
   final VoidCallback onFilterPressed;
 
-  const SearchBarWidget({
+  const SearchBarWidget({super.key, 
     required this.onFilterPressed,
   });
 

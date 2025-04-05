@@ -9,8 +9,8 @@ class NotificationsWidget extends StatefulWidget {
   const NotificationsWidget({
     required this.onNotificationsUpdated,
     required this.onClose,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _NotificationsWidgetState createState() => _NotificationsWidgetState();

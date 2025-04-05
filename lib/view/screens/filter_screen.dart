@@ -5,6 +5,8 @@ import '../widgets/location_widget.dart';
 import '../widgets/notification_icon_widget.dart';
 
 class FilterScreen extends StatefulWidget {
+  const FilterScreen({super.key});
+
   @override
   _FilterScreenState createState() => _FilterScreenState();
 }
@@ -12,9 +14,9 @@ class FilterScreen extends StatefulWidget {
 class _FilterScreenState extends State<FilterScreen> {
   RangeValues _priceRange = RangeValues(0, 20);
   double _discountValue = 0;
-  Set<String> _selectedCategories = {};
-  Set<String> _selectedLocations = {};
-  Set<String> _selectedDishes = {};
+  final Set<String> _selectedCategories = {};
+  final Set<String> _selectedLocations = {};
+  final Set<String> _selectedDishes = {};
 
   void saveAndReturn() {
     final filterData = {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/view/screens/signup_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/view/screens/choose_food_screen.dart';
+import 'package:foodtek_project/view/screens/location_permission_screen.dart';
 
 class WelcomeScreen2 extends StatefulWidget {
   const WelcomeScreen2({super.key});
@@ -70,7 +71,13 @@ class _WelcomeScreen2State extends State<WelcomeScreen2> {
                     borderRadius: BorderRadius.circular(69.r),
                   ),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>  ChooseFoodScreen()),
+                        );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.transparent,
                       padding: EdgeInsets.symmetric(horizontal: 100.w, vertical: 15.h),
@@ -91,17 +98,19 @@ class _WelcomeScreen2State extends State<WelcomeScreen2> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      onPressed: () {
-
-                      },
-                      child: Text(
-                        'Skip',
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          color: const Color(0xFF455A64),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    LocationPermissionScreen()), // NextScreen 
+                          );
+                        },
+                        child: const Text(
+                          "Skip",
+                          style: TextStyle(fontSize: 16, color: Colors.black),
                         ),
                       ),
-                    ),
                     SizedBox(width: 40.w),
 
                     Row(
@@ -120,7 +129,13 @@ class _WelcomeScreen2State extends State<WelcomeScreen2> {
                     SizedBox(width: 40.w),
 
                     IconButton(
-                      onPressed: () {},
+                      onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>  ChooseFoodScreen()),
+                        );
+                    },
                       icon: Icon(
                         Icons.arrow_forward,
                         color: const Color(0xFF25AE4B),

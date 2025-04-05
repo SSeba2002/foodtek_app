@@ -22,6 +22,8 @@ import 'package:foodtek_project/view/widgets/signup_widget.dart';
 
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
