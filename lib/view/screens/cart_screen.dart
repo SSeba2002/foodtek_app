@@ -35,7 +35,7 @@ class _CartScreenState extends State<CartScreen> {
     setState(() {
       widget.cartItems.removeAt(index);
     });
-  }
+  } 
 
   double get subtotal {
     return widget.cartItems.fold(0, (sum, item) => sum + (item.price * item.quantity));

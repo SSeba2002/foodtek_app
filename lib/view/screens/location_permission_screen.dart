@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodtek_project/const/gradient_button_widget.dart';
 import 'package:foodtek_project/const/responsive.dart';
 import 'package:foodtek_project/view/screens/location_screen.dart';
+import 'package:foodtek_project/view/screens/login_screen.dart';
 
 class LocationPermissionScreen extends StatefulWidget {
   const LocationPermissionScreen({super.key});
@@ -60,7 +61,7 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    LocationScreen()), 
+                                    LoginScreen()), 
                           );
                   },
                 ),
@@ -70,8 +71,12 @@ class _LocationPermissionScreenState extends State<LocationPermissionScreen> {
                   height: responsiveHeight(context, 48),
                   child: TextButton(
                     onPressed: () {
-                      Navigator.pop(
-                          context); // close this screen and return to the previous screen
+                      Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    LoginScreen()), 
+                          ); // close this screen and return to the previous screen
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: const Color.fromRGBO(194, 194, 194, 1),

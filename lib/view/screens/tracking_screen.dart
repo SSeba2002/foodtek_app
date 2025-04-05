@@ -1,6 +1,5 @@
 
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -8,6 +7,8 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
 import '../widgets/driver_info_card.dart';
+import 'package:foodtek_project/view/screens/order_details_screen.dart';
+
 
 class TrackingScreen extends StatefulWidget {
   final UserProfile driverProfile;
@@ -25,12 +26,12 @@ class TrackingScreen extends StatefulWidget {
 
 class _TrackingScreenState extends State<TrackingScreen> {
   final TextEditingController _searchController = TextEditingController();
-  LatLng _restaurantLocation = LatLng(31.98801277328986, 35.89498906471146);
+  final LatLng _restaurantLocation = LatLng(31.98801277328986, 35.89498906471146);
   LatLng _driverLocation = LatLng(32.01517354972322, 35.86903660207451);
   LatLng? _lastPosition;
-  bool _arrived = false;
-  String _status = "On The Way";
-  String _remainingTime = "Calculating...";
+  final bool _arrived = false;
+  final String _status = "On The Way";
+  final String _remainingTime = "Calculating...";
   StreamSubscription<Position>? _positionStream;
   GoogleMapController? _mapController;
 
@@ -114,7 +115,14 @@ class _TrackingScreenState extends State<TrackingScreen> {
                       style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OrderDetailsScreen()),
+                          );
+                        },
+                    
                       child: Text("All Details",
                           style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, color: Color(0xFF25AE4B))),
                     ),
@@ -122,7 +130,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
                 ),
               ),
               _buildProgressTracker(),
-              DriverInfoCard(driverProfile: widget.driverProfile), // ← هنا استدعاء الويدجت
+              DriverInfoCard(driverProfile: widget.driverProfile), 
               Divider(height: 1.h, thickness: 1.h, color: Colors.grey[300]),
               _buildUserLocation(),
             ],

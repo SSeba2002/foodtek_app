@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/models/explore_item_model.dart';
+import '../widgets/location_widget.dart';
+import '../widgets/notification_icon_widget.dart';
+import '../widgets/search_bar_widget.dart';
 
 class FavoritesScreen extends StatefulWidget {
   const FavoritesScreen({super.key});
@@ -13,34 +16,27 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   List<ExploreItem> exploreItems = [
     ExploreItem(
       name: 'Pepperoni Pizza',
-      description:
-          'Pepperoni pizza, Margarita Pizza Margherita Italian cuisine Tomato',
+      description: 'Pepperoni pizza, Margarita Pizza Margherita Italian cuisine Tomato',
       price: 29,
-      imageUrl:
-          'https://media.istockphoto.com/id/1460915397/photo/food-photos-various-entrees-appetizers-deserts-etc.jpg?s=1024x1024&w=is&k=20&c=-78F8r26L_INzYltHXcqqrEqG4z6MIlKb0awxJDUU04=',
+      imageUrl: 'https://media.istockphoto.com/id/1460915397/photo/food-photos-various-entrees-appetizers-deserts-etc.jpg?s=1024x1024&w=is&k=20&c=-78F8r26L_INzYltHXcqqrEqG4z6MIlKb0awxJDUU04=',
     ),
     ExploreItem(
       name: 'Peppy Paneer',
       description: 'Chunky paneer with crisp capsicum and spicy red pepper',
       price: 13,
-      imageUrl:
-          'https://media.istockphoto.com/id/663909704/photo/pizza-with-mushrooms-and-fresh-basil.jpg?s=1024x1024&w=is&k=20&c=pPSWV5y4AXKYGT0Vn9ZvxC4sT04BMrhLPg8Asp10Szw=',
+      imageUrl: 'https://media.istockphoto.com/id/663909704/photo/pizza-with-mushrooms-and-fresh-basil.jpg?s=1024x1024&w=is&k=20&c=pPSWV5y4AXKYGT0Vn9ZvxC4sT04BMrhLPg8Asp10Szw=',
     ),
     ExploreItem(
       name: 'Mexican Green Wave',
-      description:
-          'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes',
+      description: 'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes',
       price: 23,
-      imageUrl:
-          'https://media.istockphoto.com/id/2158544491/photo/sous-vide-chicken-pizza-on-melted-cheese-base-with-corn-and-arugula.jpg?s=1024x1024&w=is&k=20&c=WnIQJm-eXgtWCpSuP4-piaI2c_yUXKAfh0prYGs4OIs=',
+      imageUrl: 'https://media.istockphoto.com/id/2158544491/photo/sous-vide-chicken-pizza-on-melted-cheese-base-with-corn-and-arugula.jpg?s=1024x1024&w=is&k=20&c=WnIQJm-eXgtWCpSuP4-piaI2c_yUXKAfh0prYGs4OIs=',
     ),
     ExploreItem(
       name: 'Pizza Cheese',
-      description:
-          'Food pizza dish junk food , fast food , flatbread , ingredient',
+      description: 'Food pizza dish junk food , fast food , flatbread , ingredient',
       price: 23,
-      imageUrl:
-          'https://media.istockphoto.com/id/1414575281/photo/a-delicious-and-tasty-italian-pizza-margherita-with-tomatoes-and-buffalo-mozzarella.jpg?s=1024x1024&w=is&k=20&c=bwoUzONnFgIK65TQ7uUeSAlM78h-gCmKSR3nnGhb6AI=',
+      imageUrl: 'https://media.istockphoto.com/id/1414575281/photo/a-delicious-and-tasty-italian-pizza-margherita-with-tomatoes-and-buffalo-mozzarella.jpg?s=1024x1024&w=is&k=20&c=bwoUzONnFgIK65TQ7uUeSAlM78h-gCmKSR3nnGhb6AI=',
     ),
   ];
 
@@ -51,46 +47,44 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       showDialog(
         context: context,
         builder: (BuildContext context) {
-        return AlertDialog(
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(20), // زوايا مستديرة للنافذة
-  ),
-  contentPadding: EdgeInsets.symmetric(vertical: 24, horizontal: 20), // تعديل التباعد
-  content: Column(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      Text(
-        "Are you sure you want to remove it from favorites?",
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-      ),
-      SizedBox(height: 20), 
-      SizedBox(
-        width: double.infinity, 
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Color.fromRGBO(37, 174, 75, 1), 
-            foregroundColor: Colors.white, 
-            padding: EdgeInsets.symmetric(vertical: 14), 
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+          return AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            contentPadding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 20.w),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Are you sure you want to remove it from favorites?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(height: 20.h),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF25AE4B),
+                      foregroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(vertical: 14.h),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isFavorite[index] = false;
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      "Yes",
+                      style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-          onPressed: () {
-            setState(() {
-              isFavorite[index] = false;
-            });
-            Navigator.of(context).pop();
-          },
-          child: Text(
-            "Yes",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
-    ],
-  ),
-);
+          );
         },
       );
     } else {
@@ -101,7 +95,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   }
 
   void _navigateToProductDetail(ExploreItem product) {
-    Navigator.push;
+    // TODO: Replace with actual navigation
+    debugPrint('Tapped on ${product.name}');
   }
 
   @override
@@ -109,36 +104,45 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     ScreenUtil.init(context, designSize: const Size(360, 690));
 
     return Scaffold(
-      body: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-
-        children: [
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Header widgets
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                LocationWidget(),
+                NotificationIconWidget(),
+              ],
+            ),
+            SizedBox(height: 10.h),
+            SearchBarWidget(onFilterPressed: () {}),
+            SizedBox(height: 20.h),
             Text(
               "Favorites",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
+              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold, color: Colors.black87),
+            ),
+            SizedBox(height: 12.h),
+            Expanded(
+              child: GridView.builder(
+                padding: EdgeInsets.zero,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 20.w,
+                  mainAxisSpacing: 25.h,
+                  childAspectRatio: 0.75,
+                ),
+                itemCount: exploreItems.length,
+                itemBuilder: (context, index) {
+                  if (!isFavorite[index]) return const SizedBox.shrink();
+                  return _buildProductCard(exploreItems[index], index);
+                },
               ),
             ),
-          SizedBox(height: 12.h),
-          Expanded(
-            child: GridView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 20.w,
-                mainAxisSpacing: 25.h,
-                childAspectRatio: 0.75,
-              ),
-              itemCount: exploreItems.length,
-              itemBuilder: (context, index) {
-                final product = exploreItems[index];
-                return _buildProductCard(product, index);
-              },
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -179,10 +183,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               ),
               child: IconButton(
                 icon: Icon(
-Icons.favorite,
-                                  color: isFavorite[index]
-                                      ? Colors.red
-                                      : Colors.grey,
+                  Icons.favorite,
+                  color: isFavorite[index] ? Colors.red : Colors.grey,
                   size: 18.w,
                 ),
                 onPressed: () => toggleFavorite(index),
@@ -199,10 +201,7 @@ Icons.favorite,
                     padding: EdgeInsets.all(8.w),
                     child: Text(
                       product.name,
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -213,20 +212,12 @@ Icons.favorite,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.bolt,
-                          color: const Color(0XFFFFAC33),
-                          size: 14.w,
-                        ),
+                        Icon(Icons.bolt, color: const Color(0XFFFFAC33), size: 14.w),
                         SizedBox(width: 5.w),
                         Expanded(
                           child: Text(
                             product.description,
-                            style: TextStyle(
-                              fontSize: 10.sp,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w300,
-                            ),
+                            style: TextStyle(fontSize: 10.sp, color: Colors.grey, fontWeight: FontWeight.w300),
                             textAlign: TextAlign.center,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -241,10 +232,7 @@ Icons.favorite,
                     padding: EdgeInsets.all(8.w),
                     child: Text(
                       product.formattedPrice,
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
@@ -256,28 +244,16 @@ Icons.favorite,
             left: 0,
             right: 0,
             child: Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16.r),
+              child: ElevatedButton(
+                onPressed: () => _navigateToProductDetail(product),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF25AE4B),
+                  padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 6.h),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
                 ),
-                child: ElevatedButton(
-                  onPressed: () => _navigateToProductDetail(product),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF25AE4B),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 14.w,
-                      vertical: 6.h,
-                    ),
-                  ),
-                  child: Text(
-                    'Order Now',
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                child: Text(
+                  'Order Now',
+                  style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.w400),
                 ),
               ),
             ),

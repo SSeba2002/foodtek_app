@@ -8,7 +8,7 @@ import '../widgets/search_bar_widget.dart';
 class ProductDetailScreen extends StatefulWidget {
   final Product product;
 
-  ProductDetailScreen({super.key, required this.product});
+  const ProductDetailScreen({super.key, required this.product});
 
 
   @override
@@ -78,12 +78,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    if (widget.product == null) {
-      return Scaffold(
-        body: Center(child: Text("No product data received")),
-      );
-    }
+Widget build(BuildContext context) {
     return PopScope(
         canPop: true,
         child:
@@ -219,7 +214,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                       ),
                                       SizedBox(width: 3.w),
 
-                                      Container(
+                                      SizedBox(
                                         width: 150.w,
                                         child: Stack(
                                           children: [

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:foodtek_project/const/responsive.dart';
 
 class PersonalInfoScreen extends StatefulWidget {
+  const PersonalInfoScreen({super.key});
+
   @override
   State<PersonalInfoScreen> createState() => _PersonalInfoScreenState();
 }

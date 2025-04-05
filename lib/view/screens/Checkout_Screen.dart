@@ -14,7 +14,7 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
-  String? userLocation = null;
+  String? userLocation;
   String paymentMethod = 'card';
   String cardType = 'visa';
   TextEditingController promoCodeController = TextEditingController();
@@ -211,7 +211,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 });
               },
               activeColor: Color(0xFF25AE4B),
-              fillColor: MaterialStateColor.resolveWith((states) {
+              fillColor: WidgetStateColor.resolveWith((states) {
                 return paymentMethod == 'card' ? Color(0xFF25AE4B): Colors.grey;
               }),
             ),
@@ -232,7 +232,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 });
               },
               activeColor: Color(0xFF25AE4B),
-              fillColor: MaterialStateColor.resolveWith((states) {
+              fillColor: WidgetStateColor.resolveWith((states) {
                 return paymentMethod == 'cash' ? Color(0xFF25AE4B) : Colors.grey;
               }),
             ),
@@ -269,7 +269,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 });
               },
               activeColor: Color(0xFF25AE4B),
-              fillColor: MaterialStateColor.resolveWith((states) {
+              fillColor: WidgetStateColor.resolveWith((states) {
                 return cardType == 'visa' ?Color(0xFF25AE4B) : Colors.grey;
               }),
             ),
@@ -288,7 +288,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 });
               },
               activeColor: Color(0xFF25AE4B),
-              fillColor: MaterialStateColor.resolveWith((states) {
+              fillColor: WidgetStateColor.resolveWith((states) {
                 return cardType == 'mastercard' ? Color(0xFF25AE4B) : Colors.grey;
               }),
             ),

@@ -11,6 +11,8 @@ class OrderDetailsScreen extends StatelessWidget {
     {"title": "Order delivered", "icon": Icons.home, "completed": false},
   ];
 
+ OrderDetailsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

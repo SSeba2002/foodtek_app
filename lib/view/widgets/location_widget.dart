@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/view/screens/map_screen.dart';
 
 class LocationWidget extends StatefulWidget {
   final String initialLocation;
 
-  const LocationWidget({Key? key, this.initialLocation = ""}) : super(key: key);
+  const LocationWidget({super.key, this.initialLocation = ""});
 
   @override
   _LocationWidgetState createState() => _LocationWidgetState();
@@ -23,7 +24,7 @@ class _LocationWidgetState extends State<LocationWidget> {
     final newLocation = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => _MapScreen(),
+        builder: (context) => MapScreen(),
       ),
     );
 

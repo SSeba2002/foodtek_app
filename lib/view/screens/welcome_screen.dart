@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/screens/welcome_screen2.dart';
+import 'package:foodtek_project/view/screens/location_permission_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -100,13 +101,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Skip',
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            color: const Color(0xFF455A64),
-                          ),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    LocationPermissionScreen()), // NextScreen 
+                          );
+                        },
+                        child: const Text(
+                          "Skip",
+                          style: TextStyle(fontSize: 16, color: Colors.black),
                         ),
                       ),
                       SizedBox(width: 40.w),

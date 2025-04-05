@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/view/widgets/foodcard_widget.dart';
+import '../widgets/location_widget.dart';
+import '../widgets/notification_icon_widget.dart';
+import '../widgets/search_bar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,6 +22,22 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Header Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                LocationWidget(),
+                NotificationIconWidget(),
+              ],
+            ),
+            const SizedBox(height: 5),
+
+            // Search Bar
+            SearchBarWidget(
+              onFilterPressed: () {},
+            ),
+            const SizedBox(height: 20),
+
             // Discount Banner
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
@@ -30,6 +49,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
+
             // Top Rated Section
             const Text(
               "Top Rated",
@@ -62,6 +82,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
+
             // Recommend Section
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,6 +101,8 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
+
+            // Recommended Images
             SizedBox(
               height: 150,
               child: ListView(
@@ -93,27 +116,11 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: Stack(
-                        children: [
-                          Image.asset(
-                            image,
-                            height: 150,
-                            width: 120,
-                            fit: BoxFit.cover,
-                          ),
-                          Positioned(
-                            bottom: 5,
-                            left: 5,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
-                              decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.7),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            
-                            ),
-                          ),
-                        ],
+                      child: Image.asset(
+                        image,
+                        height: 150,
+                        width: 120,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   );

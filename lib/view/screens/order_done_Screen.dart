@@ -7,8 +7,7 @@ import '../widgets/notification_icon_widget.dart';
 class OrderDoneScreen extends StatefulWidget {
   final int estimatedDeliveryTime;
 
-  const OrderDoneScreen({Key? key, required this.estimatedDeliveryTime})
-      : super(key: key);
+  const OrderDoneScreen({super.key, required this.estimatedDeliveryTime});
 
   @override
   State<OrderDoneScreen> createState() => _OrderDoneScreenState();
@@ -178,7 +177,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
 }
 
 class TrackOrderScreen extends StatelessWidget {
-  const TrackOrderScreen({Key? key}) : super(key: key);
+  const TrackOrderScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

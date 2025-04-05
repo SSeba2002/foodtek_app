@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/screens/reset_password_screen.dart';
 
 class OtpScreen extends StatefulWidget {
+  const OtpScreen({super.key});
+
   @override
   _OtpScreenState createState() => _OtpScreenState();
 }
@@ -101,6 +103,13 @@ class _OtpScreenState extends State<OtpScreen> {
           );
 
                         },
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: Size(295.w, 45.h),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          backgroundColor: Colors.green,
+                        ),
                         child: Text(
                           'Verify',
                           style: TextStyle(
@@ -108,13 +117,6 @@ class _OtpScreenState extends State<OtpScreen> {
                             fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: Size(295.w, 45.h),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.r),
-                          ),
-                          backgroundColor: Colors.green,
                         ),
                       ),
                     ],
