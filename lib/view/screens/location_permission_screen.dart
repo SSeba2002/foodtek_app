@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/const/gradient_button_widget.dart';
 import 'package:foodtek_project/const/responsive.dart';
-import 'package:foodtek_project/view/screens/location_screen.dart';
 import 'package:foodtek_project/view/screens/login_screen.dart';
 
 class LocationPermissionScreen extends StatefulWidget {

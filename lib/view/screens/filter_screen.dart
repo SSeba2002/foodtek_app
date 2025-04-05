@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodtek_project/view/widgets/notifications_widget.dart';
 import '../widgets/location_widget.dart';
 import '../widgets/notification_icon_widget.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/const/responsive.dart';
-import 'package:foodtek_project/view/screens/cart_screen.dart';
-import 'package:foodtek_project/view/screens/cart_screen.dart';
+import 'package:foodtek_project/view/screens/Product_Detail_screen.dart';
+
 
 class FoodCard extends StatelessWidget {
   final String imageUrl;
@@ -96,9 +96,9 @@ class FoodCard extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 10, right: 10),
                 child: FloatingActionButton(
                   onPressed: () {
-                    Navigator.push(
+                      Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) =>  CartScreen(cartItems: )),
+                      MaterialPageRoute(builder: (context) => ProductDetailScreen(product: null)),
                     );
                   },
                   backgroundColor: Colors.green,
