@@ -1,40 +1,28 @@
-<<<<<<< HEAD
-# foodtek_project
+## Mobile Team UI Implementation - Foodtek App
+The first phase is designing the interfaces for the foodtek app. This was designed and implemented by the mobile team. 
+The first phase focuses on UI design only, without linking to a database or backend.
+As the mobile team, we designed the *Foodtek app's UI screens* in the first phase based on the *Figma design*. We divided the section screens among ourselves as follows:
 
+### Team Members
+- *Saba*
+- *Baraa*
 
-## Getting Started
+### Screen Division
 
-This project is a starting point for a Flutter application.
+| Section | Saba Screens     | Baraa Screens    |
+|---------|------------------|------------------|
+| 1       | 1, 2, 3          | 4, 5             |
+| 2       | 2, 4, 6          | 1, 3, 5          |
+| 3       | 2, 3, 6, 7       | 1, 4, 5          |
+| 4       | 1, 2, 4          | 3, 5             |
+| 5       | 2, 4             | 1, 3             |
+| 6       | 1, 2             | 3, 4, 5          |
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+We organized our work and structured the code using the *MVC principle*, making it easy to maintain and modify.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-||||||| empty tree
+We held a meeting to divide responsibilities and ensure everyone was aligned and supported in case of any challenges. The UI code was fully implemented, and all screens were properly connected.
 
-# foodtek_app
-||||||| 06fab62
-# foodtek_app
-=======
-
-# foodtek_project
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-
->>>>>>> origin/main
+> *Note:*  
+> We encountered an error when displaying the map. We believe the issue is related to Kotlin, but we are confident that it will be resolved with help from the engineer.
