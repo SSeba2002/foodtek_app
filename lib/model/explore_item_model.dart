@@ -1,4 +1,4 @@
-// lib/models/explore_item_model.dart
+
 class ExploreItem {
   final String name;
   final String description;
