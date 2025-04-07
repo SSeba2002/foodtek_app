@@ -1,16 +1,14 @@
-
-  import 'package:flutter/material.dart';
-  import 'package:foodtek_project/view/screens/burger_screen.dart';
-  import 'package:foodtek_project/view/screens/cart_screen.dart';
-  import 'package:foodtek_project/view/screens/favorite_screen.dart';
-  import 'package:foodtek_project/view/screens/history_screen.dart';
-  import 'package:foodtek_project/view/screens/home_screen.dart';
-  import 'package:foodtek_project/view/screens/profile_screen.dart';
-  import 'package:foodtek_project/view/screens/sandwich_screen.dart';
-  import 'package:foodtek_project/view/widgets/custom_tabs_widget.dart';
-  import 'package:foodtek_project/view/widgets/navbarItem_widget.dart';
-  import 'package:foodtek_project/view/screens/explore_screen.dart';
-// main
+import 'package:flutter/material.dart';
+import 'package:foodtek_project/view/screens/burger_screen.dart';
+import 'package:foodtek_project/view/screens/cart_screen.dart';
+import 'package:foodtek_project/view/screens/favorite_screen.dart';
+import 'package:foodtek_project/view/screens/history_screen.dart';
+import 'package:foodtek_project/view/screens/home_screen.dart';
+import 'package:foodtek_project/view/screens/profile_screen.dart';
+import 'package:foodtek_project/view/screens/sandwich_screen.dart';
+import 'package:foodtek_project/view/widgets/custom_tabs_widget.dart';
+import 'package:foodtek_project/view/widgets/navbarItem_widget.dart';
+import 'package:foodtek_project/view/screens/explore_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -27,22 +25,17 @@ class _MainScreenState extends State<MainScreen>
   final List<Widget> _bottomNavPages = [
     HomeScreen(),
     FavoritesScreen(),
-//baraa-ui
-    CartScreen(), //pay screen in it
-
-    CartScreen(),
-// main
+    CartScreen(
+      cartItems: [],
+    ), //pay screen in it
     HistoryScreen(),
     ProfileScreen(),
   ];
 
   final List<Widget> _tabPages = [
     HomeScreen(),
-    BurgerScreen(),
-// baraa-ui
-    ExploreScreen(),
-
-// main
+  BurgerScreen(),
+  ExploreScreen(),
     SandwichScreen(),
   ];
 
