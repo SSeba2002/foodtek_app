@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/const/responsive.dart';
 import 'package:foodtek_project/view/screens/Product_Detail_screen.dart';
-
+import 'package:foodtek_project/model/product_model.dart';
 
 class FoodCard extends StatelessWidget {
   final String imageUrl;
@@ -23,6 +23,20 @@ class FoodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Product product = Product(
+      id: '1',
+      name: 'Burger Deluxe',
+      description: 'A delicious burger with all the toppings!',
+      cartDescription: 'Delicious burger with extra cheese and sauce',
+      detailedDescription: 'A premium burger with a juicy patty, fresh lettuce, and tomato.',
+      price: 5.99,
+      oldPrice: 7.99,
+      imageUrl: 'https://media.istockphoto.com/id/2148672887/photo/beef-patty-burger-with-vegetables-and-lettuce-on-white-background-file-contains-clipping-path.jpg?s=2048x2048&w=is&k=20&c=I0IuONNkgrR2bWa7VazV04DsbqpgCEaHd26N3i7zjeg=',
+      rating: 4.8,
+      reviews: 150,
+      quantity: 1,
+      isFavorite: true,
+    );
     return Container(
       width: responsiveWidth(context, 155),
       height: responsiveHeight(context, 209),
@@ -98,11 +112,11 @@ class FoodCard extends StatelessWidget {
                   onPressed: () {
                       Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProductDetailScreen(product: null)),
+                      MaterialPageRoute(builder: (context) => ProductDetailScreen(product: product)),
                     );
                   },
                   backgroundColor: Colors.green,
-                  shape: const CircleBorder(),
+                  shape: CircleBorder(),
                   mini: true,
                   child: const Icon(Icons.add, size: 24, color: Colors.white),
                 ),
