@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.foodtek_project"
-    compileSdk = 34 // أو flutter.compileSdkVersion إذا عرفته في local.properties
+    compileSdk = flutter.compileSdkVersion
 
     ndkVersion = "27.0.12077973"
 
@@ -21,23 +21,17 @@ android {
 
     defaultConfig {
         applicationId = "com.example.foodtek_project"
-        minSdk = 21 // أو flutter.minSdkVersion
-        targetSdk = 34 // أو flutter.targetSdkVersion
-        versionCode = 1 // أو flutter.versionCode
-        versionName = "1.0.0" // أو flutter.versionName
+        minSdk = 21
+        targetSdk = 34
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName 
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-        debug {
-            isDebuggable = true
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 }

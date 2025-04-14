@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodtek_project/view/screens/map_screen.dart';
+import 'package:foodtek_project/view/screens/home/cart/checkout/map_screen.dart';
 
 class LocationWidget extends StatefulWidget {
   final String initialLocation;
@@ -23,9 +23,7 @@ class _LocationWidgetState extends State<LocationWidget> {
   void _openMapScreen(BuildContext context) async {
     final newLocation = await Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => MapScreen(),
-      ),
+      MaterialPageRoute(builder: (context) => MapScreen()),
     );
 
     if (newLocation != null) {
@@ -86,9 +84,7 @@ class _MapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Select Location"),
-      ),
+      appBar: AppBar(title: Text("Select Location")),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
