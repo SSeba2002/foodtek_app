@@ -19,7 +19,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // one time OnBoarding screen
     return Scaffold(
       backgroundColor: Colors.white,
       body: PageView.builder(

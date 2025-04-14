@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/model/explore_item_model.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
-import '../../../widgets/location_widget.dart';
+import '../../../widgets/home/location_widget.dart';
 
-import '../../../widgets/search_bar_widget.dart';
+import '../../../widgets/home/search_bar_widget.dart';
 
 class FavoritesScreen extends StatefulWidget {
   const FavoritesScreen({super.key});

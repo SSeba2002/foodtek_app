@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodtek_project/view/widgets/notifications_widget.dart';
+import 'package:foodtek_project/view/widgets/home/notifications_widget.dart';
 
 class NotificationIconWidget extends StatefulWidget {
   const NotificationIconWidget({super.key});

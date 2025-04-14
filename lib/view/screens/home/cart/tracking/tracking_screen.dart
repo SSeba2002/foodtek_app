@@ -5,7 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
-import '../../../../widgets/driver_info_card.dart';
+import '../../../../widgets/tracking/driver_info_card.dart';
 import 'package:foodtek_project/view/screens/home/cart/tracking/order_details_screen.dart';
 
 class TrackingScreen extends StatefulWidget {

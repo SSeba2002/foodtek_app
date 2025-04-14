@@ -4,8 +4,8 @@ import 'package:foodtek_project/model/product_model.dart';
 import 'package:foodtek_project/view/widgets/cart/cart_item_widget.dart';
 import 'package:foodtek_project/view/widgets/cart/empty_cart_widget.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
-import 'package:foodtek_project/view/widgets/price_details_widget.dart';
-import '../../../widgets/location_widget.dart';
+import 'package:foodtek_project/view/widgets/cart/price_details_widget.dart';
+import '../../../widgets/home/location_widget.dart';
 
 class CartScreen extends StatefulWidget {
   final List<Product> cartItems;

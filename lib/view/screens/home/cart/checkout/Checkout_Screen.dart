@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
-import '../../../../widgets/price_details_widget.dart';
+import '../../../../widgets/cart/price_details_widget.dart';
 import 'package:foodtek_project/view/screens/home/cart/checkout/map_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
