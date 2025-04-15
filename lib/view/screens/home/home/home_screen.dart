@@ -1,133 +1,231 @@
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/view/widgets/foodcard_widget.dart';
-import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
-import '../../../widgets/home/location_widget.dart';
+import 'package:foodtek_project/constant/main_screens/home_screen_data.dart';
+import 'package:foodtek_project/data/cart_item_list.dart';
 
-import '../../../widgets/home/search_bar_widget.dart';
+import 'package:foodtek_project/model/category_model.dart';
+import 'package:foodtek_project/view/screens/home/home/item_details_screen.dart';
+import 'package:foodtek_project/view/widgets/home/banner_widget.dart';
+import 'package:foodtek_project/view/widgets/home/category_cell.dart';
+import 'package:foodtek_project/view/widgets/home/view_all_title.dart';
+import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String? selectedCategory; // Null means nothing is selected
+  TextEditingController txtSearch = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
-    List<String> images = [
-      "assets/images/dessert1.png",
-      "assets/images/dessert2.png",
-      "assets/images/dessert3.png",
-      "assets/images/dessert4.png",
-    ];
+    // ignore: unused_local_variable
+    List<Category> filteredItems = // to filter the items
+        selectedCategory == null || selectedCategory == "All"
+            ? allItems
+            : allItems
+                .where((item) => item.title.contains(selectedCategory!))
+                .toList();
 
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
+    return Scaffold(
+      // backgroundColor: Colors.white,
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Header Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [LocationWidget(), NotificationIconWidget()],
-            ),
-            const SizedBox(height: 5),
-
-            // Search Bar
-            SearchBarWidget(onFilterPressed: () {}),
-            const SizedBox(height: 20),
-
-            // Discount Banner
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                "assets/images/discount.png",
-                width: double.infinity,
-                height: 160,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            // Top Rated Section
-            const Text(
-              "Top Rated",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
+            LocationNotificationSrearch(showSearchBar: true),
+            const SizedBox(height: 15),
             SizedBox(
-              height: 230,
-              child: ListView(
+              height: 50,
+              child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                children: const [
-                  FoodCard(
-                    imageUrl: "assets/images/chicken_burger.png",
-                    title: "Chicken Burger",
-                    description: "100g chicken + tomato + cheese + Lettuce",
-                    price: "\$20.00",
-                    rating: 3.8,
-                    alignAddButtonRight: true,
-                  ),
-                  SizedBox(width: 10),
-                  FoodCard(
-                    imageUrl: "assets/images/chese_burger.png",
-                    title: "Chese Burger",
-                    description: "100g meat + onion + tomato + Lettuce",
-                    price: "\$15.00",
-                    rating: 4.5,
-                    alignAddButtonRight: true,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  bool isSelected =
+                      selectedCategory == categories[index] ||
+                      (categories[index] == "All" && selectedCategory == null);
 
-            // Recommend Section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Recommend",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "View All",
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
+                  // Icons for each category
+                  Map<String, String> categoryIcons = {
+                    "All": "",
+                    "Burger": "🍔",
+                    "Pizza": "🍕",
+                    "Sandwich": "🌭",
+                  };
 
-            // Recommended Images
-            SizedBox(
-              height: 150,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children:
-                    images.map((image) {
-                      return Container(
-                        width: 120,
-                        margin: const EdgeInsets.only(right: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.asset(
-                            image,
-                            height: 150,
-                            width: 120,
-                            fit: BoxFit.cover,
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedCategory =
+                            categories[index] == "All"
+                                ? null
+                                : categories[index];
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 8,
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.green),
+                        color: isSelected ? Colors.green[400] : null,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Row(
+                        children: [
+                          if (categoryIcons[categories[index]]!.isNotEmpty) ...[
+                            Text(
+                              categoryIcons[categories[index]]!,
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            SizedBox(width: 5),
+                          ],
+                          Text(
+                            categories[index],
+                            style: TextStyle(fontWeight: FontWeight.w500),
                           ),
-                        ),
-                      );
-                    }).toList(),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
+
+            const SizedBox(height: 20),
+
+            // Show main screen if All is selected
+            if (selectedCategory == null) ...[
+              PromoBanner(), // Promo banner
+              const SizedBox(height: 20),
+
+              // Top Rated
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: ViewAllTitleRow(
+                  title: "Top Rated",
+                  onView: () {},
+                  vis: false,
+                ),
+              ),
+              SizedBox(
+                height: 250,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: topRatedItems.length,
+                    itemBuilder: (context, index) {
+                      return CategoryCell(
+                        onAddTap: () {
+                          cartItems.add(topRatedItems[index]);
+                          print(
+                            "تمت الاضاااافة =============================================${cartItems[0].title}",
+                          );
+                          setState(() {});
+                        },
+                        isRecommended: false,
+                        cObj: topRatedItems[index].title,
+                        image: topRatedItems[index].image,
+                        price: topRatedItems[index].price,
+                        rating: topRatedItems[index].rating,
+                        description: topRatedItems[index].description,
+                        onTap: () {
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: ItemDetailsScreen(
+                              name: topRatedItems[index].title,
+                              image: topRatedItems[index].image,
+                              price: topRatedItems[index].price,
+                              // Example price list
+                              description: topRatedItems[index].description,
+                              // Example description list
+                              rating: topRatedItems[index].rating,
+                              id:
+                                  topRatedItems[index]
+                                      .id, // Example ratings list
+                            ),
+                            withNavBar:
+                                false, // OPTIONAL VALUE. True by default.
+                            pageTransitionAnimation:
+                                PageTransitionAnimation.cupertino,
+                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder:
+                          //         (context) => ItemDetailsScreen(
+                          //           name: topRatedItems[index].title,
+                          //           image: topRatedItems[index].image,
+                          //           price: topRatedItems[index].price,
+                          //           // Example price list
+                          //           description:
+                          //               topRatedItems[index].description,
+                          //           // Example description list
+                          //           rating: topRatedItems[index].rating,
+                          //           id:
+                          //               topRatedItems[index]
+                          //                   .id, // Example ratings list
+                          //         ),
+                          //   ),
+                          // );
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ),
+
+              // Recommended
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: ViewAllTitleRow(
+                  title: "Recommended",
+                  onView: () {},
+                  vis: true,
+                ),
+              ),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: recommendedItems.length,
+                  itemBuilder: (context, index) {
+                    return CategoryCell(
+                      onAddTap: () {},
+                      isRecommended: true,
+                      price: recommendedItems[index].price,
+                      description: '',
+                      cObj: '',
+                      onTap: () {
+                        PersistentNavBarNavigator.pushNewScreen(
+                          context,
+                          screen: ItemDetailsScreen(
+                            name: recommendedItems[index].title,
+                            image: recommendedItems[index].image,
+                            price: recommendedItems[index].price,
+
+                            description: recommendedItems[index].description,
+
+                            rating: recommendedItems[index].rating,
+                            id: recommendedItems[index].id,
+                          ),
+                          withNavBar: false,
+                          pageTransitionAnimation:
+                              PageTransitionAnimation.cupertino,
+                        );
+                      },
+                      image: recommendedItems[index].image,
+                    );
+                  },
+                ),
+              ),
+            ],
           ],
         ),
       ),

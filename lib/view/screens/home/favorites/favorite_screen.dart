@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/model/explore_item_model.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
-import '../../../widgets/home/location_widget.dart';
+import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
+import '../../../widgets/location_widget.dart';
+
 
 import '../../../widgets/home/search_bar_widget.dart';
 
@@ -124,27 +126,18 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Header widgets
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [LocationWidget(), NotificationIconWidget()],
-            ),
-            SizedBox(height: 10.h),
-            SearchBarWidget(onFilterPressed: () {}),
+            LocationNotificationSrearch(showSearchBar: true),
             SizedBox(height: 20.h),
             Text(
               "Favorites",
-              style: TextStyle(
-                fontSize: 24.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
+              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 12.h),
+            SizedBox(height: 25.h),
             Expanded(
               child: GridView.builder(
                 padding: EdgeInsets.zero,

@@ -1,6 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/constant/colors.dart';
+import 'package:foodtek_project/constant/theme.dart';
 
 import 'package:foodtek_project/constant/responsive.dart';
 

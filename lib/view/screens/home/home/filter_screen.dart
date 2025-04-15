@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
-import '../../../widgets/home/location_widget.dart';
+import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
+import '../../../widgets/location_widget.dart';
+
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -32,17 +34,10 @@ class _FilterScreenState extends State<FilterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 25.h),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [LocationWidget(), NotificationIconWidget()],
-              ),
-            ),
+            LocationNotificationSrearch(showSearchBar: false),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
               child: Column(

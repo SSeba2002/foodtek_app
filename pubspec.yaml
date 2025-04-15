@@ -61,6 +61,8 @@ flutter:
   geolocator: ^13.0.4
   permission_handler: ^12.0.0+1
   smooth_page_indicator: ^1.2.1
+  carousel_slider: ^5.0.0
+  flutter_rating_bar: ^4.0.1
   flutter_gen: ^5.10.0
 
 dev_dependencies:
@@ -85,6 +87,9 @@ dev_dependencies:
 
   assets:
     - assets/images/onboarding/
+    - assets/images/main_screen/
+    - assets/images/home/
+    - assets/images/home/top_rated/
     - assets/images/food_delivery.png
     - assets/images/location.png
     - assets/images/base_backgrund.jpg
@@ -108,9 +113,7 @@ dev_dependencies:
     - assets/images/visa.png
     - assets/images/order_id.png
     - assets/images/background.jpg
-    - assets/images/welcome_photo.jpg
     - assets/images/backgrund_photo.jpg
-    - assets/images/welcome_phot2.jpg
     - assets/images/base_backgrund.jpg
     - assets/images/otp_photo.jpg
     - assets/images/phone_photo.jpg
