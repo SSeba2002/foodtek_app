@@ -4,6 +4,9 @@ import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
 import '../../constant/colors.dart';
 
 class ChangLangScreen extends StatefulWidget {
+  final Function(Locale) setLocale;
+  const ChangLangScreen({required this.setLocale, super.key});
+
   @override
   _ChangLangScreenState createState() => _ChangLangScreenState();
 }
@@ -32,12 +35,12 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(
               horizontal: 24.w,
-              vertical: 20.h, // Reduced top padding to move title higher
+              vertical: 20.h,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 10.h), // Reduced space above title
+                SizedBox(height: 10.h),
                 Text(
                   'Choose your language',
                   textAlign: TextAlign.center,
@@ -47,16 +50,14 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 40.h), // Increased space below title
+                SizedBox(height: 40.h),
                 Image.asset(
                   'assets/images/chang_lang_photo.png',
                   height: 200.h,
                   width: 200.w,
                   fit: BoxFit.contain,
                 ),
-                SizedBox(height: 40.h), // Increased space above dropdown
-
-                // Responsive dropdown container
+                SizedBox(height: 40.h),
                 Container(
                   width: 307.w,
                   padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
@@ -93,7 +94,7 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                   ),
                 ),
 
-                SizedBox(height: 60.h), // Increased space between dropdown and button
+                SizedBox(height: 60.h),
                 Container(
                   width: 307.w,
                   height: 58.h,
@@ -107,8 +108,13 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      print('Language selected: $_selectedLanguage');
-                      Navigator.push(
+                      if (_selectedLanguage == 'Arabic') {
+                        widget.setLocale(Locale('ar'));
+                      } else {
+                        widget.setLocale(Locale('en'));
+                      }
+
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => OnboardingScreen(),
@@ -133,7 +139,7 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.h), // Added some space at the bottom
+                SizedBox(height: 20.h),
               ],
             ),
           ),

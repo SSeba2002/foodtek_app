@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
+import 'package:foodtek_project/view/screens/chang_lang_screen.dart'; // تأكد من الاستيراد
 import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  final Function(Locale) setLocale;
+  const SplashScreen({required this.setLocale, super.key});
 
   @override
   SplashScreenState createState() => SplashScreenState();
@@ -17,7 +18,9 @@ class SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => OnboardingScreen()),
+        MaterialPageRoute(
+          builder: (context) => ChangLangScreen(setLocale: widget.setLocale),
+        ),
       );
     });
   }
