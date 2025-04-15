@@ -5,7 +5,8 @@ import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart'
 import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
 import '../../../widgets/location_widget.dart';
 
-import '../../../widgets/search_bar_widget.dart';
+
+import '../../../widgets/home/search_bar_widget.dart';
 
 class FavoritesScreen extends StatefulWidget {
   const FavoritesScreen({super.key});

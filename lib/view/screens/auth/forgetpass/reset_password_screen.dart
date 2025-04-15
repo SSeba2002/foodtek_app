@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/responsive.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
-import 'package:foodtek_project/view/widgets/congrate_widget.dart';
+import 'package:foodtek_project/view/widgets/auth/forgetpass/congrate_widget.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});

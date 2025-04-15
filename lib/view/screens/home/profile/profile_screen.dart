@@ -2,8 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:foodtek_project/view/screens/home/profile/PersonalInfo_screen.dart';
 import 'package:foodtek_project/view/widgets/buildSection_widget.dart';
 
-class ProfileScreen extends StatelessWidget {
+
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  String _selectedLanguage = 'English';
+
+
+  void _showLanguageDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Choose Language"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: Icon(Icons.language),
+                title: Text("English"),
+                onTap: () {
+                  setState(() {
+                    _selectedLanguage = 'English';
+                  });
+                  Navigator.pop(context);
+                },
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.language),
+                title: Text("العربية"),
+                onTap: () {
+                  setState(() {
+                    _selectedLanguage = 'العربية';
+                  });
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +95,10 @@ class ProfileScreen extends StatelessWidget {
               buildListTile(
                 Icons.language,
                 "Language",
-                trailing: Text("عربية"),
-                onTap: () {},
+                trailing: Text(_selectedLanguage),
+                onTap: () {
+                  _showLanguageDialog(context);
+                },
               ),
               buildListTile(Icons.privacy_tip, "Privacy Policy", onTap: () {}),
               buildListTile(Icons.settings, "Setting", onTap: () {}),

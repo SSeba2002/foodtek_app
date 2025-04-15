@@ -4,6 +4,7 @@ import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart'
 import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
 import '../../../widgets/location_widget.dart';
 
+
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
 

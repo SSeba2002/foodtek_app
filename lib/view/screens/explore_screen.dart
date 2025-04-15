@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/model/product_model.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
-import 'package:foodtek_project/view/widgets/search_bar_widget.dart';
+import 'package:foodtek_project/view/widgets/home/search_bar_widget.dart';
 import 'package:foodtek_project/view/widgets/product_card.dart';
 
-import '../widgets/location_widget.dart';
+import '../widgets/home/location_widget.dart';
 
 import 'home/home/Product_Detail_screen.dart';
 
