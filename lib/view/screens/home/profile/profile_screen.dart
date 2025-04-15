@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:foodtek_project/view/screens/home/profile/PersonalInfo_screen.dart';
 import 'package:foodtek_project/view/widgets/buildSection_widget.dart';
 
-import '../../chang_lang_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
