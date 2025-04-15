@@ -1,14 +1,13 @@
-
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/view/screens/add_card_screen.dart';
-import 'package:foodtek_project/view/screens/main_screen.dart';
-import 'package:foodtek_project/view/screens/map_screen.dart';
-import 'package:foodtek_project/view/screens/order_details_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/view/screens/home/profile/profile_screen.dart';
+import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
 import 'package:foodtek_project/view/screens/splash_screen.dart';
+
+import 'view/screens/chang_lang_screen.dart';
 
 void main() {
   runApp(const MyApp());
-  
 }
 
 class MyApp extends StatelessWidget {
@@ -16,11 +15,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home:SplashScreen(),
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'FoodTek',
+          home: SplashScreen(),
+        );
+      },
     );
   }
 }
