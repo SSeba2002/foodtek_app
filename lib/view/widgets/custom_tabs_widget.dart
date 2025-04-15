@@ -18,37 +18,47 @@ class _CustomTabsState extends State<CustomTabs> {
       child: ButtonsTabBar(
         controller: widget.tabController,
         backgroundColor: Color.fromRGBO(37, 174, 75, 1),
-        unselectedBackgroundColor: Colors.white, 
+        unselectedBackgroundColor: Colors.white,
         borderWidth: 2,
-        borderColor: Color.fromRGBO(133, 222, 158, 1), 
-        unselectedBorderColor: Color.fromRGBO(133, 222, 158, 1), 
-        labelStyle: TextStyle(
-          color: Colors.white, 
-          fontWeight: FontWeight.bold,
-        ),
+        borderColor: Color.fromRGBO(133, 222, 158, 1),
+        unselectedBorderColor: Color.fromRGBO(133, 222, 158, 1),
+        labelStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         unselectedLabelStyle: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        radius: 7, 
+        radius: 7,
+
         tabs: [
           Tab(child: Text("All")),
-          Tab(child: Row(children: [
-            Image.asset("assets/tabs/burger.png"),
-            SizedBox(width: 8),
-            Text("Burger"),
-          ])),
-          Tab(child: Row(children: [
-            Image.asset("assets/tabs/pizza.png"),
-            SizedBox(width: 8),
-            Text("Pizza"),
-          ])),
-          Tab(child: Row(children: [
-            Image.asset("assets/tabs/sandwich.png"),
-            SizedBox(width: 8),
-            Text("Sandwich"),
-          ])),
+          Tab(
+            child: Row(
+              children: [
+                Image.asset("assets/tabs/burger.png"),
+                SizedBox(width: 8),
+                Text("Burger"),
+              ],
+            ),
+          ),
+          Tab(
+            child: Row(
+              children: [
+                Image.asset("assets/tabs/pizza.png"),
+                SizedBox(width: 8),
+                Text("Pizza"),
+              ],
+            ),
+          ),
+          Tab(
+            child: Row(
+              children: [
+                Image.asset("assets/tabs/sandwich.png"),
+                SizedBox(width: 8),
+                Text("Sandwich"),
+              ],
+            ),
+          ),
         ],
       ),
     );

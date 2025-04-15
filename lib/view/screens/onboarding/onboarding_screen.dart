@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:foodtek_project/constant/colors.dart';
+import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/constant/onboarding_data.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:foodtek_project/view/widgets/onboarding/onboarding_widget.dart';
@@ -8,7 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  OnboardingScreen({super.key});
+  const OnboardingScreen({super.key});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -94,7 +94,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               // the three dots in the middle
               child: SmoothPageIndicator(
                 controller: pageController,
-                count: 3,
+                count: 4,
                 effect: WormEffect(
                   dotWidth: 10,
                   dotHeight: 10,

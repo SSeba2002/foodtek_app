@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
+import 'package:foodtek_project/constant/theme.dart';
+import 'package:foodtek_project/view/screens/main_screen.dart';
 import 'package:foodtek_project/view/screens/splash_screen.dart';
 
 void main() {
@@ -17,9 +18,12 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: ThemeMode.dark,
           debugShowCheckedModeBanner: false,
           title: 'FoodTek',
-          home: OnboardingScreen(),
+          home: MainScreen(),
         );
       },
     );

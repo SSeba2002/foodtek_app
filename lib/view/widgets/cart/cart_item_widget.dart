@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/constant/theme.dart';
+import 'package:foodtek_project/model/category_model.dart';
 import 'package:foodtek_project/model/product_model.dart';
 
 class CartItemWidget extends StatelessWidget {
-  final Product product;
+  final Category product;
   final VoidCallback onIncrease;
   final VoidCallback onDecrease;
   final VoidCallback onRemove;
@@ -21,37 +23,27 @@ class CartItemWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 12.h),
       child: Dismissible(
-        key: Key(product.id),
+        key: Key(product.id.toString()),
         direction: DismissDirection.endToStart,
         background: Container(
           margin: EdgeInsets.all(8.w),
           decoration: BoxDecoration(
-            color: Colors.red,
+            color: Colors.yellowAccent,
             borderRadius: BorderRadius.circular(8.r),
           ),
           alignment: Alignment.centerRight,
           padding: EdgeInsets.only(right: 20.w),
-          child: Icon(
-            Icons.delete_outline,
-            color: Colors.white,
-            size: 40.w,
-          ),
+          child: Icon(Icons.delete_outline, color: Colors.white, size: 40.w),
         ),
         onDismissed: (direction) => onRemove(),
         child: Container(
           margin: EdgeInsets.symmetric(vertical: 4.h),
           decoration: BoxDecoration(
-            border: Border.all(
-              color: const Color(0xFFDBF4D1),
-              width: 1.w,
-            ),
+            border: Border.all(color: const Color(0xFFDBF4D1), width: 1.w),
             borderRadius: BorderRadius.circular(10.r),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 12.w,
-              vertical: 8.h,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
             child: Row(
               children: [
                 Padding(
@@ -62,7 +54,7 @@ class CartItemWidget extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.r),
                       image: DecorationImage(
-                        image: NetworkImage(product.imageUrl),
+                        image: AssetImage(product.image),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -73,7 +65,7 @@ class CartItemWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        product.name,
+                        product.title,
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 15.sp,
@@ -81,16 +73,16 @@ class CartItemWidget extends StatelessWidget {
                       ),
                       SizedBox(height: 4.h),
                       Text(
-                        product.cartDescription,
+                        product.description,
                         style: TextStyle(
                           fontSize: 12.sp,
-                          fontWeight: FontWeight.w200,
-                          color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.onBoardingtextColor,
                         ),
                       ),
                       SizedBox(height: 6.h),
                       Text(
-                        '${product.price.toStringAsFixed(2)}JD',
+                        '${product.price}JD',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: Colors.green,
@@ -110,25 +102,27 @@ class CartItemWidget extends StatelessWidget {
                         width: 27.w,
                         height: 26.h,
                         decoration: BoxDecoration(
-                          color: product.quantity == 1
-                              ? Color(0xFFE8F5E9)
-                              : Colors.green,
+                          color:
+                              product.rating == 1
+                                  ? Color(0xFFE8F5E9)
+                                  : Colors.green,
                           borderRadius: BorderRadius.circular(8.r),
                         ),
                         child: Center(
                           child: Icon(
                             Icons.remove,
                             size: 14.w,
-                            color: product.quantity == 1
-                                ? Colors.green
-                                : Colors.white,
+                            color:
+                                product.rating == 1
+                                    ? Colors.green
+                                    : Colors.white,
                           ),
                         ),
                       ),
                     ),
                     SizedBox(width: 8.w),
                     Text(
-                      '${product.quantity}',
+                      '${product.id}',
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
