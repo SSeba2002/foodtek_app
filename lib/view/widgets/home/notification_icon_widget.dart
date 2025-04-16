@@ -15,36 +15,39 @@ class _NotificationIconWidgetState extends State<NotificationIconWidget> {
 
   void _openNotifications(BuildContext context) {
     _overlayEntry = OverlayEntry(
-      builder: (context) => Positioned(
-        child: Material(
-          color: Colors.transparent,
-          child: GestureDetector(
-            onTap: _closeNotifications,
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 10,
-                    spreadRadius: 2,
+      builder:
+          (context) => Positioned(
+            child: Material(
+              color: Colors.transparent,
+              child: GestureDetector(
+                onTap: _closeNotifications,
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(20.r),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              child: NotificationsWidget(
-                onNotificationsUpdated: (hasUnread) {
-                  setState(() {
-                    hasNewNotifications = hasUnread;
-                  });
-                },
-                onClose: _closeNotifications,
+                  child: NotificationsWidget(
+                    onNotificationsUpdated: (hasUnread) {
+                      setState(() {
+                        hasNewNotifications = hasUnread;
+                      });
+                    },
+                    onClose: _closeNotifications,
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-      ),
     );
 
     Overlay.of(context).insert(_overlayEntry!);

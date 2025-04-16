@@ -39,6 +39,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get turnOn => 'Yes, Turn it On';
 
   @override
+  String get skip => 'Skip';
+
+  @override
   String get login => 'Login';
 
   @override
@@ -96,34 +99,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordResetSuccess => 'Password reset successfully';
 
   @override
-  String get notifications => 'Notifications';
-
-  @override
   String get deliveredOrder => 'Delivered Order';
 
   @override
   String get promotionalOrder => 'Promotional Offer';
 
   @override
-  String get outForDelivery => 'Out for Delivery';
-
-  @override
-  String get orderConfirmation => 'Order Confirmation';
-
-  @override
-  String get favorites => 'Favorites';
-
-  @override
   String get filter => 'Filter';
 
   @override
   String get addToCart => 'Add To Cart';
-
-  @override
-  String get quantity => 'Quantity';
-
-  @override
-  String get spicy => 'Spicy';
 
   @override
   String get min => 'Min';
@@ -135,9 +120,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get category => 'Category';
 
   @override
-  String get location => 'Location';
-
-  @override
   String get applyFilter => 'Apply Filter';
 
   @override
@@ -145,4 +127,373 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cancel => 'Cancel';
+
+  @override
+  String get setLocation => 'Set Location';
+
+  @override
+  String get checkout => 'Checkout';
+
+  @override
+  String get payWith => 'Pay With:';
+
+  @override
+  String get promoCode => 'Promo Code?';
+
+  @override
+  String get enterPromo => 'Enter Promo here';
+
+  @override
+  String get card => 'Card';
+
+  @override
+  String get cash => 'Cash';
+
+  @override
+  String get cardType => 'Card Type:';
+
+  @override
+  String get subTotal => 'Sub-Total';
+
+  @override
+  String get cart => 'Cart';
+
+  @override
+  String get onionPizza => 'Onion Pizza';
+
+  @override
+  String get spicyShawarma => 'Spicy Shawarma';
+
+  @override
+  String get loadMore => 'Load More…';
+
+  @override
+  String get cartEmpty => 'Cart Empty';
+
+  @override
+  String get cartEmptyMsg => 'You don’t have any foods in cart at this time';
+
+  @override
+  String get historyEmpty => 'History Empty';
+
+  @override
+  String get historyEmptyMsg => 'You don’t have order any foods before';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get deliveryCharge => 'Delivery Charge';
+
+  @override
+  String get discount => 'Discount';
+
+  @override
+  String get total => 'Total:';
+
+  @override
+  String get placeOrder => 'Place My Order';
+
+  @override
+  String get addCard => 'Add Card';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get cardNumber => 'Card Number';
+
+  @override
+  String get expiry => 'Expiry';
+
+  @override
+  String get cvv => 'CVV';
+
+  @override
+  String get payForOrder => 'Pay for the order';
+
+  @override
+  String get orderSuccess => 'Your Order Done Successfully';
+
+  @override
+  String get orderNote => 'you will get your order within 12min. thanks for using our services';
+
+  @override
+  String get trackOrder => 'track Your Order';
+
+  @override
+  String get onTheWay => 'On The Way';
+
+  @override
+  String get orderPicked => 'Courier Picked';
+
+  @override
+  String get chat => 'Chat';
+
+  @override
+  String get orderDetails => 'Order Details';
+
+  @override
+  String get orderReceived => 'Order received';
+
+  @override
+  String get cookingOrder => 'Cooking your order';
+
+  @override
+  String get courierPicking => 'Courier is picking up order';
+
+  @override
+  String get orderDelivered => 'Order delivered';
+
+  @override
+  String get seaFood => 'Sea Food';
+
+  @override
+  String get dessert => 'Dessert';
+
+  @override
+  String get fastFood => 'Fast Food';
+
+  @override
+  String get location => 'Location';
+
+  @override
+  String get dish => 'Dish';
+
+  @override
+  String get spicyCrabCakes => 'Spicy Crab Cakes';
+
+  @override
+  String get tunaTartare => 'Tuna Tartare';
+
+  @override
+  String get seafoodPaella => 'Seafood Paella';
+
+  @override
+  String get clamChowder => 'Clam Chowder';
+
+  @override
+  String get misoGlazedCod => 'Miso-Glazed Cod';
+
+  @override
+  String get lobsterThermidor => 'Lobster Thermidor';
+
+  @override
+  String get currentLocation => 'Current location';
+
+  @override
+  String get hotCoolSpot => 'Hot Cool Spot';
+
+  @override
+  String get change => 'Change';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get cardHolderName => 'Card Holder Name';
+
+  @override
+  String get yourDeliveryHero => 'Your Delivery Hero';
+
+  @override
+  String get writeYourMessage => 'Write your message';
+
+  @override
+  String get orderId => 'Order ID';
+
+  @override
+  String get liveTrack => 'Live Track';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get myAccount => 'My Account';
+
+  @override
+  String get personalInfo => 'Personal Information';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get setting => 'Setting';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get pushNotifications => 'Push Notifications';
+
+  @override
+  String get promoNotifications => 'Promotional Notifications';
+
+  @override
+  String get more => 'More';
+
+  @override
+  String get helpCenter => 'Help Center';
+
+  @override
+  String get logout => 'Log Out';
+
+  @override
+  String get username => 'Username';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get update => 'Update';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get favorites => 'Favorites';
+
+  @override
+  String get history => 'History';
+
+  @override
+  String get dontHaveAccount => 'Don\'t have an account?';
+
+  @override
+  String get signUp => 'Sign up';
+
+  @override
+  String get alreadyHaveAccount => 'Already have an account?';
+
+  @override
+  String get backToLogin => 'Back to login page?';
+
+  @override
+  String get send => 'Send';
+
+  @override
+  String get enterEmailOrPhone => 'Enter your E-mail or phone and we\'ll send you a link to get back into your account';
+
+  @override
+  String get codeSent => 'A 4-digit code has been sent to your email. Please enter it to verify.';
+
+  @override
+  String get verify => 'Verify';
+
+  @override
+  String get tryCurrentPassword => 'Want to try with my current password?';
+
+  @override
+  String get burger => 'Burger';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get pizza => 'Pizza';
+
+  @override
+  String get sandwich => 'Sandwich';
+
+  @override
+  String get searchMenu => 'Search menu, restaurant or etc';
+
+  @override
+  String get promoText => 'Experience our delicious new dish 30% OFF';
+
+  @override
+  String get topRated => 'Top Rated';
+
+  @override
+  String get chickenBurger => 'Chicken burger';
+
+  @override
+  String get chickenBurgerDesc => '100 gr chicken + tomato + cheese + Lettuce';
+
+  @override
+  String get cheeseBurger => 'Cheese burger';
+
+  @override
+  String get cheeseBurgerDesc => '100 gr meat + onion + tomato + Lettuce + cheese';
+
+  @override
+  String get recommend => 'Recommend';
+
+  @override
+  String get viewAll => 'View All';
+
+  @override
+  String get pepperoniPizza => 'Pepperoni pizza';
+
+  @override
+  String get pizzaDesc => 'Pepperoni pizza, Margarita Pizza, Margherita Italian cuisine, Tomato';
+
+  @override
+  String get pizzaCheese => 'Pizza Cheese';
+
+  @override
+  String get pizzaTags => 'Food, pizza, dish, cuisine, junk food, Fast Food, Flatbread, Ingredient';
+
+  @override
+  String get peppyPaneer => 'Peppy Paneer';
+
+  @override
+  String get peppyPaneerDesc => 'Chunky paneer with crisp capsicum and spicy red pepper';
+
+  @override
+  String get mexicanGreenWave => 'Mexican Green Wave';
+
+  @override
+  String get mexicanGreenWaveDesc => 'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes';
+
+  @override
+  String get read => 'Read';
+
+  @override
+  String get unread => 'Unread';
+
+  @override
+  String get delayedOrder => 'We’re sorry! Your order is running late. New ETA: 10:30 PM. Thanks for your patience!';
+
+  @override
+  String get promoOffer => 'Craving something delicious? 🍔 Get 20% off on your next order. Use code: YUMMY20.';
+
+  @override
+  String get outForDelivery => 'Your order is on the way! 🚗 Estimated arrival: 15 mins. Stay hungry!';
+
+  @override
+  String get orderConfirmation => 'Your order has been placed! 🍔 We\'re preparing it now. Track your order live!';
+
+  @override
+  String get delivered => 'Enjoy your meal! 🍕 Your order has been delivered. Rate your experience!';
+
+  @override
+  String get removeFromFavorites => 'Are you sure you want to remove it from favorites?';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get cheeseburgerWendys => 'Cheeseburger Wendy\'s Burger';
+
+  @override
+  String get loremDescription => 'Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum.';
+
+  @override
+  String get spicy => 'Spicy';
+
+  @override
+  String get quantity => 'Quantity';
+
+  @override
+  String get mild => 'Mild';
+
+  @override
+  String get hot => 'Hot';
+
+  @override
+  String get track => 'Track';
 }

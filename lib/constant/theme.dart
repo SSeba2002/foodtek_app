@@ -16,6 +16,7 @@ class AppColors {
   static const Color iconColorLight = Colors.black;
   static const Color tabBackgroundLight = Color(0xFFF5F5F5);
   static const Color tabIndicatorLight = Color(0xFF25AE4B);
+  static const Color navBarLight = Color.fromRGBO(200, 230, 201, 1);
 
   // ألوان الثيم الداكن
   static const Color backgroundDark = Color.fromARGB(255, 29, 29, 31);
@@ -32,14 +33,16 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: AppColors.primaryGreen,
+
     scaffoldBackgroundColor: AppColors.backgroundLight,
     colorScheme: ColorScheme.light(
       primary: AppColors.primaryGreen,
       secondary: AppColors.primaryGreen,
       surface: AppColors.cardLight,
+      tertiary: AppColors.navBarLight,
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.backgroundLight,
+      backgroundColor: AppColors.navBarLight,
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.textPrimaryLight),
       titleTextStyle: TextStyle(
@@ -48,6 +51,7 @@ class AppTheme {
         fontWeight: FontWeight.bold,
       ),
     ),
+
     textTheme: TextTheme(
       displayLarge: TextStyle(color: AppColors.textPrimaryLight),
       displayMedium: TextStyle(color: AppColors.textPrimaryLight),
@@ -188,6 +192,7 @@ class AppTheme {
       // ignore: deprecated_member_use
       background: AppColors.backgroundDark,
       surface: AppColors.cardDark,
+      tertiary: AppColors.cardDark,
     ),
     iconTheme: IconThemeData(
       color: AppColors.iconColorDark,
@@ -195,7 +200,7 @@ class AppTheme {
       opacity: 1.0,
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.backgroundDark,
+      backgroundColor: AppColors.cardDark,
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
       titleTextStyle: TextStyle(

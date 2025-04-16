@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/constant/theme.dart';
-import 'package:foodtek_project/view/screens/auth/forgetpass/forgot_password_screen.dart';
-import 'package:foodtek_project/view/screens/auth/forgetpass/reset_password_screen.dart';
+import 'package:foodtek_project/cubit/theme_cubit.dart';
+import 'package:foodtek_project/state/theme_state.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:foodtek_project/view/screens/auth/signup_screen.dart';
 import 'package:foodtek_project/view/screens/home/history/history_screen.dart';
@@ -36,38 +37,43 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(428, 926),
-      splitScreenMode: true,
-      builder: (context, child) {
-        return MaterialApp(
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
-          themeMode: ThemeMode.light,
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => AppCubit())],
+      child: ScreenUtilInit(
+        designSize: const Size(428, 926),
+        splitScreenMode: true,
+        builder: (context, child) {
+          return BlocBuilder<AppCubit, AppStates>(
+            builder:
+                (context, state) => MaterialApp(
+                  theme: AppTheme.lightTheme,
+                  darkTheme: AppTheme.darkTheme,
+                  themeMode: state.themeMode,
 
-          locale: _locale, // The language selected by the user
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: const [Locale('en'), Locale('ar')],
-          debugShowCheckedModeBanner: false,
-          title: 'FoodTek',
-          home: SignUpScreen(),
-          //SplashScreen(setLocale: setLocale),
-          builder: (context, child) {
-            return Directionality(
-              textDirection:
-                  _locale.languageCode == 'ar'
-                      ? TextDirection.rtl
-                      : TextDirection.ltr,
-              child: child!,
-            );
-          },
-        );
-      },
+                  locale: _locale, // The language selected by the user
+                  localizationsDelegates: const [
+                    AppLocalizations.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  supportedLocales: const [Locale('en'), Locale('ar')],
+                  debugShowCheckedModeBanner: false,
+                  title: 'FoodTek',
+                  home: SplashScreen(setLocale: setLocale),
+                  builder: (context, child) {
+                    return Directionality(
+                      textDirection:
+                          _locale.languageCode == 'ar'
+                              ? TextDirection.rtl
+                              : TextDirection.ltr,
+                      child: child!,
+                    );
+                  },
+                ),
+          );
+        },
+      ),
     );
   }
 }

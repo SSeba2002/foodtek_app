@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:foodtek_project/view/screens/home/home/filter_screen.dart';
 import 'package:foodtek_project/view/widgets/main_page/main_text_field.dart';
 import 'package:foodtek_project/view/widgets/main_page/notification_widget.dart';
+
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class LocationNotificationSrearch extends StatefulWidget {
