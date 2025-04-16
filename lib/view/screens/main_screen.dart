@@ -70,8 +70,7 @@ class MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return PersistentTabView(
       navBarHeight: 60,
-      // backgroundColor:
-      // Colors.green.shade100,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor!,
       context,
       controller: _controller,
       screens: _buildScreens(),
