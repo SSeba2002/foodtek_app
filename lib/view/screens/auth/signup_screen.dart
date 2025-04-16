@@ -32,8 +32,8 @@ class SignUpScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.r),
                   ),
+                  color: Theme.of(context).cardColor,
                   elevation: 5,
-                  color: Colors.white,
                   child: Padding(
                     padding: EdgeInsets.all(16.w),
                     child: SignupWidget(),

@@ -36,7 +36,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               height: responsiveHeight(context, 417.3),
               padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(15.0),
               ),
               child: Column(
@@ -47,7 +47,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.arrow_back, color: Colors.black),
+                        Icon(Icons.arrow_back),
                         const SizedBox(width: 5),
                       ],
                     ),
@@ -55,11 +55,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   const SizedBox(height: 20),
                   Text(
                     "Reset Password",
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                    ),
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 10),
                   Row(

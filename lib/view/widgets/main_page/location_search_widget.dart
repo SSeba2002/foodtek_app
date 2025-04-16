@@ -1,7 +1,6 @@
 // this class is used to display the location and the search bar and the Notifications
 
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/view/screens/home/home/filter_screen.dart';
 import 'package:foodtek_project/view/widgets/main_page/main_text_field.dart';
 import 'package:foodtek_project/view/widgets/main_page/notification_widget.dart';

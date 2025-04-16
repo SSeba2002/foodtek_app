@@ -42,5 +42,7 @@
   "max": "Max",
   "category": "Category",
   "location": "Location",
-  "applyFilter": "Apply Filter"
+  "applyFilter": "Apply Filter",
+  "continueText": "Continue",
+  "cancel": "Cancel"
 }

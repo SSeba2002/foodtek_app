@@ -29,7 +29,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               width: responsiveWidth(context, 343),
               height: responsiveHeight(context, 366.3),
               padding: const EdgeInsets.all(20.0),
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(color: Theme.of(context).cardColor),
               child: Column(
                 children: [
                   Align(
@@ -52,12 +52,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginScreen(),
-                              ),
-                            );
+                            Navigator.pop(context);
                           },
                           child: const Text(
                             "Back to Login Page?",
@@ -75,11 +70,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   const SizedBox(height: 20),
                   Text(
                     "Reset Password",
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
-                    ),
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 10),
                   Text(
@@ -99,7 +90,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   const SizedBox(height: 20),
                   SizedBox(
                     width: responsiveWidth(context, 295),
-                    height: responsiveHeight(context, 48),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(

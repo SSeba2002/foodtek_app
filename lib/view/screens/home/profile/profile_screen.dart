@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:foodtek_project/view/screens/home/profile/PersonalInfo_screen.dart';
 import 'package:foodtek_project/view/widgets/buildSection_widget.dart';
 
-
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -12,7 +11,6 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   String _selectedLanguage = 'English';
-
 
   void _showLanguageDialog(BuildContext context) {
     showDialog(
@@ -56,11 +54,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text("Profile", style: TextStyle(color: Colors.black)),
-        backgroundColor: Colors.white,
+        title: Text("Profile"),
+
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -79,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             Text("ahmad1709@gmail.com", style: TextStyle(color: Colors.grey)),
             SizedBox(height: 20),
-            buildSection("My Account", [
+            buildSection(context, "My Account", [
               buildListTile(
                 Icons.person,
                 "Personal Information",
@@ -103,11 +101,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               buildListTile(Icons.privacy_tip, "Privacy Policy", onTap: () {}),
               buildListTile(Icons.settings, "Setting", onTap: () {}),
             ]),
-            buildSection("Notifications", [
+            buildSection(context, "Notifications", [
               buildSwitchTile("Push Notifications", true),
               buildSwitchTile("Promotional Notifications", false),
             ]),
-            buildSection("More", [
+            buildSection(context, "More", [
               buildListTile(Icons.help, "Help Center", onTap: () {}),
               buildListTile(
                 Icons.logout,

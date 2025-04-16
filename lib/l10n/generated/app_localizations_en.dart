@@ -139,4 +139,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get applyFilter => 'Apply Filter';
+
+  @override
+  String get continueText => 'Continue';
+
+  @override
+  String get cancel => 'Cancel';
 }

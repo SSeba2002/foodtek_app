@@ -14,6 +14,8 @@ class AppColors {
   static const Color cardLight = Colors.white;
   static const Color inputBackgroundLight = Color(0xFFF5F5F5);
   static const Color iconColorLight = Colors.black;
+  static const Color tabBackgroundLight = Color(0xFFF5F5F5);
+  static const Color tabIndicatorLight = Color(0xFF25AE4B);
 
   // ألوان الثيم الداكن
   static const Color backgroundDark = Color.fromARGB(255, 29, 29, 31);
@@ -22,6 +24,8 @@ class AppColors {
   static const Color cardDark = Color.fromARGB(255, 49, 49, 51);
   static const Color inputBackgroundDark = Color.fromARGB(255, 49, 49, 51);
   static const Color iconColorDark = Color(0xFF25AE4B);
+  static const Color tabBackgroundDark = Color.fromARGB(255, 49, 49, 51);
+  static const Color tabIndicatorDark = Color(0xFF25AE4B);
 }
 
 class AppTheme {
@@ -57,6 +61,26 @@ class AppTheme {
       bodyMedium: TextStyle(color: AppColors.textPrimaryLight),
       bodySmall: TextStyle(color: AppColors.textSecondaryLight),
       labelLarge: TextStyle(color: AppColors.textPrimaryLight),
+    ),
+    tabBarTheme: TabBarTheme(
+      indicatorColor: AppColors.tabIndicatorLight,
+      labelColor: AppColors.primaryGreen,
+      unselectedLabelColor: AppColors.textSecondaryLight,
+      labelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
+      indicator: UnderlineTabIndicator(
+        borderSide: BorderSide(color: AppColors.tabIndicatorLight, width: 3.0),
+      ),
+      overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
+        if (states.contains(MaterialState.pressed)) {
+          return AppColors.primaryGreen.withOpacity(0.1);
+        }
+        return Colors.transparent;
+      }),
+      dividerColor: Colors.transparent,
     ),
     inputDecorationTheme: InputDecorationTheme(
       fillColor: AppColors.inputBackgroundLight,
@@ -147,6 +171,11 @@ class AppTheme {
       type: BottomNavigationBarType.fixed,
       elevation: 8.0,
     ),
+    iconTheme: IconThemeData(
+      color: AppColors.iconColorLight,
+      size: 24.0,
+      opacity: 1.0,
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -160,6 +189,11 @@ class AppTheme {
       background: AppColors.backgroundDark,
       surface: AppColors.cardDark,
     ),
+    iconTheme: IconThemeData(
+      color: AppColors.iconColorDark,
+      size: 24.0,
+      opacity: 1.0,
+    ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.backgroundDark,
       elevation: 0,
@@ -169,6 +203,26 @@ class AppTheme {
         fontSize: 18,
         fontWeight: FontWeight.bold,
       ),
+    ),
+    tabBarTheme: TabBarTheme(
+      indicatorColor: AppColors.tabIndicatorDark,
+      labelColor: AppColors.primaryGreen,
+      unselectedLabelColor: AppColors.textSecondaryDark,
+      labelStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
+      indicator: UnderlineTabIndicator(
+        borderSide: BorderSide(color: AppColors.tabIndicatorDark, width: 3.0),
+      ),
+      overlayColor: MaterialStateProperty.resolveWith<Color>((states) {
+        if (states.contains(MaterialState.pressed)) {
+          return AppColors.primaryGreen.withOpacity(0.2);
+        }
+        return Colors.transparent;
+      }),
+      dividerColor: Colors.transparent,
     ),
     textTheme: TextTheme(
       displayLarge: TextStyle(color: AppColors.textPrimaryDark),

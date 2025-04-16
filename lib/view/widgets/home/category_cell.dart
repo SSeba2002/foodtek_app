@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/constant/theme.dart';
 
 class CategoryCell extends StatelessWidget {
   final String cObj;

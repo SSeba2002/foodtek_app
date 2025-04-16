@@ -37,7 +37,6 @@ class _CartPageState extends State<MainCartPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Column(
         children: [
           LocationNotificationSrearch(showSearchBar: false),

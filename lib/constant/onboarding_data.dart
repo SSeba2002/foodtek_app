@@ -1,18 +1,40 @@
-// قائمة العناوين
-final List<String> onboardingTitles = [
-  "Welcome To Foodtek",
-  "Get Delivery On Time",
-  "Choose Your Food",
-  "Turn On Your Location",
-];
+import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
-// قائمة الأوصاف
-final List<String> onboardingDescriptions = [
-  "Enjoy A Fast And Smooth Food Delivery\n At Your Doorstep",
-  "Order Your Favorite Food Within The \n Plam Of Your Hand And The Zone \n Of Your Comfort",
-  "Order Your Favorite Food Within The \n Plam Of Your Hand And The Zone \n OF Your Comfort",
-  "To Continues, Let Your Device Turn \n On Location, Which Uses Google's\n Location Service",
-];
+// عناوين صفحات الـ Onboarding
+List<String> onboardingTitles(BuildContext context) {
+  return [
+    AppLocalizations.of(context)!.welcome,
+    AppLocalizations.of(context)!.getDelivery,
+    AppLocalizations.of(context)!.chooseFood,
+    AppLocalizations.of(context)!.turnOnLocation,
+  ];
+}
+
+// أوصاف صفحات الـ Onboarding
+List<String> onboardingDescriptions(BuildContext context) {
+  return [
+    AppLocalizations.of(context)!.welcomeSubtitle,
+    AppLocalizations.of(context)!.getDeliverySubtitle,
+    AppLocalizations.of(context)!.chooseFoodSubtitle,
+    AppLocalizations.of(context)!.turnOnLocationSubtitle,
+  ];
+}
+
+// نص الزر الأول (الزر الأساسي)
+List<String> firstButtonTexts(BuildContext context) {
+  return [
+    AppLocalizations.of(context)!.continueText,
+    AppLocalizations.of(context)!.continueText,
+    AppLocalizations.of(context)!.continueText,
+    AppLocalizations.of(context)!.turnOn,
+  ];
+}
+
+// نص الزر الثاني (مثل زر Cancel)
+List<String> secondButtonTexts(BuildContext context) {
+  return ['', '', '', AppLocalizations.of(context)!.cancel];
+}
 
 // قائمة صور النمط (الخلفية)
 final List<String> stackImages = [
@@ -38,14 +60,3 @@ final List<double> imageWidths = [328, 328.5, 328.5, 328.5];
 
 // قائمة ارتفاع الصور
 final List<double> imageHeights = [328, 319, 319, 319];
-
-// قائمة نصوص الزر الأول
-final List<String> firstButtonTexts = [
-  'Continue',
-  'Continue',
-  'Continue',
-  'Yes, Turn It On',
-];
-
-// قائمة نصوص الزر الثاني
-final List<String> secondButtonTexts = ['', '', '', 'Cancel'];

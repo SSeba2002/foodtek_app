@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/data/cart_item_list.dart';
-import 'package:foodtek_project/model/product_model.dart';
 import 'package:foodtek_project/view/widgets/cart/cart_item_widget.dart';
 import 'package:foodtek_project/view/widgets/cart/empty_cart_widget.dart';
-import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
-
-import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
-import 'package:foodtek_project/view/widgets/price_details_widget.dart';
-import '../../../widgets/location_widget.dart';
-
+import 'package:foodtek_project/view/widgets/cart/price_details_widget.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});

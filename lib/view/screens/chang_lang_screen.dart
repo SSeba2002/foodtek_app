@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
-import '../../constant/colors.dart';
 
 class ChangLangScreen extends StatefulWidget {
   final Function(Locale) setLocale;
@@ -25,18 +25,12 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
           image: DecorationImage(
             image: AssetImage('assets/images/background.jpg'),
             fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              Colors.white,
-              BlendMode.modulate,
-            ),
+            colorFilter: ColorFilter.mode(Colors.white, BlendMode.modulate),
           ),
         ),
         child: Center(
           child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(
-              horizontal: 24.w,
-              vertical: 20.h,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 20.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -60,7 +54,10 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                 SizedBox(height: 40.h),
                 Container(
                   width: 307.w,
-                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.w,
+                    vertical: 4.h,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12.r),
@@ -80,16 +77,19 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                           _selectedLanguage = newValue!;
                         });
                       },
-                      items: <String>['English', 'Arabic']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(
-                            value,
-                            style: TextStyle(fontSize: 16.sp),
-                          ),
-                        );
-                      }).toList(),
+                      items:
+                          <String>[
+                            'English',
+                            'Arabic',
+                          ].map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(
+                                value,
+                                style: TextStyle(fontSize: 16.sp),
+                              ),
+                            );
+                          }).toList(),
                     ),
                   ),
                 ),
@@ -100,7 +100,10 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                   height: 58.h,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [AppColors.primaryColor, AppColors.secondaryColor],
+                      colors: [
+                        AppColors.primaryColor,
+                        AppColors.secondaryColor,
+                      ],
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                     ),

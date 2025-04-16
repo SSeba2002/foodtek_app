@@ -42,5 +42,7 @@
   "max": "الحد الأقصى",
   "category": "الفئة",
   "location": "الموقع",
-  "applyFilter": "تطبيق التصفية"
+  "applyFilter": "تطبيق التصفية",
+  "continueText": "تابع",
+  "cancel": "تخطي"
 }

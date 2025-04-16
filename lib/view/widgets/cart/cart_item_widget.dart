@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/model/category_model.dart';
-import 'package:foodtek_project/model/product_model.dart';
 
 class CartItemWidget extends StatelessWidget {
   final Category product;

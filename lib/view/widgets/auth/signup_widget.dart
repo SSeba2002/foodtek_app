@@ -111,17 +111,15 @@ class _SignupWidgetState extends State<SignupWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.black),
-                onPressed: () {},
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
               SizedBox(height: 5.h),
               Text(
                 'Sign Up',
-                style: TextStyle(
-                  fontSize: 32.sp,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black,
-                ),
+                style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w700),
               ),
             ],
           ),
@@ -155,11 +153,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           // Full Name Field
           Text(
             'Full Name',
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-            ),
+            style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
           TextFormField(
@@ -176,11 +170,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           // Email Field
           Text(
             'Email',
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-            ),
+            style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
           TextFormField(
@@ -198,11 +188,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           // Birth Date Field
           Text(
             'Birth Date',
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-            ),
+            style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
           TextFormField(
@@ -222,11 +208,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           // Phone Number Field
           Text(
             'Phone Number',
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-            ),
+            style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
           Row(
@@ -271,11 +253,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           // Password Field
           Text(
             'Set Password',
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-            ),
+            style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
           TextFormField(
@@ -326,11 +304,7 @@ class _SignupWidgetState extends State<SignupWidget> {
               ),
               child: Text(
                 'Register',
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                ),
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w400),
               ),
             ),
           ),

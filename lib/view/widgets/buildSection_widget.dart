@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
-Widget buildSection(String title, List<Widget> children) {
+Widget buildSection(
+  BuildContext? context,
+  String title,
+  List<Widget> children,
+) {
   return Container(
-    margin: EdgeInsets.only(bottom: 16.0),
-    padding: EdgeInsets.all(16.0),
+    padding: EdgeInsets.all(16),
+    margin: EdgeInsets.all(16),
     decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(12.0),
+      color: Theme.of(context!).cardColor,
+      borderRadius: BorderRadius.circular(10),
+      border: Border.all(color: Colors.grey.shade300),
       boxShadow: [
-        BoxShadow(color: Colors.black12, blurRadius: 5, spreadRadius: 1),
+        BoxShadow(color: Colors.grey.shade200, blurRadius: 5, spreadRadius: 2),
       ],
     ),
     child: Column(
@@ -22,10 +27,15 @@ Widget buildSection(String title, List<Widget> children) {
   );
 }
 
-Widget buildListTile(IconData icon, String title,
-    {Widget? trailing, Color? iconColor, VoidCallback? onTap}) {
+Widget buildListTile(
+  IconData icon,
+  String title, {
+  Widget? trailing,
+  Color? iconColor,
+  VoidCallback? onTap,
+}) {
   return ListTile(
-    leading: Icon(icon, color: iconColor ?? Colors.black),
+    leading: Icon(icon),
     title: Text(title),
     trailing:
         trailing ?? Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),

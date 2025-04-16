@@ -139,4 +139,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get applyFilter => 'تطبيق التصفية';
+
+  @override
+  String get continueText => 'تابع';
+
+  @override
+  String get cancel => 'تخطي';
 }

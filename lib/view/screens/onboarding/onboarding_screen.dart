@@ -32,9 +32,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             top: topPositions[index],
             imageWiddth: imageWidths[index],
             imageheight: imageHeights[index],
-            title: onboardingTitles[index],
-            description: onboardingDescriptions[index],
-            firstButtonText: firstButtonTexts[index],
+            title: onboardingTitles(context)[index],
+            description: onboardingDescriptions(context)[index],
+            firstButtonText: firstButtonTexts(context)[index],
             onPressedOne: () {
               if (index == 3) {
                 Navigator.pushReplacement(
@@ -60,7 +60,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 );
               }
             },
-            secondButtonText: secondButtonTexts[index],
+            secondButtonText: secondButtonTexts(context)[index],
             onPressedTwo: () {
               LocationPermission.denied; // does not get the location
 
