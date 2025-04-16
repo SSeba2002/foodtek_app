@@ -49,7 +49,7 @@ class AppTheme {
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.navBarLight,
-      color: AppColors.onBoardingtextColorLight,
+
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.textPrimaryLight),
       titleTextStyle: TextStyle(
@@ -208,7 +208,7 @@ class AppTheme {
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.cardDark,
-      color: AppColors.onBoardingtextColorDark,
+
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
       titleTextStyle: TextStyle(

@@ -13,7 +13,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   bool obscureText = true;
   TextEditingController passwordTextEditingController = TextEditingController();
   TextEditingController confirmNewPasswordTextEditingController =
-  TextEditingController();
+      TextEditingController();
   bool showErrorPassword = false;
 
   @override
@@ -60,7 +60,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     Text(
                       "Want to try with my current password?",
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                      style: TextStyle(color: Colors.grey, fontSize: 11),
                     ),
                     InkWell(
                       onTap: () {
@@ -110,7 +110,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromRGBO(37, 174, 75, 1),
-                      padding: EdgeInsets.symmetric(vertical: 15),
+                      padding: EdgeInsets.symmetric(vertical: 10),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
