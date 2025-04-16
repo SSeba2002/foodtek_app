@@ -20,7 +20,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: PageView.builder(
         controller: pageController,
         onPageChanged: (index) {},
@@ -76,7 +75,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
       bottomSheet: Container(
         height: 60,
-        color: Colors.white,
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -87,7 +86,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
+<<<<<<< HEAD
               child: Text( AppLocalizations.of(context)!.skip, style: TextStyle(color: Colors.black)),
+||||||| 1441b04
+              child: Text("Skip", style: TextStyle(color: Colors.black)),
+=======
+              child: Text("Skip"),
+>>>>>>> ad770d7ce093846396c3132785ee6a7bca73cbcc
             ),
             Center(
               // the three dots in the middle
@@ -98,7 +103,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   dotWidth: 10,
                   dotHeight: 10,
                   spacing: 16,
-                  dotColor: Colors.black12,
+
                   activeDotColor: AppColors.primaryColor,
                 ),
                 onDotClicked: (index) {

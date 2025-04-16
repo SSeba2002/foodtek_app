@@ -76,7 +76,7 @@ class CartItemWidget extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
-                          color: AppColors.onBoardingtextColor,
+                          color: AppColors.onBoardingtextColorLight,
                         ),
                       ),
                       SizedBox(height: 6.h),

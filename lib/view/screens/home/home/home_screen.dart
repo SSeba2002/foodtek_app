@@ -186,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ViewAllTitleRow(
-                  title: AppLocalizations.of(context)!.recommended,
+                  title: AppLocalizations.of(context)!.recommend,
                   onView: () {},
                   vis: true,
                 ),

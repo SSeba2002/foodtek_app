@@ -79,8 +79,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+<<<<<<< HEAD
                                 Text(AppLocalizations.of(context)!.
                                   dontHaveAccount,
+||||||| 1441b04
+                                const Text(
+                                  "Don’t have an account?",
+=======
+                                Text(
+                                  AppLocalizations.of(context)!.dontHaveAccount,
+>>>>>>> ad770d7ce093846396c3132785ee6a7bca73cbcc
                                   style: TextStyle(fontSize: 12),
                                 ),
                                 InkWell(
@@ -93,8 +101,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                     );
                                   },
+<<<<<<< HEAD
                                   child:  Text(AppLocalizations.of(context)!.
                                     signUp,
+||||||| 1441b04
+                                  child: const Text(
+                                    " Sign Up",
+=======
+                                  child: Text(
+                                    AppLocalizations.of(context)!.signUp,
+>>>>>>> ad770d7ce093846396c3132785ee6a7bca73cbcc
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.green,

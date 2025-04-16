@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/constant/responsive.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:foodtek_project/view/screens/auth/otp_screen.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
@@ -23,34 +23,25 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: responsiveWidth(context, 343),
-              height: responsiveHeight(context, 366.3),
-              padding: const EdgeInsets.all(20.0),
-              decoration: BoxDecoration(color: Theme.of(context).cardColor),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(
-                            Icons.arrow_back,
-                            color: Colors.black,
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginScreen(),
-                              ),
-                            );
-                          },
+        child: Center(
+          child: Container(
+            width: 343.w,
+            padding: EdgeInsets.all(20.w),
+            decoration: BoxDecoration(color: Theme.of(context).cardColor),
+            child: Column(
+              mainAxisSize: MainAxisSize.min, // هذا السطر هو الحل
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: Colors.black,
+                          size: 22.w,
                         ),
+<<<<<<< HEAD
                         InkWell(
                           onTap: () {
                             Navigator.pop(context);
@@ -61,9 +52,41 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                               fontSize: 14,
                               color: Colors.green,
                               fontWeight: FontWeight.bold,
+||||||| 1441b04
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text(
+                            "Back to Login Page?",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+=======
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginScreen(),
+>>>>>>> ad770d7ce093846396c3132785ee6a7bca73cbcc
                             ),
+                          );
+                        },
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          "Back to Login Page?",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Colors.green,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
+<<<<<<< HEAD
                         const SizedBox(width: 5),
                       ],
                     ),
@@ -102,17 +125,112 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
+||||||| 1441b04
+                        const SizedBox(width: 5),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    "Reset Password",
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    "Enter your E-mail or phone and we'll\n"
+                    "send you a link to get back into\n"
+                    "your account",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
+                  const SizedBox(height: 20),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Email",
+                      alignLabelWithHint: true,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: responsiveWidth(context, 295),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => OtpScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(37, 174, 75, 1),
+                        padding: EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+=======
+>>>>>>> ad770d7ce093846396c3132785ee6a7bca73cbcc
                       ),
+<<<<<<< HEAD
                       child: Text(
                         AppLocalizations.of(context)!.send,
                         style: TextStyle(fontSize: 18, color: Colors.white),
+||||||| 1441b04
+                      child: Text(
+                        "Send",
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+=======
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20.h),
+                Text(
+                  "Reset Password",
+                  style: TextStyle(
+                      fontSize: 32.sp, fontWeight: FontWeight.w700),
+                ),
+                SizedBox(height: 10.h),
+                Text(
+                  "Enter your E-mail or phone and we'll\n"
+                      "send you a link to get back into\n"
+                      "your account",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.grey, fontSize: 12.sp,fontWeight: FontWeight.w500),
+                ),
+                SizedBox(height: 20.h),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                    alignLabelWithHint: true,
+                    labelStyle: TextStyle(fontSize: 13.sp,fontWeight: FontWeight.w500),
+                  ),
+                  style: TextStyle(fontSize: 14.sp),
+                ),
+                SizedBox(height: 15.h),
+                SizedBox(
+                  width: 295.w,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OtpScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(37, 174, 75, 1),
+                      padding: EdgeInsets.symmetric(vertical: 15.h),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.r),
+>>>>>>> ad770d7ce093846396c3132785ee6a7bca73cbcc
                       ),
                     ),
+                    child: Text(
+                      "Send",
+                      style: TextStyle(fontSize: 17.sp, color: Colors.white),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
