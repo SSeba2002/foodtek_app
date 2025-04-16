@@ -6,7 +6,7 @@ class AppColors {
   // ألوان الثيم الفاتح
   static const Color primaryColor = Color(0xFF25AE4B); // اللون الأخضر الرئيسي
   static const Color secondaryColor = Color(0xFF0F481F); // اللون الأخضر الداكن
-  static const Color onBoardingtextColor = Color(0xFF455A64);
+  static const Color onBoardingtextColorLight = Color(0xFF455A64);
   static const Color primaryGreen = Color(0xFF25AE4B);
   static const Color backgroundLight = Colors.white;
   static const Color textPrimaryLight = Colors.black;
@@ -20,6 +20,12 @@ class AppColors {
 
   // ألوان الثيم الداكن
   static const Color backgroundDark = Color.fromARGB(255, 29, 29, 31);
+  static const Color onBoardingtextColorDark = Color.fromARGB(
+    255,
+    204,
+    223,
+    232,
+  );
   static const Color textPrimaryDark = Colors.white;
   static const Color textSecondaryDark = Color(0xFFBBBBBB);
   static const Color cardDark = Color.fromARGB(255, 49, 49, 51);
@@ -43,6 +49,7 @@ class AppTheme {
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.navBarLight,
+      color: AppColors.onBoardingtextColorLight,
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.textPrimaryLight),
       titleTextStyle: TextStyle(
@@ -201,6 +208,7 @@ class AppTheme {
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.cardDark,
+      color: AppColors.onBoardingtextColorDark,
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
       titleTextStyle: TextStyle(

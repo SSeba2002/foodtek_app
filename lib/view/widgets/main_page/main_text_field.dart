@@ -49,7 +49,7 @@ class RoundTextfield extends StatelessWidget {
           icon: Icon(Icons.filter_list),
         ),
         hintStyle: TextStyle(
-          color: AppColors.onBoardingtextColor,
+          color: AppColors.onBoardingtextColorLight,
           fontSize: 14,
           fontWeight: FontWeight.w500,
         ),

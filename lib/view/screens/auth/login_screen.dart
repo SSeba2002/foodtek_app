@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/responsive.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/auth/forgetpass/forgot_password_screen.dart';
 import 'package:foodtek_project/view/screens/auth/signup_screen.dart';
 import 'package:foodtek_project/view/screens/main_screen.dart';
@@ -67,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Center(
                               child: Text(
-                                'Login',
+                                AppLocalizations.of(context)!.login,
                                 style: TextStyle(
                                   fontSize: 32,
 
@@ -78,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Text(
-                                  "Don’t have an account?",
+                                Text(
+                                  AppLocalizations.of(context)!.dontHaveAccount,
                                   style: TextStyle(fontSize: 12),
                                 ),
                                 InkWell(
@@ -92,8 +93,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                     );
                                   },
-                                  child: const Text(
-                                    " Sign Up",
+                                  child: Text(
+                                    AppLocalizations.of(context)!.signUp,
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.green,
