@@ -48,8 +48,8 @@ class _MyAppState extends State<MyApp> {
           supportedLocales: const [Locale('en'), Locale('ar')],
           debugShowCheckedModeBanner: false,
           title: 'FoodTek',
-          home: LoginScreen(),
-          //SplashScreen(setLocale: setLocale),
+          home: //LoginScreen(),
+          SplashScreen(setLocale: setLocale),
           builder: (context, child) {
             return Directionality(
               textDirection:

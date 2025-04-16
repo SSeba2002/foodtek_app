@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
-// عناوين صفحات الـ Onboarding
 List<String> onboardingTitles(BuildContext context) {
   return [
     AppLocalizations.of(context)!.welcome,
@@ -11,7 +10,6 @@ List<String> onboardingTitles(BuildContext context) {
   ];
 }
 
-// أوصاف صفحات الـ Onboarding
 List<String> onboardingDescriptions(BuildContext context) {
   return [
     AppLocalizations.of(context)!.welcomeSubtitle,
@@ -21,7 +19,6 @@ List<String> onboardingDescriptions(BuildContext context) {
   ];
 }
 
-// نص الزر الأول (الزر الأساسي)
 List<String> firstButtonTexts(BuildContext context) {
   return [
     AppLocalizations.of(context)!.continueText,
@@ -31,12 +28,14 @@ List<String> firstButtonTexts(BuildContext context) {
   ];
 }
 
-// نص الزر الثاني (مثل زر Cancel)
 List<String> secondButtonTexts(BuildContext context) {
-  return ['', '', '', AppLocalizations.of(context)!.cancel];
+  return [
+    AppLocalizations.of(context)!.skip, 
+    '', 
+    '', 
+    AppLocalizations.of(context)!.cancel, 
+  ];
 }
-
-// قائمة صور النمط (الخلفية)
 final List<String> stackImages = [
   "assets/images/onboarding/pattern.png",
   "assets/images/onboarding/pattern.png",
@@ -44,7 +43,6 @@ final List<String> stackImages = [
   "assets/images/onboarding/maps.png",
 ];
 
-// قائمة صور التعريف الأساسية
 final List<String> onboardingImages = [
   "assets/images/onboarding/order-food-pana.png",
   "assets/images/onboarding/take-away-cuate.png",

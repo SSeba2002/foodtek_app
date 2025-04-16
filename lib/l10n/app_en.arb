@@ -9,6 +9,7 @@
   "turnOnLocation": "Turn On Your Location",
   "turnOnLocationSubtitle": "To Continue, Let Your Device Turn On Location, Which Uses Google’s Location Service",
   "turnOn": "Yes, Turn it On",
+  "skip":"Skip",
   "login": "Login",
   "signup": "Sign up",
   "email": "Email",

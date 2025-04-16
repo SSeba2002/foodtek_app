@@ -15,7 +15,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get welcome => 'مرحبًا بك في فودتيك';
 
   @override
-  String get welcomeSubtitle => 'استمتع بتوصيل طعام سريع وسلس إلى باب منزلك';
+  String get welcomeSubtitle => 'استمتع بتوصيل الطعام بشكل سريع وسلس إلى باب منزلك';
 
   @override
   String get getDelivery => 'احصل على التوصيل في الوقت المحدد';
@@ -37,6 +37,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get turnOn => 'نعم، فعّله';
+
+  @override
+  String get skip => 'تخطي';
 
   @override
   String get login => 'تسجيل الدخول';
@@ -96,34 +99,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get passwordResetSuccess => 'تم إعادة تعيين كلمة المرور بنجاح';
 
   @override
-  String get notifications => 'الإشعارات';
-
-  @override
   String get deliveredOrder => 'تم توصيل الطلب';
 
   @override
   String get promotionalOrder => 'عرض ترويجي';
 
   @override
-  String get outForDelivery => 'الطلب في الطريق';
-
-  @override
-  String get orderConfirmation => 'تأكيد الطلب';
-
-  @override
-  String get favorites => 'المفضلة';
-
-  @override
   String get filter => 'تصفية';
 
   @override
   String get addToCart => 'أضف إلى السلة';
-
-  @override
-  String get quantity => 'الكمية';
-
-  @override
-  String get spicy => 'حار';
 
   @override
   String get min => 'الحد الأدنى';
@@ -135,9 +120,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get category => 'الفئة';
 
   @override
-  String get location => 'الموقع';
-
-  @override
   String get applyFilter => 'تطبيق التصفية';
 
   @override
@@ -145,4 +127,373 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cancel => 'تخطي';
+
+  @override
+  String get setLocation => 'تعيين الموقع';
+
+  @override
+  String get checkout => 'الدفع';
+
+  @override
+  String get payWith => 'ادفع عبر:';
+
+  @override
+  String get promoCode => 'هل لديك رمز خصم؟';
+
+  @override
+  String get enterPromo => 'أدخل رمز الخصم هنا';
+
+  @override
+  String get card => 'بطاقة';
+
+  @override
+  String get cash => 'نقدًا';
+
+  @override
+  String get cardType => 'نوع البطاقة:';
+
+  @override
+  String get subTotal => 'المجموع الفرعي';
+
+  @override
+  String get cart => 'السلة';
+
+  @override
+  String get onionPizza => 'بيتزا بالبصل';
+
+  @override
+  String get spicyShawarma => 'شاورما حارة';
+
+  @override
+  String get loadMore => 'عرض المزيد…';
+
+  @override
+  String get cartEmpty => 'السلة فارغة';
+
+  @override
+  String get cartEmptyMsg => 'لا توجد عناصر في السلة حالياً';
+
+  @override
+  String get historyEmpty => 'لا يوجد محفوظات';
+
+  @override
+  String get historyEmptyMsg => 'لم تقم بأي طلب سابقاً';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get deliveryCharge => 'رسوم التوصيل';
+
+  @override
+  String get discount => 'الخصم';
+
+  @override
+  String get total => 'الإجمالي:';
+
+  @override
+  String get placeOrder => 'تأكيد الطلب';
+
+  @override
+  String get addCard => 'إضافة بطاقة';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get cardNumber => 'رقم البطاقة';
+
+  @override
+  String get expiry => 'تاريخ الانتهاء';
+
+  @override
+  String get cvv => 'رمز التحقق';
+
+  @override
+  String get payForOrder => 'ادفع للطلب';
+
+  @override
+  String get orderSuccess => 'تم تنفيذ طلبك بنجاح';
+
+  @override
+  String get orderNote => 'ستصلك طلبك خلال 12 دقيقة. شكرًا لاستخدامك خدماتنا';
+
+  @override
+  String get trackOrder => 'تتبع طلبك';
+
+  @override
+  String get onTheWay => 'في الطريق';
+
+  @override
+  String get orderPicked => 'تم استلام الطلب';
+
+  @override
+  String get chat => 'الدردشة';
+
+  @override
+  String get orderDetails => 'تفاصيل الطلب';
+
+  @override
+  String get orderReceived => 'تم استلام الطلب';
+
+  @override
+  String get cookingOrder => 'جارٍ إعداد الطلب';
+
+  @override
+  String get courierPicking => 'المندوب يستلم الطلب';
+
+  @override
+  String get orderDelivered => 'تم توصيل الطلب';
+
+  @override
+  String get seaFood => 'مأكولات بحرية';
+
+  @override
+  String get dessert => 'حلويات';
+
+  @override
+  String get fastFood => 'وجبات سريعة';
+
+  @override
+  String get location => 'شارع سوكارنو هاتا 15A، مالانج';
+
+  @override
+  String get dish => 'طبق';
+
+  @override
+  String get spicyCrabCakes => 'فطائر السلطعون الحارة';
+
+  @override
+  String get tunaTartare => 'تارتار التونة';
+
+  @override
+  String get seafoodPaella => 'باييلا المأكولات البحرية';
+
+  @override
+  String get clamChowder => 'شوربة المحار';
+
+  @override
+  String get misoGlazedCod => 'سمك القد بطبقة الميسو';
+
+  @override
+  String get lobsterThermidor => 'لوبستر ثيرميدور';
+
+  @override
+  String get currentLocation => 'الموقع الحالي';
+
+  @override
+  String get hotCoolSpot => 'أكثر الأماكن رواجاً';
+
+  @override
+  String get change => 'تغيير';
+
+  @override
+  String get add => 'إضافة';
+
+  @override
+  String get cardHolderName => 'اسم حامل البطاقة';
+
+  @override
+  String get yourDeliveryHero => 'بطل التوصيل الخاص بك';
+
+  @override
+  String get writeYourMessage => 'اكتب رسالتك';
+
+  @override
+  String get orderId => 'رقم الطلب';
+
+  @override
+  String get liveTrack => 'تتبع مباشر';
+
+  @override
+  String get profile => 'الملف الشخصي';
+
+  @override
+  String get myAccount => 'حسابي';
+
+  @override
+  String get personalInfo => 'المعلومات الشخصية';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get privacyPolicy => 'سياسة الخصوصية';
+
+  @override
+  String get setting => 'الإعدادات';
+
+  @override
+  String get notifications => 'الإشعارات';
+
+  @override
+  String get pushNotifications => 'إشعارات فورية';
+
+  @override
+  String get promoNotifications => 'إشعارات العروض';
+
+  @override
+  String get more => 'المزيد';
+
+  @override
+  String get helpCenter => 'مركز المساعدة';
+
+  @override
+  String get logout => 'تسجيل الخروج';
+
+  @override
+  String get username => 'اسم المستخدم';
+
+  @override
+  String get address => 'العنوان';
+
+  @override
+  String get update => 'تحديث';
+
+  @override
+  String get home => 'الرئيسية';
+
+  @override
+  String get favorites => 'المفضلة';
+
+  @override
+  String get history => 'السجل';
+
+  @override
+  String get dontHaveAccount => 'ليس لديك حساب؟';
+
+  @override
+  String get signUp => 'إنشاء حساب';
+
+  @override
+  String get alreadyHaveAccount => 'هل لديك حساب بالفعل؟';
+
+  @override
+  String get backToLogin => 'العودة إلى صفحة تسجيل الدخول؟';
+
+  @override
+  String get send => 'إرسال';
+
+  @override
+  String get enterEmailOrPhone => 'أدخل بريدك الإلكتروني أو رقم الهاتف وسنرسل لك رابطًا للعودة إلى حسابك';
+
+  @override
+  String get codeSent => 'تم إرسال رمز مكوّن من 4 أرقام إلى بريدك الإلكتروني. الرجاء إدخاله للتحقق.';
+
+  @override
+  String get verify => 'تحقق';
+
+  @override
+  String get tryCurrentPassword => 'هل تريد المحاولة باستخدام كلمة المرور الحالية؟';
+
+  @override
+  String get burger => 'برغر';
+
+  @override
+  String get all => 'الكل';
+
+  @override
+  String get pizza => 'بيتزا';
+
+  @override
+  String get sandwich => 'ساندويتش';
+
+  @override
+  String get searchMenu => 'ابحث في القائمة، المطاعم أو غيرها';
+
+  @override
+  String get promoText => 'جرّب طبقنا الجديد اللذيذ بخصم 30%';
+
+  @override
+  String get topRated => 'الأعلى تقييماً';
+
+  @override
+  String get chickenBurger => 'برغر دجاج';
+
+  @override
+  String get chickenBurgerDesc => '100 غرام دجاج + طماطم + جبنة + خس';
+
+  @override
+  String get cheeseBurger => 'برغر جبنة';
+
+  @override
+  String get cheeseBurgerDesc => '100 غرام لحم + بصل + طماطم + خس + جبنة';
+
+  @override
+  String get recommend => 'موصى به';
+
+  @override
+  String get viewAll => 'عرض الكل';
+
+  @override
+  String get pepperoniPizza => 'بيتزا ببروني';
+
+  @override
+  String get pizzaDesc => 'بيتزا ببروني، بيتزا مارجريتا، مطبخ إيطالي، طماطم';
+
+  @override
+  String get pizzaCheese => 'بيتزا جبنة';
+
+  @override
+  String get pizzaTags => 'طعام، بيتزا، طبق، مطبخ، وجبات سريعة، خبز مسطح، مكونات';
+
+  @override
+  String get peppyPaneer => 'بيبّي بانير';
+
+  @override
+  String get peppyPaneerDesc => 'قطع بانير مع فلفل رومي مقرمش وفلفل أحمر حار';
+
+  @override
+  String get mexicanGreenWave => 'الموجة الخضراء المكسيكية';
+
+  @override
+  String get mexicanGreenWaveDesc => 'بيتزا مليئة بالبصل المقرمش، الفلفل الحلو، والطماطم الشهية';
+
+  @override
+  String get read => 'مقروء';
+
+  @override
+  String get unread => 'غير مقروء';
+
+  @override
+  String get delayedOrder => 'نعتذر! طلبك متأخر. التوقيت الجديد: 10:30 مساءً. شكرًا لصبرك!';
+
+  @override
+  String get promoOffer => 'جائع لشيء لذيذ؟ 🍔 احصل على خصم 20% على طلبك القادم. استخدم الكود: YUMMY20.';
+
+  @override
+  String get outForDelivery => 'طلبك في الطريق! 🚗 الوصول المتوقع: 15 دقيقة. جهّز نفسك!';
+
+  @override
+  String get orderConfirmation => 'تم استلام طلبك! 🍔 نحن نحضّره الآن. تتبع الطلب مباشرة!';
+
+  @override
+  String get delivered => 'استمتع بوجبتك! 🍕 تم تسليم الطلب. قيّم تجربتك!';
+
+  @override
+  String get removeFromFavorites => 'هل أنت متأكد أنك تريد حذفه من المفضلة؟';
+
+  @override
+  String get yes => 'نعم';
+
+  @override
+  String get cheeseburgerWendys => 'برغر الجبنة من وينديز';
+
+  @override
+  String get loremDescription => 'لا توجد استجابة محددة، هذا نص تجريبي يستخدم لأغراض العرض فقط.';
+
+  @override
+  String get spicy => 'حار';
+
+  @override
+  String get quantity => 'الكمية';
+
+  @override
+  String get mild => 'خفيف';
+
+  @override
+  String get hot => 'شديد الحرارة';
+
+  @override
+  String get track => 'تتبع';
 }

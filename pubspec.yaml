@@ -128,9 +128,12 @@ flutter_intl:
   arb-dir: lib/l10n
   template-arb-file: app_en.arb
   output-localization-file: app_localizations.dart
+  
 # Alternative l10n configuration for internationalization with flutter_localizations
 flutter_localizations:
   l10n:
     arb-dir: lib/l10n
     template-arb-file: app_en.arb
     output-localization-file: app_localizations.dart
+
+

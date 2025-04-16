@@ -4,6 +4,7 @@ import 'package:foodtek_project/view/screens/auth/forgetpass/forgot_password_scr
 import 'package:foodtek_project/view/screens/auth/signup_screen.dart';
 import 'package:foodtek_project/view/screens/main_screen.dart';
 import 'package:foodtek_project/view/widgets/auth/social_button_widget.dart';
+import 'package:foodtek_project/extensions/l10n_extension.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
