@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/responsive.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:foodtek_project/view/widgets/auth/forgetpass/congrate_widget.dart';
 
@@ -53,15 +54,15 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Text(
-                    "Reset Password",
+                  Text(AppLocalizations.of(context)!.resetPassword
+                    ,
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      Text(
-                        "Want to try with my current password?",
+                      Text(AppLocalizations.of(context)!.
+                        tryCurrentPassword,
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.grey, fontSize: 12),
                       ),
@@ -74,8 +75,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                             ),
                           );
                         },
-                        child: const Text(
-                          " login",
+                        child:  Text(AppLocalizations.of(context)!.login,
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.green,
@@ -88,13 +88,13 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   const SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "Password",
+                      labelText: AppLocalizations.of(context)!.password,
                       alignLabelWithHint: true,
                     ),
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "Confirm New Password",
+                      labelText:AppLocalizations.of(context)!.confirmNewPassword,
                       alignLabelWithHint: true,
                     ),
                   ),
@@ -118,7 +118,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         ),
                       ),
                       child: Text(
-                        "Update Password",
+                      AppLocalizations.of(context)!.updatePassword,
                         style: TextStyle(fontSize: 14, color: Colors.white),
                       ),
                     ),

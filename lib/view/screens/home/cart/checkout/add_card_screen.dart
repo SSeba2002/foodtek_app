@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class AddCardScreen extends StatefulWidget {
   const AddCardScreen({super.key});
@@ -16,7 +17,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Card'),
+        title: Text(AppLocalizations.of(context)!.addCard),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -73,7 +74,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Card Holder name',
+                            AppLocalizations.of(context)!.cardHolderName,
                             style: TextStyle(color: Colors.white70, fontSize: 12),
                           ),
                           Text(
@@ -86,7 +87,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Expiry Date',
+                              AppLocalizations.of(context)!.expiryDate,
                             style: TextStyle(color: Colors.white70, fontSize: 12),
                           ),
                           Text(
@@ -103,7 +104,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
             SizedBox(height: 24),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Name',
+                labelText:   AppLocalizations.of(context)!.name,
                 border: OutlineInputBorder(),
               ),
               onChanged: (value) {
@@ -115,7 +116,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
             SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Card Number',
+                labelText:  AppLocalizations.of(context)!.cardNumber,
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(Icons.credit_card),
               ),
@@ -132,7 +133,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      labelText: 'Expiry',
+                      labelText:   AppLocalizations.of(context)!.expiry,
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.datetime,
@@ -147,7 +148,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      labelText: 'CVC',
+                      labelText:   AppLocalizations.of(context)!.cvc,
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.number,
@@ -158,7 +159,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
             SizedBox(height: 16),
             Center(
               child: Text(
-                'We will send you an order details to your email after the successful payment',
+                  AppLocalizations.of(context)!.paymentSuccessMessage,
                 style: TextStyle(color: Colors.grey, fontSize: 12),
                 textAlign: TextAlign.center,
               ),
@@ -177,7 +178,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 ),
                 icon: Icon(Icons.payment, color: Colors.white),
                 label: Text(
-                  'Pay for the order',
+                    AppLocalizations.of(context)!.payForOrder,
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),

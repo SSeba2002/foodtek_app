@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 
 class CongrateWidget extends StatefulWidget {
@@ -77,16 +78,16 @@ class _CongrateWidgetState extends State<CongrateWidget>
                 ),
               ),
               SizedBox(height: 20.h),
-              Text(
-                'Congratulations!',
+              Text(AppLocalizations.of(context)!.
+                congrats,
                 style: TextStyle(
                   fontSize: 32.sp,
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
                 ),
               ),
-              Text(
-                'Password reset successfully',
+              Text(AppLocalizations.of(context)!.
+                passwordResetSuccess,
                 style: TextStyle(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w200,

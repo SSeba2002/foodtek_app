@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/home/cart/cart_screen.dart';
 import 'package:foodtek_project/view/screens/home/history/history_screen.dart';
 import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
@@ -68,7 +69,7 @@ class _CartPageState extends State<MainCartPage>
                   child: Column(
                     children: [
                       Text(
-                        "Cart",
+                        AppLocalizations.of(context)!.cart,
                         style: TextStyle(
                           color:
                               _tabController.index == 0
@@ -100,7 +101,7 @@ class _CartPageState extends State<MainCartPage>
                   child: Column(
                     children: [
                       Text(
-                        "History",
+                        AppLocalizations.of(context)!.history,
                         style: TextStyle(
                           color:
                               _tabController.index == 1

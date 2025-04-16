@@ -221,6 +221,12 @@ abstract class AppLocalizations {
   /// **'Full Name'**
   String get fullName;
 
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
   /// No description provided for @dob.
   ///
   /// In en, this message translates to:
@@ -238,6 +244,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register'**
   String get register;
+
+  /// No description provided for @setPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Password'**
+  String get setPassword;
 
   /// No description provided for @resetPassword.
   ///
@@ -473,12 +485,6 @@ abstract class AppLocalizations {
   /// **'Add Card'**
   String get addCard;
 
-  /// No description provided for @name.
-  ///
-  /// In en, this message translates to:
-  /// **'Name'**
-  String get name;
-
   /// No description provided for @cardNumber.
   ///
   /// In en, this message translates to:
@@ -491,11 +497,35 @@ abstract class AppLocalizations {
   /// **'Expiry'**
   String get expiry;
 
-  /// No description provided for @cvv.
+  /// No description provided for @cvc.
   ///
   /// In en, this message translates to:
-  /// **'CVV'**
-  String get cvv;
+  /// **'CVC'**
+  String get cvc;
+
+  /// No description provided for @paymentSuccessMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We will send you an order details to your email after the successful payment'**
+  String get paymentSuccessMessage;
+
+  /// No description provided for @expiryDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry Date'**
+  String get expiryDate;
+
+  /// No description provided for @locationAccessRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'You need to allow location access'**
+  String get locationAccessRequired;
+
+  /// No description provided for @locationPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission is permanently denied. Enable it from settings.'**
+  String get locationPermissionDenied;
 
   /// No description provided for @payForOrder.
   ///
@@ -509,11 +539,23 @@ abstract class AppLocalizations {
   /// **'Your Order Done Successfully'**
   String get orderSuccess;
 
+  /// No description provided for @orderTrackingScreenContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Order tracking screen content'**
+  String get orderTrackingScreenContent;
+
   /// No description provided for @orderNote.
   ///
   /// In en, this message translates to:
-  /// **'you will get your order within 12min. thanks for using our services'**
+  /// **'you will get your order within'**
   String get orderNote;
+
+  /// No description provided for @thanks.
+  ///
+  /// In en, this message translates to:
+  /// **'thanks for using our services'**
+  String get thanks;
 
   /// No description provided for @trackOrder.
   ///
@@ -827,6 +869,36 @@ abstract class AppLocalizations {
   /// **'Send'**
   String get send;
 
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
+
+  /// No description provided for @enterYourEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email '**
+  String get enterYourEmail;
+
+  /// No description provided for @enterStrongPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Strong Password'**
+  String get enterStrongPassword;
+
+  /// No description provided for @enterValidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Valid Email'**
+  String get enterValidEmail;
+
+  /// No description provided for @enterYourPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Password'**
+  String get enterYourPassword;
+
   /// No description provided for @enterEmailOrPhone.
   ///
   /// In en, this message translates to:
@@ -910,6 +982,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cheese burger'**
   String get cheeseBurger;
+
+  /// No description provided for @cheeseSandwich.
+  ///
+  /// In en, this message translates to:
+  /// **'Cheese Sandwich'**
+  String get cheeseSandwich;
 
   /// No description provided for @cheeseBurgerDesc.
   ///

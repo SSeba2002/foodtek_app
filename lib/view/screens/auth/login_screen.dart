@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/responsive.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/auth/forgetpass/forgot_password_screen.dart';
 import 'package:foodtek_project/view/screens/auth/signup_screen.dart';
 import 'package:foodtek_project/view/screens/main_screen.dart';
 import 'package:foodtek_project/view/widgets/auth/social_button_widget.dart';
-import 'package:foodtek_project/extensions/l10n_extension.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             Center(
                               child: Text(
-                                'Login',
+                                AppLocalizations.of(context)!.login,
                                 style: TextStyle(
                                   fontSize: 32,
 
@@ -79,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Text(
-                                  "Don’t have an account?",
+                                Text(AppLocalizations.of(context)!.
+                                  dontHaveAccount,
                                   style: TextStyle(fontSize: 12),
                                 ),
                                 InkWell(
@@ -93,8 +93,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                     );
                                   },
-                                  child: const Text(
-                                    " Sign Up",
+                                  child:  Text(AppLocalizations.of(context)!.
+                                    signUp,
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.green,
@@ -105,8 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               ],
                             ),
                             const SizedBox(height: 20),
-                            const Text(
-                              "Email",
+                             Text(
+                            AppLocalizations.of(context)!.
+                            email,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,
@@ -120,14 +121,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 //  label: const Text("Email"),
-                                hintText: "Enter Your Email",
+                                hintText: AppLocalizations.of(context)!.enterYourEmail,
                                 errorText:
-                                    showErrorEmail ? "Enter Valid Email" : null,
+                                    showErrorEmail ? AppLocalizations.of(context)!.enterValidEmail : null,
                               ),
                             ),
                             const SizedBox(height: 15),
-                            const Text(
-                              "Password",
+                            Text(AppLocalizations.of(context)!.password,
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,
@@ -150,10 +150,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 //  label: const Text("Password"),
-                                hintText: "Enter Your Password",
+                                hintText: AppLocalizations.of(context)!.enterYourPassword,
                                 errorText:
                                     showErrorPassword
-                                        ? "Enter Strong Password"
+                                        ? AppLocalizations.of(context)!.enterStrongPassword
                                         : null,
                                 suffixIcon: IconButton(
                                   onPressed: () {
@@ -186,8 +186,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                         });
                                       },
                                     ),
-                                    const Text(
-                                      "Remember Me",
+                                    Text(AppLocalizations.of(context)!.
+                                      rememberMe,
                                       style: TextStyle(fontSize: 11),
                                     ),
                                   ],
@@ -202,8 +202,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                     );
                                   },
-                                  child: const Text(
-                                    "Forgot Password?",
+                                  child: Text(AppLocalizations.of(context)!.
+                                    forgotPassword,
                                     style: TextStyle(
                                       fontSize: 11,
                                       color: Colors.green,
@@ -250,8 +250,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     1,
                                   ),
                                 ),
-                                child: const Text(
-                                  "Login",
+                                child:  Text(AppLocalizations.of(context)!.
+                                  login,
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.white,
@@ -265,12 +265,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Row(
                                   children: [
                                     const Expanded(child: Divider()),
-                                    const Padding(
+                                   Padding(
                                       padding: EdgeInsets.symmetric(
                                         horizontal: 10,
                                       ),
                                       child: Text(
-                                        "Or",
+                                        AppLocalizations.of(context)!.or,
                                         style: TextStyle(color: Colors.grey),
                                       ),
                                     ),
@@ -281,7 +281,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 // Google Button
                                 SocialButton(
                                   imagePath: "assets/icons/google.png",
-                                  text: "Continue with Google",
+                                  text: AppLocalizations.of(context)!.continueWithGoogle,
                                   onPressed: () {
                                     // Handle Google Sign-in
                                   },
@@ -291,7 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 // Facebook Button
                                 SocialButton(
                                   imagePath: "assets/icons/facebook.png",
-                                  text: "Continue with Facebook",
+                                  text:AppLocalizations.of(context)!.continueWithFacebook,
                                   onPressed: () {
                                     // Handle Facebook Sign-in
                                   },
@@ -301,7 +301,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 // Apple Button
                                 SocialButton(
                                   imagePath: "assets/icons/apple.png",
-                                  text: "Continue with Apple",
+                                  text: AppLocalizations.of(context)!.continueWithApple,
                                   onPressed: () {
                                     // Handle Apple Sign-in
                                   },

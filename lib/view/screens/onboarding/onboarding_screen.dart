@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/constant/onboarding_data.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
@@ -87,7 +87,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
-              child: Text("Skip", style: TextStyle(color: Colors.black)),
+              child: Text( AppLocalizations.of(context)!.skip, style: TextStyle(color: Colors.black)),
             ),
             Center(
               // the three dots in the middle

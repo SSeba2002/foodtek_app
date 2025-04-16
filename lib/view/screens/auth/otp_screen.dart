@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/screens/auth/forgetpass/reset_password_screen.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -53,8 +54,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           width: 151.w,
                           height: 151.h,
                         ),
-                        Text(
-                          'A 4-digit code has been sent t your email.\n    please enter it to verify.     ',
+                        Text(AppLocalizations.of(context)!.codeSent,
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 12.sp,
@@ -111,8 +111,8 @@ class _OtpScreenState extends State<OtpScreen> {
                             ),
                             backgroundColor: Colors.green,
                           ),
-                          child: Text(
-                            'Verify',
+                          child: Text(AppLocalizations.of(context)!.verify
+                            ,
                             style: TextStyle(
                               fontSize: 15.sp,
                               fontWeight: FontWeight.w600,

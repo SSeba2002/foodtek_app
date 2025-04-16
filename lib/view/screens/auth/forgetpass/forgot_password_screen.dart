@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/responsive.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:foodtek_project/view/screens/auth/otp_screen.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen.ForgetPasswordScreen({super.key});
@@ -54,8 +55,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: const Text(
-                            "Back to Login Page?",
+                          child:Text(AppLocalizations.of(context)!.
+                            backToLogin,
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.green,
@@ -68,22 +69,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Text(
-                    "Reset Password",
+                  Text(AppLocalizations.of(context)!.
+                    resetPassword,
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 10),
-                  Text(
-                    "Enter your E-mail or phone and we'll\n"
-                    "send you a link to get back into\n"
-                    "your account",
+                  Text(AppLocalizations.of(context)!.
+                    enterEmailOrPhone,
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
-                      labelText: "Email",
+                      labelText: AppLocalizations.of(context)!.email,
                       alignLabelWithHint: true,
                     ),
                   ),
@@ -105,7 +104,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         ),
                       ),
                       child: Text(
-                        "Send",
+                        AppLocalizations.of(context)!.send,
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),

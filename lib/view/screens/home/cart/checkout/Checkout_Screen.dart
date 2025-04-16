@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
 import '../../../../widgets/cart/price_details_widget.dart';
 import 'package:foodtek_project/view/screens/home/cart/checkout/map_screen.dart';
@@ -37,7 +38,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Checkout',
+                  AppLocalizations.of(context)!.checkout,
                   style: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w600,
@@ -49,7 +50,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Pay with:',
+                    AppLocalizations.of(context)!.payWith,
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
@@ -119,7 +120,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               TextButton(
                 onPressed: _goToMapScreen,
                 child: Text(
-                  'Change',
+                  AppLocalizations.of(context)!.change,
                   style: TextStyle(
                     color: Colors.green,
                     fontSize: 14.sp,
@@ -138,7 +139,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Promo code?',
+          AppLocalizations.of(context)!.promoCode,
           style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
         ),
         SizedBox(height: 10.h),
@@ -178,7 +179,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 child: TextButton(
                   onPressed: () {},
                   child: Text(
-                    'Add',
+                    AppLocalizations.of(context)!.add,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 12.sp,
@@ -199,14 +200,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Pay with:',
+          AppLocalizations.of(context)!.payWith,
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
         SizedBox(height: 8.h),
         Row(
           children: [
             Radio(
-              value: 'card',
+              value: AppLocalizations.of(context)!.card,
               groupValue: paymentMethod,
               onChanged: (value) {
                 setState(() {
@@ -221,7 +222,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               }),
             ),
             Text(
-              'Card',
+              AppLocalizations.of(context)!.card,
               style: TextStyle(
                 color: paymentMethod == 'card' ? Colors.black : Colors.grey,
                 fontSize: 16.sp,
@@ -229,7 +230,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             ),
             SizedBox(width: 20.w),
             Radio(
-              value: 'cash',
+              value: AppLocalizations.of(context)!.cash,
               groupValue: paymentMethod,
               onChanged: (value) {
                 setState(() {
@@ -261,7 +262,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Card type:',
+          AppLocalizations.of(context)!.cardType,
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
         SizedBox(height: 8.h),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -20,7 +21,7 @@ class _LocationScreenState extends State<LocationScreen> {
       if (permission == LocationPermission.denied) {
         // If the user denies permission, show a message
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("You need to allow location access.")),
+          SnackBar(content: Text(AppLocalizations.of(context)!.locationAccessRequired)),
         );
         return;
       }
@@ -31,7 +32,7 @@ class _LocationScreenState extends State<LocationScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            "Location permission is permanently denied. Enable it from settings.",
+          AppLocalizations.of(context)!.locationPermissionDenied,
           ),
         ),
       );
@@ -56,7 +57,7 @@ class _LocationScreenState extends State<LocationScreen> {
       body: Center(
         child: ElevatedButton(
           onPressed: _turnOnLocation,
-          child: Text("Yes, Turn It On"),
+          child: Text(AppLocalizations.of(context)!.turnOn),
         ),
       ),
     );

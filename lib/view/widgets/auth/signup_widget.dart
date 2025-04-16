@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -118,7 +119,7 @@ class _SignupWidgetState extends State<SignupWidget> {
               ),
               SizedBox(height: 5.h),
               Text(
-                'Sign Up',
+                AppLocalizations.of(context)!.signUp,
                 style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w700),
               ),
             ],
@@ -127,7 +128,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           Row(
             children: [
               Text(
-                'Already have an account?',
+                AppLocalizations.of(context)!.alreadyHaveAccount,
                 style: TextStyle(fontSize: 14.sp, color: Colors.grey),
               ),
               SizedBox(width: 5.w),
@@ -139,7 +140,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                   );
                 },
                 child: Text(
-                  'Login',
+                  AppLocalizations.of(context)!.login,
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: Colors.green,
@@ -152,7 +153,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           SizedBox(height: 10.h),
           // Full Name Field
           Text(
-            'Full Name',
+            AppLocalizations.of(context)!.fullName,
             style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
@@ -169,7 +170,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           SizedBox(height: 10.h),
           // Email Field
           Text(
-            'Email',
+            AppLocalizations.of(context)!.email,
             style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
@@ -187,7 +188,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           SizedBox(height: 10.h),
           // Birth Date Field
           Text(
-            'Birth Date',
+            AppLocalizations.of(context)!.dob,
             style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
@@ -207,7 +208,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           SizedBox(height: 10.h),
           // Phone Number Field
           Text(
-            'Phone Number',
+            AppLocalizations.of(context)!.phoneNumber,
             style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
@@ -252,7 +253,7 @@ class _SignupWidgetState extends State<SignupWidget> {
           SizedBox(height: 10.h),
           // Password Field
           Text(
-            'Set Password',
+            AppLocalizations.of(context)!.setPassword,
             style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 5.h),
@@ -303,7 +304,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                 ),
               ),
               child: Text(
-                'Register',
+                AppLocalizations.of(context)!.register,
                 style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w400),
               ),
             ),

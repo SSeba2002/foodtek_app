@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/main_screens/home_screen_data.dart';
 import 'package:foodtek_project/data/cart_item_list.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 import 'package:foodtek_project/model/category_model.dart';
 import 'package:foodtek_project/view/screens/home/home/item_details_screen.dart';
@@ -50,10 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // Icons for each category
                   Map<String, String> categoryIcons = {
-                    "All": "",
-                    "Burger": "🍔",
-                    "Pizza": "🍕",
-                    "Sandwich": "🌭",
+                    AppLocalizations.of(context)!.all: "",
+                    AppLocalizations.of(context)!.burger: "🍔",
+                    AppLocalizations.of(context)!.pizza: "🍕",
+                    AppLocalizations.of(context)!.sandwich: "🌭",
                   };
 
                   return GestureDetector(
@@ -108,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ViewAllTitleRow(
-                  title: "Top Rated",
+                  title: AppLocalizations.of(context)!.topRated,
                   onView: () {},
                   vis: false,
                 ),
@@ -185,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ViewAllTitleRow(
-                  title: "Recommended",
+                  title: AppLocalizations.of(context)!.recommended,
                   onView: () {},
                   vis: true,
                 ),

@@ -72,6 +72,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fullName => 'Full Name';
 
   @override
+  String get name => 'Name';
+
+  @override
   String get dob => 'Date of Birth';
 
   @override
@@ -79,6 +82,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get register => 'Register';
+
+  @override
+  String get setPassword => 'Set Password';
 
   @override
   String get resetPassword => 'Reset Password';
@@ -198,16 +204,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addCard => 'Add Card';
 
   @override
-  String get name => 'Name';
-
-  @override
   String get cardNumber => 'Card Number';
 
   @override
   String get expiry => 'Expiry';
 
   @override
-  String get cvv => 'CVV';
+  String get cvc => 'CVC';
+
+  @override
+  String get paymentSuccessMessage => 'We will send you an order details to your email after the successful payment';
+
+  @override
+  String get expiryDate => 'Expiry Date';
+
+  @override
+  String get locationAccessRequired => 'You need to allow location access';
+
+  @override
+  String get locationPermissionDenied => 'Location permission is permanently denied. Enable it from settings.';
 
   @override
   String get payForOrder => 'Pay for the order';
@@ -216,7 +231,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orderSuccess => 'Your Order Done Successfully';
 
   @override
-  String get orderNote => 'you will get your order within 12min. thanks for using our services';
+  String get orderTrackingScreenContent => 'Order tracking screen content';
+
+  @override
+  String get orderNote => 'you will get your order within';
+
+  @override
+  String get thanks => 'thanks for using our services';
 
   @override
   String get trackOrder => 'track Your Order';
@@ -375,6 +396,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get send => 'Send';
 
   @override
+  String get or => 'Or';
+
+  @override
+  String get enterYourEmail => 'Enter your email ';
+
+  @override
+  String get enterStrongPassword => 'Enter Strong Password';
+
+  @override
+  String get enterValidEmail => 'Enter Valid Email';
+
+  @override
+  String get enterYourPassword => 'Enter Your Password';
+
+  @override
   String get enterEmailOrPhone => 'Enter your E-mail or phone and we\'ll send you a link to get back into your account';
 
   @override
@@ -415,6 +451,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cheeseBurger => 'Cheese burger';
+
+  @override
+  String get cheeseSandwich => 'Cheese Sandwich';
 
   @override
   String get cheeseBurgerDesc => '100 gr meat + onion + tomato + Lettuce + cheese';
