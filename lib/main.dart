@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/constant/theme.dart';
+import 'package:foodtek_project/view/screens/auth/forgetpass/forgot_password_screen.dart';
+import 'package:foodtek_project/view/screens/auth/forgetpass/reset_password_screen.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
+import 'package:foodtek_project/view/screens/auth/signup_screen.dart';
+import 'package:foodtek_project/view/screens/home/history/history_screen.dart';
+import 'package:foodtek_project/view/screens/home/home/Product_Detail_screen.dart';
+import 'package:foodtek_project/view/screens/home/home/home_screen.dart';
+import 'package:foodtek_project/view/screens/home/home/item_details_screen.dart';
 import 'package:foodtek_project/view/screens/main_screen.dart';
 import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -48,7 +55,7 @@ class _MyAppState extends State<MyApp> {
           supportedLocales: const [Locale('en'), Locale('ar')],
           debugShowCheckedModeBanner: false,
           title: 'FoodTek',
-          home: LoginScreen(),
+          home: SignUpScreen(),
           //SplashScreen(setLocale: setLocale),
           builder: (context, child) {
             return Directionality(
