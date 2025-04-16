@@ -11,7 +11,6 @@ class SignUpScreen extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image
           Container(
             width: 1.sw,
             height: 0.35.sh,
@@ -27,7 +26,7 @@ class SignUpScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(18.w),
               child: SizedBox(
-                width: 340.w, // Set the card width
+                width: 340.w,
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.r),
