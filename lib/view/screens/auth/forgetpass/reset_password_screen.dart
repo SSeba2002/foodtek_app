@@ -13,7 +13,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   bool obscureText = true;
   TextEditingController passwordTextEditingController = TextEditingController();
   TextEditingController confirmNewPasswordTextEditingController =
-      TextEditingController();
+  TextEditingController();
   bool showErrorPassword = false;
 
   @override
@@ -27,106 +27,103 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             fit: BoxFit.cover,
           ),
         ),
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: responsiveWidth(context, 343),
-              height: responsiveHeight(context, 417.3),
-              padding: const EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
-                color: Theme.of(context).cardColor,
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.arrow_back),
-                        const SizedBox(width: 5),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    "Reset Password",
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
+        child: Center(
+          child: Container(
+            width: responsiveWidth(context, 343),
+            padding: const EdgeInsets.all(20.0),
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        "Want to try with my current password?",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey, fontSize: 12),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const LoginScreen(),
-                            ),
-                          );
-                        },
-                        child: const Text(
-                          " login",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.green,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                      Icon(Icons.arrow_back),
+                      const SizedBox(width: 5),
                     ],
                   ),
-                  const SizedBox(height: 20),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "Password",
-                      alignLabelWithHint: true,
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  "Reset Password",
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Want to try with my current password?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "Confirm New Password",
-                      alignLabelWithHint: true,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    width: responsiveWidth(context, 295),
-                    height: responsiveHeight(context, 48),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (context) => CongrateWidget(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
                         );
                       },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromRGBO(37, 174, 75, 1),
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                      child: const Text(
+                        " login",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      child: Text(
-                        "Update Password",
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Password",
+                    alignLabelWithHint: true,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Confirm New Password",
+                    alignLabelWithHint: true,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: responsiveWidth(context, 295),
+                  height: responsiveHeight(context, 48),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) => CongrateWidget(),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(37, 174, 75, 1),
+                      padding: EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
+                    child: Text(
+                      "Update Password",
+                      style: TextStyle(fontSize: 14, color: Colors.white),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
