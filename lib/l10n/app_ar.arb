@@ -26,7 +26,6 @@
   "passwordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
   "deliveredOrder": "تم توصيل الطلب",
   "promotionalOrder": "عرض ترويجي",
-
   "filter": "تصفية",
   "addToCart": "أضف إلى السلة",
   "min": "الحد الأدنى",
@@ -40,7 +39,6 @@
   "payWith": "ادفع عبر:",
   "promoCode": "هل لديك رمز خصم؟",
   "enterPromo": "أدخل رمز الخصم هنا",
-  "add": "إضافة",
   "card": "بطاقة",
   "cash": "نقدًا",
   "cardType": "نوع البطاقة:",
@@ -60,17 +58,32 @@
   "trackOrder": "تتبع طلبك",
   "onTheWay": "في الطريق",
   "cart": "السلة",
-
   "onionPizza": "بيتزا بالبصل",
   "spicyShawarma": "شاورما حارة",
-
   "loadMore": "عرض المزيد…",
   "cartEmpty": "السلة فارغة",
   "cartEmptyMsg": "لا توجد عناصر في السلة حالياً",
   "historyEmpty": "لا يوجد محفوظات",
   "historyEmptyMsg": "لم تقم بأي طلب سابقاً",
   "delete": "حذف",
+  "seaFood": "مأكولات بحرية",
+  "dessert": "حلويات",
+  "fastFood": "وجبات سريعة",
+  "dish": "طبق",
+  "spicyCrabCakes": "فطائر السلطعون الحارة",
+  "tunaTartare": "تارتار التونة",
+  "seafoodPaella": "باييلا المأكولات البحرية",
+  "clamChowder": "شوربة المحار",
+  "misoGlazedCod": "سمك القد بطبقة الميسو",
+  "lobsterThermidor": "لوبستر ثيرميدور",
   "currentLocation": "الموقع الحالي",
+  "hotCoolSpot": "أكثر الأماكن رواجاً",
+  "change": "تغيير",
+  "add": "إضافة",
+  "cardHolderName": "اسم حامل البطاقة",
+  "yourDeliveryHero": "بطل التوصيل الخاص بك",
+  "writeYourMessage": "اكتب رسالتك",
+  "orderId": "رقم الطلب",
   "orderPicked": "تم استلام الطلب",
   "chat": "الدردشة",
   "orderDetails": "تفاصيل الطلب",
@@ -148,6 +161,4 @@
   "mild": "خفيف",
   "hot": "شديد الحرارة",
   "track": "تتبع"
-
-
 }
