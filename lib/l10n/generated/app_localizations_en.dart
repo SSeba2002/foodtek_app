@@ -39,6 +39,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get turnOn => 'Yes, Turn it On';
 
   @override
+  String get skip => 'Skip';
+
+  @override
   String get login => 'Login';
 
   @override

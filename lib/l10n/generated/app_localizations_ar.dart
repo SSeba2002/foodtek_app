@@ -15,7 +15,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get welcome => 'مرحبًا بك في فودتيك';
 
   @override
-  String get welcomeSubtitle => 'استمتع بتوصيل طعام سريع وسلس إلى باب منزلك';
+  String get welcomeSubtitle => 'استمتع بتوصيل الطعام بشكل سريع وسلس إلى باب منزلك';
 
   @override
   String get getDelivery => 'احصل على التوصيل في الوقت المحدد';
@@ -37,6 +37,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get turnOn => 'نعم، فعّله';
+
+  @override
+  String get skip => 'تخطي';
 
   @override
   String get login => 'تسجيل الدخول';

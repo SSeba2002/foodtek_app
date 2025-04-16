@@ -1,7 +1,7 @@
 {
   "splashTitle": "فودتيك",
   "welcome": "مرحبًا بك في فودتيك",
-  "welcomeSubtitle": "استمتع بتوصيل طعام سريع وسلس إلى باب منزلك",
+  "welcomeSubtitle": "استمتع بتوصيل الطعام بشكل سريع وسلس إلى باب منزلك",
   "getDelivery": "احصل على التوصيل في الوقت المحدد",
   "getDeliverySubtitle": "اطلب طعامك المفضل من راحة يدك وفي نطاق راحتك",
   "chooseFood": "اختر طعامك",
@@ -9,6 +9,7 @@
   "turnOnLocation": "فعّل الموقع",
   "turnOnLocationSubtitle": "للمتابعة، اسمح لجهازك بتفعيل الموقع الذي يستخدم خدمة الموقع من Google",
   "turnOn": "نعم، فعّله",
+  "skip":"تخطي",
   "signup": "إنشاء حساب",
   "rememberMe": "تذكرني",
   "forgotPassword": "هل نسيت كلمة المرور؟",
