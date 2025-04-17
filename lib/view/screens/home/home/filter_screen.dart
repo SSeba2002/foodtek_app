@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
 
 class FilterScreen extends StatefulWidget {
@@ -50,7 +51,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       ),
                       SizedBox(width: 6.w),
                       Text(
-                        'Filter',
+                        AppLocalizations.of(context)!.filter,
                         style: TextStyle(
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w600,
@@ -60,7 +61,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   ),
                   SizedBox(height: 15.h),
                   Text(
-                    'Price Range',
+                    AppLocalizations.of(context)!.priceRange,
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
@@ -73,7 +74,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       Expanded(
                         child: TextField(
                           decoration: InputDecoration(
-                            labelText: 'Min',
+                            labelText: AppLocalizations.of(context)!.min,
                             labelStyle: TextStyle(fontSize: 12.sp),
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -101,7 +102,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       Expanded(
                         child: TextField(
                           decoration: InputDecoration(
-                            labelText: 'Max',
+                            labelText: AppLocalizations.of(context)!.max,
                             labelStyle: TextStyle(fontSize: 12.sp),
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -172,7 +173,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   ),
                   SizedBox(height: 24.h),
                   Text(
-                    'Discount',
+                    AppLocalizations.of(context)!.discount,
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
@@ -185,7 +186,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       Expanded(
                         child: TextField(
                           decoration: InputDecoration(
-                            labelText: 'Min',
+                            labelText: AppLocalizations.of(context)!.min,
                             labelStyle: TextStyle(fontSize: 12.sp),
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -205,7 +206,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       Expanded(
                         child: TextField(
                           decoration: InputDecoration(
-                            labelText: 'Max',
+                            labelText: AppLocalizations.of(context)!.max,
                             labelStyle: TextStyle(fontSize: 12.sp),
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -265,7 +266,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   ),
                   SizedBox(height: 22.h),
                   Text(
-                    'Category',
+                    AppLocalizations.of(context)!.category,
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
@@ -278,57 +279,57 @@ class _FilterScreenState extends State<FilterScreen> {
                     children: [
                       FilterChip(
                         label: Text(
-                          'Fast Food',
+                          AppLocalizations.of(context)!.fastFood,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedCategories.contains('Fast Food'),
+                        selected: _selectedCategories.contains(AppLocalizations.of(context)!.fastFood),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedCategories.add('Fast Food');
+                              _selectedCategories.add(AppLocalizations.of(context)!.fastFood);
                             } else {
-                              _selectedCategories.remove('Fast Food');
+                              _selectedCategories.remove(AppLocalizations.of(context)!.fastFood);
                             }
                           });
                         },
                       ),
                       FilterChip(
                         label: Text(
-                          'Sea Food',
+                          AppLocalizations.of(context)!.seaFood,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedCategories.contains('Sea Food'),
+                        selected: _selectedCategories.contains(AppLocalizations.of(context)!.seaFood),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedCategories.add('Sea Food');
+                              _selectedCategories.add(AppLocalizations.of(context)!.seaFood);
                             } else {
-                              _selectedCategories.remove('Sea Food');
+                              _selectedCategories.remove(AppLocalizations.of(context)!.seaFood);
                             }
                           });
                         },
                       ),
                       FilterChip(
                         label: Text(
-                          'Dessert',
+                          AppLocalizations.of(context)!.dessert,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedCategories.contains('Dessert'),
+                        selected: _selectedCategories.contains(AppLocalizations.of(context)!.dessert),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedCategories.add('Dessert');
+                              _selectedCategories.add(AppLocalizations.of(context)!.dessert);
                             } else {
-                              _selectedCategories.remove('Dessert');
+                              _selectedCategories.remove(AppLocalizations.of(context)!.dessert);
                             }
                           });
                         },
@@ -337,7 +338,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   ),
                   SizedBox(height: 22.h),
                   Text(
-                    'Location',
+                    AppLocalizations.of(context)!.location,
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
@@ -400,7 +401,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   ),
                   SizedBox(height: 22.h),
                   Text(
-                    'Dish',
+                    AppLocalizations.of(context)!.dish,
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,
@@ -413,114 +414,114 @@ class _FilterScreenState extends State<FilterScreen> {
                     children: [
                       FilterChip(
                         label: Text(
-                          'Tuna Tartare',
+                          AppLocalizations.of(context)!.tunaTartare,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains('Tuna Tartare'),
+                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.tunaTartare),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add('Tuna Tartare');
+                              _selectedDishes.add(AppLocalizations.of(context)!.tunaTartare);
                             } else {
-                              _selectedDishes.remove('Tuna Tartare');
+                              _selectedDishes.remove(AppLocalizations.of(context)!.tunaTartare);
                             }
                           });
                         },
                       ),
                       FilterChip(
                         label: Text(
-                          'Spicy Crab Cakes',
+                          AppLocalizations.of(context)!.spicyCrabCakes,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains('Spicy Crab Cakes'),
+                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.spicyCrabCakes),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add('Spicy Crab Cakes');
+                              _selectedDishes.add(AppLocalizations.of(context)!.spicyCrabCakes);
                             } else {
-                              _selectedDishes.remove('Spicy Crab Cakes');
+                              _selectedDishes.remove(AppLocalizations.of(context)!.spicyCrabCakes);
                             }
                           });
                         },
                       ),
                       FilterChip(
                         label: Text(
-                          'Seafood Paella',
+                          AppLocalizations.of(context)!.seafoodPaella,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains('Seafood Paella'),
+                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.seafoodPaella),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add('Seafood Paella');
+                              _selectedDishes.add(AppLocalizations.of(context)!.seafoodPaella);
                             } else {
-                              _selectedDishes.remove('Seafood Paella');
+                              _selectedDishes.remove(AppLocalizations.of(context)!.seafoodPaella);
                             }
                           });
                         },
                       ),
                       FilterChip(
                         label: Text(
-                          'Clam Chowder',
+                          AppLocalizations.of(context)!.clamChowder,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains('Clam Chowder'),
+                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.clamChowder),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add('Clam Chowder');
+                              _selectedDishes.add(AppLocalizations.of(context)!.clamChowder);
                             } else {
-                              _selectedDishes.remove('Clam Chowder');
+                              _selectedDishes.remove(AppLocalizations.of(context)!.clamChowder);
                             }
                           });
                         },
                       ),
                       FilterChip(
                         label: Text(
-                          'Miso-Glazed Cod',
+                          AppLocalizations.of(context)!.misoGlazedCod,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains('Miso-Glazed Cod'),
+                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.misoGlazedCod),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add('Miso-Glazed Cod');
+                              _selectedDishes.add(AppLocalizations.of(context)!.misoGlazedCod);
                             } else {
-                              _selectedDishes.remove('Miso-Glazed Cod');
+                              _selectedDishes.remove(AppLocalizations.of(context)!.misoGlazedCod);
                             }
                           });
                         },
                       ),
                       FilterChip(
                         label: Text(
-                          'Lobster Thermidor',
+                          AppLocalizations.of(context)!.lobsterThermidor,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains('Lobster Thermidor'),
+                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.lobsterThermidor),
                         selectedColor: Color(0xFF25AE4B),
                         backgroundColor: Colors.grey[200],
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add('Lobster Thermidor');
+                              _selectedDishes.add(AppLocalizations.of(context)!.lobsterThermidor);
                             } else {
-                              _selectedDishes.remove('Lobster Thermidor');
+                              _selectedDishes.remove(AppLocalizations.of(context)!.lobsterThermidor);
                             }
                           });
                         },

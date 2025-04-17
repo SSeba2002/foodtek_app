@@ -1348,6 +1348,9 @@ abstract class AppLocalizations {
   String get dark ;
 
 
+  String get priceRange ;
+
+
 
   /// No description provided for @deliveringto.
   ///

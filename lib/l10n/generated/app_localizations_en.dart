@@ -671,4 +671,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get deliveringto => 'Delivering to';
 
+  @override
+  String get priceRange => 'priceRange';
+
 }
