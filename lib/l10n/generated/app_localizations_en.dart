@@ -15,29 +15,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get welcome => 'Welcome To Foodtek';
 
   @override
-  String get welcomeSubtitle =>
-      'Enjoy a Fast And Smooth Food Delivery At Your Doorstep';
+  String get welcomeSubtitle => 'Enjoy a Fast And Smooth Food Delivery At Your Doorstep';
 
   @override
   String get getDelivery => 'Get Delivery On Time';
 
   @override
-  String get getDeliverySubtitle =>
-      'Order Your Favorite Food Within The Palm Of Your Hand And The Zone Of Your Comfort';
+  String get getDeliverySubtitle => 'Order Your Favorite Food Within The Palm Of Your Hand And The Zone Of Your Comfort';
 
   @override
   String get chooseFood => 'Choose Your Food';
 
   @override
-  String get chooseFoodSubtitle =>
-      'Order Your Favorite Food Within The Palm Of Your Hand And The Zone Of Your Comfort';
+  String get chooseFoodSubtitle => 'Order Your Favorite Food Within The Palm Of Your Hand And The Zone Of Your Comfort';
 
   @override
   String get turnOnLocation => 'Turn On Your Location';
 
   @override
-  String get turnOnLocationSubtitle =>
-      'To Continue, Let Your Device Turn On Location, Which Uses Google’s Location Service';
+  String get turnOnLocationSubtitle => 'To Continue, Let Your Device Turn On Location, Which Uses Google’s Location Service';
 
   @override
   String get turnOn => 'Yes, Turn it On';
@@ -238,8 +234,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cvc => 'CVC';
 
   @override
-  String get paymentSuccessMessage =>
-      'We will send you an order details to your email after the successful payment';
+  String get paymentSuccessMessage => 'We will send you an order details to your email after the successful payment';
 
   @override
   String get expiryDate => 'Expiry Date';
@@ -248,8 +243,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get locationAccessRequired => 'You need to allow location access';
 
   @override
-  String get locationPermissionDenied =>
-      'Location permission is permanently denied. Enable it from settings.';
+  String get locationPermissionDenied => 'Location permission is permanently denied. Enable it from settings.';
 
   @override
   String get payForOrder => 'Pay for the order';
@@ -438,15 +432,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterYourPassword => 'Enter Your Password';
 
   @override
-  String get enterEmailOrPhone =>
-      'Enter your E-mail or phone and we\'ll send you';
+  String get enterEmailOrPhone => 'Enter your E-mail or phone and we\'ll send you';
 
   @override
   String get willSent => 'a link to get back into your account';
 
   @override
-  String get codeSent =>
-      'A 4-digit code has been sent to your email. Please enter it to verify.';
+  String get codeSent => 'A 4-digit code has been sent to your email. Please enter it to verify.';
 
   @override
   String get verify => 'Verify';
@@ -491,8 +483,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cheeseSandwich => 'Cheese Sandwich';
 
   @override
-  String get cheeseBurgerDesc =>
-      '100 gr meat + onion + tomato + Lettuce + cheese';
+  String get cheeseBurgerDesc => '100 gr meat + onion + tomato + Lettuce + cheese';
 
   @override
   String get recommend => 'Recommend';
@@ -504,29 +495,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pepperoniPizza => 'Pepperoni pizza';
 
   @override
-  String get pizzaDesc =>
-      'Pepperoni pizza, Margarita Pizza, Margherita Italian cuisine, Tomato';
+  String get pizzaDesc => 'Pepperoni pizza, Margarita Pizza, Margherita Italian cuisine, Tomato';
 
   @override
   String get pizzaCheese => 'Pizza Cheese';
 
   @override
-  String get pizzaTags =>
-      'Food, pizza, dish, cuisine, junk food, Fast Food, Flatbread, Ingredient';
+  String get pizzaTags => 'Food, pizza, dish, cuisine, junk food, Fast Food, Flatbread, Ingredient';
 
   @override
   String get peppyPaneer => 'Peppy Paneer';
 
   @override
-  String get peppyPaneerDesc =>
-      'Chunky paneer with crisp capsicum and spicy red pepper';
+  String get peppyPaneerDesc => 'Chunky paneer with crisp capsicum and spicy red pepper';
 
   @override
   String get mexicanGreenWave => 'Mexican Green Wave';
 
   @override
-  String get mexicanGreenWaveDesc =>
-      'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes';
+  String get mexicanGreenWaveDesc => 'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes';
 
   @override
   String get read => 'Read';
@@ -535,28 +522,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unread => 'Unread';
 
   @override
-  String get delayedOrder =>
-      'We’re sorry! Your order is running late. New ETA: 10:30 PM. Thanks for your patience!';
+  String get delayedOrder => 'We’re sorry! Your order is running late. New ETA: 10:30 PM. Thanks for your patience!';
 
   @override
-  String get promoOffer =>
-      'Craving something delicious? 🍔 Get 20% off on your next order. Use code: YUMMY20.';
+  String get promoOffer => 'Craving something delicious? 🍔 Get 20% off on your next order. Use code: YUMMY20.';
 
   @override
-  String get outForDelivery =>
-      'Your order is on the way! 🚗 Estimated arrival: 15 mins. Stay hungry!';
+  String get outForDelivery => 'Your order is on the way! 🚗 Estimated arrival: 15 mins. Stay hungry!';
 
   @override
-  String get orderConfirmation =>
-      'Your order has been placed! 🍔 We\'re preparing it now. Track your order live!';
+  String get orderConfirmation => 'Your order has been placed! 🍔 We\'re preparing it now. Track your order live!';
 
   @override
-  String get delivered =>
-      'Enjoy your meal! 🍕 Your order has been delivered. Rate your experience!';
+  String get delivered => 'Enjoy your meal! 🍕 Your order has been delivered. Rate your experience!';
 
   @override
-  String get removeFromFavorites =>
-      'Are you sure you want to remove it from favorites?';
+  String get removeFromFavorites => 'Are you sure you want to remove it from favorites?';
 
   @override
   String get yes => 'Yes';
@@ -565,8 +546,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cheeseburgerWendys => 'Cheeseburger Wendy\'s Burger';
 
   @override
-  String get loremDescription =>
-      'Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum.';
+  String get loremDescription => 'Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum.';
 
   @override
   String get spicy => 'Spicy';
@@ -584,8 +564,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get track => 'Track';
 
   @override
-  String get wanttotrywithmycurrentpassword =>
-      'Want to try with my current password?';
+  String get wanttotrywithmycurrentpassword => 'Want to try with my current password?';
 
   @override
   String get chooseyourlanguage => 'Choose your language';
@@ -597,8 +576,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get locationPermissionsDenied => 'Location permissions are denied';
 
   @override
-  String get locationPermissionsPermanentlyDenied =>
-      'Location permissions are permanently denied';
+  String get locationPermissionsPermanentlyDenied => 'Location permissions are permanently denied';
 
   @override
   String get fetchingLocation => 'Fetching location...';
@@ -610,16 +588,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get spicyChickenBurger => 'Spicy Chicken Burger';
 
   @override
-  String get spicyChickenSandwich =>
-      '100 gr spicy chicken + tomato + cheese + Lettuce';
+  String get spicyChickenSandwich => '100 gr spicy chicken + tomato + cheese + Lettuce';
 
   @override
-  String get shawarma_full_description =>
-      'A mouth-watering spicy shawarma with fresh vegetables and our special garlic sauce, wrapped in warm bread.';
+  String get shawarma_full_description => 'A mouth-watering spicy shawarma with fresh vegetables and our special garlic sauce, wrapped in warm bread.';
 
   @override
-  String get shawarma_short_description =>
-      'Delicious spicy shawarma with special sauce';
+  String get shawarma_short_description => 'Delicious spicy shawarma with special sauce';
 
   @override
   String get reorder => 'Reorder';
@@ -634,60 +609,61 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deliveringTo => 'Delivering to';
 
   @override
-  String get calculating => "Calculating...";
-  @override
-  String get allDetails => "All Details";
+  String get calculating => 'Calculating...';
 
   @override
-  String get orderPlaced => "Order Placed";
+  String get allDetails => 'All Details';
 
   @override
-  String get arrived => "Arrived";
+  String get orderPlaced => 'Order Placed';
 
   @override
-  String get yourLocation => "yourLocation";
+  String get arrived => 'Arrived';
 
   @override
-  String get orderNumber => "#9579-6432";
+  String get yourLocation => 'your Location';
 
   @override
-  String get deliveryTime => "25m";
+  String get orderNumber => '#9579-6432';
 
   @override
-  String get deliveryPersonName => "Aleksandr V.";
+  String get deliveryTime => '25m';
 
   @override
-  String get deliveryPersonRating => "4.9";
+  String get deliveryPersonName => 'Aleksandr V.';
 
   @override
-  String get deliveryAddress => "123 Al-Madina Street, Abdali, Amman, Jordan";
+  String get deliveryPersonRating => '4.9';
 
   @override
-  String get userName => "userName";
+  String get deliveryAddress => '123 Al-Madina Street, Abdali, Amman, Jordan';
 
   @override
-  String get userEmail => "userEmail";
+  String get userName => 'Ahmad Daboor';
 
   @override
-  String get theme => "theme";
+  String get userEmail => 'ahmad1709@gmail.com';
 
   @override
-  String get chooseLanguage => "chooseLanguage";
+  String get theme => 'Theme';
 
   @override
-  String get english => "english";
+  String get chooseLanguage => 'Choose Language';
 
   @override
-  String get light => "light";
+  String get english => 'English';
 
   @override
-  String get arabic => "arabic";
+  String get light => 'Light';
 
   @override
-  String get chooseTheme => "chooseTheme";
+  String get arabic => 'Arabic';
 
   @override
-  String get dark => "dark";
+  String get chooseTheme => 'Choose Theme';
+
+  @override
+  String get dark => 'Dark';
 
   @override
   String get deliveringto => 'Delivering to';
