@@ -226,6 +226,7 @@
   "chooseTheme": "Choose Theme",
   "dark": "Dark",
   "deliveringto":"Delivering to",
-  "currentLocation":"Current Location"
+  "currentLocation":"Current Location",
+  "priceRange": "priceRange"
 
 }

@@ -667,4 +667,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deliveringto => 'التوصيل الى';
+
+  @override
+  String get priceRange => 'نطاق السعر';
 }
