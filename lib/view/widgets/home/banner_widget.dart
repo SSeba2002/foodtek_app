@@ -3,6 +3,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/theme.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PromoBanner extends StatefulWidget {
@@ -73,8 +74,8 @@ class _PromoBannerState extends State<PromoBanner> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Text(
-                                    "Experience our delicious new dish",
+                                  Text(
+                                    AppLocalizations.of(context)!.promoTextone,
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 14,
@@ -82,8 +83,8 @@ class _PromoBannerState extends State<PromoBanner> {
                                     ),
                                   ),
                                   const SizedBox(height: 5),
-                                  const Text(
-                                    "30% OFF",
+                                  Text(
+                                    AppLocalizations.of(context)!.off30,
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 24,

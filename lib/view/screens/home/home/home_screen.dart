@@ -27,10 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
     // ignore: unused_local_variable
     List<Category> filteredItems = // to filter the items
         selectedCategory == null || selectedCategory == "All"
-            ? allItems
-            : allItems
-                .where((item) => item.title.contains(selectedCategory!))
-                .toList();
+            ? allItems(context)
+            : allItems(
+              context,
+            ).where((item) => item.title.contains(selectedCategory!)).toList();
 
     return Scaffold(
       // backgroundColor: Colors.white,
@@ -43,11 +43,13 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 50,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: categories.length,
+                itemCount: categories(context).length,
                 itemBuilder: (context, index) {
                   bool isSelected =
-                      selectedCategory == categories[index] ||
-                      (categories[index] == "All" && selectedCategory == null);
+                      selectedCategory == categories(context)[index] ||
+                      (categories(context)[index] ==
+                              AppLocalizations.of(context)!.all &&
+                          selectedCategory == null);
 
                   // Icons for each category
                   Map<String, String> categoryIcons = {
@@ -61,9 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       setState(() {
                         selectedCategory =
-                            categories[index] == "All"
+                            categories(context)[index] ==
+                                    AppLocalizations.of(context)!.all
                                 ? null
-                                : categories[index];
+                                : categories(context)[index];
                       });
                     },
                     child: Container(
@@ -79,15 +82,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child: Row(
                         children: [
-                          if (categoryIcons[categories[index]]!.isNotEmpty) ...[
+                          if (categoryIcons[categories(context)[index]]!
+                              .isNotEmpty) ...[
                             Text(
-                              categoryIcons[categories[index]]!,
+                              categoryIcons[categories(context)[index]]!,
                               style: TextStyle(fontSize: 16),
                             ),
                             SizedBox(width: 5),
                           ],
                           Text(
-                            categories[index],
+                            categories(context)[index],
                             style: TextStyle(fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -120,36 +124,38 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: topRatedItems.length,
+                    itemCount: topRatedItems(context).length,
                     itemBuilder: (context, index) {
                       return CategoryCell(
                         onAddTap: () {
-                          cartItems.add(topRatedItems[index]);
+                          cartItems.add(topRatedItems(context)[index]);
                           print(
                             "تمت الاضاااافة =============================================${cartItems[0].title}",
                           );
                           setState(() {});
                         },
                         isRecommended: false,
-                        cObj: topRatedItems[index].title,
-                        image: topRatedItems[index].image,
-                        price: topRatedItems[index].price,
-                        rating: topRatedItems[index].rating,
-                        description: topRatedItems[index].description,
+                        cObj: topRatedItems(context)[index].title,
+                        image: topRatedItems(context)[index].image,
+                        price: topRatedItems(context)[index].price,
+                        rating: topRatedItems(context)[index].rating,
+                        description: topRatedItems(context)[index].description,
                         onTap: () {
                           PersistentNavBarNavigator.pushNewScreen(
                             context,
                             screen: ItemDetailsScreen(
-                              name: topRatedItems[index].title,
-                              image: topRatedItems[index].image,
-                              price: topRatedItems[index].price,
+                              name: topRatedItems(context)[index].title,
+                              image: topRatedItems(context)[index].image,
+                              price: topRatedItems(context)[index].price,
                               // Example price list
-                              description: topRatedItems[index].description,
+                              description:
+                                  topRatedItems(context)[index].description,
                               // Example description list
-                              rating: topRatedItems[index].rating,
+                              rating: topRatedItems(context)[index].rating,
                               id:
-                                  topRatedItems[index]
-                                      .id, // Example ratings list
+                                  topRatedItems(
+                                    context,
+                                  )[index].id, // Example ratings list
                             ),
                             withNavBar:
                                 false, // OPTIONAL VALUE. True by default.

@@ -143,7 +143,8 @@
   "pizza": "Pizza",
   "sandwich": "Sandwich",
   "searchMenu": "Search menu, restaurant or etc",
-  "promoText": "Experience our delicious new dish 30% OFF",
+  "promoTextone": "Experience our delicious new dish 30% OFF",
+  "off30": "30% OFF",
   "topRated": "Top Rated",
   "chickenBurger": "Chicken burger",
   "chickenBurgerDesc": "100 gr chicken + tomato + cheese + Lettuce",
@@ -177,5 +178,7 @@
   "hot": "Hot",
   "track": "Track",
   "wanttotrywithmycurrentpassword":"Want to try with my current password?",
-  "chooseyourlanguage":"Choose your language"
+  "chooseyourlanguage":"Choose your language",
+  "deliveringto":"Delivering to",
+  "currentLocation":"Current Location"
 }

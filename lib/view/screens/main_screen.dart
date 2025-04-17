@@ -55,7 +55,7 @@ class MainScreenState extends State<MainScreen> {
                           ? AppColors.primaryColor
                           : Colors.grey,
                 ),
-        title: bottomNavLabels[index],
+        title: bottomNavLabels(context)[index],
         textStyle: TextStyle(
           color:
               index == _controller.index ? AppColors.primaryColor : Colors.grey,
