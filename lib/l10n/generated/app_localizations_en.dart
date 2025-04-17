@@ -300,7 +300,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lobsterThermidor => 'Lobster Thermidor';
 
   @override
-  String get currentLocation => 'Current location';
+  String get currentLocation => 'Current Location';
 
   @override
   String get hotCoolSpot => 'Hot Cool Spot';
@@ -441,7 +441,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get searchMenu => 'Search menu, restaurant or etc';
 
   @override
-  String get promoText => 'Experience our delicious new dish 30% OFF';
+  String get promoTextone => 'Experience our delicious new dish 30% OFF';
+
+  @override
+  String get off30 => '30% OFF';
 
   @override
   String get topRated => 'Top Rated';
@@ -544,6 +547,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chooseyourlanguage => 'Choose your language';
+  
   @override
   String get calculating => "Calculating...";
   @override
@@ -603,5 +607,8 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get dark => "dark";
 
+
+  @override
+  String get deliveringto => 'Delivering to';
 
 }

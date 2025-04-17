@@ -680,7 +680,7 @@ abstract class AppLocalizations {
   /// No description provided for @currentLocation.
   ///
   /// In en, this message translates to:
-  /// **'Current location'**
+  /// **'Current Location'**
   String get currentLocation;
 
   /// No description provided for @hotCoolSpot.
@@ -959,11 +959,17 @@ abstract class AppLocalizations {
   /// **'Search menu, restaurant or etc'**
   String get searchMenu;
 
-  /// No description provided for @promoText.
+  /// No description provided for @promoTextone.
   ///
   /// In en, this message translates to:
   /// **'Experience our delicious new dish 30% OFF'**
-  String get promoText;
+  String get promoTextone;
+
+  /// No description provided for @off30.
+  ///
+  /// In en, this message translates to:
+  /// **'30% OFF'**
+  String get off30;
 
   /// No description provided for @topRated.
   ///
@@ -1222,6 +1228,13 @@ abstract class AppLocalizations {
 
   String get dark ;
 
+
+
+  /// No description provided for @deliveringto.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivering to'**
+  String get deliveringto;
 
 }
 

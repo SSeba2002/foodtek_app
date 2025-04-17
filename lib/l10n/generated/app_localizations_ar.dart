@@ -441,7 +441,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get searchMenu => 'ابحث في القائمة، المطاعم أو غيرها';
 
   @override
-  String get promoText => 'جرّب طبقنا الجديد اللذيذ بخصم 30%';
+  String get promoTextone => 'جرّب طبقنا الجديد اللذيذ بخصم';
+
+  @override
+  String get off30 => '30% خصم';
 
   @override
   String get topRated => 'الأعلى تقييماً';
@@ -603,6 +606,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dark => "غامق";
 
 
-
-
+ @override
+  String get deliveringto => 'التوصيل الى';
 }
