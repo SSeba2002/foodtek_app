@@ -27,7 +27,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale _locale = const Locale('en'); // default lang
+  Locale _locale = const Locale('en');
 
   void setLocale(Locale locale) {
     setState(() {
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
                   darkTheme: AppTheme.darkTheme,
                   themeMode: state.themeMode,
 
-                  locale: _locale, // The language selected by the user
+                  locale: _locale,
                   localizationsDelegates: const [
                     AppLocalizations.delegate,
                     GlobalMaterialLocalizations.delegate,
