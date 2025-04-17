@@ -225,6 +225,7 @@
   "chooseTheme": "اختر السمة",
   "dark": "غامق",
   "deliveringto":"التوصيل الى",
-  "currentLocation":"الموقع الحالي"
+  "currentLocation":"الموقع الحالي",
+  "priceRange" : "نطاق السعر"
 
 }
