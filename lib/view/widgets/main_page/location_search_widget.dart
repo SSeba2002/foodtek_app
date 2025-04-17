@@ -67,7 +67,8 @@ class _LocationNotificationSrearchState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        AppLocalizations.of(context)!.deliveringto,
+                      AppLocalizations.of(context)!.deliveringTo,
+                        
                         style: TextStyle(
                           //  color: AppColors.onBoardingtextColor,
                           fontSize: 11,

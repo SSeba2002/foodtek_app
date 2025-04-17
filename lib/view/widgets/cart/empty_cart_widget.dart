@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class EmptyCartWidget extends StatelessWidget {
   const EmptyCartWidget({super.key});
@@ -20,7 +21,7 @@ class EmptyCartWidget extends StatelessWidget {
             ),
             SizedBox(height: 18.h),
             Text(
-              'Cart Empty',
+              AppLocalizations.of(context)!.cartEmpty,
               style: TextStyle(
                 fontSize: 32.sp,
                 fontWeight: FontWeight.w700,
@@ -30,7 +31,7 @@ class EmptyCartWidget extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Text(
-                'You don\'t have add any foods in cart at this time',
+                AppLocalizations.of(context)!.cartEmptyMsg,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16.sp,

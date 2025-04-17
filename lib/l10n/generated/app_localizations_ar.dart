@@ -15,25 +15,29 @@ class AppLocalizationsAr extends AppLocalizations {
   String get welcome => 'مرحبًا بك في فودتيك';
 
   @override
-  String get welcomeSubtitle => 'استمتع بتوصيل الطعام بشكل سريع وسلس إلى باب منزلك';
+  String get welcomeSubtitle =>
+      'استمتع بتوصيل الطعام بشكل سريع وسلس إلى باب منزلك';
 
   @override
   String get getDelivery => 'احصل على التوصيل في الوقت المحدد';
 
   @override
-  String get getDeliverySubtitle => 'اطلب طعامك المفضل من راحة يدك وفي نطاق راحتك';
+  String get getDeliverySubtitle =>
+      'اطلب طعامك المفضل من راحة يدك وفي نطاق راحتك';
 
   @override
   String get chooseFood => 'اختر طعامك';
 
   @override
-  String get chooseFoodSubtitle => 'اطلب طعامك المفضل من راحة يدك وفي نطاق راحتك';
+  String get chooseFoodSubtitle =>
+      'اطلب طعامك المفضل من راحة يدك وفي نطاق راحتك';
 
   @override
   String get turnOnLocation => 'فعّل الموقع';
 
   @override
-  String get turnOnLocationSubtitle => 'للمتابعة، اسمح لجهازك بتفعيل الموقع الذي يستخدم خدمة الموقع من Google';
+  String get turnOnLocationSubtitle =>
+      'للمتابعة، اسمح لجهازك بتفعيل الموقع الذي يستخدم خدمة الموقع من Google';
 
   @override
   String get turnOn => 'نعم، فعّله';
@@ -70,6 +74,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get fullName => 'الاسم الكامل';
+
+  @override
+  String get nomanManzoor => 'نعمان منصور';
+
+  @override
+  String get alJamaaStreet => 'شارع الجامعة ';
+
+  @override
+  String get addLocation => 'ضف الموقع ';
 
   @override
   String get name => 'الاسم';
@@ -147,6 +160,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get promoCode => 'هل لديك رمز خصم؟';
 
   @override
+  String get findYourLocation => 'جد موقعك';
+
+  @override
+  String get selected => 'تم اختياره';
+
+  @override
   String get enterPromo => 'أدخل رمز الخصم هنا';
 
   @override
@@ -156,7 +175,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cash => 'نقدًا';
 
   @override
+  String get visa => 'بطاقة الفيزا';
+
+  @override
+  String get masterCard => 'ماستر كارد';
+
+  @override
   String get cardType => 'نوع البطاقة:';
+
+  @override
+  String get total => 'الإجمالي:';
 
   @override
   String get subTotal => 'المجموع الفرعي';
@@ -195,9 +223,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get discount => 'الخصم';
 
   @override
-  String get total => 'الإجمالي:';
-
-  @override
   String get placeOrder => 'تأكيد الطلب';
 
   @override
@@ -213,7 +238,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cvc => 'رمز التحقق';
 
   @override
-  String get paymentSuccessMessage => 'سوف نرسل تفاصيل الطلب إلى بريدك الإلكتروني بعد إتمام عملية الدفع بنجاح';
+  String get paymentSuccessMessage =>
+      'سوف نرسل تفاصيل الطلب إلى بريدك الإلكتروني بعد إتمام عملية الدفع بنجاح';
 
   @override
   String get expiryDate => 'تاريخ الانتهاء';
@@ -222,7 +248,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get locationAccessRequired => 'تحتاج إلى السماح بالوصول إلى الموقع.';
 
   @override
-  String get locationPermissionDenied => 'تم رفض إذن الموقع بشكل دائم. قم بتمكينه من الإعدادات.';
+  String get locationPermissionDenied =>
+      'تم رفض إذن الموقع بشكل دائم. قم بتمكينه من الإعدادات.';
 
   @override
   String get payForOrder => 'ادفع للطلب';
@@ -417,13 +444,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get willSent => 'سوف نرسل لك رابطًا للعودة إلى حسابك';
 
   @override
-  String get codeSent => 'تم إرسال رمز مكوّن من 4 أرقام إلى بريدك الإلكتروني. الرجاء إدخاله للتحقق.';
+  String get codeSent =>
+      'تم إرسال رمز مكوّن من 4 أرقام إلى بريدك الإلكتروني. الرجاء إدخاله للتحقق.';
 
   @override
   String get verify => 'تحقق';
 
   @override
-  String get tryCurrentPassword => 'هل تريد المحاولة باستخدام كلمة المرور الحالية؟';
+  String get tryCurrentPassword =>
+      'هل تريد المحاولة باستخدام كلمة المرور الحالية؟';
 
   @override
   String get burger => 'برغر';
@@ -480,7 +509,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pizzaCheese => 'بيتزا جبنة';
 
   @override
-  String get pizzaTags => 'طعام، بيتزا، طبق، مطبخ، وجبات سريعة، خبز مسطح، مكونات';
+  String get pizzaTags =>
+      'طعام، بيتزا، طبق، مطبخ، وجبات سريعة، خبز مسطح، مكونات';
 
   @override
   String get peppyPaneer => 'بيبّي بانير';
@@ -492,7 +522,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get mexicanGreenWave => 'الموجة الخضراء المكسيكية';
 
   @override
-  String get mexicanGreenWaveDesc => 'بيتزا مليئة بالبصل المقرمش، الفلفل الحلو، والطماطم الشهية';
+  String get mexicanGreenWaveDesc =>
+      'بيتزا مليئة بالبصل المقرمش، الفلفل الحلو، والطماطم الشهية';
 
   @override
   String get read => 'مقروء';
@@ -501,16 +532,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unread => 'غير مقروء';
 
   @override
-  String get delayedOrder => 'نعتذر! طلبك متأخر. التوقيت الجديد: 10:30 مساءً. شكرًا لصبرك!';
+  String get delayedOrder =>
+      'نعتذر! طلبك متأخر. التوقيت الجديد: 10:30 مساءً. شكرًا لصبرك!';
 
   @override
-  String get promoOffer => 'جائع لشيء لذيذ؟ 🍔 احصل على خصم 20% على طلبك القادم. استخدم الكود: YUMMY20.';
+  String get promoOffer =>
+      'جائع لشيء لذيذ؟ 🍔 احصل على خصم 20% على طلبك القادم. استخدم الكود: YUMMY20.';
 
   @override
-  String get outForDelivery => 'طلبك في الطريق! 🚗 الوصول المتوقع: 15 دقيقة. جهّز نفسك!';
+  String get outForDelivery =>
+      'طلبك في الطريق! 🚗 الوصول المتوقع: 15 دقيقة. جهّز نفسك!';
 
   @override
-  String get orderConfirmation => 'تم استلام طلبك! 🍔 نحن نحضّره الآن. تتبع الطلب مباشرة!';
+  String get orderConfirmation =>
+      'تم استلام طلبك! 🍔 نحن نحضّره الآن. تتبع الطلب مباشرة!';
 
   @override
   String get delivered => 'استمتع بوجبتك! 🍕 تم تسليم الطلب. قيّم تجربتك!';
@@ -525,7 +560,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cheeseburgerWendys => 'برغر الجبنة من وينديز';
 
   @override
-  String get loremDescription => 'لا توجد استجابة محددة، هذا نص تجريبي يستخدم لأغراض العرض فقط.';
+  String get loremDescription =>
+      'لا توجد استجابة محددة، هذا نص تجريبي يستخدم لأغراض العرض فقط.';
 
   @override
   String get spicy => 'حار';
@@ -543,70 +579,108 @@ class AppLocalizationsAr extends AppLocalizations {
   String get track => 'تتبع';
 
   @override
-  String get wanttotrywithmycurrentpassword => 'المحاولة بكلمة المرور الحالية ؟';
+  String get wanttotrywithmycurrentpassword =>
+      'المحاولة بكلمة المرور الحالية ؟';
 
   @override
   String get chooseyourlanguage => 'أختر لغتك';
 
   @override
-  String get calculating => 'يتم الحساب...';
+  String get locationServicesDisabled => 'خدمات الموقع غير مفعّلة';
 
   @override
-  String get allDetails => 'جميع التفاصيل';
+  String get locationPermissionsDenied => 'تم رفض أذونات الوصول إلى الموقع';
 
   @override
-  String get findYourLocation => 'ابحث عن موقعك';
+  String get locationPermissionsPermanentlyDenied =>
+      'تم رفض أذونات الموقع بشكل دائم';
 
   @override
-  String get orderPlaced => 'تم تقديم الطلب';
+  String get fetchingLocation => 'جارٍ تحديد الموقع...';
 
   @override
-  String get arrived => 'وصل';
+  String get failedToGetLocation => 'فشل في الحصول على الموقع:';
 
   @override
-  String get yourLocation => 'موقعك';
+  String get spicyChickenBurger => 'برجر دجاج حار';
 
   @override
-  String get orderNumber => '#٦٥٧٩-٦٤٣٢';
+  String get spicyChickenSandwich => '١٠٠ غرام دجاج حار + طماطم + جبن + خس';
 
   @override
-  String get deliveryTime => '٢٥ د';
+  String get shawarma_full_description =>
+      'شاورما حارة شهية مع خضروات طازجة وصلصة الثوم الخاصة بنا، ملفوفة في خبز دافئ.';
 
   @override
-  String get deliveryPersonName => 'اليكساندر';
+  String get shawarma_short_description => 'شاورما حارة لذيذة مع صلصة مميزة';
 
   @override
-  String get deliveryPersonRating => '٤.٩';
+  String get reorder => 'اعادة ترتيب';
 
   @override
-  String get deliveryAddress => '١٢٣-شارع المدينه ، العبدلي ,عمان ,الاردن';
+  String get tappedOn => 'تم النقر عليه';
 
   @override
-  String get userName => 'احمد دبور';
+  String get orderNow => 'اطلب الان ';
 
   @override
-  String get userEmail => 'ahmad1709@gmail.com';
+  String get deliveringTo => 'يتم التوصيل إلى';
 
   @override
-  String get theme => 'السمة';
+  String get calculating => "يتم الحساب...";
 
   @override
-  String get chooseLanguage => 'اختر اللغة';
+  String get allDetails => " جميع التفاصيل";
 
   @override
-  String get english => 'الإنجليزية';
+  String get orderPlaced => "تم تقديم الطلب";
+  @override
+  String get arrived => "وصل";
 
   @override
-  String get light => 'فاتح';
+  String get yourLocation => "موقعك";
 
   @override
-  String get arabic => 'العربية';
+  String get orderNumber => "#٦٥٧٩-٦٤٣٢";
 
   @override
-  String get chooseTheme => 'اختر السمة';
+  String get deliveryTime => "٢٥ د";
 
   @override
-  String get dark => 'غامق';
+  String get deliveryPersonName => "اليكساندر";
+
+  @override
+  String get deliveryPersonRating => "٤.٩";
+
+  @override
+  String get deliveryAddress => "١٢٣-شارع المدينه ، العبدلي ,عمان ,الاردن";
+
+  @override
+  String get userName => "احمد دبور";
+
+  @override
+  String get userEmail => "ahmad1709@gmail.com";
+
+  @override
+  String get theme => "السمة";
+
+  @override
+  String get chooseLanguage => "اختر اللغة";
+
+  @override
+  String get english => "الانجليزية";
+
+  @override
+  String get light => "فاتح";
+
+  @override
+  String get arabic => "العرية";
+
+  @override
+  String get chooseTheme => "اختر السمة";
+
+  @override
+  String get dark => "غامق";
 
   @override
   String get deliveringto => 'التوصيل الى';

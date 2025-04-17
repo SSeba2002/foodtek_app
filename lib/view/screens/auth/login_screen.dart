@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/constant/functions/theme_dialog.dart';
 import 'package:foodtek_project/constant/responsive.dart';
-import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/auth/forgetpass/forgot_password_screen.dart';
 import 'package:foodtek_project/view/screens/auth/signup_screen.dart';

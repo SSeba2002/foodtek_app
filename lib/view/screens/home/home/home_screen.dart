@@ -128,9 +128,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       return CategoryCell(
                         onAddTap: () {
-                          cartItems.add(topRatedItems(context)[index]);
+                          cartItems(context).add(topRatedItems(context)[index]);
+                          cartItems(context).add(topRatedItems(context)[index]);
+                          cartItems(context).add(topRatedItems(context)[index]);
                           print(
-                            "تمت الاضاااافة =============================================${cartItems[0].title}",
+                            "تمت الاضاااافة =============================================${cartItems(context)[0].title}",
                           );
                           setState(() {});
                         },

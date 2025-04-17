@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/home/cart/checkout/order_done_Screen.dart';
 
 class PriceDetailsWidget extends StatelessWidget {
@@ -49,19 +50,19 @@ class PriceDetailsWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildPaymentRow('Sub-Total', subtotal.toStringAsFixed(2)),
+          _buildPaymentRow(AppLocalizations.of(context)!.subTotal, subtotal.toStringAsFixed(2)),
           SizedBox(height: 2.h),
           _buildPaymentRow(
-            'Delivery Charge',
+            AppLocalizations.of(context)!.deliveryCharge,
             calculatedDelivery.toStringAsFixed(2),
           ),
           SizedBox(height: 2.h),
           _buildPaymentRow(
-            'Discount',
+            AppLocalizations.of(context)!.discount,
             '-${calculatedDiscount.toStringAsFixed(2)}',
           ),
           SizedBox(height: 2.h),
-          _buildPaymentRow('Total', total.toStringAsFixed(2), isTotal: true),
+          _buildPaymentRow(AppLocalizations.of(context)!.total, total.toStringAsFixed(2), isTotal: true),
           SizedBox(height: 14.h),
           SizedBox(
             height: 48.h,
@@ -85,7 +86,7 @@ class PriceDetailsWidget extends StatelessWidget {
               },
 
               child: Text(
-                'Place My Order',
+                AppLocalizations.of(context)!.placeOrder,
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w700,

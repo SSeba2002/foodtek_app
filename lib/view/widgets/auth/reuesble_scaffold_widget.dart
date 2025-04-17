@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/constant/theme.dart';
 
 class ReusableScaffold extends StatelessWidget {
   final Widget child;

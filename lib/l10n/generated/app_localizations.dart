@@ -221,6 +221,24 @@ abstract class AppLocalizations {
   /// **'Full Name'**
   String get fullName;
 
+  /// No description provided for @nomanManzoor.
+  ///
+  /// In en, this message translates to:
+  /// **'Noman Manzoor'**
+  String get nomanManzoor;
+
+  /// No description provided for @alJamaaStreet.
+  ///
+  /// In en, this message translates to:
+  /// **'Al jama‘a Street'**
+  String get alJamaaStreet;
+
+  /// No description provided for @addLocation.
+  ///
+  /// In en, this message translates to:
+  /// **' Add location'**
+  String get addLocation;
+
   /// No description provided for @name.
   ///
   /// In en, this message translates to:
@@ -371,10 +389,22 @@ abstract class AppLocalizations {
   /// **'Promo Code?'**
   String get promoCode;
 
+  /// No description provided for @findYourLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your location'**
+  String get findYourLocation;
+
+  /// No description provided for @selected.
+  ///
+  /// In en, this message translates to:
+  /// **'Selected'**
+  String get selected;
+
   /// No description provided for @enterPromo.
   ///
   /// In en, this message translates to:
-  /// **'Enter Promo here'**
+  /// **'Enter Your Promo'**
   String get enterPromo;
 
   /// No description provided for @card.
@@ -389,11 +419,29 @@ abstract class AppLocalizations {
   /// **'Cash'**
   String get cash;
 
+  /// No description provided for @visa.
+  ///
+  /// In en, this message translates to:
+  /// **'Visa'**
+  String get visa;
+
+  /// No description provided for @masterCard.
+  ///
+  /// In en, this message translates to:
+  /// **'mastercard'**
+  String get masterCard;
+
   /// No description provided for @cardType.
   ///
   /// In en, this message translates to:
   /// **'Card Type:'**
   String get cardType;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total:'**
+  String get total;
 
   /// No description provided for @subTotal.
   ///
@@ -466,12 +514,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Discount'**
   String get discount;
-
-  /// No description provided for @total.
-  ///
-  /// In en, this message translates to:
-  /// **'Total:'**
-  String get total;
 
   /// No description provided for @placeOrder.
   ///
@@ -1175,6 +1217,84 @@ abstract class AppLocalizations {
   /// **'Choose your language'**
   String get chooseyourlanguage;
 
+  /// No description provided for @locationServicesDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Location services are disabled'**
+  String get locationServicesDisabled;
+
+  /// No description provided for @locationPermissionsDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permissions are denied'**
+  String get locationPermissionsDenied;
+
+  /// No description provided for @locationPermissionsPermanentlyDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permissions are permanently denied'**
+  String get locationPermissionsPermanentlyDenied;
+
+  /// No description provided for @fetchingLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Fetching location...'**
+  String get fetchingLocation;
+
+  /// No description provided for @failedToGetLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to get location:'**
+  String get failedToGetLocation;
+
+  /// No description provided for @spicyChickenBurger.
+  ///
+  /// In en, this message translates to:
+  /// **'Spicy Chicken Burger'**
+  String get spicyChickenBurger;
+
+  /// No description provided for @spicyChickenSandwich.
+  ///
+  /// In en, this message translates to:
+  /// **'100 gr spicy chicken + tomato + cheese + Lettuce'**
+  String get spicyChickenSandwich;
+
+  /// No description provided for @shawarma_full_description.
+  ///
+  /// In en, this message translates to:
+  /// **'A mouth-watering spicy shawarma with fresh vegetables and our special garlic sauce, wrapped in warm bread.'**
+  String get shawarma_full_description;
+
+  /// No description provided for @shawarma_short_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Delicious spicy shawarma with special sauce'**
+  String get shawarma_short_description;
+
+  /// No description provided for @reorder.
+  ///
+  /// In en, this message translates to:
+  /// **'Reorder'**
+  String get reorder;
+
+  /// No description provided for @tappedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Tapped on'**
+  String get tappedOn;
+
+  /// No description provided for @orderNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Now'**
+  String get orderNow;
+
+  /// No description provided for @deliveringTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivering to'**
+  String get deliveringTo;
+
   /// No description provided for @calculating.
   ///
   /// In en, this message translates to:
@@ -1186,12 +1306,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All Details'**
   String get allDetails;
-
-  /// No description provided for @findYourLocation.
-  ///
-  /// In en, this message translates to:
-  /// **'Find your location'**
-  String get findYourLocation;
 
   /// No description provided for @orderPlaced.
   ///
