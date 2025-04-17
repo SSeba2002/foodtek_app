@@ -1,7 +1,7 @@
-// lib/screens/chat_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/model/chat_message_model.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -59,11 +59,13 @@ class _ChatScreenState extends State<ChatScreen> {
                     children: [
                       IconButton(
                         icon: Icon(Icons.arrow_back, color: Colors.black, size: 24.sp),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
                       SizedBox(width: 8.w),
                       Text(
-                        'Chat',
+                        AppLocalizations.of(context)!.chat, // Translated
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 20.sp,
@@ -168,12 +170,13 @@ class _ChatScreenState extends State<ChatScreen> {
             color: Colors.white,
             borderRadius: BorderRadius.circular(30.r),
             boxShadow: [
-            BoxShadow(
-            color: Colors.grey,
-            spreadRadius: 1,
-            blurRadius: 3,
-            offset: Offset(0, -1),
-            )],
+              BoxShadow(
+                color: Colors.grey,
+                spreadRadius: 1,
+                blurRadius: 3,
+                offset: Offset(0, -1),
+              )
+            ],
           ),
           child: Row(
             children: [
@@ -183,7 +186,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: TextField(
                     controller: _messageController,
                     decoration: InputDecoration(
-                      hintText: 'Write your message',
+                      hintText: AppLocalizations.of(context)!.writeYourMessage, // Translated
                       border: InputBorder.none,
                       hintStyle: TextStyle(
                         color: Color(0xFFA1A1A1),

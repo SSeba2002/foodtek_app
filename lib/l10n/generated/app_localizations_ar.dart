@@ -549,5 +549,63 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chooseyourlanguage => 'أختر لغتك';
 
   @override
+  String get calculating => "يتم الحساب...";
+
+  @override
+  String get allDetails => " جميع التفاصيل";
+  @override
+  String get findYourLocation => "بحث عن موقعك";
+  @override
+  String get orderPlaced => "تم تقديم الطلب";
+  @override
+  String get arrived => "وصل";
+
+  @override
+  String get yourLocation => "موقعك";
+
+  @override
+  String get orderNumber => "#٦٥٧٩-٦٤٣٢";
+
+  @override
+  String get deliveryTime => "٢٥ د";
+
+  @override
+  String get deliveryPersonName => "اليكساندر";
+
+  @override
+  String get deliveryPersonRating => "٤.٩";
+
+  @override
+  String get deliveryAddress => "١٢٣-شارع المدينه ، العبدلي ,عمان ,الاردن";
+
+  @override
+  String get userName => "احمد دبور";
+
+  @override
+  String get userEmail => "ahmad1709@gmail.com";
+
+  @override
+  String get theme => "السمة";
+
+  @override
+  String get chooseLanguage => "اختر اللغة";
+
+  @override
+  String get english => "الانجليزية";
+
+  @override
+  String get light => "فاتح";
+
+  @override
+  String get arabic => "العرية";
+
+  @override
+  String get chooseTheme => "اختر السمة";
+
+  @override
+  String get dark => "غامق";
+
+
+ @override
   String get deliveringto => 'التوصيل الى';
 }

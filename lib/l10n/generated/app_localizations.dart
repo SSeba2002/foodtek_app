@@ -1175,11 +1175,67 @@ abstract class AppLocalizations {
   /// **'Choose your language'**
   String get chooseyourlanguage;
 
+  String get calculating ;
+
+  String get allDetails;
+
+  String get  findYourLocation;
+
+  String get orderPlaced ;
+
+  String get   arrived;
+
+  String get yourLocation ;
+
+  String get orderNumber ;
+
+
+  String get deliveryTime ;
+
+
+  String get deliveryPersonName ;
+
+
+  String get deliveryPersonRating ;
+
+
+  String get deliveryAddress ;
+
+
+  String get userName ;
+
+
+  String get userEmail;
+
+
+  String get theme ;
+
+
+  String get chooseLanguage ;
+
+
+  String get english ;
+
+
+  String get light ;
+
+
+  String get arabic;
+
+
+  String get chooseTheme ;
+
+
+  String get dark ;
+
+
+
   /// No description provided for @deliveringto.
   ///
   /// In en, this message translates to:
   /// **'Delivering to'**
   String get deliveringto;
+
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
