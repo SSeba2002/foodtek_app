@@ -21,6 +21,9 @@
   "register": "تسجيل",
   "resetPassword": "إعادة تعيين كلمة المرور",
   "newPassword": "كلمة المرور الجديدة",
+  "nomanManzoor":"نعمان منصور",
+  "alJamaaStreet":"شارع الجامعة ",
+  "addLocation":"ضف الموقع ",
   "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
   "updatePassword": "تحديث كلمة المرور",
   "congrats": "تهانينا!",
@@ -43,7 +46,11 @@
   "enterPromo": "أدخل رمز الخصم هنا",
   "card": "بطاقة",
   "cash": "نقدًا",
+  "visa":"بطاقة الفيزا",
+  "masterCard":"ماستر كارد",
   "cardType": "نوع البطاقة:",
+  "findYourLocation":"جد موقعك",
+  "selected":"تم اختياره",
   "subTotal": "المجموع الفرعي",
   "deliveryCharge": "رسوم التوصيل",
   "discount": "الخصم",
@@ -177,6 +184,22 @@
   "hot": "شديد الحرارة",
   "track": "تتبع",
   "wanttotrywithmycurrentpassword":"المحاولة بكلمة المرور الحالية ؟",
-  "chooseyourlanguage":"أختر لغتك"
+  "chooseyourlanguage":"أختر لغتك",
+  "locationServicesDisabled": "خدمات الموقع غير مفعّلة",
+"locationPermissionsDenied": "تم رفض أذونات الوصول إلى الموقع",
+"locationPermissionsPermanentlyDenied": "تم رفض أذونات الموقع بشكل دائم",
+"fetchingLocation": "جارٍ تحديد الموقع...",
+"failedToGetLocation": "فشل في الحصول على الموقع:",
+"spicyChickenBurger":"برجر دجاج حار",
+"spicyChickenSandwich": "١٠٠ غرام دجاج حار + طماطم + جبن + خس",
+"shawarma_full_description": "شاورما حارة شهية مع خضروات طازجة وصلصة الثوم الخاصة بنا، ملفوفة في خبز دافئ.",
+  "shawarma_short_description": "شاورما حارة لذيذة مع صلصة مميزة",
+  "reorder":"اعادة ترتيب",
+  "tappedOn": "تم النقر عليه",
+  "orderNow":"اطلب الان ",
+  "deliveringTo": "يتم التوصيل إلى"
+
+
+
 
 }

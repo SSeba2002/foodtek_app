@@ -72,6 +72,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fullName => 'الاسم الكامل';
 
   @override
+  String get nomanManzoor => 'نعمان منصور';
+
+  @override
+  String get alJamaaStreet => 'شارع الجامعة ';
+
+  @override
+  String get addLocation => 'ضف الموقع ';
+
+  @override
   String get name => 'الاسم';
 
   @override
@@ -147,6 +156,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get promoCode => 'هل لديك رمز خصم؟';
 
   @override
+  String get findYourLocation => 'جد موقعك';
+
+  @override
+  String get selected => 'تم اختياره';
+
+  @override
   String get enterPromo => 'أدخل رمز الخصم هنا';
 
   @override
@@ -156,7 +171,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cash => 'نقدًا';
 
   @override
+  String get visa => 'بطاقة الفيزا';
+
+  @override
+  String get masterCard => 'ماستر كارد';
+
+  @override
   String get cardType => 'نوع البطاقة:';
+
+  @override
+  String get total => 'الإجمالي:';
 
   @override
   String get subTotal => 'المجموع الفرعي';
@@ -193,9 +217,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get discount => 'الخصم';
-
-  @override
-  String get total => 'الإجمالي:';
 
   @override
   String get placeOrder => 'تأكيد الطلب';
@@ -544,4 +565,43 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get chooseyourlanguage => 'أختر لغتك';
+
+  @override
+  String get locationServicesDisabled => 'خدمات الموقع غير مفعّلة';
+
+  @override
+  String get locationPermissionsDenied => 'تم رفض أذونات الوصول إلى الموقع';
+
+  @override
+  String get locationPermissionsPermanentlyDenied => 'تم رفض أذونات الموقع بشكل دائم';
+
+  @override
+  String get fetchingLocation => 'جارٍ تحديد الموقع...';
+
+  @override
+  String get failedToGetLocation => 'فشل في الحصول على الموقع:';
+
+  @override
+  String get spicyChickenBurger => 'برجر دجاج حار';
+
+  @override
+  String get spicyChickenSandwich => '١٠٠ غرام دجاج حار + طماطم + جبن + خس';
+
+  @override
+  String get shawarma_full_description => 'شاورما حارة شهية مع خضروات طازجة وصلصة الثوم الخاصة بنا، ملفوفة في خبز دافئ.';
+
+  @override
+  String get shawarma_short_description => 'شاورما حارة لذيذة مع صلصة مميزة';
+
+  @override
+  String get reorder => 'اعادة ترتيب';
+
+  @override
+  String get tappedOn => 'تم النقر عليه';
+
+  @override
+  String get orderNow => 'اطلب الان ';
+
+  @override
+  String get deliveringTo => 'يتم التوصيل إلى';
 }

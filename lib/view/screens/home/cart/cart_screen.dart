@@ -52,14 +52,14 @@ class _CartScreenState extends State<CartScreen> {
         children: [
           Expanded(
             child:
-                cartItems.isEmpty
+                cartItems(context).isEmpty
                     ? EmptyCartWidget()
                     : ListView.builder(
                       padding: EdgeInsets.symmetric(horizontal: 15.w),
-                      itemCount: cartItems.length,
+                      itemCount: cartItems(context).length,
                       itemBuilder: (context, index) {
                         return CartItemWidget(
-                          product: cartItems[index],
+                          product: cartItems(context)[index],
                           onIncrease: () {}, //=> increaseQuantity(index),
                           onDecrease: () {}, //=> decreaseQuantity(index),
                           onRemove: () {}, // => removeItem(index),
@@ -67,7 +67,7 @@ class _CartScreenState extends State<CartScreen> {
                       },
                     ),
           ),
-          if (cartItems.isNotEmpty)
+          if (cartItems(context).isNotEmpty)
             PriceDetailsWidget(subtotal: 100, onPlaceOrder: () {}),
         ],
       ),

@@ -20,6 +20,9 @@
   "continueWithFacebook": "Continue with Facebook",
   "continueWithApple": "Continue with Apple",
   "fullName": "Full Name",
+  "nomanManzoor": "Noman Manzoor",
+  "alJamaaStreet":"Al jama‘a Street",
+  "addLocation":" Add location",
   "name":"Name",
   "dob": "Date of Birth",
   "phoneNumber": "Phone Number",
@@ -45,10 +48,15 @@
   "checkout": "Checkout",
   "payWith": "Pay With:",
   "promoCode": "Promo Code?",
-  "enterPromo": "Enter Promo here",
+  "findYourLocation":"Find your location",
+  "selected":"Selected",
+  "enterPromo": "Enter Your Promo",
   "card": "Card",
   "cash": "Cash",
+  "visa":"Visa",
+  "masterCard":"mastercard",
   "cardType": "Card Type:",
+  "total":"Total",
   "subTotal": "Sub-Total",
   "cart": "Cart",
   "onionPizza": "Onion Pizza",
@@ -177,5 +185,24 @@
   "hot": "Hot",
   "track": "Track",
   "wanttotrywithmycurrentpassword":"Want to try with my current password?",
-  "chooseyourlanguage":"Choose your language"
+  "chooseyourlanguage":"Choose your language",
+  "locationServicesDisabled": "Location services are disabled",
+"locationPermissionsDenied": "Location permissions are denied",
+"locationPermissionsPermanentlyDenied": "Location permissions are permanently denied",
+"fetchingLocation": "Fetching location...",
+"failedToGetLocation": "Failed to get location:",
+"spicyChickenBurger":"Spicy Chicken Burger",
+"spicyChickenSandwich": "100 gr spicy chicken + tomato + cheese + Lettuce",
+
+  "shawarma_full_description": "A mouth-watering spicy shawarma with fresh vegetables and our special garlic sauce, wrapped in warm bread.",
+  "shawarma_short_description": "Delicious spicy shawarma with special sauce",
+
+  "reorder":"Reorder",
+  "tappedOn": "Tapped on",
+  "orderNow":"Order Now",
+  "deliveringTo": "Delivering to"
+
+
+
+
 }

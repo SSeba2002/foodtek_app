@@ -1,6 +1,7 @@
 // this class is used to display the location and the search bar and the Notifications
 
 import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/home/home/filter_screen.dart';
 import 'package:foodtek_project/view/widgets/main_page/main_text_field.dart';
 import 'package:foodtek_project/view/widgets/main_page/notification_widget.dart';
@@ -66,7 +67,7 @@ class _LocationNotificationSrearchState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Delivering to",
+                      AppLocalizations.of(context)!.deliveringTo,
                         style: TextStyle(
                           //  color: AppColors.onBoardingtextColor,
                           fontSize: 11,
@@ -79,7 +80,7 @@ class _LocationNotificationSrearchState
                           address == null
                               ? Text(
                                 // if the user didnt allow the location
-                                "Current Location",
+                                AppLocalizations.of(context)!.currentLocation,
                                 style: TextStyle(
                                   //    color: AppColors.onBoardingtextColor,
                                   fontSize: 16,
@@ -122,7 +123,7 @@ class _LocationNotificationSrearchState
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: RoundTextfield(
-                hintText: "Search menu, restaurant or etc",
+                hintText: AppLocalizations.of(context)!.searchMenu,
                 controller: txtSearch,
                 onPressed: () {
                   PersistentNavBarNavigator.pushNewScreen(

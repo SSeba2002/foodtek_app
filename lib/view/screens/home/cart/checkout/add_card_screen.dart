@@ -10,9 +10,14 @@ class AddCardScreen extends StatefulWidget {
 
 class _AddCardScreenState extends State<AddCardScreen> {
   String cardNumber = '**** **** **** 2345';
-  String cardHolder = 'Noman Manzoor';
+  late String cardHolder;
   String expiryDate = '02/30';
 
+@override
+void didChangeDependencies() {
+  super.didChangeDependencies();
+  cardHolder = AppLocalizations.of(context)!.nomanManzoor;
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,7 +109,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
             SizedBox(height: 24),
             TextField(
               decoration: InputDecoration(
-                labelText:   AppLocalizations.of(context)!.name,
+                labelText: AppLocalizations.of(context)!.name,
                 border: OutlineInputBorder(),
               ),
               onChanged: (value) {

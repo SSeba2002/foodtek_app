@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -12,8 +13,13 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   GoogleMapController? mapController;
   LatLng? selectedLocation;
-  String locationAddress = "Fetching location...";
+  late String locationAddress;
 
+@override
+void didChangeDependencies() {
+  super.didChangeDependencies();
+  locationAddress = AppLocalizations.of(context)!.fetchingLocation;
+}
   @override
   void initState() {
     super.initState();
@@ -23,7 +29,7 @@ class _MapScreenState extends State<MapScreen> {
       });
     }).catchError((error) {
       setState(() {
-        locationAddress = "Failed to get location: $error";
+        locationAddress = "${AppLocalizations.of(context)!.failedToGetLocation} $error";
       });
     });
   }
@@ -34,19 +40,19 @@ class _MapScreenState extends State<MapScreen> {
 
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
+      return Future.error(AppLocalizations.of(context)!.locationServicesDisabled);
     }
 
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
+        return Future.error(AppLocalizations.of(context)!.locationPermissionsDenied);
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      return Future.error('Location permissions are permanently denied.');
+      return Future.error(AppLocalizations.of(context)!.locationPermissionsPermanentlyDenied);
     }
 
     return await Geolocator.getCurrentPosition();
@@ -73,7 +79,7 @@ class _MapScreenState extends State<MapScreen> {
             markers: selectedLocation != null
                 ? {
                     Marker(
-                      markerId: const MarkerId("selected"),
+                      markerId:  MarkerId(AppLocalizations.of(context)!.selected,),
                       position: selectedLocation!,
                       icon: BitmapDescriptor.defaultMarkerWithHue(
                           BitmapDescriptor.hueGreen),
@@ -102,11 +108,11 @@ class _MapScreenState extends State<MapScreen> {
                   )
                 ],
               ),
-              child: const TextField(
+              child: TextField(
                 decoration: InputDecoration(
-                  hintText: "Find your location",
+                  hintText: AppLocalizations.of(context)!.findYourLocation,
                   border: InputBorder.none,
-                  prefixIcon: Icon(Icons.search, color: Colors.green),
+                  prefixIcon: const Icon(Icons.search, color: Colors.green),
                 ),
               ),
             ),

@@ -86,8 +86,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           children: [
             Icon(Icons.my_location_outlined, color: Colors.grey, size: 20.sp),
             SizedBox(width: 9.w),
-            Text(
-              'Al jama‘a Street',
+            Text(AppLocalizations.of(context)!.alJamaaStreet
+              ,
               style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w400),
             ),
           ],
@@ -110,8 +110,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       ? Text(userLocation!, style: TextStyle(fontSize: 16.sp))
                       : GestureDetector(
                         onTap: _goToMapScreen,
-                        child: Text(
-                          ' Add location',
+                        child: Text(AppLocalizations.of(context)!.addLocation,
                           style: TextStyle(color: Colors.grey, fontSize: 16.sp),
                         ),
                       ),
@@ -156,7 +155,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   controller: promoCodeController,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(horizontal: 12.w),
-                    hintText: 'Enter promo code',
+                    hintText: AppLocalizations.of(context)!.enterPromo,
                     hintStyle: TextStyle(
                       color: Color(0xFF878787),
                       fontSize: 12.sp,
@@ -239,15 +238,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               },
               activeColor: Color(0xFF25AE4B),
               fillColor: WidgetStateColor.resolveWith((states) {
-                return paymentMethod == 'cash'
+                return paymentMethod == AppLocalizations.of(context)!.cash
                     ? Color(0xFF25AE4B)
                     : Colors.grey;
               }),
             ),
             Text(
-              'Cash',
+              AppLocalizations.of(context)!.cash,
               style: TextStyle(
-                color: paymentMethod == 'cash' ? Colors.black : Colors.grey,
+                color: paymentMethod == AppLocalizations.of(context)!.cash ? Colors.black : Colors.grey,
                 fontSize: 16.sp,
               ),
             ),
@@ -269,7 +268,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         Row(
           children: [
             Radio(
-              value: 'visa',
+              value: AppLocalizations.of(context)!.visa,
               groupValue: cardType,
               onChanged: (value) {
                 setState(() {
@@ -278,7 +277,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               },
               activeColor: Color(0xFF25AE4B),
               fillColor: WidgetStateColor.resolveWith((states) {
-                return cardType == 'visa' ? Color(0xFF25AE4B) : Colors.grey;
+                return cardType == AppLocalizations.of(context)!.visa ? Color(0xFF25AE4B) : Colors.grey;
               }),
             ),
             SvgPicture.asset(
@@ -288,7 +287,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             ),
             SizedBox(width: 20.w),
             Radio(
-              value: 'mastercard',
+              value: AppLocalizations.of(context)!.masterCard,
               groupValue: cardType,
               onChanged: (value) {
                 setState(() {

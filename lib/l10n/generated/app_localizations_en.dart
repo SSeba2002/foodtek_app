@@ -72,6 +72,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fullName => 'Full Name';
 
   @override
+  String get nomanManzoor => 'Noman Manzoor';
+
+  @override
+  String get alJamaaStreet => 'Al jama‘a Street';
+
+  @override
+  String get addLocation => ' Add location';
+
+  @override
   String get name => 'Name';
 
   @override
@@ -147,7 +156,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get promoCode => 'Promo Code?';
 
   @override
-  String get enterPromo => 'Enter Promo here';
+  String get findYourLocation => 'Find your location';
+
+  @override
+  String get selected => 'Selected';
+
+  @override
+  String get enterPromo => 'Enter Your Promo';
 
   @override
   String get card => 'Card';
@@ -156,7 +171,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cash => 'Cash';
 
   @override
+  String get visa => 'Visa';
+
+  @override
+  String get masterCard => 'mastercard';
+
+  @override
   String get cardType => 'Card Type:';
+
+  @override
+  String get total => 'Total:';
 
   @override
   String get subTotal => 'Sub-Total';
@@ -193,9 +217,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get discount => 'Discount';
-
-  @override
-  String get total => 'Total:';
 
   @override
   String get placeOrder => 'Place My Order';
@@ -544,4 +565,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chooseyourlanguage => 'Choose your language';
+
+  @override
+  String get locationServicesDisabled => 'Location services are disabled';
+
+  @override
+  String get locationPermissionsDenied => 'Location permissions are denied';
+
+  @override
+  String get locationPermissionsPermanentlyDenied => 'Location permissions are permanently denied';
+
+  @override
+  String get fetchingLocation => 'Fetching location...';
+
+  @override
+  String get failedToGetLocation => 'Failed to get location:';
+
+  @override
+  String get spicyChickenBurger => 'Spicy Chicken Burger';
+
+  @override
+  String get spicyChickenSandwich => '100 gr spicy chicken + tomato + cheese + Lettuce';
+
+  @override
+  String get shawarma_full_description => 'A mouth-watering spicy shawarma with fresh vegetables and our special garlic sauce, wrapped in warm bread.';
+
+  @override
+  String get shawarma_short_description => 'Delicious spicy shawarma with special sauce';
+
+  @override
+  String get reorder => 'Reorder';
+
+  @override
+  String get tappedOn => 'Tapped on';
+
+  @override
+  String get orderNow => 'Order Now';
+
+  @override
+  String get deliveringTo => 'Delivering to';
 }

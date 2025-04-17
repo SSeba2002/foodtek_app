@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/explore_item_model.dart';
 import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
 
@@ -11,39 +12,38 @@ class FavoritesScreen extends StatefulWidget {
 }
 
 class _FavoritesScreenState extends State<FavoritesScreen> {
-  List<ExploreItem> exploreItems = [
-    ExploreItem(
-      name: 'Pepperoni Pizza',
-      description:
-          'Pepperoni pizza, Margarita Pizza Margherita Italian cuisine Tomato',
-      price: 29,
-      imageUrl:
-          'https://media.istockphoto.com/id/1460915397/photo/food-photos-various-entrees-appetizers-deserts-etc.jpg?s=1024x1024&w=is&k=20&c=-78F8r26L_INzYltHXcqqrEqG4z6MIlKb0awxJDUU04=',
-    ),
-    ExploreItem(
-      name: 'Peppy Paneer',
-      description: 'Chunky paneer with crisp capsicum and spicy red pepper',
-      price: 13,
-      imageUrl:
-          'https://media.istockphoto.com/id/663909704/photo/pizza-with-mushrooms-and-fresh-basil.jpg?s=1024x1024&w=is&k=20&c=pPSWV5y4AXKYGT0Vn9ZvxC4sT04BMrhLPg8Asp10Szw=',
-    ),
-    ExploreItem(
-      name: 'Mexican Green Wave',
-      description:
-          'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes',
-      price: 23,
-      imageUrl:
-          'https://media.istockphoto.com/id/2158544491/photo/sous-vide-chicken-pizza-on-melted-cheese-base-with-corn-and-arugula.jpg?s=1024x1024&w=is&k=20&c=WnIQJm-eXgtWCpSuP4-piaI2c_yUXKAfh0prYGs4OIs=',
-    ),
-    ExploreItem(
-      name: 'Pizza Cheese',
-      description:
-          'Food pizza dish junk food , fast food , flatbread , ingredient',
-      price: 23,
-      imageUrl:
-          'https://media.istockphoto.com/id/1414575281/photo/a-delicious-and-tasty-italian-pizza-margherita-with-tomatoes-and-buffalo-mozzarella.jpg?s=1024x1024&w=is&k=20&c=bwoUzONnFgIK65TQ7uUeSAlM78h-gCmKSR3nnGhb6AI=',
-    ),
-  ];
+  List<ExploreItem> exploreItems(BuildContext context) {
+    return [
+      ExploreItem(
+        name: AppLocalizations.of(context)!.pepperoniPizza,
+        description: AppLocalizations.of(context)!.pizzaDesc,
+        price: 29,
+        imageUrl:
+            'https://media.istockphoto.com/id/1460915397/photo/food-photos-various-entrees-appetizers-deserts-etc.jpg?s=1024x1024&w=is&k=20&c=-78F8r26L_INzYltHXcqqrEqG4z6MIlKb0awxJDUU04=',
+      ),
+      ExploreItem(
+        name: AppLocalizations.of(context)!.peppyPaneer,
+        description: AppLocalizations.of(context)!.peppyPaneerDesc,
+        price: 13,
+        imageUrl:
+            'https://media.istockphoto.com/id/663909704/photo/pizza-with-mushrooms-and-fresh-basil.jpg?s=1024x1024&w=is&k=20&c=pPSWV5y4AXKYGT0Vn9ZvxC4sT04BMrhLPg8Asp10Szw=',
+      ),
+      ExploreItem(
+        name: AppLocalizations.of(context)!.mexicanGreenWave,
+        description: AppLocalizations.of(context)!.mexicanGreenWaveDesc,
+        price: 23,
+        imageUrl:
+            'https://media.istockphoto.com/id/2158544491/photo/sous-vide-chicken-pizza-on-melted-cheese-base-with-corn-and-arugula.jpg?s=1024x1024&w=is&k=20&c=WnIQJm-eXgtWCpSuP4-piaI2c_yUXKAfh0prYGs4OIs=',
+      ),
+      ExploreItem(
+        name: AppLocalizations.of(context)!.pizzaCheese,
+        description: AppLocalizations.of(context)!.pizzaTags,
+        price: 23,
+        imageUrl:
+            'https://media.istockphoto.com/id/1414575281/photo/a-delicious-and-tasty-italian-pizza-margherita-with-tomatoes-and-buffalo-mozzarella.jpg?s=1024x1024&w=is&k=20&c=bwoUzONnFgIK65TQ7uUeSAlM78h-gCmKSR3nnGhb6AI=',
+      ),
+    ];
+  }
 
   List<bool> isFavorite = [true, true, true, true];
 
@@ -64,7 +64,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "Are you sure you want to remove it from favorites?",
+                  AppLocalizations.of(context)!.removeFromFavorites,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16.sp,
@@ -90,7 +90,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       Navigator.of(context).pop();
                     },
                     child: Text(
-                      "Yes",
+                      AppLocalizations.of(context)!.yes,
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
@@ -112,7 +112,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
   void _navigateToProductDetail(ExploreItem product) {
     // TODO: Replace with actual navigation
-    debugPrint('Tapped on ${product.name}');
+    debugPrint('${AppLocalizations.of(context)!.tappedOn} ${product.name}');
   }
 
   @override
@@ -129,7 +129,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             LocationNotificationSrearch(showSearchBar: true),
             SizedBox(height: 20.h),
             Text(
-              "Favorites",
+              AppLocalizations.of(context)!.favorites,
               style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 25.h),
@@ -142,10 +142,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   mainAxisSpacing: 25.h,
                   childAspectRatio: 0.75,
                 ),
-                itemCount: exploreItems.length,
+                itemCount: exploreItems(context).length,
                 itemBuilder: (context, index) {
                   if (!isFavorite[index]) return const SizedBox.shrink();
-                  return _buildProductCard(exploreItems[index], index);
+                  return _buildProductCard(exploreItems(context)[index], index);
                 },
               ),
             ),
@@ -279,7 +279,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   ),
                 ),
                 child: Text(
-                  'Order Now',
+                  AppLocalizations.of(context)!.orderNow,
                   style: TextStyle(
                     fontSize: 12.sp,
                     color: Colors.white,
