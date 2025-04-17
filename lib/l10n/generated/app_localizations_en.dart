@@ -544,5 +544,64 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chooseyourlanguage => 'Choose your language';
+  @override
+  String get calculating => "Calculating...";
+  @override
+  String get allDetails => "All Details";
+
+  @override
+  String get findYourLocation => "Find your location";
+
+  @override
+  String get orderPlaced => "Order Placed";
+
+  @override
+  String get arrived => "Arrived";
+
+  @override
+  String get yourLocation => "yourLocation";
+
+  @override
+  String get orderNumber => "#9579-6432";
+
+  @override
+  String get deliveryTime => "25m";
+
+  @override
+  String get deliveryPersonName => "Aleksandr V.";
+
+  @override
+  String get deliveryPersonRating => "4.9";
+
+  @override
+  String get deliveryAddress => "123 Al-Madina Street, Abdali, Amman, Jordan";
+
+  @override
+  String get userName => "userName";
+
+  @override
+  String get userEmail => "userEmail";
+
+  @override
+  String get theme => "theme";
+
+  @override
+  String get chooseLanguage => "chooseLanguage";
+
+  @override
+  String get english => "english";
+
+  @override
+  String get light => "light";
+
+  @override
+  String get arabic => "arabic";
+
+  @override
+  String get chooseTheme => "chooseTheme";
+
+  @override
+  String get dark => "dark";
+
 
 }

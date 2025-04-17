@@ -7,6 +7,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
 import '../../../../widgets/tracking/driver_info_card.dart';
 import 'package:foodtek_project/view/screens/home/cart/tracking/order_details_screen.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class TrackingScreen extends StatefulWidget {
   final UserProfile driverProfile;
@@ -23,6 +24,9 @@ class TrackingScreen extends StatefulWidget {
 }
 
 class _TrackingScreenState extends State<TrackingScreen> {
+  late String _status;
+  late String _remainingTime;
+
   final TextEditingController _searchController = TextEditingController();
   final LatLng _restaurantLocation = LatLng(
     31.98801277328986,
@@ -31,8 +35,6 @@ class _TrackingScreenState extends State<TrackingScreen> {
   LatLng _driverLocation = LatLng(32.01517354972322, 35.86903660207451);
   LatLng? _lastPosition;
   final bool _arrived = false;
-  final String _status = "On The Way";
-  final String _remainingTime = "Calculating...";
   StreamSubscription<Position>? _positionStream;
   GoogleMapController? _mapController;
 
@@ -40,6 +42,8 @@ class _TrackingScreenState extends State<TrackingScreen> {
   void initState() {
     super.initState();
     _checkLocationPermission();
+    _status = AppLocalizations.of(context)!.onTheWay;
+    _remainingTime = AppLocalizations.of(context)!.calculating;
   }
 
   Future<void> _checkLocationPermission() async {
@@ -136,9 +140,8 @@ class _TrackingScreenState extends State<TrackingScreen> {
                           ),
                         );
                       },
-
                       child: Text(
-                        "All Details",
+                        AppLocalizations.of(context)!.allDetails, // Modified
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
@@ -194,7 +197,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
                           child: TextField(
                             controller: _searchController,
                             decoration: InputDecoration(
-                              hintText: 'Find your location',
+                              hintText: AppLocalizations.of(context)!.findYourLocation, // Modified
                               hintStyle: TextStyle(
                                 color: Color(0xFF878787),
                                 fontSize: 12.sp,
@@ -229,12 +232,12 @@ class _TrackingScreenState extends State<TrackingScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildProgressStep("Order Placed", isActive: true),
+              _buildProgressStep(AppLocalizations.of(context)!.orderPlaced, isActive: true), // Modified
               _buildProgressStep(
-                "On The Way",
-                isActive: _status == "On The Way" || _status == "Arrived",
+                AppLocalizations.of(context)!.onTheWay, // Modified
+                isActive: _status == AppLocalizations.of(context)!.onTheWay || _status == AppLocalizations.of(context)!.arrived, // Modified
               ),
-              _buildProgressStep("Delivered", isActive: _status == "Arrived"),
+              _buildProgressStep(AppLocalizations.of(context)!.delivered, isActive: _status == AppLocalizations.of(context)!.arrived), // Modified
             ],
           ),
         ],
@@ -270,7 +273,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Your Location",
+            AppLocalizations.of(context)!.yourLocation,
             style: TextStyle(
               color: Colors.grey,
               fontSize: 12.sp,
