@@ -549,63 +549,65 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chooseyourlanguage => 'أختر لغتك';
 
   @override
-  String get calculating => "يتم الحساب...";
+  String get calculating => 'يتم الحساب...';
 
   @override
-  String get allDetails => " جميع التفاصيل";
-  @override
-  String get findYourLocation => "بحث عن موقعك";
-  @override
-  String get orderPlaced => "تم تقديم الطلب";
-  @override
-  String get arrived => "وصل";
+  String get allDetails => 'جميع التفاصيل';
 
   @override
-  String get yourLocation => "موقعك";
+  String get findYourLocation => 'ابحث عن موقعك';
 
   @override
-  String get orderNumber => "#٦٥٧٩-٦٤٣٢";
+  String get orderPlaced => 'تم تقديم الطلب';
 
   @override
-  String get deliveryTime => "٢٥ د";
+  String get arrived => 'وصل';
 
   @override
-  String get deliveryPersonName => "اليكساندر";
+  String get yourLocation => 'موقعك';
 
   @override
-  String get deliveryPersonRating => "٤.٩";
+  String get orderNumber => '#٦٥٧٩-٦٤٣٢';
 
   @override
-  String get deliveryAddress => "١٢٣-شارع المدينه ، العبدلي ,عمان ,الاردن";
+  String get deliveryTime => '٢٥ د';
 
   @override
-  String get userName => "احمد دبور";
+  String get deliveryPersonName => 'اليكساندر';
 
   @override
-  String get userEmail => "ahmad1709@gmail.com";
+  String get deliveryPersonRating => '٤.٩';
 
   @override
-  String get theme => "السمة";
+  String get deliveryAddress => '١٢٣-شارع المدينه ، العبدلي ,عمان ,الاردن';
 
   @override
-  String get chooseLanguage => "اختر اللغة";
+  String get userName => 'احمد دبور';
 
   @override
-  String get english => "الانجليزية";
+  String get userEmail => 'ahmad1709@gmail.com';
 
   @override
-  String get light => "فاتح";
+  String get theme => 'السمة';
 
   @override
-  String get arabic => "العرية";
+  String get chooseLanguage => 'اختر اللغة';
 
   @override
-  String get chooseTheme => "اختر السمة";
+  String get english => 'الإنجليزية';
 
   @override
-  String get dark => "غامق";
+  String get light => 'فاتح';
 
+  @override
+  String get arabic => 'العربية';
 
- @override
+  @override
+  String get chooseTheme => 'اختر السمة';
+
+  @override
+  String get dark => 'غامق';
+
+  @override
   String get deliveringto => 'التوصيل الى';
 }

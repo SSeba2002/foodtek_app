@@ -1175,67 +1175,131 @@ abstract class AppLocalizations {
   /// **'Choose your language'**
   String get chooseyourlanguage;
 
-  String get calculating ;
+  /// No description provided for @calculating.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculating...'**
+  String get calculating;
 
+  /// No description provided for @allDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'All Details'**
   String get allDetails;
 
-  String get  findYourLocation;
+  /// No description provided for @findYourLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your location'**
+  String get findYourLocation;
 
-  String get orderPlaced ;
+  /// No description provided for @orderPlaced.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Placed'**
+  String get orderPlaced;
 
-  String get   arrived;
+  /// No description provided for @arrived.
+  ///
+  /// In en, this message translates to:
+  /// **'Arrived'**
+  String get arrived;
 
-  String get yourLocation ;
+  /// No description provided for @yourLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'your Location'**
+  String get yourLocation;
 
-  String get orderNumber ;
+  /// No description provided for @orderNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'#9579-6432'**
+  String get orderNumber;
 
+  /// No description provided for @deliveryTime.
+  ///
+  /// In en, this message translates to:
+  /// **'25m'**
+  String get deliveryTime;
 
-  String get deliveryTime ;
+  /// No description provided for @deliveryPersonName.
+  ///
+  /// In en, this message translates to:
+  /// **'Aleksandr V.'**
+  String get deliveryPersonName;
 
+  /// No description provided for @deliveryPersonRating.
+  ///
+  /// In en, this message translates to:
+  /// **'4.9'**
+  String get deliveryPersonRating;
 
-  String get deliveryPersonName ;
+  /// No description provided for @deliveryAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'123 Al-Madina Street, Abdali, Amman, Jordan'**
+  String get deliveryAddress;
 
+  /// No description provided for @userName.
+  ///
+  /// In en, this message translates to:
+  /// **'Ahmad Daboor'**
+  String get userName;
 
-  String get deliveryPersonRating ;
-
-
-  String get deliveryAddress ;
-
-
-  String get userName ;
-
-
+  /// No description provided for @userEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'ahmad1709@gmail.com'**
   String get userEmail;
 
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
 
-  String get theme ;
+  /// No description provided for @chooseLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Language'**
+  String get chooseLanguage;
 
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
 
-  String get chooseLanguage ;
+  /// No description provided for @light.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get light;
 
-
-  String get english ;
-
-
-  String get light ;
-
-
+  /// No description provided for @arabic.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic'**
   String get arabic;
 
+  /// No description provided for @chooseTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Theme'**
+  String get chooseTheme;
 
-  String get chooseTheme ;
-
-
-  String get dark ;
-
-
+  /// No description provided for @dark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get dark;
 
   /// No description provided for @deliveringto.
   ///
   /// In en, this message translates to:
   /// **'Delivering to'**
   String get deliveringto;
-
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -35,7 +35,7 @@ Widget buildListTile(
   VoidCallback? onTap,
 }) {
   return ListTile(
-    leading: Icon(icon),
+    leading: Icon(icon, color: iconColor),
     title: Text(title),
     trailing:
         trailing ?? Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),

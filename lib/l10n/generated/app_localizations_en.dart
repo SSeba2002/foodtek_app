@@ -547,68 +547,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chooseyourlanguage => 'Choose your language';
-  
-  @override
-  String get calculating => "Calculating...";
-  @override
-  String get allDetails => "All Details";
 
   @override
-  String get findYourLocation => "Find your location";
+  String get calculating => 'Calculating...';
 
   @override
-  String get orderPlaced => "Order Placed";
+  String get allDetails => 'All Details';
 
   @override
-  String get arrived => "Arrived";
+  String get findYourLocation => 'Find your location';
 
   @override
-  String get yourLocation => "yourLocation";
+  String get orderPlaced => 'Order Placed';
 
   @override
-  String get orderNumber => "#9579-6432";
+  String get arrived => 'Arrived';
 
   @override
-  String get deliveryTime => "25m";
+  String get yourLocation => 'your Location';
 
   @override
-  String get deliveryPersonName => "Aleksandr V.";
+  String get orderNumber => '#9579-6432';
 
   @override
-  String get deliveryPersonRating => "4.9";
+  String get deliveryTime => '25m';
 
   @override
-  String get deliveryAddress => "123 Al-Madina Street, Abdali, Amman, Jordan";
+  String get deliveryPersonName => 'Aleksandr V.';
 
   @override
-  String get userName => "userName";
+  String get deliveryPersonRating => '4.9';
 
   @override
-  String get userEmail => "userEmail";
+  String get deliveryAddress => '123 Al-Madina Street, Abdali, Amman, Jordan';
 
   @override
-  String get theme => "theme";
+  String get userName => 'Ahmad Daboor';
 
   @override
-  String get chooseLanguage => "chooseLanguage";
+  String get userEmail => 'ahmad1709@gmail.com';
 
   @override
-  String get english => "english";
+  String get theme => 'Theme';
 
   @override
-  String get light => "light";
+  String get chooseLanguage => 'Choose Language';
 
   @override
-  String get arabic => "arabic";
+  String get english => 'English';
 
   @override
-  String get chooseTheme => "chooseTheme";
+  String get light => 'Light';
 
   @override
-  String get dark => "dark";
+  String get arabic => 'Arabic';
 
+  @override
+  String get chooseTheme => 'Choose Theme';
+
+  @override
+  String get dark => 'Dark';
 
   @override
   String get deliveringto => 'Delivering to';
-
 }

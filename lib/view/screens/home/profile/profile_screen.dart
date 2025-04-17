@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
+import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:foodtek_project/view/screens/home/profile/PersonalInfo_screen.dart';
 import 'package:foodtek_project/view/widgets/buildSection_widget.dart';
 
@@ -16,7 +17,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   late String _selectedLanguage;
   late String selectedTheme;
 
-
   @override
   void initState() {
     super.initState();
@@ -29,7 +29,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -98,8 +97,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ]),
             buildSection(context, AppLocalizations.of(context)!.notifications, [
-              buildSwitchTile(AppLocalizations.of(context)!.pushNotifications, true),
-              buildSwitchTile(AppLocalizations.of(context)!.promoNotifications, false),
+              buildSwitchTile(
+                AppLocalizations.of(context)!.pushNotifications,
+                true,
+              ),
+              buildSwitchTile(
+                AppLocalizations.of(context)!.promoNotifications,
+                false,
+              ),
             ]),
             buildSection(context, AppLocalizations.of(context)!.more, [
               buildListTile(
