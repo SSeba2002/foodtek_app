@@ -72,6 +72,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fullName => 'الاسم الكامل';
 
   @override
+  String get name => 'الاسم';
+
+  @override
   String get dob => 'تاريخ الميلاد';
 
   @override
@@ -79,6 +82,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get register => 'تسجيل';
+
+  @override
+  String get setPassword => 'عين كلمة مرور';
 
   @override
   String get resetPassword => 'إعادة تعيين كلمة المرور';
@@ -198,16 +204,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addCard => 'إضافة بطاقة';
 
   @override
-  String get name => 'الاسم';
-
-  @override
   String get cardNumber => 'رقم البطاقة';
 
   @override
   String get expiry => 'تاريخ الانتهاء';
 
   @override
-  String get cvv => 'رمز التحقق';
+  String get cvc => 'رمز التحقق';
+
+  @override
+  String get paymentSuccessMessage => 'سوف نرسل تفاصيل الطلب إلى بريدك الإلكتروني بعد إتمام عملية الدفع بنجاح';
+
+  @override
+  String get expiryDate => 'تاريخ الانتهاء';
+
+  @override
+  String get locationAccessRequired => 'تحتاج إلى السماح بالوصول إلى الموقع.';
+
+  @override
+  String get locationPermissionDenied => 'تم رفض إذن الموقع بشكل دائم. قم بتمكينه من الإعدادات.';
 
   @override
   String get payForOrder => 'ادفع للطلب';
@@ -216,7 +231,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orderSuccess => 'تم تنفيذ طلبك بنجاح';
 
   @override
+  String get orderTrackingScreenContent => 'محتوى شاشة تتبع الطلب';
+
+  @override
   String get orderNote => 'ستصلك طلبك خلال 12 دقيقة. شكرًا لاستخدامك خدماتنا';
+
+  @override
+  String get thanks => 'شكرا لاستخدامك خدماتنا';
 
   @override
   String get trackOrder => 'تتبع طلبك';
@@ -375,7 +396,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get send => 'إرسال';
 
   @override
-  String get enterEmailOrPhone => 'أدخل بريدك الإلكتروني أو رقم الهاتف وسنرسل لك رابطًا للعودة إلى حسابك';
+  String get or => 'أو';
+
+  @override
+  String get enterYourEmail => 'ادخل بريدك الالكتروني';
+
+  @override
+  String get enterStrongPassword => 'ادخل كلمة مرور قوية ';
+
+  @override
+  String get enterValidEmail => 'ادخل بريدا الكترونيا صالحا';
+
+  @override
+  String get enterYourPassword => 'ادخل كلمة المرور';
+
+  @override
+  String get enterEmailOrPhone => ' أدخل بريدك الإلكتروني أو رقم الهاتف ';
+
+  @override
+  String get willSent => 'سوف نرسل لك رابطًا للعودة إلى حسابك';
 
   @override
   String get codeSent => 'تم إرسال رمز مكوّن من 4 أرقام إلى بريدك الإلكتروني. الرجاء إدخاله للتحقق.';
@@ -415,6 +454,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cheeseBurger => 'برغر جبنة';
+
+  @override
+  String get cheeseSandwich => 'ساندويتش الجبن ';
 
   @override
   String get cheeseBurgerDesc => '100 غرام لحم + بصل + طماطم + خس + جبنة';
@@ -496,4 +538,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get track => 'تتبع';
+
+  @override
+  String get wanttotrywithmycurrentpassword => 'المحاولة بكلمة المرور الحالية ؟';
+
+  @override
+  String get chooseyourlanguage => 'أختر لغتك';
 }

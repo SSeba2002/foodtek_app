@@ -4,6 +4,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:flutter/services.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class SignupWidget extends StatefulWidget {
   const SignupWidget({super.key});
@@ -155,17 +156,20 @@ class _SignupWidgetState extends State<SignupWidget> {
       if (date.isAfter(DateTime.now())) {
         return 'Birth date cannot be in the future';
       }
-      if (date.isBefore(DateTime.now().subtract(const Duration(days: 365 * 100))) ){
-      return 'Please enter a valid birth date';
+      if (date.isBefore(
+        DateTime.now().subtract(const Duration(days: 365 * 100)),
+      )) {
+        return 'Please enter a valid birth date';
       }
-      } catch (e) {
-        return 'Invalid date format (DD/MM/YYYY)';
-      }
-      return null;
+    } catch (e) {
+      return 'Invalid date format (DD/MM/YYYY)';
     }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Form(
       key: _formKey,
       child: SingleChildScrollView(
@@ -183,8 +187,11 @@ class _SignupWidgetState extends State<SignupWidget> {
                 ),
                 SizedBox(height: 5.h),
                 Text(
-                  'Sign Up',
-                  style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w700),
+                  l10n.signUp,
+                  style: TextStyle(
+                    fontSize: 32.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ],
             ),
@@ -192,17 +199,18 @@ class _SignupWidgetState extends State<SignupWidget> {
             Row(
               children: [
                 Text(
-                  'Already have an account?',
+                  l10n.alreadyHaveAccount,
                   style: TextStyle(fontSize: 14.sp, color: Colors.grey),
                 ),
                 SizedBox(width: 5.w),
                 GestureDetector(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
-                  ),
+                  onTap:
+                      () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      ),
                   child: Text(
-                    'Login',
+                    l10n.login,
                     style: TextStyle(
                       fontSize: 14.sp,
                       color: Colors.green,
@@ -214,41 +222,42 @@ class _SignupWidgetState extends State<SignupWidget> {
             ),
             SizedBox(height: 20.h),
             Text(
-              'Full Name',
+              l10n.fullName,
               style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 5.h),
             TextFormField(
               controller: _nameController,
               decoration: InputDecoration(
-                hintText: 'Enter Your Full Name',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.r),
+                hintText: l10n.fullName,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.r),
+                  borderSide: BorderSide(color: Colors.grey, width: 1.0),
                 ),
               ),
               validator: _validateName,
             ),
             SizedBox(height: 15.h),
             Text(
-              'Email',
+              l10n.email,
               style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 5.h),
             TextFormField(
               controller: _emailController,
               decoration: InputDecoration(
-                hintText: 'example@domain.com',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.r),
+                hintText: l10n.enterValidEmail,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.r),
+                  borderSide: BorderSide(color: Colors.grey, width: 1.0),
                 ),
               ),
               keyboardType: TextInputType.emailAddress,
               validator: _validateEmail,
             ),
             SizedBox(height: 15.h),
-
             Text(
-              'Birth Date',
+              l10n.dob,
               style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 5.h),
@@ -257,8 +266,9 @@ class _SignupWidgetState extends State<SignupWidget> {
               decoration: InputDecoration(
                 hintText: 'DD/MM/YYYY',
                 suffixIcon: Icon(Icons.calendar_today, color: Colors.grey),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.r),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.r),
+                  borderSide: BorderSide(color: Colors.grey, width: 1.0),
                 ),
               ),
               readOnly: true,
@@ -267,7 +277,7 @@ class _SignupWidgetState extends State<SignupWidget> {
             ),
             SizedBox(height: 15.h),
             Text(
-              'Phone Number',
+              l10n.phoneNumber,
               style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 5.h),
@@ -287,10 +297,13 @@ class _SignupWidgetState extends State<SignupWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(_selectedCountryFlag, style: TextStyle(fontSize: 20.sp)),
+                        Text(
+                          _selectedCountryFlag,
+                          style: TextStyle(fontSize: 20.sp),
+                        ),
                         SizedBox(width: 8.w),
                         Text(_selectedCountryCode),
-                        Text(_selectedCountryName)
+                        Text(_selectedCountryName),
                       ],
                     ),
                   ),
@@ -300,9 +313,10 @@ class _SignupWidgetState extends State<SignupWidget> {
                   child: TextFormField(
                     controller: _phoneController,
                     decoration: InputDecoration(
-                      hintText: 'Enter phone number',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
+                      hintText: l10n.phoneNumber,
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.r),
+                        borderSide: BorderSide(color: Colors.grey, width: 1.0),
                       ),
                     ),
                     keyboardType: TextInputType.phone,
@@ -317,39 +331,41 @@ class _SignupWidgetState extends State<SignupWidget> {
               ],
             ),
             SizedBox(height: 15.h),
-            // Password Field
             Text(
-              'Set Password',
+              l10n.setPassword,
               style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 5.h),
             TextFormField(
               controller: _passwordController,
               decoration: InputDecoration(
-                hintText: 'Enter a strong password',
+                hintText: l10n.enterStrongPassword,
                 suffixIcon: IconButton(
                   icon: Icon(
                     _obscurePassword ? Icons.visibility_off : Icons.visibility,
                     color: Colors.grey,
                   ),
-                  onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
+                  onPressed:
+                      () =>
+                          setState(() => _obscurePassword = !_obscurePassword),
                 ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.r),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.r),
+                  borderSide: BorderSide(color: Colors.grey, width: 1.0),
                 ),
               ),
               obscureText: _obscurePassword,
               validator: _validatePassword,
             ),
             SizedBox(height: 25.h),
-            // Register Button
             SizedBox(
               width: double.infinity,
               height: 50.h,
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    String fullPhone = _selectedCountryCode + _phoneController.text;
+                    String fullPhone =
+                        _selectedCountryCode + _phoneController.text;
                     print('Registered with: $fullPhone');
                     Navigator.push(
                       context,
@@ -364,7 +380,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                   ),
                 ),
                 child: Text(
-                  'Register',
+                  l10n.register,
                   style: TextStyle(fontSize: 18.sp, color: Colors.white),
                 ),
               ),

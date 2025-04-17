@@ -11,6 +11,7 @@ import 'package:foodtek_project/view/screens/home/home/Product_Detail_screen.dar
 import 'package:foodtek_project/view/screens/home/home/home_screen.dart';
 import 'package:foodtek_project/view/screens/home/home/item_details_screen.dart';
 import 'package:foodtek_project/view/screens/main_screen.dart';
+import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
 import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/constant/onboarding_data.dart';
 import 'package:foodtek_project/view/screens/auth/login_screen.dart';
@@ -20,7 +20,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: PageView.builder(
         controller: pageController,
         onPageChanged: (index) {},
@@ -76,7 +75,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
       bottomSheet: Container(
         height: 60,
-        color: Colors.white,
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -87,7 +86,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
-              child: Text("Skip", style: TextStyle(color: Colors.black)),
+              child: Text(AppLocalizations.of(context)!.skip),
             ),
             Center(
               // the three dots in the middle
@@ -98,7 +97,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   dotWidth: 10,
                   dotHeight: 10,
                   spacing: 16,
-                  dotColor: Colors.black12,
+
                   activeDotColor: AppColors.primaryColor,
                 ),
                 onDotClicked: (index) {

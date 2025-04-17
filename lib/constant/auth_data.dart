@@ -7,6 +7,9 @@ List<String> authTitles(BuildContext context) {
     AppLocalizations.of(context)!.signup,
     AppLocalizations.of(context)!.forgotPassword,
     AppLocalizations.of(context)!.resetPassword,
+    AppLocalizations.of(context)!.or,
+    AppLocalizations.of(context)!.setPassword,
+
     AppLocalizations.of(context)!.verify,
     AppLocalizations.of(context)!.updatePassword,
     AppLocalizations.of(context)!.congrats,
@@ -18,7 +21,6 @@ List<String> authDescriptions(BuildContext context) {
     AppLocalizations.of(context)!.dontHaveAccount,
     AppLocalizations.of(context)!.codeSent,
     AppLocalizations.of(context)!.enterPromo, 
-    AppLocalizations.of(context)!.codeSent,
     AppLocalizations.of(context)!.passwordResetSuccess,
     AppLocalizations.of(context)!.orderNote, 
   ];

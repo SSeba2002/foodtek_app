@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class EmptyHistoryScreen extends StatelessWidget {
   const EmptyHistoryScreen({super.key});
@@ -13,12 +14,12 @@ class EmptyHistoryScreen extends StatelessWidget {
           Image.asset("assets/images/Empty-amico.png", width: 200),
           SizedBox(height: 20),
           Text(
-            "History Empty",
+            AppLocalizations.of(context)!.historyEmpty,
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10),
           Text(
-            "You don’t have order any foods before",
+            AppLocalizations.of(context)!.historyEmptyMsg,
             style: TextStyle(fontSize: 16, color: Colors.grey),
           ),
         ],

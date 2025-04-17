@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
 
 class OrderDoneScreen extends StatefulWidget {
@@ -54,7 +55,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Checkout',
+              AppLocalizations.of(context)!.checkout,
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
               ),
             ),
@@ -107,7 +108,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
 
             Center(
               child: Text(
-                'Your order done successfully',
+                AppLocalizations.of(context)!.orderSuccess,
                 style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w700),
               ),
             ),
@@ -116,7 +117,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
 
             Center(
               child: Text(
-                'You will get your order within ${widget.estimatedDeliveryTime}min.\n Thanks for using our services',
+                "${AppLocalizations.of(context)!.orderNote} ${widget.estimatedDeliveryTime} ${AppLocalizations.of(context)!.thanks}",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w400),
               ),
@@ -149,7 +150,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
                     ),
                   ),
                   child: Text(
-                    'track your order',
+                    AppLocalizations.of(context)!.trackOrder,
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
@@ -174,8 +175,8 @@ class TrackOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Track Your Order')),
-      body: const Center(child: Text('Order tracking screen content')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.trackOrder)),
+      body:  Center(child: Text(AppLocalizations.of(context)!.orderTrackingScreenContent)),
     );
   }
 }
