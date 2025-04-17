@@ -399,7 +399,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get or => 'أو';
 
   @override
-  String get enterYourEmail => 'Enter your email ';
+  String get enterYourEmail => 'ادخل بريدك الالكتروني';
 
   @override
   String get enterStrongPassword => 'ادخل كلمة مرور قوية ';
@@ -411,7 +411,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterYourPassword => 'ادخل كلمة المرور';
 
   @override
-  String get enterEmailOrPhone => 'أدخل بريدك الإلكتروني أو رقم الهاتف وسنرسل لك رابطًا للعودة إلى حسابك';
+  String get enterEmailOrPhone => ' أدخل بريدك الإلكتروني أو رقم الهاتف ';
+
+  @override
+  String get willSent => 'سوف نرسل لك رابطًا للعودة إلى حسابك';
 
   @override
   String get codeSent => 'تم إرسال رمز مكوّن من 4 أرقام إلى بريدك الإلكتروني. الرجاء إدخاله للتحقق.';
@@ -535,4 +538,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get track => 'تتبع';
+
+  @override
+  String get wanttotrywithmycurrentpassword => 'المحاولة بكلمة المرور الحالية ؟';
+
+  @override
+  String get chooseyourlanguage => 'أختر لغتك';
 }

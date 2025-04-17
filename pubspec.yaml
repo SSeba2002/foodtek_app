@@ -80,6 +80,8 @@ flutter:
     - assets/images/home/
     - assets/images/home/top_rated/
     - assets/images/food_delivery.png
+    - assets/images/pattern.png
+    - assets/images/foodtek-logo.png
     - assets/images/location.png
     - assets/images/base_backgrund.jpg
     - assets/icons/facebook.png

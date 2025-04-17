@@ -71,11 +71,9 @@
   "expiryDate": "Expiry Date",
   "locationAccessRequired": "You need to allow location access",
   "locationPermissionDenied": "Location permission is permanently denied. Enable it from settings.",
-
   "payForOrder": "Pay for the order",
   "orderSuccess": "Your Order Done Successfully",
   "orderTrackingScreenContent": "Order tracking screen content",
-  
   "orderNote": "you will get your order within",
   "thanks":"thanks for using our services",
   "trackOrder": "track Your Order",
@@ -135,7 +133,8 @@
   "enterStrongPassword":"Enter Strong Password",
   "enterValidEmail":"Enter Valid Email",
   "enterYourPassword":"Enter Your Password",
-  "enterEmailOrPhone": "Enter your E-mail or phone and we'll send you a link to get back into your account",
+  "enterEmailOrPhone": "Enter your E-mail or phone and we'll send you",
+  "willSent":"a link to get back into your account",
   "codeSent": "A 4-digit code has been sent to your email. Please enter it to verify.",
   "verify": "Verify",
   "tryCurrentPassword": "Want to try with my current password?",
@@ -176,5 +175,7 @@
   "quantity": "Quantity",
   "mild": "Mild",
   "hot": "Hot",
-  "track": "Track"
+  "track": "Track",
+  "wanttotrywithmycurrentpassword":"Want to try with my current password?",
+  "chooseyourlanguage":"Choose your language"
 }

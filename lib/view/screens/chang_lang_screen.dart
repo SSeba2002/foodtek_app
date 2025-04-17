@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/constant/functions/theme_dialog.dart';
 import 'package:foodtek_project/constant/theme.dart';
+import 'package:foodtek_project/cubit/theme_cubit.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
 
 class ChangLangScreen extends StatefulWidget {
@@ -34,12 +38,17 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                IconButton(
+                  onPressed: () {
+                    showThemeDialog(context);
+                  },
+                  icon: Icon(Icons.brightness_4_outlined),
+                ),
                 SizedBox(height: 10.h),
                 Text(
-                  'Choose your language',
+                  AppLocalizations.of(context)!.chooseyourlanguage,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.black,
                     fontSize: 28.sp,
                     fontWeight: FontWeight.bold,
                   ),

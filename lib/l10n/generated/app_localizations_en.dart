@@ -411,7 +411,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterYourPassword => 'Enter Your Password';
 
   @override
-  String get enterEmailOrPhone => 'Enter your E-mail or phone and we\'ll send you a link to get back into your account';
+  String get enterEmailOrPhone => 'Enter your E-mail or phone and we\'ll send you';
+
+  @override
+  String get willSent => 'a link to get back into your account';
 
   @override
   String get codeSent => 'A 4-digit code has been sent to your email. Please enter it to verify.';
@@ -535,4 +538,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get track => 'Track';
+
+  @override
+  String get wanttotrywithmycurrentpassword => 'Want to try with my current password?';
+
+  @override
+  String get chooseyourlanguage => 'Choose your language';
 }

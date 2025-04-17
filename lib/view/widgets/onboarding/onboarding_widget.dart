@@ -74,8 +74,7 @@ class OnboardingWidget extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: const TextStyle(
-            color: Color(0xFF455A64),
-
+            // color: ,
             fontSize: 30,
             fontWeight: FontWeight.bold,
             // letterSpacing: 1.2,
@@ -92,7 +91,7 @@ class OnboardingWidget extends StatelessWidget {
             softWrap: true,
             style: const TextStyle(
               fontSize: 14,
-              color: Color(0xFF455A64),
+              //  color: Color(0xFF455A64),
               height: 1.5,
             ),
           ),

@@ -71,9 +71,8 @@
   "paymentSuccessMessage": "سوف نرسل تفاصيل الطلب إلى بريدك الإلكتروني بعد إتمام عملية الدفع بنجاح"
 ,  "expiryDate": "تاريخ الانتهاء",
 "locationAccessRequired": "تحتاج إلى السماح بالوصول إلى الموقع.",
-"locationPermissionDenied": "تم رفض إذن الموقع بشكل دائم. قم بتمكينه من الإعدادات."
-
-,  "orderTrackingScreenContent": "محتوى شاشة تتبع الطلب",
+"locationPermissionDenied": "تم رفض إذن الموقع بشكل دائم. قم بتمكينه من الإعدادات.", 
+ "orderTrackingScreenContent": "محتوى شاشة تتبع الطلب",
 "thanks":"شكرا لاستخدامك خدماتنا",
   "seaFood": "مأكولات بحرية",
   "dessert": "حلويات",
@@ -127,9 +126,10 @@
   "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
   "backToLogin": "العودة إلى صفحة تسجيل الدخول؟",
   "send": "إرسال",
-  "enterYourEmail ":"ادخل ايميلك",
+  "enterYourEmail":"ادخل بريدك الالكتروني",
   "or":"أو",
-  "enterEmailOrPhone": "أدخل بريدك الإلكتروني أو رقم الهاتف وسنرسل لك رابطًا للعودة إلى حسابك",
+  "enterEmailOrPhone": " أدخل بريدك الإلكتروني أو رقم الهاتف ",
+  "willSent":"سوف نرسل لك رابطًا للعودة إلى حسابك",
   "codeSent": "تم إرسال رمز مكوّن من 4 أرقام إلى بريدك الإلكتروني. الرجاء إدخاله للتحقق.",
   "verify": "تحقق",
   "enterYourPassword":"ادخل كلمة المرور",
@@ -175,5 +175,8 @@
   "quantity": "الكمية",
   "mild": "خفيف",
   "hot": "شديد الحرارة",
-  "track": "تتبع"
+  "track": "تتبع",
+  "wanttotrywithmycurrentpassword":"المحاولة بكلمة المرور الحالية ؟",
+  "chooseyourlanguage":"أختر لغتك"
+
 }

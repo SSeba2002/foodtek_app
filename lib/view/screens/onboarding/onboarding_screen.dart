@@ -86,13 +86,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
-<<<<<<< HEAD
-              child: Text( AppLocalizations.of(context)!.skip, style: TextStyle(color: Colors.black)),
-||||||| 1441b04
-              child: Text("Skip", style: TextStyle(color: Colors.black)),
-=======
-              child: Text("Skip"),
->>>>>>> ad770d7ce093846396c3132785ee6a7bca73cbcc
+              child: Text(AppLocalizations.of(context)!.skip),
             ),
             Center(
               // the three dots in the middle

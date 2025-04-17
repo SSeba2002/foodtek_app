@@ -902,8 +902,14 @@ abstract class AppLocalizations {
   /// No description provided for @enterEmailOrPhone.
   ///
   /// In en, this message translates to:
-  /// **'Enter your E-mail or phone and we\'ll send you a link to get back into your account'**
+  /// **'Enter your E-mail or phone and we\'ll send you'**
   String get enterEmailOrPhone;
+
+  /// No description provided for @willSent.
+  ///
+  /// In en, this message translates to:
+  /// **'a link to get back into your account'**
+  String get willSent;
 
   /// No description provided for @codeSent.
   ///
@@ -1150,6 +1156,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Track'**
   String get track;
+
+  /// No description provided for @wanttotrywithmycurrentpassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Want to try with my current password?'**
+  String get wanttotrywithmycurrentpassword;
+
+  /// No description provided for @chooseyourlanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your language'**
+  String get chooseyourlanguage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

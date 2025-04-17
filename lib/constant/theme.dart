@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppColors {
   // ألوان الثيم الفاتح
@@ -39,6 +40,7 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: AppColors.primaryGreen,
+    focusColor: AppColors.primaryColor,
 
     scaffoldBackgroundColor: AppColors.backgroundLight,
     colorScheme: ColorScheme.light(
@@ -97,8 +99,8 @@ class AppTheme {
       fillColor: AppColors.inputBackgroundLight,
       filled: true,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(15.r),
+        borderSide: BorderSide(color: Colors.grey, width: 1.0),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
@@ -192,6 +194,7 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: AppColors.primaryGreen,
+    focusColor: AppColors.backgroundDark,
     scaffoldBackgroundColor: AppColors.backgroundDark,
     colorScheme: ColorScheme.dark(
       primary: AppColors.primaryGreen,
