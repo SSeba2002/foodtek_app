@@ -151,7 +151,8 @@
   "pizza": "Pizza",
   "sandwich": "Sandwich",
   "searchMenu": "Search menu, restaurant or etc",
-  "promoText": "Experience our delicious new dish 30% OFF",
+  "promoTextone": "Experience our delicious new dish 30% OFF",
+  "off30": "30% OFF",
   "topRated": "Top Rated",
   "chickenBurger": "Chicken burger",
   "chickenBurgerDesc": "100 gr chicken + tomato + cheese + Lettuce",
@@ -200,9 +201,31 @@
   "reorder":"Reorder",
   "tappedOn": "Tapped on",
   "orderNow":"Order Now",
-  "deliveringTo": "Delivering to"
+  "deliveringTo": "Delivering to",
 
-
-
+  "chooseyourlanguage":"Choose your language",
+  "chooseyourlanguage":"Choose your language",
+  "calculating": "Calculating...",
+  "allDetails": "All Details",
+  "findYourLocation": "Find your location",
+  "orderPlaced": "Order Placed",
+  "arrived": "Arrived",
+  "yourLocation" : "your Location",
+  "orderNumber": "#9579-6432",
+  "deliveryTime": "25m",
+  "deliveryPersonName": "Aleksandr V.",
+  "deliveryPersonRating": "4.9",
+  "deliveryAddress": "123 Al-Madina Street, Abdali, Amman, Jordan",
+  "userName": "Ahmad Daboor",
+  "userEmail": "ahmad1709@gmail.com",
+  "theme": "Theme",
+  "chooseLanguage": "Choose Language",
+  "english": "English",
+  "light": "Light",
+  "arabic": "Arabic",
+  "chooseTheme": "Choose Theme",
+  "dark": "Dark",
+  "deliveringto":"Delivering to",
+  "currentLocation":"Current Location"
 
 }

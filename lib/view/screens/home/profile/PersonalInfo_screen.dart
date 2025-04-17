@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/responsive.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class PersonalInfoScreen extends StatefulWidget {
   const PersonalInfoScreen({super.key});
@@ -9,21 +10,29 @@ class PersonalInfoScreen extends StatefulWidget {
 }
 
 class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
-  final TextEditingController usernameController = TextEditingController(
-    text: "Ahmad Daboor",
-  );
-  final TextEditingController emailController = TextEditingController(
-    text: "Loisbecket@gmail.com",
-  );
-  final TextEditingController phoneController = TextEditingController(
-    text: "0797653948",
-  );
-  final TextEditingController passwordController = TextEditingController(
-    text: "**************",
-  );
-  final TextEditingController addressController = TextEditingController(
-    text: "123 Al-Madina Street, Abdali,...",
-  );
+  final Map<String, String> _userData = {
+    'username': 'Ahmad Daboor',
+    'email': 'Loisbecket@gmail.com',
+    'phone': '0797653948',
+    'address': '123 Al-Madina Street, Abdali,...'
+  };
+
+  late TextEditingController usernameController;
+  late TextEditingController emailController;
+  late TextEditingController phoneController;
+  late TextEditingController passwordController;
+  late TextEditingController addressController;
+
+  @override
+  void initState() {
+    super.initState();
+    usernameController = TextEditingController(text: _userData['name']);
+    emailController = TextEditingController(text: _userData['email']);
+    phoneController = TextEditingController(text: _userData['phone']);
+    passwordController = TextEditingController(text: '**************');
+    addressController = TextEditingController(text: _userData['address']);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +42,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text("Profile", style: TextStyle(color: Colors.black)),
+        title: Text(AppLocalizations.of(context)!.profile),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -48,16 +57,19 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
             ),
             SizedBox(height: 10),
             Text(
-              "Ahmad Daboor",
+              AppLocalizations.of(context)!.userName,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            Text("emmie1709@gmail.com", style: TextStyle(color: Colors.grey)),
+            Text(
+              AppLocalizations.of(context)!.userEmail,
+              style: TextStyle(color: Colors.grey),
+            ),
             SizedBox(height: 20),
-            buildInputField("Username", usernameController),
-            buildInputField("Email", emailController),
-            buildInputField("Phone Number", phoneController),
-            buildInputField("Password", passwordController, obscureText: true),
-            buildInputField("Address", addressController),
+            buildInputField(AppLocalizations.of(context)!.username, usernameController),
+            buildInputField(AppLocalizations.of(context)!.email, emailController),
+            buildInputField(AppLocalizations.of(context)!.phoneNumber, phoneController),
+            buildInputField(AppLocalizations.of(context)!.password, passwordController, obscureText: true),
+            buildInputField(AppLocalizations.of(context)!.address, addressController),
             SizedBox(height: 20),
             SizedBox(
               width: responsiveWidth(context, 295),
@@ -71,7 +83,7 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
                   ),
                 ),
                 child: Text(
-                  "Update",
+                  AppLocalizations.of(context)!.update,
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
@@ -83,10 +95,10 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
   }
 
   Widget buildInputField(
-    String label,
-    TextEditingController controller, {
-    bool obscureText = false,
-  }) {
+      String label,
+      TextEditingController controller, {
+        bool obscureText = false,
+      }) {
     return Padding(
       padding: EdgeInsets.only(bottom: 12.0),
       child: TextField(

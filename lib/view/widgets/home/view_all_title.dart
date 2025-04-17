@@ -1,6 +1,7 @@
 // the view all button on the right of the top rated and the recommended
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/theme.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class ViewAllTitleRow extends StatelessWidget {
   final String title;
@@ -28,7 +29,7 @@ class ViewAllTitleRow extends StatelessWidget {
           child: TextButton(
             onPressed: onView,
             child: Text(
-              "View all",
+              AppLocalizations.of(context)!.viewAll,
               style: TextStyle(
                 color: AppColors.primaryColor,
                 fontSize: 13,

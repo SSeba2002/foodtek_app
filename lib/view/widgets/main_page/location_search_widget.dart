@@ -68,6 +68,7 @@ class _LocationNotificationSrearchState
                     children: [
                       Text(
                       AppLocalizations.of(context)!.deliveringTo,
+                        
                         style: TextStyle(
                           //  color: AppColors.onBoardingtextColor,
                           fontSize: 11,

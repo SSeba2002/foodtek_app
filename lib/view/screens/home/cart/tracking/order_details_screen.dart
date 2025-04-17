@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/constant/responsive.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
-  final int currentStep = 2; //current state of order
+  final int currentStep = 2;
 
   final List<Map<String, dynamic>> steps = [
-    {"title": "Order received", "icon": Icons.check_circle, "completed": true},
-    {
-      "title": "Cooking your order",
-      "icon": Icons.restaurant,
-      "completed": true,
-    },
-    {
-      "title": "Courier is picking up order",
-      "icon": Icons.person,
-      "completed": true,
-    },
-    {"title": "Order delivered", "icon": Icons.home, "completed": false},
+    {"title": "orderReceived", "icon": Icons.check_circle, "completed": true},
+    {"title": "cookingOrder", "icon": Icons.restaurant, "completed": true},
+    {"title": "courierPicking", "icon": Icons.person, "completed": true},
+    {"title": "orderDelivered", "icon": Icons.home, "completed": false},
   ];
 
   OrderDetailsScreen({super.key});
+
+  String _getTranslatedStepTitle(BuildContext context, String titleKey) {
+    switch (titleKey) {
+      case "orderReceived":
+        return AppLocalizations.of(context)!.orderReceived;
+      case "cookingOrder":
+        return AppLocalizations.of(context)!.cookingOrder;
+      case "courierPicking":
+        return AppLocalizations.of(context)!.courierPicking;
+      case "orderDelivered":
+        return AppLocalizations.of(context)!.orderDelivered;
+      default:
+        return titleKey;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +38,10 @@ class OrderDetailsScreen extends StatelessWidget {
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text("Order Details", style: TextStyle(color: Colors.black)),
+        title: Text(
+          AppLocalizations.of(context)!.orderDetails,
+          style: TextStyle(color: Colors.black),
+        ),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -59,18 +70,18 @@ class OrderDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Order ID",
+                      AppLocalizations.of(context)!.orderId,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      "#9579-6432",
+                      AppLocalizations.of(context)!.orderNumber,
                       style: TextStyle(fontSize: 14, color: Colors.grey[700]),
                     ),
                     Text(
-                      "25m",
+                      AppLocalizations.of(context)!.deliveryTime,
                       style: TextStyle(fontSize: 14, color: Colors.green),
                     ),
                   ],
@@ -89,15 +100,14 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Icon(
                           steps[index]['icon'],
-                          color:
-                              isCompleted
-                                  ? Color.fromRGBO(37, 174, 75, 1)
-                                  : Colors.grey[400], // لون الأيقونة فقط يتغير
+                          color: isCompleted
+                              ? Color.fromRGBO(37, 174, 75, 1)
+                              : Colors.grey[400],
                           size: 28,
                         ),
                         SizedBox(width: 12),
                         Text(
-                          steps[index]['title'],
+                          _getTranslatedStepTitle(context, steps[index]['title']),
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -125,7 +135,7 @@ class OrderDetailsScreen extends StatelessWidget {
             ),
             SizedBox(height: 30),
             Text(
-              "Your Delivery Hero",
+              AppLocalizations.of(context)!.yourDeliveryHero,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             SizedBox(height: 12),
@@ -133,16 +143,14 @@ class OrderDetailsScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 25,
-                  backgroundImage: AssetImage(
-                    'assets/images/delivery_person.jpg',
-                  ), // صورة المندوب
+                  backgroundImage: AssetImage('assets/images/delivery_person.jpg'),
                 ),
                 SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Aleksandr V.",
+                      AppLocalizations.of(context)!.deliveryPersonName,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -152,7 +160,10 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Icon(Icons.star, size: 16, color: Colors.orange),
                         SizedBox(width: 4),
-                        Text("4.9", style: TextStyle(fontSize: 14)),
+                        Text(
+                          AppLocalizations.of(context)!.deliveryPersonRating,
+                          style: TextStyle(fontSize: 14),
+                        ),
                       ],
                     ),
                   ],
@@ -175,7 +186,7 @@ class OrderDetailsScreen extends StatelessWidget {
 
             /// Delivery Address
             Text(
-              "Your location",
+              AppLocalizations.of(context)!.yourLocation,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             SizedBox(height: 8),
@@ -185,7 +196,7 @@ class OrderDetailsScreen extends StatelessWidget {
                 SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    "123 Al-Madina Street, Abdali, Amman, Jordan",
+                    AppLocalizations.of(context)!.deliveryAddress,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
@@ -206,7 +217,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 14, horizontal: 60),
                 ),
                 child: Text(
-                  "Live Track",
+                  AppLocalizations.of(context)!.liveTrack,
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
