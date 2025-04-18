@@ -1,22 +1,9 @@
+abstract class AppStates {}
 
+class IntiThemeState extends AppStates {}
 
-import 'package:flutter/material.dart';
+class LightThemeState extends AppStates {}
 
-abstract class AppStates {
-  bool isDarkMode;
-  ThemeMode themeMode;
+class DarkThemeState extends AppStates {}
 
-  AppStates({required this.isDarkMode, required this.themeMode});
-}
-
-class IntiThemeState extends AppStates {
-  IntiThemeState() : super(isDarkMode: false, themeMode: ThemeMode.light);
-}
-
-class LightThemeState extends AppStates {
-  LightThemeState() : super(isDarkMode: false, themeMode: ThemeMode.light);
-}
-
-class DarkThemeState extends AppStates {
-  DarkThemeState() : super(isDarkMode: true, themeMode: ThemeMode.dark);
-}
+class ChangeLangState extends AppStates {}

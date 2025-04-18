@@ -282,16 +282,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.fastFood,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedCategories.contains(AppLocalizations.of(context)!.fastFood),
+                        selected: _selectedCategories.contains(
+                          AppLocalizations.of(context)!.fastFood,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedCategories.add(AppLocalizations.of(context)!.fastFood);
+                              _selectedCategories.add(
+                                AppLocalizations.of(context)!.fastFood,
+                              );
                             } else {
-                              _selectedCategories.remove(AppLocalizations.of(context)!.fastFood);
+                              _selectedCategories.remove(
+                                AppLocalizations.of(context)!.fastFood,
+                              );
                             }
                           });
                         },
@@ -301,16 +307,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.seaFood,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedCategories.contains(AppLocalizations.of(context)!.seaFood),
+                        selected: _selectedCategories.contains(
+                          AppLocalizations.of(context)!.seaFood,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedCategories.add(AppLocalizations.of(context)!.seaFood);
+                              _selectedCategories.add(
+                                AppLocalizations.of(context)!.seaFood,
+                              );
                             } else {
-                              _selectedCategories.remove(AppLocalizations.of(context)!.seaFood);
+                              _selectedCategories.remove(
+                                AppLocalizations.of(context)!.seaFood,
+                              );
                             }
                           });
                         },
@@ -320,16 +332,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.dessert,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedCategories.contains(AppLocalizations.of(context)!.dessert),
+                        selected: _selectedCategories.contains(
+                          AppLocalizations.of(context)!.dessert,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedCategories.add(AppLocalizations.of(context)!.dessert);
+                              _selectedCategories.add(
+                                AppLocalizations.of(context)!.dessert,
+                              );
                             } else {
-                              _selectedCategories.remove(AppLocalizations.of(context)!.dessert);
+                              _selectedCategories.remove(
+                                AppLocalizations.of(context)!.dessert,
+                              );
                             }
                           });
                         },
@@ -353,7 +371,7 @@ class _FilterScreenState extends State<FilterScreen> {
                         label: Text('1 KM', style: TextStyle(fontSize: 12.sp)),
                         selected: _selectedLocations.contains('1 KM'),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
@@ -369,7 +387,7 @@ class _FilterScreenState extends State<FilterScreen> {
                         label: Text('5 KM', style: TextStyle(fontSize: 12.sp)),
                         selected: _selectedLocations.contains('5 KM'),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
@@ -385,7 +403,7 @@ class _FilterScreenState extends State<FilterScreen> {
                         label: Text('10 KM', style: TextStyle(fontSize: 12.sp)),
                         selected: _selectedLocations.contains('10 KM'),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
@@ -417,16 +435,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.tunaTartare,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.tunaTartare),
+                        selected: _selectedDishes.contains(
+                          AppLocalizations.of(context)!.tunaTartare,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add(AppLocalizations.of(context)!.tunaTartare);
+                              _selectedDishes.add(
+                                AppLocalizations.of(context)!.tunaTartare,
+                              );
                             } else {
-                              _selectedDishes.remove(AppLocalizations.of(context)!.tunaTartare);
+                              _selectedDishes.remove(
+                                AppLocalizations.of(context)!.tunaTartare,
+                              );
                             }
                           });
                         },
@@ -436,16 +460,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.spicyCrabCakes,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.spicyCrabCakes),
+                        selected: _selectedDishes.contains(
+                          AppLocalizations.of(context)!.spicyCrabCakes,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add(AppLocalizations.of(context)!.spicyCrabCakes);
+                              _selectedDishes.add(
+                                AppLocalizations.of(context)!.spicyCrabCakes,
+                              );
                             } else {
-                              _selectedDishes.remove(AppLocalizations.of(context)!.spicyCrabCakes);
+                              _selectedDishes.remove(
+                                AppLocalizations.of(context)!.spicyCrabCakes,
+                              );
                             }
                           });
                         },
@@ -455,16 +485,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.seafoodPaella,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.seafoodPaella),
+                        selected: _selectedDishes.contains(
+                          AppLocalizations.of(context)!.seafoodPaella,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add(AppLocalizations.of(context)!.seafoodPaella);
+                              _selectedDishes.add(
+                                AppLocalizations.of(context)!.seafoodPaella,
+                              );
                             } else {
-                              _selectedDishes.remove(AppLocalizations.of(context)!.seafoodPaella);
+                              _selectedDishes.remove(
+                                AppLocalizations.of(context)!.seafoodPaella,
+                              );
                             }
                           });
                         },
@@ -474,16 +510,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.clamChowder,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.clamChowder),
+                        selected: _selectedDishes.contains(
+                          AppLocalizations.of(context)!.clamChowder,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add(AppLocalizations.of(context)!.clamChowder);
+                              _selectedDishes.add(
+                                AppLocalizations.of(context)!.clamChowder,
+                              );
                             } else {
-                              _selectedDishes.remove(AppLocalizations.of(context)!.clamChowder);
+                              _selectedDishes.remove(
+                                AppLocalizations.of(context)!.clamChowder,
+                              );
                             }
                           });
                         },
@@ -493,16 +535,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.misoGlazedCod,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.misoGlazedCod),
+                        selected: _selectedDishes.contains(
+                          AppLocalizations.of(context)!.misoGlazedCod,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add(AppLocalizations.of(context)!.misoGlazedCod);
+                              _selectedDishes.add(
+                                AppLocalizations.of(context)!.misoGlazedCod,
+                              );
                             } else {
-                              _selectedDishes.remove(AppLocalizations.of(context)!.misoGlazedCod);
+                              _selectedDishes.remove(
+                                AppLocalizations.of(context)!.misoGlazedCod,
+                              );
                             }
                           });
                         },
@@ -512,16 +560,22 @@ class _FilterScreenState extends State<FilterScreen> {
                           AppLocalizations.of(context)!.lobsterThermidor,
                           style: TextStyle(fontSize: 12.sp),
                         ),
-                        selected: _selectedDishes.contains(AppLocalizations.of(context)!.lobsterThermidor),
+                        selected: _selectedDishes.contains(
+                          AppLocalizations.of(context)!.lobsterThermidor,
+                        ),
                         selectedColor: Color(0xFF25AE4B),
-                        backgroundColor: Colors.grey[200],
+                        backgroundColor: Theme.of(context).cardColor,
                         side: BorderSide.none,
                         onSelected: (bool selected) {
                           setState(() {
                             if (selected) {
-                              _selectedDishes.add(AppLocalizations.of(context)!.lobsterThermidor);
+                              _selectedDishes.add(
+                                AppLocalizations.of(context)!.lobsterThermidor,
+                              );
                             } else {
-                              _selectedDishes.remove(AppLocalizations.of(context)!.lobsterThermidor);
+                              _selectedDishes.remove(
+                                AppLocalizations.of(context)!.lobsterThermidor,
+                              );
                             }
                           });
                         },

@@ -140,6 +140,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 onTap: () {
                   setState(() {
                     _selectedLanguage = AppLocalizations.of(context)!.english;
+                    context.read<AppCubit>().changeLang("en");
                   });
                   Navigator.pop(context);
                 },
@@ -151,6 +152,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 onTap: () {
                   setState(() {
                     _selectedLanguage = AppLocalizations.of(context)!.arabic;
+                    context.read<AppCubit>().changeLang("ar");
                   });
                   Navigator.pop(context);
                 },
@@ -175,7 +177,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 leading: Icon(Icons.light_mode_outlined),
                 title: Text(AppLocalizations.of(context)!.light),
                 onTap: () {
-                  context.read<AppCubit>().changeTheme(false);
+                  context.read<AppCubit>().changeTheme(isDarkMode: false);
                   setState(() {
                     selectedTheme = AppLocalizations.of(context)!.light;
                   });
@@ -187,7 +189,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 leading: Icon(Icons.dark_mode_outlined),
                 title: Text(AppLocalizations.of(context)!.dark),
                 onTap: () {
-                  context.read<AppCubit>().changeTheme(true);
+                  context.read<AppCubit>().changeTheme(isDarkMode: true);
                   setState(() {
                     selectedTheme = AppLocalizations.of(context)!.dark;
                   });

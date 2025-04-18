@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/constant/functions/theme_dialog.dart';
 import 'package:foodtek_project/constant/theme.dart';
+import 'package:foodtek_project/cubit/theme_cubit.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import 'package:foodtek_project/state/theme_state.dart';
 import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
 
-class ChangLangScreen extends StatefulWidget {
-  final Function(Locale) setLocale;
-  const ChangLangScreen({required this.setLocale, super.key});
-
-  @override
-  _ChangLangScreenState createState() => _ChangLangScreenState();
-}
-
-class _ChangLangScreenState extends State<ChangLangScreen> {
-  String? _selectedLanguage = 'English';
-
+class ChangLangScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +20,10 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
           image: DecorationImage(
             image: AssetImage('assets/images/background.jpg'),
             fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(Colors.white, BlendMode.modulate),
+            colorFilter: ColorFilter.mode(
+              Theme.of(context).scaffoldBackgroundColor,
+              BlendMode.modulate,
+            ),
           ),
         ),
         child: Center(
@@ -66,28 +62,31 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                     vertical: 4.h,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).cardColor,
                     borderRadius: BorderRadius.circular(12.r),
                     border: Border.all(color: Colors.grey.shade400),
                   ),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
                       isExpanded: true,
-                      value: _selectedLanguage,
+                      value: context.read<AppCubit>().selectedLanguage,
                       icon: Icon(Icons.arrow_drop_down, size: 24.sp),
                       iconSize: 24.sp,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 16.sp),
-                      dropdownColor: Colors.white,
+                      style: TextStyle(fontSize: 16.sp),
+                      dropdownColor: Theme.of(context).cardColor,
                       onChanged: (String? newValue) {
-                        setState(() {
-                          _selectedLanguage = newValue!;
-                        });
+                        context.read<AppCubit>().selectedLanguage = newValue!;
+                        if (newValue == "عربي") {
+                          context.read<AppCubit>().changeLang("ar");
+                        } else {
+                          context.read<AppCubit>().changeLang("en");
+                        }
                       },
                       items:
                           <String>[
                             'English',
-                            'Arabic',
+                            'عربي',
                           ].map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
@@ -118,12 +117,6 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      if (_selectedLanguage == 'Arabic') {
-                        widget.setLocale(Locale('ar'));
-                      } else {
-                        widget.setLocale(Locale('en'));
-                      }
-
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
@@ -140,7 +133,7 @@ class _ChangLangScreenState extends State<ChangLangScreen> {
                       ),
                     ),
                     child: Text(
-                      'Continue',
+                      AppLocalizations.of(context)!.continueText,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16.sp,

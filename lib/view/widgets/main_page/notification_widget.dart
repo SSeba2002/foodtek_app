@@ -4,7 +4,7 @@ void openNotificationSheet(BuildContext context) {
   showModalBottomSheet(
     // the bottom sheet
     context: context,
-    backgroundColor: Colors.white,
+    backgroundColor: Theme.of(context).cardColor,
     isScrollControlled: true, // Makes the bottom sheet more flexible
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -19,6 +19,7 @@ class NotificationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Theme.of(context).cardColor,
       height: MediaQuery.of(context).size.height * 0.85,
       padding: EdgeInsets.all(16),
       child: DefaultTabController(
@@ -47,7 +48,6 @@ class NotificationWidget extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TabBar(
-              labelColor: Colors.black,
               indicatorColor: Colors.green,
               tabs: [Tab(text: "All"), Tab(text: "Unread"), Tab(text: "Read")],
             ),

@@ -1,8 +1,12 @@
+// ignore: depend_on_referenced_packages
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/constant/functions/theme_dialog.dart';
 import 'package:foodtek_project/constant/responsive.dart';
+import 'package:foodtek_project/cubit/auth/login_cubit.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import 'package:foodtek_project/state/auth/login_state.dart';
 import 'package:foodtek_project/view/screens/auth/forgetpass/forgot_password_screen.dart';
 import 'package:foodtek_project/view/screens/auth/signup_screen.dart';
 import 'package:foodtek_project/view/screens/main_screen.dart';
@@ -10,21 +14,9 @@ import 'package:foodtek_project/view/widgets/auth/custom_foodtek_logo.dart';
 import 'package:foodtek_project/view/widgets/auth/reuesble_scaffold_widget.dart';
 import 'package:foodtek_project/view/widgets/auth/social_button_widget.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  bool showErrorEmail = false;
-  bool showErrorPassword = false;
-  bool obscureText = true;
-  bool isRememberMeChecked = false;
-
-  TextEditingController emailTextEditingController = TextEditingController();
-  TextEditingController passwordTextEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return ReusableScaffold(
@@ -53,7 +45,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Container(
                       width: responsiveWidth(context, 343),
-                      // height: responsiveHeight(context, 661),
                       padding: const EdgeInsets.all(24.0),
                       decoration: BoxDecoration(
                         color: Theme.of(context).cardColor,
@@ -66,263 +57,302 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ],
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Text(
-                              AppLocalizations.of(context)!.login,
-                              style: TextStyle(
-                                fontSize: 32,
+                      child: BlocProvider(
+                        create: (context) => LoginCubit(),
+                        child: BlocConsumer<LoginCubit, LoginStates>(
+                          listener: (context, state) {},
+                          builder: (context, state) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Center(
+                                  child: Text(
+                                    AppLocalizations.of(context)!.login,
+                                    style: TextStyle(
+                                      fontSize: 32,
 
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                AppLocalizations.of(context)!.dontHaveAccount,
-
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder:
-                                          (context) => const SignUpScreen(),
+                                      fontWeight: FontWeight.w700,
                                     ),
-                                  );
-                                },
-
-                                child: Text(
-                                  AppLocalizations.of(context)!.signUp,
-
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          Text(
-                            AppLocalizations.of(context)!.email,
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
-                          ),
-                          TextField(
-                            keyboardType: TextInputType.emailAddress,
-                            controller: emailTextEditingController,
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15.r),
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                  width: 1.0,
-                                ),
-                              ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      AppLocalizations.of(
+                                        context,
+                                      )!.dontHaveAccount,
 
-                              //  label: const Text("Email"),
-                              hintText:
-                                  AppLocalizations.of(context)!.enterYourEmail,
-                              errorText:
-                                  showErrorEmail
-                                      ? AppLocalizations.of(
-                                        context,
-                                      )!.enterValidEmail
-                                      : null,
-                            ),
-                          ),
-                          const SizedBox(height: 15),
-                          Text(
-                            AppLocalizations.of(context)!.password,
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
-                          ),
-                          TextField(
-                            controller: passwordTextEditingController,
-                            obscureText: obscureText,
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15.r),
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                  width: 1.0,
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) =>
+                                                    const SignUpScreen(),
+                                          ),
+                                        );
+                                      },
+
+                                      child: Text(
+                                        AppLocalizations.of(context)!.signUp,
+
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              // label: const Text("Password"),
-                              hintText:
-                                  AppLocalizations.of(
-                                    context,
-                                  )!.enterYourPassword,
-                              errorText:
-                                  showErrorPassword
-                                      ? AppLocalizations.of(
-                                        context,
-                                      )!.enterStrongPassword
-                                      : null,
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    obscureText = !obscureText;
-                                  });
-                                },
-                                icon: Icon(
-                                  obscureText
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
+                                const SizedBox(height: 20),
+                                // Email Field
+                                Text(
+                                  AppLocalizations.of(context)!.email,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            // Distribute space between items
-                            children: [
-                              Row(
-                                children: [
-                                  Checkbox(
-                                    value:
-                                        isRememberMeChecked, // Boolean value for checkbox
-                                    onChanged: (bool? newValue) {
-                                      setState(() {
-                                        isRememberMeChecked = newValue ?? false;
-                                      });
+                                TextField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  controller:
+                                      context
+                                          .read<LoginCubit>()
+                                          .emailTextEditingController,
+                                  decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15.r),
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                        width: 1.0,
+                                      ),
+                                    ),
+
+                                    hintText:
+                                        AppLocalizations.of(
+                                          context,
+                                        )!.enterYourEmail,
+                                    errorText:
+                                        context
+                                                .read<LoginCubit>()
+                                                .showErrorEmail
+                                            ? AppLocalizations.of(
+                                              context,
+                                            )!.enterValidEmail
+                                            : null,
+                                  ),
+                                ),
+                                const SizedBox(height: 15),
+                                // Password Field
+                                Text(
+                                  AppLocalizations.of(context)!.password,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                TextField(
+                                  controller:
+                                      context
+                                          .read<LoginCubit>()
+                                          .passwordTextEditingController,
+                                  obscureText:
+                                      context.read<LoginCubit>().obscureText,
+                                  decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15.r),
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                        width: 1.0,
+                                      ),
+                                    ),
+
+                                    hintText:
+                                        AppLocalizations.of(
+                                          context,
+                                        )!.enterYourPassword,
+                                    errorText:
+                                        context
+                                                .read<LoginCubit>()
+                                                .showErrorPassword
+                                            ? AppLocalizations.of(
+                                              context,
+                                            )!.enterStrongPassword
+                                            : null,
+                                    suffixIcon: IconButton(
+                                      onPressed: () {
+                                        context
+                                            .read<LoginCubit>()
+                                            .changeObscureText();
+                                      },
+                                      icon: Icon(
+                                        context.read<LoginCubit>().obscureText
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 20),
+
+                                //CheckBox And ForgotPassword
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Checkbox(
+                                          value:
+                                              context
+                                                  .read<LoginCubit>()
+                                                  .isRememberMeChecked, // Boolean value for checkbox
+                                          onChanged: (bool? newValue) {
+                                            context
+                                                .read<LoginCubit>()
+                                                .changeCheckedRememberme();
+                                          },
+                                        ),
+                                        Text(
+                                          AppLocalizations.of(
+                                            context,
+                                          )!.rememberMe,
+                                          style: TextStyle(fontSize: 11),
+                                        ),
+                                      ],
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (context) =>
+                                                    ForgotPasswordScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        AppLocalizations.of(
+                                          context,
+                                        )!.forgotPassword,
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          color: Colors.green,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 20),
+                                //Login Button
+                                SizedBox(
+                                  width: responsiveWidth(context, 295),
+                                  height: responsiveWidth(context, 48),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      context
+                                          .read<LoginCubit>()
+                                          .validationLogin();
+
+                                      if (!context
+                                              .read<LoginCubit>()
+                                              .showErrorPassword &&
+                                          !context
+                                              .read<LoginCubit>()
+                                              .showErrorEmail) {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MainScreen(),
+                                          ),
+                                        );
+                                      }
                                     },
-                                  ),
-                                  Text(
-                                    AppLocalizations.of(context)!.rememberMe,
-                                    style: TextStyle(fontSize: 11),
-                                  ),
-                                ],
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder:
-                                          (context) => ForgotPasswordScreen(),
-                                    ),
-                                  );
-                                },
-                                child: Text(
-                                  AppLocalizations.of(context)!.forgotPassword,
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          SizedBox(
-                            width: responsiveWidth(context, 295),
-                            height: responsiveWidth(context, 48),
-                            child: ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  showErrorEmail =
-                                      !isEmail(
-                                        email:
-                                            emailTextEditingController.text
-                                                .trim(),
-                                      );
-                                  showErrorPassword =
-                                      !isStrongPassword(
-                                        password:
-                                            passwordTextEditingController.text
-                                                .trim(),
-                                      );
-                                });
-                                if (!showErrorEmail && !showErrorPassword) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => MainScreen(),
-                                    ),
-                                  );
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color.fromRGBO(37, 174, 75, 1),
-                              ),
-                              child: Text(
-                                AppLocalizations.of(context)!.login,
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Column(
-                            children: [
-                              Row(
-                                children: [
-                                  const Expanded(child: Divider()),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 10,
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color.fromRGBO(
+                                        37,
+                                        174,
+                                        75,
+                                        1,
+                                      ),
                                     ),
                                     child: Text(
-                                      AppLocalizations.of(context)!.or,
-                                      style: TextStyle(color: Colors.grey),
+                                      AppLocalizations.of(context)!.login,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
-                                  const Expanded(child: Divider()),
-                                ],
-                              ),
-                              SizedBox(height: 20),
-                              // Google Button
-                              SocialButton(
-                                imagePath: "assets/icons/google.png",
-                                text:
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.continueWithGoogle,
-                                onPressed: () {
-                                  // Handle Google Sign-in
-                                },
-                              ),
-                              const SizedBox(height: 10),
+                                ),
+                                SizedBox(height: 10),
 
-                              // Facebook Button
-                              SocialButton(
-                                imagePath: "assets/icons/facebook.png",
-                                text:
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.continueWithFacebook,
-                                onPressed: () {
-                                  // Handle Facebook Sign-in
-                                },
-                              ),
-                              const SizedBox(height: 10),
+                                Column(
+                                  children: [
+                                    //Or Divider
+                                    Row(
+                                      children: [
+                                        const Expanded(child: Divider()),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 10,
+                                          ),
+                                          child: Text(
+                                            AppLocalizations.of(context)!.or,
+                                            style: TextStyle(
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ),
+                                        const Expanded(child: Divider()),
+                                      ],
+                                    ),
+                                    SizedBox(height: 20),
+                                    // Google Button
+                                    SocialButton(
+                                      imagePath: "assets/icons/google.png",
+                                      text:
+                                          AppLocalizations.of(
+                                            context,
+                                          )!.continueWithGoogle,
+                                      onPressed: () {},
+                                    ),
+                                    const SizedBox(height: 10),
 
-                              // Apple Button
-                              SocialButton(
-                                imagePath: "assets/icons/apple.png",
-                                text:
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.continueWithApple,
-                                onPressed: () {
-                                  // Handle Apple Sign-in
-                                },
-                              ),
-                            ],
-                          ),
-                        ],
+                                    // Facebook Button
+                                    SocialButton(
+                                      imagePath: "assets/icons/facebook.png",
+                                      text:
+                                          AppLocalizations.of(
+                                            context,
+                                          )!.continueWithFacebook,
+                                      onPressed: () {},
+                                    ),
+                                    const SizedBox(height: 10),
+
+                                    // Apple Button
+                                    SocialButton(
+                                      imagePath: "assets/icons/apple.png",
+                                      text:
+                                          AppLocalizations.of(
+                                            context,
+                                          )!.continueWithApple,
+                                      onPressed: () {},
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ],
@@ -334,18 +364,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
-
-bool isStrongPassword({required String password}) {
-  String pattern =
-      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-  RegExp regExp = RegExp(pattern);
-  return regExp.hasMatch(password);
-}
-
-bool isEmail({required String email}) {
-  String p =
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-  RegExp regExp = RegExp(p);
-  return regExp.hasMatch(email);
 }

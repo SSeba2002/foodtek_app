@@ -18,9 +18,7 @@ class SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-          builder: (context) => ChangLangScreen(setLocale: widget.setLocale),
-        ),
+        MaterialPageRoute(builder: (context) => ChangLangScreen()),
       );
     });
   }

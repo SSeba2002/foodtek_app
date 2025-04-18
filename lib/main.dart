@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/constant/functions/bloc_observer.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
 import 'package:foodtek_project/state/theme_state.dart';
+import 'package:foodtek_project/view/screens/auth/login_screen.dart';
+import 'package:foodtek_project/view/screens/main_screen.dart';
 import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
+  Bloc.observer = MyBlocObserver();
 }
 
 class MyApp extends StatefulWidget {
@@ -41,9 +45,9 @@ class _MyAppState extends State<MyApp> {
                 (context, state) => MaterialApp(
                   theme: AppTheme.lightTheme,
                   darkTheme: AppTheme.darkTheme,
-                  themeMode: state.themeMode,
+                  themeMode: context.read<AppCubit>().themeMode,
 
-                  locale: _locale,
+                  locale: context.read<AppCubit>().locale,
                   localizationsDelegates: const [
                     AppLocalizations.delegate,
                     GlobalMaterialLocalizations.delegate,
@@ -57,9 +61,9 @@ class _MyAppState extends State<MyApp> {
                   builder: (context, child) {
                     return Directionality(
                       textDirection:
-                          _locale.languageCode == 'ar'
-                              ? TextDirection.rtl
-                              : TextDirection.ltr,
+                          context.read<AppCubit>().locale.toString() == "en"
+                              ? TextDirection.ltr
+                              : TextDirection.rtl,
                       child: child!,
                     );
                   },

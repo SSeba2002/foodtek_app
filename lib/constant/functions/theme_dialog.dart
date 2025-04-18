@@ -15,7 +15,7 @@ void showThemeDialog(BuildContext context) {
               leading: Icon(Icons.light_mode_outlined),
               title: Text("Light"),
               onTap: () {
-                context.read<AppCubit>().changeTheme(false);
+                context.read<AppCubit>().changeTheme(isDarkMode: false);
 
                 Navigator.pop(context);
               },
@@ -25,7 +25,7 @@ void showThemeDialog(BuildContext context) {
               leading: Icon(Icons.dark_mode_outlined),
               title: Text("Dark"),
               onTap: () {
-                context.read<AppCubit>().changeTheme(true);
+                context.read<AppCubit>().changeTheme(isDarkMode: true);
 
                 Navigator.pop(context);
               },
