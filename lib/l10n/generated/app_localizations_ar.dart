@@ -156,7 +156,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get promoCode => 'هل لديك رمز خصم؟';
 
   @override
-  String get findYourLocation => 'جد موقعك';
+  String get findYourLocation => 'ابحث عن موقعك';
 
   @override
   String get selected => 'تم اختياره';
@@ -608,65 +608,64 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get deliveringTo => 'يتم التوصيل إلى';
 
+  @override
+  String get calculating => 'يتم الحساب...';
 
   @override
-  String get calculating => "يتم الحساب...";
+  String get allDetails => 'جميع التفاصيل';
 
   @override
-  String get allDetails => " جميع التفاصيل";
+  String get orderPlaced => 'تم تقديم الطلب';
 
   @override
-  String get orderPlaced => "تم تقديم الطلب";
-  @override
-  String get arrived => "وصل";
+  String get arrived => 'وصل';
 
   @override
-  String get yourLocation => "موقعك";
+  String get yourLocation => 'موقعك';
 
   @override
-  String get orderNumber => "#٦٥٧٩-٦٤٣٢";
+  String get orderNumber => '#٦٥٧٩-٦٤٣٢';
 
   @override
-  String get deliveryTime => "٢٥ د";
+  String get deliveryTime => '٢٥ د';
 
   @override
-  String get deliveryPersonName => "اليكساندر";
+  String get deliveryPersonName => 'اليكساندر';
 
   @override
-  String get deliveryPersonRating => "٤.٩";
+  String get deliveryPersonRating => '٤.٩';
 
   @override
-  String get deliveryAddress => "١٢٣-شارع المدينه ، العبدلي ,عمان ,الاردن";
+  String get deliveryAddress => '١٢٣-شارع المدينه ، العبدلي ,عمان ,الاردن';
 
   @override
-  String get userName => "احمد دبور";
+  String get userName => 'احمد دبور';
 
   @override
-  String get userEmail => "ahmad1709@gmail.com";
+  String get userEmail => 'ahmad1709@gmail.com';
 
   @override
-  String get theme => "السمة";
+  String get theme => 'السمة';
 
   @override
-  String get chooseLanguage => "اختر اللغة";
+  String get chooseLanguage => 'اختر اللغة';
 
   @override
-  String get english => "الانجليزية";
+  String get english => 'الإنجليزية';
 
   @override
-  String get light => "فاتح";
+  String get light => 'فاتح';
 
   @override
-  String get arabic => "العرية";
+  String get arabic => 'العربية';
 
   @override
-  String get chooseTheme => "اختر السمة";
+  String get chooseTheme => 'اختر السمة';
 
   @override
-  String get dark => "غامق";
+  String get dark => 'غامق';
 
-
- @override
+  @override
   String get deliveringto => 'التوصيل الى';
 
   @override
