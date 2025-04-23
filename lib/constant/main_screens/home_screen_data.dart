@@ -86,7 +86,7 @@ List<Category> topRatedItems(BuildContext context) {
       id: 2,
     ),
     Category(
-      title: AppLocalizations.of(context)!.spicyShawarma,
+      title: AppLocalizations.of(context)!.chickenBurger,
       image: "assets/images/home/top_rated/chese_burger.png",
       description: AppLocalizations.of(context)!.cheeseBurgerDesc,
       price: "\$20.00",

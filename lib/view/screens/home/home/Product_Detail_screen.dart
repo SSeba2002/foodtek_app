@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/product_model.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
 import '../../../widgets/home/location_widget.dart';
@@ -40,6 +41,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        
         content: Text(
           '${widget.product.name}Added to cart',
           textAlign: TextAlign.center,
@@ -193,7 +195,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Spicy',
+                                      AppLocalizations.of(context)!.spicy,
                                       style: TextStyle(
                                         fontSize: 12.sp,
                                         fontWeight: FontWeight.w500,
@@ -204,7 +206,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     Row(
                                       children: [
                                         Text(
-                                          'Mild',
+                                          AppLocalizations.of(context)!.mild,
                                           style: TextStyle(
                                             fontSize: 12.sp,
                                             color: Colors.green,
@@ -249,7 +251,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                         ),
                                         SizedBox(width: 4),
                                         Text(
-                                          'Hot',
+                                          AppLocalizations.of(context)!.hot,
                                           style: TextStyle(
                                             fontSize: 12.sp,
                                             color: Colors.red,
@@ -266,7 +268,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Quantity',
+                                    AppLocalizations.of(context)!.quantity,
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       fontWeight: FontWeight.w500,
@@ -358,7 +360,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               shadowColor: Colors.green,
                             ),
                             child: Text(
-                              'Add To Cart',
+                            AppLocalizations.of(context)!.addToCart,
                               style: TextStyle(
                                 fontSize: 15.sp,
                                 color: Colors.white,

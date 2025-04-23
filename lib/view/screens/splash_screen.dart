@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/view/screens/chang_lang_screen.dart'; // تأكد من الاستيراد
+import 'package:foodtek_project/view/screens/chang_lang_screen.dart'; 
 import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

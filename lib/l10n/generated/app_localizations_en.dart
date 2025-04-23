@@ -670,7 +670,59 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get priceRange => 'priceRange';
+<<<<<<< HEAD
 
   @override
   String get delivered2 => 'delivered';
+||||||| parent of 4037af1 (Fix translation issues)
+=======
+
+  @override
+  String get notificationsTitle => 'Notifications';
+
+  @override
+  String get allTab => 'All';
+
+  @override
+  String get unreadTab => 'Unread';
+
+  @override
+  String get readTab => 'Read';
+
+  @override
+  String get delayed_order_title => 'Delayed Order';
+
+  @override
+  String get delayed_order_subTitle => 'We’re sorry! Your order is running late. New ETA: 10:30 PM. Thanks for your patience!';
+
+  @override
+  String get promotional_offer_title => 'Promotional Offer';
+
+  @override
+  String get promotional_offer_subTitle => 'Craving something delicious? 🍕 Get 20% off on your next order. Use code: YUMMY20.';
+
+  @override
+  String get out_for_delivery_title => 'Out for Delivery';
+
+  @override
+  String get out_for_delivery_subTitle => 'Your order is on the way! 🚚 Estimated arrival: 15 mins. Stay hungry!';
+
+  @override
+  String get order_confirmation_title => 'Order Confirmation';
+
+  @override
+  String get order_confirmation_subTitle => 'Your order has been placed! 🍽️ We’re preparing it now. Track your order live!';
+
+  @override
+  String get delivered_title => 'Delivered';
+
+  @override
+  String get delivered_subTitle => 'Enjoy your meal! 🍕 Your order has been delivered.';
+
+  @override
+  String get description_text => 'Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum.';
+
+  @override
+  String get cheeseburger_wendys => 'Cheeseburger Wendy\'s Burger';
+>>>>>>> 4037af1 (Fix translation issues)
 }

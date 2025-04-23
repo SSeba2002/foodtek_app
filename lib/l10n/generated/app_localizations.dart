@@ -1420,12 +1420,112 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'priceRange'**
   String get priceRange;
+<<<<<<< HEAD
 
   /// No description provided for @delivered2.
   ///
   /// In en, this message translates to:
   /// **'delivered'**
   String get delivered2;
+||||||| parent of 4037af1 (Fix translation issues)
+=======
+
+  /// No description provided for @notificationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notificationsTitle;
+
+  /// No description provided for @allTab.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get allTab;
+
+  /// No description provided for @unreadTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Unread'**
+  String get unreadTab;
+
+  /// No description provided for @readTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Read'**
+  String get readTab;
+
+  /// No description provided for @delayed_order_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Delayed Order'**
+  String get delayed_order_title;
+
+  /// No description provided for @delayed_order_subTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We’re sorry! Your order is running late. New ETA: 10:30 PM. Thanks for your patience!'**
+  String get delayed_order_subTitle;
+
+  /// No description provided for @promotional_offer_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Promotional Offer'**
+  String get promotional_offer_title;
+
+  /// No description provided for @promotional_offer_subTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Craving something delicious? 🍕 Get 20% off on your next order. Use code: YUMMY20.'**
+  String get promotional_offer_subTitle;
+
+  /// No description provided for @out_for_delivery_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Out for Delivery'**
+  String get out_for_delivery_title;
+
+  /// No description provided for @out_for_delivery_subTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order is on the way! 🚚 Estimated arrival: 15 mins. Stay hungry!'**
+  String get out_for_delivery_subTitle;
+
+  /// No description provided for @order_confirmation_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Confirmation'**
+  String get order_confirmation_title;
+
+  /// No description provided for @order_confirmation_subTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order has been placed! 🍽️ We’re preparing it now. Track your order live!'**
+  String get order_confirmation_subTitle;
+
+  /// No description provided for @delivered_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered'**
+  String get delivered_title;
+
+  /// No description provided for @delivered_subTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoy your meal! 🍕 Your order has been delivered.'**
+  String get delivered_subTitle;
+
+  /// No description provided for @description_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum.'**
+  String get description_text;
+
+  /// No description provided for @cheeseburger_wendys.
+  ///
+  /// In en, this message translates to:
+  /// **'Cheeseburger Wendy\'s Burger'**
+  String get cheeseburger_wendys;
+>>>>>>> 4037af1 (Fix translation issues)
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

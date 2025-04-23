@@ -1,12 +1,7 @@
 // lib/cubit/theme/theme_cubit.dart
-import 'dart:ui';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodtek_project/state/theme_state.dart';
-
-import 'package:flutter_localizations/flutter_localizations.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppCubit extends Cubit<AppStates> {
@@ -24,7 +19,6 @@ class AppCubit extends Cubit<AppStates> {
     emit(ChangeLangState());
   }
 
-  // تحميل السمة من التخزين المحلي
   Future<void> loadTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final isDarkMode = prefs.getBool('isDarkMode') ?? false;
@@ -38,7 +32,6 @@ class AppCubit extends Cubit<AppStates> {
     }
   }
 
-  // تغيير السمة
   Future<void> changeTheme({required bool isDarkMode}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isDarkMode', isDarkMode);
@@ -52,7 +45,6 @@ class AppCubit extends Cubit<AppStates> {
     }
   }
 
-  // تبديل السمة (من فاتح إلى داكن أو العكس)
   Future<void> toggleTheme() async {
     await changeTheme(isDarkMode: !isDarkMode);
   }

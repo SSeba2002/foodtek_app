@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/product_model.dart';
 
 class ProductCard extends StatelessWidget {
@@ -141,7 +142,7 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    'Order Now',
+                  AppLocalizations.of(context)!.orderNow,
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: Colors.white,

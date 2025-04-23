@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
-import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:foodtek_project/view/screens/home/profile/PersonalInfo_screen.dart';
 import 'package:foodtek_project/view/widgets/buildSection_widget.dart';
 

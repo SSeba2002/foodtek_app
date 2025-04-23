@@ -498,19 +498,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pizzaDesc => 'بيتزا ببروني، بيتزا مارجريتا، مطبخ إيطالي، طماطم';
 
   @override
-  String get pizzaCheese => 'بيتزا جبنة';
+  String get pizzaCheese => 'بيتزا الجبنة';
 
   @override
   String get pizzaTags => 'طعام، بيتزا، طبق، مطبخ، وجبات سريعة، خبز مسطح، مكونات';
 
   @override
-  String get peppyPaneer => 'بيبّي بانير';
+  String get peppyPaneer => 'بيتزا بانير الحارة';
 
   @override
   String get peppyPaneerDesc => 'قطع بانير مع فلفل رومي مقرمش وفلفل أحمر حار';
 
   @override
-  String get mexicanGreenWave => 'الموجة الخضراء المكسيكية';
+  String get mexicanGreenWave => 'بيتزا مكسيكية خضراء';
 
   @override
   String get mexicanGreenWaveDesc => 'بيتزا مليئة بالبصل المقرمش، الفلفل الحلو، والطماطم الشهية';
@@ -558,7 +558,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get mild => 'خفيف';
 
   @override
-  String get hot => 'شديد الحرارة';
+  String get hot => 'ساخن';
 
   @override
   String get track => 'تتبع';
@@ -670,7 +670,59 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get priceRange => 'نطاق السعر';
+<<<<<<< HEAD
 
   @override
   String get delivered2 => 'نم تسليم الطلب';
+||||||| parent of 4037af1 (Fix translation issues)
+=======
+
+  @override
+  String get notificationsTitle => 'الإشعارات';
+
+  @override
+  String get allTab => 'الكل';
+
+  @override
+  String get unreadTab => 'غير مقروءة';
+
+  @override
+  String get readTab => 'مقروءة';
+
+  @override
+  String get delayed_order_title => 'الطلب متأخر';
+
+  @override
+  String get delayed_order_subTitle => 'نعتذر! طلبك متأخر. الوقت المتوقع الجديد للوصول: 10:30 مساءً. شكرًا على صبرك!';
+
+  @override
+  String get promotional_offer_title => 'عرض ترويجي';
+
+  @override
+  String get promotional_offer_subTitle => 'هل تشتهي شيئًا لذيذًا؟ 🍕 احصل على خصم 20% على طلبك القادم. استخدم الكود: YUMMY20.';
+
+  @override
+  String get out_for_delivery_title => 'في طريقه للتوصيل';
+
+  @override
+  String get out_for_delivery_subTitle => 'طلبك في الطريق! 🚚 الوقت المتوقع للوصول: 15 دقيقة. استمتع بالانتظار!';
+
+  @override
+  String get order_confirmation_title => 'تأكيد الطلب';
+
+  @override
+  String get order_confirmation_subTitle => 'تم تقديم طلبك! 🍽️ نحن في طور تحضيره الآن. تتبع طلبك مباشرة!';
+
+  @override
+  String get delivered_title => 'تم التوصيل';
+
+  @override
+  String get delivered_subTitle => 'استمتع بوجبتك! 🍕 تم توصيل طلبك.';
+
+  @override
+  String get description_text => 'لا يحتوي على أي مكونات ضارة، ويقدم أداءً ممتازًا في الاستخدام. منتج عالي الجودة بفضل الاهتمام بالتفاصيل والتوازن بين النكهة والسلامة. خيار مثالي لمن يبحث عن المذاق اللذيذ دون التنازل عن الجودة.';
+
+  @override
+  String get cheeseburger_wendys => 'تشيز برجر – من مطاعم وينديز';
+>>>>>>> 4037af1 (Fix translation issues)
 }

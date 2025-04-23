@@ -83,16 +83,22 @@ class ChangLangScreen extends StatelessWidget {
                           context.read<AppCubit>().changeLang("en");
                         }
                       },
+
                       items:
                           <String>[
                             'English',
                             'عربي',
                           ].map<DropdownMenuItem<String>>((String value) {
+                            final isDark =
+                                Theme.of(context).brightness == Brightness.dark;
                             return DropdownMenuItem<String>(
                               value: value,
                               child: Text(
                                 value,
-                                style: TextStyle(fontSize: 16.sp),
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: isDark ? Colors.white : Colors.black,
+                                ),
                               ),
                             );
                           }).toList(),

@@ -227,7 +227,32 @@
   "dark": "Dark",
   "deliveringto":"Delivering to",
   "currentLocation":"Current Location",
+<<<<<<< HEAD
   "priceRange": "priceRange",
   "delivered2": "delivered"
 
+||||||| parent of 4037af1 (Fix translation issues)
+  "priceRange": "priceRange"
+
+=======
+  "priceRange": "priceRange",
+  "notificationsTitle": "Notifications",
+  "allTab": "All",
+  "unreadTab": "Unread",
+  "readTab": "Read",
+  "delayed_order_title": "Delayed Order",
+  "delayed_order_subTitle": "We’re sorry! Your order is running late. New ETA: 10:30 PM. Thanks for your patience!",
+  "promotional_offer_title": "Promotional Offer",
+  "promotional_offer_subTitle": "Craving something delicious? 🍕 Get 20% off on your next order. Use code: YUMMY20.",
+  "out_for_delivery_title": "Out for Delivery",
+  "out_for_delivery_subTitle": "Your order is on the way! 🚚 Estimated arrival: 15 mins. Stay hungry!",
+  "order_confirmation_title": "Order Confirmation",
+  "order_confirmation_subTitle": "Your order has been placed! 🍽️ We’re preparing it now. Track your order live!",
+  "delivered_title": "Delivered",
+  "delivered_subTitle": "Enjoy your meal! 🍕 Your order has been delivered.",
+  "spicy": "Spicy",
+  "hot": "Hot",
+  "description_text": "Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum.",
+  "cheeseburger_wendys": "Cheeseburger Wendy's Burger"
+>>>>>>> 4037af1 (Fix translation issues)
 }

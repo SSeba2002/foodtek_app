@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 
 void openNotificationSheet(BuildContext context) {
   showModalBottomSheet(
@@ -35,7 +36,7 @@ class NotificationWidget extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    "Notifications",
+                     AppLocalizations.of(context)!.notifications,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
@@ -49,41 +50,62 @@ class NotificationWidget extends StatelessWidget {
             SizedBox(height: 10),
             TabBar(
               indicatorColor: Colors.green,
-              tabs: [Tab(text: "All"), Tab(text: "Unread"), Tab(text: "Read")],
+              tabs: [Tab(text: AppLocalizations.of(context)!.allTab), Tab(text: AppLocalizations.of(context)!.unreadTab), Tab(text: AppLocalizations.of(context)!.readTab)],
             ),
             SizedBox(height: 10),
             Expanded(
               child: TabBarView(
                 children: [
-                  _buildNotificationList(),
-                  _buildNotificationList(),
-                  _buildNotificationList(),
+                  _buildNotificationList( context),
+                  _buildNotificationList( context),
+                  _buildNotificationList( context),
                 ],
               ),
             ),
+      
           ],
         ),
       ),
     );
   }
 
-  Widget _buildNotificationList() {
-    return ListView(
-      children: [
-        _buildNotificationItem("Delayed Order", "Your order is running late."),
-        _buildNotificationItem(
-          "Promotional Offer",
-          "Get 20% off your next order.",
-        ),
-        _buildNotificationItem("Out for Delivery", "Your order is on the way!"),
-        _buildNotificationItem(
-          "Order Confirmation",
-          "Your order has been placed.",
-        ),
-        _buildNotificationItem("Delivered", "Your order has been delivered."),
-      ],
-    );
-  }
+  Widget _buildNotificationList(BuildContext context, ) {
+  return ListView(
+    children: [
+      _buildNotificationItem(
+        AppLocalizations.of(context)!.delayed_order_title,
+        AppLocalizations.of(context)!.delayed_order_subTitle,
+
+      ),
+      _buildNotificationItem(
+        AppLocalizations.of(context)!.promotional_offer_title,
+                AppLocalizations.of(context)!.promotional_offer_subTitle,
+
+
+      ),
+      _buildNotificationItem(
+        AppLocalizations.of(context)!.out_for_delivery_title,
+        AppLocalizations.of(context)!.out_for_delivery_subTitle,
+
+
+      
+      ),
+      _buildNotificationItem(
+        AppLocalizations.of(context)!.order_confirmation_title,
+          AppLocalizations.of(context)!.order_confirmation_subTitle,
+
+        
+      ),
+      _buildNotificationItem(
+        AppLocalizations.of(context)!.delivered_title,
+        AppLocalizations.of(context)!.delivered_subTitle,
+
+        
+      ),
+    ],
+  );
+}
+
 
   Widget _buildNotificationItem(String title, String subtitle) {
     return Padding(
