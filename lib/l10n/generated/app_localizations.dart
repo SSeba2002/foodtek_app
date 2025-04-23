@@ -1420,6 +1420,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'priceRange'**
   String get priceRange;
+
+  /// No description provided for @delivered2.
+  ///
+  /// In en, this message translates to:
+  /// **'delivered'**
+  String get delivered2;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

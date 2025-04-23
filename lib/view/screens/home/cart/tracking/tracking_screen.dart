@@ -6,8 +6,8 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
 import '../../../../widgets/tracking/driver_info_card.dart';
-import 'package:foodtek_project/view/screens/home/cart/tracking/order_details_screen.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import 'package:foodtek_project/view/screens/home/cart/tracking/order_details_screen.dart';
 
 class TrackingScreen extends StatefulWidget {
   final UserProfile driverProfile;
@@ -24,26 +24,28 @@ class TrackingScreen extends StatefulWidget {
 }
 
 class _TrackingScreenState extends State<TrackingScreen> {
-  late String _status;
-  late String _remainingTime;
-
   final TextEditingController _searchController = TextEditingController();
-  final LatLng _restaurantLocation = LatLng(
-    31.98801277328986,
-    35.89498906471146,
-  );
+  final LatLng _restaurantLocation = LatLng(31.98801277328986, 35.89498906471146);
   LatLng _driverLocation = LatLng(32.01517354972322, 35.86903660207451);
   LatLng? _lastPosition;
   final bool _arrived = false;
+  String _status = '';
+  String _remainingTime = '';
   StreamSubscription<Position>? _positionStream;
   GoogleMapController? _mapController;
+  Set<Polyline> _polylines = {};
+  Set<Marker> _markers = {};
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _status = AppLocalizations.of(context)!.onTheWay;
+        _remainingTime = AppLocalizations.of(context)!.calculating;
+      });
+    });
     _checkLocationPermission();
-    _status = AppLocalizations.of(context)!.onTheWay;
-    _remainingTime = AppLocalizations.of(context)!.calculating;
   }
 
   Future<void> _checkLocationPermission() async {
@@ -61,11 +63,61 @@ class _TrackingScreenState extends State<TrackingScreen> {
 
   void _updateDriverPosition(Position position) {
     final newLocation = LatLng(position.latitude, position.longitude);
+
+    final distanceInMeters = Geolocator.distanceBetween(
+      newLocation.latitude,
+      newLocation.longitude,
+      widget.userProfile.location.latitude,
+      widget.userProfile.location.longitude,
+    );
+
+    final etaSeconds = distanceInMeters / 11.1;
+    final duration = Duration(seconds: etaSeconds.round());
+    final eta = "${duration.inMinutes} min";
+
     setState(() {
       _lastPosition = _driverLocation;
       _driverLocation = newLocation;
+      _remainingTime = eta;
+
+      _markers = {
+        Marker(
+          markerId: MarkerId('Foodtek'),
+          position: _restaurantLocation,
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+          infoWindow: InfoWindow(title: "Restaurant"),
+        ),
+        Marker(
+          markerId: MarkerId('user'),
+          position: widget.userProfile.location,
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+          infoWindow: InfoWindow(title: "Your Location"),
+        ),
+        Marker(
+          markerId: MarkerId('driver'),
+          position: newLocation,
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          infoWindow: InfoWindow(title: "ETA: $_remainingTime"),
+        ),
+      };
+
+      _polylines = {
+        Polyline(
+          polylineId: PolylineId('route'),
+          points: [newLocation, widget.userProfile.location],
+          color: Color(0xFF25AE4B),
+          width: 4,
+        ),
+      };
     });
+
     _mapController?.animateCamera(CameraUpdate.newLatLng(newLocation));
+  }
+
+  @override
+  void dispose() {
+    _positionStream?.cancel();
+    super.dispose();
   }
 
   @override
@@ -82,41 +134,11 @@ class _TrackingScreenState extends State<TrackingScreen> {
                     target: _driverLocation,
                     zoom: 15,
                   ),
-                  markers: {
-                    Marker(
-                      markerId: MarkerId('Foodtek'),
-                      position: _restaurantLocation,
-                      icon: BitmapDescriptor.defaultMarkerWithHue(
-                        BitmapDescriptor.hueRed,
-                      ),
-                    ),
-                    Marker(
-                      markerId: MarkerId('user'),
-                      position: widget.userProfile.location,
-                      icon: BitmapDescriptor.defaultMarkerWithHue(
-                        BitmapDescriptor.hueBlue,
-                      ),
-                    ),
-                    Marker(
-                      markerId: MarkerId('driver'),
-                      position: _driverLocation,
-                      icon: BitmapDescriptor.defaultMarkerWithHue(
-                        BitmapDescriptor.hueGreen,
-                      ),
-                    ),
-                  },
-                  polylines: {
-                    Polyline(
-                      polylineId: PolylineId('route'),
-                      points: [
-                        _restaurantLocation,
-                        widget.userProfile.location,
-                      ],
-                      color: Color(0xFF25AE4B),
-                      width: 3,
-                    ),
-                  },
+                  markers: _markers,
+                  polylines: _polylines,
                   onMapCreated: (controller) => _mapController = controller,
+                  myLocationEnabled: true,
+                  myLocationButtonEnabled: true,
                 ),
               ),
               Padding(
@@ -126,34 +148,23 @@ class _TrackingScreenState extends State<TrackingScreen> {
                   children: [
                     Text(
                       _status,
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => OrderDetailsScreen(),
-                          ),
+                          MaterialPageRoute(builder: (context) => OrderDetailsScreen()),
                         );
                       },
-                      child: Text(
-                        AppLocalizations.of(context)!.allDetails, // Modified
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF25AE4B),
-                        ),
-                      ),
+                      child: Text(AppLocalizations.of(context)!.allDetails,
+                          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, color: Color(0xFF25AE4B))),
                     ),
                   ],
                 ),
               ),
               _buildProgressTracker(),
-              DriverInfoCard(driverProfile: widget.driverProfile),
+              DriverInfoCard(driverProfile: widget.driverProfile ,  context: context,),
               Divider(height: 1.h, thickness: 1.h, color: Colors.grey[300]),
               _buildUserLocation(),
             ],
@@ -187,27 +198,19 @@ class _TrackingScreenState extends State<TrackingScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: 8.w),
-                          child: Icon(
-                            Icons.search,
-                            color: Color(0xFF25AE4B),
-                            size: 20.w,
-                          ),
+                          child: Icon(Icons.search, color: Color(0xFF25AE4B), size: 20.w),
                         ),
                         Expanded(
                           child: TextField(
                             controller: _searchController,
                             decoration: InputDecoration(
-                              hintText: AppLocalizations.of(context)!.findYourLocation, // Modified
+                              hintText: AppLocalizations.of(context)!.findYourLocation,
                               hintStyle: TextStyle(
-                                color: Color(0xFF878787),
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
+                                  color: Color(0xFF878787),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400),
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.symmetric(
-                                vertical: 12.h,
-                                horizontal: 8.w,
-                              ),
+                              contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
                             ),
                             style: TextStyle(fontSize: 12.sp),
                           ),
@@ -232,12 +235,9 @@ class _TrackingScreenState extends State<TrackingScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildProgressStep(AppLocalizations.of(context)!.orderPlaced, isActive: true), // Modified
-              _buildProgressStep(
-                AppLocalizations.of(context)!.onTheWay, // Modified
-                isActive: _status == AppLocalizations.of(context)!.onTheWay || _status == AppLocalizations.of(context)!.arrived, // Modified
-              ),
-              _buildProgressStep(AppLocalizations.of(context)!.delivered, isActive: _status == AppLocalizations.of(context)!.arrived), // Modified
+              _buildProgressStep(AppLocalizations.of(context)!.orderPlaced, isActive: true),
+              _buildProgressStep(AppLocalizations.of(context)!.onTheWay, isActive: _status == AppLocalizations.of(context)!.onTheWay || _status == "Arrived"),
+              _buildProgressStep(AppLocalizations.of(context)!.delivered2, isActive: _status == "Arrived"),
             ],
           ),
         ],
@@ -272,31 +272,19 @@ class _TrackingScreenState extends State<TrackingScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            AppLocalizations.of(context)!.yourLocation,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          Text(AppLocalizations.of(context)!.yourLocation,
+              style: TextStyle(color: Colors.grey, fontSize: 12.sp, fontWeight: FontWeight.w500)),
           SizedBox(height: 5.h),
           Row(
             children: [
-              Icon(
-                Icons.location_on_outlined,
-                color: Color(0xFF4CAF50),
-                size: 20.w,
-              ),
+              Icon(Icons.location_on_outlined, color: Color(0xFF4CAF50), size: 20.w),
               SizedBox(width: 5.w),
               Expanded(
-                child: Text(
-                  widget.userProfile.address,
+                child: Text(widget.userProfile.address,
                   style: TextStyle(
-                    fontSize: 12.sp,
-                    color: Color(0xFF6C7278),
-                    fontWeight: FontWeight.w600,
-                  ),
+                      fontSize: 12.sp,
+                      color: Color(0xFF6C7278),
+                      fontWeight: FontWeight.w600),
                 ),
               ),
             ],

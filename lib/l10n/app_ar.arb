@@ -223,6 +223,7 @@
   "dark": "غامق",
   "deliveringto":"التوصيل الى",
   "currentLocation":"الموقع الحالي",
-  "priceRange" : "نطاق السعر"
+  "priceRange" : "نطاق السعر",
+  "delivered2": "نم تسليم الطلب"
 
 }

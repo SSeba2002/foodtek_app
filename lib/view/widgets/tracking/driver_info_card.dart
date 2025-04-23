@@ -2,13 +2,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import '../../screens/home/cart/tracking/chat_screen.dart';
 
 class DriverInfoCard extends StatelessWidget {
   final UserProfile driverProfile;
+  final BuildContext context;
 
   const DriverInfoCard({
     super.key,
-    required this.driverProfile
+    required this.driverProfile,
+    required this.context,
   });
 
   @override
@@ -27,7 +32,7 @@ class DriverInfoCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Your Delivery Hero",
+                  AppLocalizations.of(context)!.yourDeliveryHero,
                   style: TextStyle(
                       color: Colors.grey,
                       fontSize: 12.sp,
@@ -75,8 +80,26 @@ class DriverInfoCard extends StatelessWidget {
       ),
       child: IconButton(
         icon: Icon(icon, color: color, size: 20.w),
-        onPressed: () {},
+        onPressed: () {
+          if (icon == Icons.call) {
+            _makePhoneCall(driverProfile.phoneNumber);
+          } else if (icon == Icons.chat) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ChatScreen()),
+            );
+          }
+        },
       ),
     );
+  }
+
+  void _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(scheme: 'tel', path: phoneNumber);
+    if (await canLaunchUrl(launchUri)) {
+      await launchUrl(launchUri);
+    } else {
+
+    }
   }
 }

@@ -6,6 +6,7 @@ class UserProfile {
   final String address;
   final LatLng location;
   final String profileImageUrl;
+  final String phoneNumber;
 
   const UserProfile({
     required this.userId,
@@ -13,5 +14,6 @@ class UserProfile {
     required this.address,
     required this.location,
     required this.profileImageUrl,
+    required this.phoneNumber,
   });
 }

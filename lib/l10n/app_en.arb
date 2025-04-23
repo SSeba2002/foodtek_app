@@ -227,6 +227,7 @@
   "dark": "Dark",
   "deliveringto":"Delivering to",
   "currentLocation":"Current Location",
-  "priceRange": "priceRange"
+  "priceRange": "priceRange",
+  "delivered2": "delivered"
 
 }
