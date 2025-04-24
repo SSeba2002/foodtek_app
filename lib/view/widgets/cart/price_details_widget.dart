@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/home/cart/checkout/order_done_Screen.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class PriceDetailsWidget extends StatelessWidget {
   final double subtotal;
   final VoidCallback onPlaceOrder;
   final double? deliveryCharge;
   final double? discount;
+  final String? userLocation;
+ final LatLng? selectedLocation;
 
   const PriceDetailsWidget({
     super.key,
@@ -15,6 +18,8 @@ class PriceDetailsWidget extends StatelessWidget {
     required this.onPlaceOrder,
     this.deliveryCharge,
     this.discount,
+    this.selectedLocation,
+    this.userLocation
   });
 
   double calculateDeliveryCharge(double subtotal) {
@@ -30,6 +35,9 @@ class PriceDetailsWidget extends StatelessWidget {
         (deliveryCharge ?? calculateDeliveryCharge(subtotal)) -
         (discount ?? calculateDiscount(subtotal));
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +88,10 @@ class PriceDetailsWidget extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder:
-                        (context) => OrderDoneScreen(estimatedDeliveryTime: 13),
+                        (context) => OrderDoneScreen(
+                    estimatedDeliveryTime: 30,
+                    selectedLocation: selectedLocation!,
+                    userAddress: userLocation!,)
                   ),
                 );
               },

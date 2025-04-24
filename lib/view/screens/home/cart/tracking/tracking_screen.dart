@@ -154,7 +154,12 @@ class _TrackingScreenState extends State<TrackingScreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => OrderDetailsScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => OrderDetailsScreen(
+                              selectedLocation: widget.userProfile.location,
+                              userAddress: widget.userProfile.address,
+                            ),
+                          ),
                         );
                       },
                       child: Text(AppLocalizations.of(context)!.allDetails,
@@ -170,56 +175,48 @@ class _TrackingScreenState extends State<TrackingScreen> {
             ],
           ),
           Positioned(
-            top: MediaQuery.of(context).padding.top + 37.h,
-            left: 10.w,
-            right: 10.w,
-            child: Row(
-              children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back, size: 20.w),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                Expanded(
-                  child: Container(
-                    height: 40.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30.r),
-                      border: Border.all(color: Colors.grey, width: 0.5),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 4,
-                          spreadRadius: 0.5,
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 8.w),
-                          child: Icon(Icons.search, color: Color(0xFF25AE4B), size: 20.w),
-                        ),
-                        Expanded(
-                          child: TextField(
-                            controller: _searchController,
-                            decoration: InputDecoration(
-                              hintText: AppLocalizations.of(context)!.findYourLocation,
-                              hintStyle: TextStyle(
-                                  color: Color(0xFF878787),
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400),
-                              border: InputBorder.none,
-                              contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
-                            ),
-                            style: TextStyle(fontSize: 12.sp),
-                          ),
-                        ),
-                      ],
-                    ),
+            top: 40.h,
+            left: 20.w,
+            child: IconButton(
+              icon: Icon(Icons.arrow_back,
+                color: Colors.black,
+                size: 24.sp,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+
+          Positioned(
+            top: 40.h,
+            left: 60.w,
+            right: 20.w,
+            child: Container(
+              height: 40.h,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50.r),
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: AppLocalizations.of(context)!.findYourLocation,
+                  hintStyle: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey,
                   ),
+                  border: InputBorder.none,
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Color(0xFF25AE4B),
+                    size: 17.sp,
+                  ),
+                  contentPadding: EdgeInsets.symmetric(vertical: 8.h),
                 ),
-              ],
+                style: TextStyle(fontSize: 14.sp),
+                onSubmitted: (value) {},
+              ),
             ),
           ),
         ],

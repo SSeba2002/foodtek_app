@@ -244,5 +244,8 @@
   "spicy": "Spicy",
   "hot": "Hot",
   "description_text": "Nulla occaecat velit laborum exercitation ullamco. Elit labore eu aute elit nostrud culpa velit excepteur deserunt sunt. Velit non est cillum consequat cupidatat ex Lorem laboris labore aliqua ad duis eu laborum.",
-  "cheeseburger_wendys": "Cheeseburger Wendy's Burger"
+  "cheeseburger_wendys": "Cheeseburger Wendy's Burger",
+  "unknownAddress" : "unknownAddress",
+  "addressNotAvailable": "address Not Available",
+  "pleaseSelectLocation" : "please Select Location"
 }

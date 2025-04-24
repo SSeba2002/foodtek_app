@@ -1522,6 +1522,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cheeseburger Wendy\'s Burger'**
   String get cheeseburger_wendys;
+
+  /// No description provided for @unknownAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'unknownAddress'**
+  String get unknownAddress;
+
+  /// No description provided for @addressNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'address Not Available'**
+  String get addressNotAvailable;
+
+  /// No description provided for @pleaseSelectLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'please Select Location'**
+  String get pleaseSelectLocation;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

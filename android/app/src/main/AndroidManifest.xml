@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.testtt">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- 🧭 دعم GPS -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
