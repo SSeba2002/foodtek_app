@@ -721,4 +721,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cheeseburger_wendys => 'تشيز برجر – من مطاعم وينديز';
+
+  @override
+  String get unknownAddress => 'عنوان غير معروف ';
+
+  @override
+  String get addressNotAvailable => 'العنوان غير متوفر';
+
+  @override
+  String get pleaseSelectLocation => '  الرجاء تحديد الموقع';
 }

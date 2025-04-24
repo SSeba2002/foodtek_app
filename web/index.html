@@ -5,7 +5,7 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXgRCXiwZPZMecVtPn5oMTdvDY249pTe0"></script>
 
-  <script src="https://unpkg.com/geo-location-polyfill"></script>
+
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
@@ -38,7 +38,22 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <!-- REQUIRED for Geolocator plugin on web -->
+<script src="https://unpkg.com/geo-location-polyfill"></script>
 <body>
 
+<script>
+  window.onload = function() {
+    setTimeout(function() {
+      var script = document.createElement('script');
+      script.src = 'main.dart.js';
+      script.type = 'application/javascript';
+      document.body.appendChild(script);
+    }, 100);
+  };
+</script>
+
+<div id="flutter-app"></div>
+<script src="https://unpkg.com/geo-location-polyfill"></script>
+<script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>

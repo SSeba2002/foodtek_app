@@ -721,4 +721,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cheeseburger_wendys => 'Cheeseburger Wendy\'s Burger';
+
+  @override
+  String get unknownAddress => 'unknownAddress';
+
+  @override
+  String get addressNotAvailable => 'address Not Available';
+
+  @override
+  String get pleaseSelectLocation => 'please Select Location';
 }

@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import 'package:foodtek_project/view/screens/home/cart/tracking/tracking_screen.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../../../../../model/user_profile_model.dart';
 
 class OrderDoneScreen extends StatefulWidget {
   final int estimatedDeliveryTime;
+  final LatLng selectedLocation;
+  final String userAddress;
 
-  const OrderDoneScreen({super.key, required this.estimatedDeliveryTime});
+  const OrderDoneScreen({super.key,
+  required this.estimatedDeliveryTime,
+  required this.selectedLocation,
+  required this.userAddress,});
 
   @override
   State<OrderDoneScreen> createState() => _OrderDoneScreenState();
@@ -16,10 +25,32 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
+  late UserProfile driverProfile;
+  late UserProfile userProfile;
 
   @override
   void initState() {
     super.initState();
+
+    UserProfile driverProfile = UserProfile(
+        userId: '1',
+        name: 'Driver Name',
+        address: '123 Driver Street',
+        location: LatLng(32.01517354972322, 35.86903660207451),
+        profileImageUrl: 'https://www.example.com/driver.jpg',
+        phoneNumber: '0780111111'
+    );
+
+    UserProfile userProfile = UserProfile(
+        userId: '2',
+        name: 'User Name',
+        address: '456 User Avenue',
+        location: LatLng(31.98801277328986, 35.89498906471146),
+        profileImageUrl: 'https://www.example.com/user.jpg',
+        phoneNumber: '078011111'
+    );
+
+
 
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
@@ -133,7 +164,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TrackOrderScreen(),
+                        builder: (context) => TrackingScreen(driverProfile: driverProfile, userProfile: userProfile),
                       ),
                     );
                   },
@@ -165,18 +196,6 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
           ],
         ),
       ),
-    );
-  }
-}
-
-class TrackOrderScreen extends StatelessWidget {
-  const TrackOrderScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.trackOrder)),
-      body:  Center(child: Text(AppLocalizations.of(context)!.orderTrackingScreenContent)),
     );
   }
 }

@@ -3,8 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../../../widgets/cart/price_details_widget.dart';
 import 'package:foodtek_project/view/screens/home/cart/checkout/map_screen.dart';
+import 'package:geocoding/geocoding.dart';
+
+import 'order_done_Screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   final double subtotal;
@@ -17,6 +21,7 @@ class CheckoutScreen extends StatefulWidget {
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
   String? userLocation;
+  LatLng? selectedLocation;
   String paymentMethod = 'card';
   String cardType = 'visa';
   TextEditingController promoCodeController = TextEditingController();
@@ -67,7 +72,26 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   SizedBox(height: 20.h),
                   PriceDetailsWidget(
                     subtotal: widget.subtotal,
-                    onPlaceOrder: () {},
+                    onPlaceOrder: () {
+
+                      if (selectedLocation == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(AppLocalizations.of(context)!.pleaseSelectLocation)),
+                        );
+                        return;
+                      }
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OrderDoneScreen(
+                            estimatedDeliveryTime: 30,
+                            selectedLocation: selectedLocation!,
+                            userAddress: userLocation!,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -86,8 +110,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           children: [
             Icon(Icons.my_location_outlined, color: Colors.grey, size: 20.sp),
             SizedBox(width: 9.w),
-            Text(AppLocalizations.of(context)!.alJamaaStreet
-              ,
+            Text(AppLocalizations.of(context)!.alJamaaStreet,
               style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w400),
             ),
           ],
@@ -105,15 +128,16 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             ),
             SizedBox(width: 9.w),
             Expanded(
-              child:
-                  userLocation != null
-                      ? Text(userLocation!, style: TextStyle(fontSize: 16.sp))
-                      : GestureDetector(
-                        onTap: _goToMapScreen,
-                        child: Text(AppLocalizations.of(context)!.addLocation,
-                          style: TextStyle(color: Colors.grey, fontSize: 16.sp),
-                        ),
-                      ),
+              child: GestureDetector(
+                onTap: _goToMapScreen,
+                child: Text(
+                  userLocation ?? AppLocalizations.of(context)!.addLocation,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    color: userLocation == null ? Colors.grey : Colors.black,
+                  ),
+                ),
+              ),
             ),
             if (userLocation != null)
               TextButton(
@@ -132,6 +156,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       ],
     );
   }
+
 
   Widget buildPromoCodeSection() {
     return Column(
@@ -312,16 +337,35 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     );
   }
 
-  void _goToMapScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => MapScreen()),
-    ).then((location) {
-      if (location != null) {
-        setState(() {
-          userLocation = location;
-        });
-      }
+  void _goToMapScreen()  async {
+    final selectedLocation = await Navigator.push<LatLng>(
+    context,
+    MaterialPageRoute(builder: (context) => MapScreen()),
+    );
+
+    if (selectedLocation != null) {
+    final address = await _getAddressFromLatLng(selectedLocation);
+    setState(() {
+      this.selectedLocation = selectedLocation;
+     userLocation = address;
     });
+    }
+  }
+
+  Future<String> _getAddressFromLatLng(LatLng latLng) async {
+    try {
+      List<Placemark> placemarks = await placemarkFromCoordinates(
+        latLng.latitude,
+        latLng.longitude,
+      );
+
+      if (placemarks.isNotEmpty) {
+        Placemark place = placemarks.first;
+        return "${place.street ?? ''}, ${place.locality ?? ''}";
+      }
+      return AppLocalizations.of(context)!.unknownAddress;
+    } catch (e) {
+      return AppLocalizations.of(context)!.addressNotAvailable;
+    }
   }
 }
