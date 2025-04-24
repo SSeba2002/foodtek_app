@@ -1420,15 +1420,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'priceRange'**
   String get priceRange;
-<<<<<<< HEAD
 
   /// No description provided for @delivered2.
   ///
   /// In en, this message translates to:
   /// **'delivered'**
   String get delivered2;
-||||||| parent of 4037af1 (Fix translation issues)
-=======
 
   /// No description provided for @notificationsTitle.
   ///
@@ -1525,7 +1522,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cheeseburger Wendy\'s Burger'**
   String get cheeseburger_wendys;
->>>>>>> 4037af1 (Fix translation issues)
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

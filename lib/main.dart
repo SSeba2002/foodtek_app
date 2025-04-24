@@ -1,22 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:google_maps_flutter_web/google_maps_flutter_web.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/constant/functions/bloc_observer.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
 import 'package:foodtek_project/state/theme_state.dart';
-<<<<<<< HEAD
-import 'package:foodtek_project/view/screens/auth/login_screen.dart';
 import 'package:foodtek_project/view/screens/home/cart/tracking/tracking_screen.dart';
-import 'package:foodtek_project/view/screens/main_screen.dart';
-||||||| parent of 4037af1 (Fix translation issues)
-import 'package:foodtek_project/view/screens/auth/login_screen.dart';
-import 'package:foodtek_project/view/screens/main_screen.dart';
-=======
->>>>>>> 4037af1 (Fix translation issues)
-import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';

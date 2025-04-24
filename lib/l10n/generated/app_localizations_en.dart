@@ -670,12 +670,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get priceRange => 'priceRange';
-<<<<<<< HEAD
 
   @override
   String get delivered2 => 'delivered';
-||||||| parent of 4037af1 (Fix translation issues)
-=======
 
   @override
   String get notificationsTitle => 'Notifications';
@@ -724,5 +721,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cheeseburger_wendys => 'Cheeseburger Wendy\'s Burger';
->>>>>>> 4037af1 (Fix translation issues)
 }

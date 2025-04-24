@@ -5,10 +5,11 @@ import 'package:foodtek_project/constant/functions/theme_dialog.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
-import 'package:foodtek_project/state/theme_state.dart';
 import 'package:foodtek_project/view/screens/onboarding/onboarding_screen.dart';
 
 class ChangLangScreen extends StatelessWidget {
+  const ChangLangScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

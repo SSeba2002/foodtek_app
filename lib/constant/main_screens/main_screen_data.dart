@@ -11,7 +11,6 @@ List<String> bottomNavLabels(BuildContext context) {
   return [
     AppLocalizations.of(context)!.home,
     AppLocalizations.of(context)!.favorites,
-    "",
     AppLocalizations.of(context)!.history,
     AppLocalizations.of(context)!.profile,
   ];

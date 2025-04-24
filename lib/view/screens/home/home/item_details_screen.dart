@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:foodtek_project/constant/theme.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/widgets/auth/foodtek_button_widget.dart';
 import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
 
@@ -164,11 +165,11 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text("Spicy"),
+                     Text(AppLocalizations.of(context)!.spicy),
                       Row(
                         children: [
-                          const Text(
-                            "Mild",
+                           Text(
+                            AppLocalizations.of(context)!.mild,
                             style: TextStyle(color: Colors.green),
                           ),
                           SizedBox(
@@ -196,8 +197,8 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
                               ),
                             ),
                           ),
-                          const Text(
-                            "Hot",
+                         Text(
+                            AppLocalizations.of(context)!.hot,
                             style: TextStyle(color: Colors.red),
                           ),
                         ],
@@ -208,7 +209,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
                   // Quantity Selector
                   Column(
                     children: [
-                      const Text("Quantity"),
+                       Text(AppLocalizations.of(context)!.quantity),
                       Row(
                         children: [
                           IconButton(
@@ -269,7 +270,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
               child: FoodtekButton(
-                text: "Add to Cart",
+                text: AppLocalizations.of(context)!.addToCart,
                 onPressed: () {
                   Navigator.pop(context);
                 },
