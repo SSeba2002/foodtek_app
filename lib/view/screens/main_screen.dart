@@ -19,7 +19,7 @@ class MainScreen extends StatelessWidget {
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor!,
             context,
             controller: context.read<NavBarCubit>().controller,
-            screens: context.read<NavBarCubit>().buildScreens(),
+            screens: context.read<NavBarCubit>().buildScreens(context),
             items: context.read<NavBarCubit>().navBarsItems(context),
             navBarStyle: NavBarStyle.style15,
             confineToSafeArea: true,

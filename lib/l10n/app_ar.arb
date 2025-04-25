@@ -246,5 +246,6 @@
   "cheeseburger_wendys": "تشيز برجر – من مطاعم وينديز",
   "unknownAddress" : "عنوان غير معروف ",
   "addressNotAvailable": "العنوان غير متوفر",
-  "pleaseSelectLocation": "  الرجاء تحديد الموقع"
+  "pleaseSelectLocation": "  الرجاء تحديد الموقع",
+  "track": "تتبع"
 }

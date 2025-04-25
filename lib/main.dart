@@ -5,14 +5,11 @@ import 'package:foodtek_project/constant/functions/bloc_observer.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
 import 'package:foodtek_project/state/theme_state.dart';
-import 'package:foodtek_project/view/screens/home/cart/tracking/order_details_screen.dart';
 import 'package:foodtek_project/view/screens/home/cart/tracking/tracking_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
-import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:foodtek_project/view/screens/home/cart/checkout/map_screen.dart';
 
 
 
