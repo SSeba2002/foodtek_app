@@ -9,9 +9,8 @@ import 'package:foodtek_project/view/screens/home/cart/tracking/tracking_screen.
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
+import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-
 
 void main() {
   runApp(const MyApp());
@@ -36,14 +35,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
     UserProfile driverProfile = UserProfile(
       userId: '1',
       name: 'Driver Name',
       address: '123 Driver Street',
       location: LatLng(32.01517354972322, 35.86903660207451),
       profileImageUrl: 'https://www.example.com/driver.jpg',
-      phoneNumber: '0780111111'
+      phoneNumber: '0780111111',
     );
 
     UserProfile userProfile = UserProfile(
@@ -52,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       address: '456 User Avenue',
       location: LatLng(31.98801277328986, 35.89498906471146),
       profileImageUrl: 'https://www.example.com/user.jpg',
-      phoneNumber: '078011111'
+      phoneNumber: '078011111',
     );
 
     return MultiBlocProvider(
@@ -78,7 +76,11 @@ class _MyAppState extends State<MyApp> {
                   supportedLocales: const [Locale('en'), Locale('ar')],
                   debugShowCheckedModeBanner: false,
                   title: 'FoodTek',
-                  home: TrackingScreen(driverProfile: driverProfile, userProfile: userProfile),
+                  home: SplashScreen(),
+                  // TrackingScreen(
+                  //   driverProfile: driverProfile,
+                  //   userProfile: userProfile,
+                  // ),
                   builder: (context, child) {
                     return Directionality(
                       textDirection:
@@ -93,6 +95,5 @@ class _MyAppState extends State<MyApp> {
         },
       ),
     );
-
   }
 }

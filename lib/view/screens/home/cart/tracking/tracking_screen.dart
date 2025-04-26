@@ -25,7 +25,10 @@ class TrackingScreen extends StatefulWidget {
 
 class _TrackingScreenState extends State<TrackingScreen> {
   final TextEditingController _searchController = TextEditingController();
-  final LatLng _restaurantLocation = LatLng(31.98801277328986, 35.89498906471146);
+  final LatLng _restaurantLocation = LatLng(
+    31.98801277328986,
+    35.89498906471146,
+  );
   LatLng _driverLocation = LatLng(32.01517354972322, 35.86903660207451);
   LatLng? _lastPosition;
   final bool _arrived = false;
@@ -96,7 +99,9 @@ class _TrackingScreenState extends State<TrackingScreen> {
         Marker(
           markerId: MarkerId('driver'),
           position: newLocation,
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          icon: BitmapDescriptor.defaultMarkerWithHue(
+            BitmapDescriptor.hueGreen,
+          ),
           infoWindow: InfoWindow(title: "ETA: $_remainingTime"),
         ),
       };
@@ -148,28 +153,41 @@ class _TrackingScreenState extends State<TrackingScreen> {
                   children: [
                     Text(
                       _status,
-                      style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => OrderDetailsScreen(
-                              selectedLocation: widget.userProfile.location,
-                              userAddress: widget.userProfile.address,
-                            ),
+                            builder:
+                                (context) => OrderDetailsScreen(
+                                  selectedLocation: widget.userProfile.location,
+                                  userAddress: widget.userProfile.address,
+                                ),
                           ),
                         );
                       },
-                      child: Text(AppLocalizations.of(context)!.allDetails,
-                          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, color: Color(0xFF25AE4B))),
+                      child: Text(
+                        AppLocalizations.of(context)!.allDetails,
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF25AE4B),
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
               _buildProgressTracker(),
-              DriverInfoCard(driverProfile: widget.driverProfile ,  context: context,),
+              DriverInfoCard(
+                driverProfile: widget.driverProfile,
+                context: context,
+              ),
               Divider(height: 1.h, thickness: 1.h, color: Colors.grey[300]),
               _buildUserLocation(),
             ],
@@ -178,10 +196,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
             top: 40.h,
             left: 20.w,
             child: IconButton(
-              icon: Icon(Icons.arrow_back,
-                color: Colors.black,
-                size: 24.sp,
-              ),
+              icon: Icon(Icons.arrow_back, color: Colors.black, size: 24.sp),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -232,9 +247,20 @@ class _TrackingScreenState extends State<TrackingScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildProgressStep(AppLocalizations.of(context)!.orderPlaced, isActive: true),
-              _buildProgressStep(AppLocalizations.of(context)!.onTheWay, isActive: _status == AppLocalizations.of(context)!.onTheWay || _status == "Arrived"),
-              _buildProgressStep(AppLocalizations.of(context)!.delivered2, isActive: _status == "Arrived"),
+              _buildProgressStep(
+                AppLocalizations.of(context)!.orderPlaced,
+                isActive: true,
+              ),
+              _buildProgressStep(
+                AppLocalizations.of(context)!.onTheWay,
+                isActive:
+                    _status == AppLocalizations.of(context)!.onTheWay ||
+                    _status == "Arrived",
+              ),
+              _buildProgressStep(
+                AppLocalizations.of(context)!.delivered2,
+                isActive: _status == "Arrived",
+              ),
             ],
           ),
         ],
@@ -269,19 +295,31 @@ class _TrackingScreenState extends State<TrackingScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(AppLocalizations.of(context)!.yourLocation,
-              style: TextStyle(color: Colors.grey, fontSize: 12.sp, fontWeight: FontWeight.w500)),
+          Text(
+            AppLocalizations.of(context)!.yourLocation,
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
           SizedBox(height: 5.h),
           Row(
             children: [
-              Icon(Icons.location_on_outlined, color: Color(0xFF4CAF50), size: 20.w),
+              Icon(
+                Icons.location_on_outlined,
+                color: Color(0xFF4CAF50),
+                size: 20.w,
+              ),
               SizedBox(width: 5.w),
               Expanded(
-                child: Text(widget.userProfile.address,
+                child: Text(
+                  widget.userProfile.address,
                   style: TextStyle(
-                      fontSize: 12.sp,
-                      color: Color(0xFF6C7278),
-                      fontWeight: FontWeight.w600),
+                    fontSize: 12.sp,
+                    color: Color(0xFF6C7278),
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ],

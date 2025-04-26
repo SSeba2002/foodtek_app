@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/data/cart_item_list.dart';
+import 'package:foodtek_project/view/screens/home/cart/checkout/map_screen.dart';
 import 'package:foodtek_project/view/widgets/cart/cart_item_widget.dart';
 import 'package:foodtek_project/view/widgets/cart/empty_cart_widget.dart';
 import 'package:foodtek_project/view/widgets/cart/price_details_widget.dart';
@@ -68,7 +69,15 @@ class _CartScreenState extends State<CartScreen> {
                     ),
           ),
           if (cartItems(context).isNotEmpty)
-            PriceDetailsWidget(subtotal: 100, onPlaceOrder: () {}),
+            PriceDetailsWidget(
+              subtotal: 100,
+              onPlaceOrder: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MapScreen()),
+                );
+              },
+            ),
         ],
       ),
     );

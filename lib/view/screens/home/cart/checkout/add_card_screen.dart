@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import 'package:foodtek_project/view/screens/home/cart/checkout/order_done_Screen.dart';
+import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
 
 class AddCardScreen extends StatefulWidget {
   const AddCardScreen({super.key});
@@ -13,28 +16,33 @@ class _AddCardScreenState extends State<AddCardScreen> {
   late String cardHolder;
   String expiryDate = '02/30';
 
-@override
-void didChangeDependencies() {
-  super.didChangeDependencies();
-  cardHolder = AppLocalizations.of(context)!.nomanManzoor;
-}
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    cardHolder = AppLocalizations.of(context)!.nomanManzoor;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.addCard),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 50.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: NotificationIconWidget(),
+            ),
+            SizedBox(height: 8.h),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                AppLocalizations.of(context)!.checkout,
+                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+              ),
+            ),
+            SizedBox(height: 12.h),
             // Interactive Card Design
             Container(
               padding: EdgeInsets.all(16),
@@ -56,10 +64,7 @@ void didChangeDependencies() {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Icon(
-                        Icons.credit_card,
-                        color: Colors.white,
-                      )
+                      Icon(Icons.credit_card, color: Colors.white),
                     ],
                   ),
                   SizedBox(height: 16),
@@ -80,27 +85,33 @@ void didChangeDependencies() {
                         children: [
                           Text(
                             AppLocalizations.of(context)!.cardHolderName,
-                            style: TextStyle(color: Colors.white70, fontSize: 12),
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 12,
+                            ),
                           ),
                           Text(
                             cardHolder,
                             style: TextStyle(color: Colors.white, fontSize: 16),
-                          )
+                          ),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                              AppLocalizations.of(context)!.expiryDate,
-                            style: TextStyle(color: Colors.white70, fontSize: 12),
+                            AppLocalizations.of(context)!.expiryDate,
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 12,
+                            ),
                           ),
                           Text(
                             expiryDate,
                             style: TextStyle(color: Colors.white, fontSize: 16),
-                          )
+                          ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ],
@@ -121,7 +132,7 @@ void didChangeDependencies() {
             SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(
-                labelText:  AppLocalizations.of(context)!.cardNumber,
+                labelText: AppLocalizations.of(context)!.cardNumber,
                 border: OutlineInputBorder(),
                 suffixIcon: Icon(Icons.credit_card),
               ),
@@ -138,7 +149,7 @@ void didChangeDependencies() {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      labelText:   AppLocalizations.of(context)!.expiry,
+                      labelText: AppLocalizations.of(context)!.expiry,
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.datetime,
@@ -153,7 +164,7 @@ void didChangeDependencies() {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      labelText:   AppLocalizations.of(context)!.cvc,
+                      labelText: AppLocalizations.of(context)!.cvc,
                       border: OutlineInputBorder(),
                     ),
                     keyboardType: TextInputType.number,
@@ -164,7 +175,7 @@ void didChangeDependencies() {
             SizedBox(height: 16),
             Center(
               child: Text(
-                  AppLocalizations.of(context)!.paymentSuccessMessage,
+                AppLocalizations.of(context)!.paymentSuccessMessage,
                 style: TextStyle(color: Colors.grey, fontSize: 12),
                 textAlign: TextAlign.center,
               ),
@@ -174,7 +185,19 @@ void didChangeDependencies() {
               width: double.infinity,
               height: 50,
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => OrderDoneScreen(
+                            estimatedDeliveryTime: 10,
+                            userAddress: "Zarqa",
+                            //selectedLocation: ,
+                          ),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   shape: RoundedRectangleBorder(
@@ -183,7 +206,7 @@ void didChangeDependencies() {
                 ),
                 icon: Icon(Icons.payment, color: Colors.white),
                 label: Text(
-                    AppLocalizations.of(context)!.payForOrder,
+                  AppLocalizations.of(context)!.payForOrder,
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
@@ -194,4 +217,3 @@ void didChangeDependencies() {
     );
   }
 }
-

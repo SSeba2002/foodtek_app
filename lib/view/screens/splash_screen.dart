@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:foodtek_project/view/screens/chang_lang_screen.dart'; 
+import 'package:foodtek_project/view/screens/chang_lang_screen.dart';
 import 'dart:async';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashScreen extends StatefulWidget {
-  final Function(Locale) setLocale;
-  const SplashScreen({required this.setLocale, super.key});
+  const SplashScreen({super.key});
 
   @override
   SplashScreenState createState() => SplashScreenState();

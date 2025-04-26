@@ -11,13 +11,13 @@ import '../../../../../model/user_profile_model.dart';
 
 class OrderDoneScreen extends StatefulWidget {
   final int estimatedDeliveryTime;
-  final LatLng selectedLocation;
+  // final LatLng selectedLocation;
   final String userAddress;
 
   const OrderDoneScreen({
     super.key,
     required this.estimatedDeliveryTime,
-    required this.selectedLocation,
+    //  required this.selectedLocation,
     required this.userAddress,
   });
 
@@ -36,7 +36,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
   void initState() {
     super.initState();
 
-    UserProfile driverProfile = UserProfile(
+    driverProfile = UserProfile(
       userId: '1',
       name: 'Driver Name',
       address: '123 Driver Street',
@@ -45,7 +45,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
       phoneNumber: '0780111111',
     );
 
-    UserProfile userProfile = UserProfile(
+    userProfile = UserProfile(
       userId: '2',
       name: 'User Name',
       address: '456 User Avenue',
@@ -72,9 +72,8 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 8.h),
       body: Padding(
-        padding: EdgeInsets.all(20.w),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 50.h),
         child: Column(
           children: [
             Align(
@@ -163,7 +162,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
                 width: 318.w,
                 child: ElevatedButton(
                   onPressed: () {
-                       // Call  toggleHistoryToTrack function to change the icon
+                    // Call  toggleHistoryToTrack function to change the icon
                     context.read<NavBarCubit>().toggleHistoryToTrack();
 
                     //  After change icon go to TrackingScreen

@@ -15,6 +15,7 @@ class MainScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return PersistentTabView(
+            padding: EdgeInsets.all(5),
             navBarHeight: 60,
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor!,
             context,

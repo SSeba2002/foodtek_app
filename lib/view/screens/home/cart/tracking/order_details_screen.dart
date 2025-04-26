@@ -15,11 +15,7 @@ class OrderDetailsScreen extends StatelessWidget {
     {"title": "orderDelivered", "icon": Icons.home, "completed": false},
   ];
 
-  OrderDetailsScreen({
-    super.key,
-    this.selectedLocation,
-    this.userAddress,
-  });
+  OrderDetailsScreen({super.key, this.selectedLocation, this.userAddress});
 
   String _getTranslatedStepTitle(BuildContext context, String titleKey) {
     switch (titleKey) {
@@ -39,21 +35,16 @@ class OrderDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black, size: 24.sp),
+          icon: Icon(Icons.arrow_back, size: 24.sp),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           AppLocalizations.of(context)!.orderDetails,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18.sp,
-            fontWeight: FontWeight.w600,
-          ),
+          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         toolbarHeight: 56.h,
       ),
@@ -99,10 +90,7 @@ class OrderDetailsScreen extends StatelessWidget {
                     SizedBox(height: 4.h),
                     Text(
                       AppLocalizations.of(context)!.deliveryTime,
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        color: Colors.green,
-                      ),
+                      style: TextStyle(fontSize: 14.sp, color: Colors.green),
                     ),
                   ],
                 ),
@@ -120,18 +108,21 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Icon(
                           steps[index]['icon'],
-                          color: isCompleted
-                              ? Color(0xFF25AE4B)
-                              : Colors.grey[400],
+                          color:
+                              isCompleted
+                                  ? Color(0xFF25AE4B)
+                                  : Colors.grey[400],
                           size: 28.sp,
                         ),
                         SizedBox(width: 12.w),
                         Text(
-                          _getTranslatedStepTitle(context, steps[index]['title']),
+                          _getTranslatedStepTitle(
+                            context,
+                            steps[index]['title'],
+                          ),
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
-                            color: Colors.black,
                           ),
                         ),
                       ],
@@ -158,17 +149,16 @@ class OrderDetailsScreen extends StatelessWidget {
             /// Delivery Hero Section
             Text(
               AppLocalizations.of(context)!.yourDeliveryHero,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.sp,
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
             ),
             SizedBox(height: 12.h),
             Row(
               children: [
                 CircleAvatar(
                   radius: 25.r,
-                  backgroundImage: AssetImage('assets/images/delivery_person.jpg'),
+                  backgroundImage: AssetImage(
+                    'assets/images/delivery_person.jpg',
+                  ),
                 ),
                 SizedBox(width: 12.w),
                 Column(
@@ -204,11 +194,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   onPressed: () {},
                 ),
                 IconButton(
-                  icon: Icon(
-                    Icons.message,
-                    color: Colors.orange,
-                    size: 24.sp,
-                  ),
+                  icon: Icon(Icons.message, color: Colors.orange, size: 24.sp),
                   onPressed: () {},
                 ),
               ],
@@ -218,23 +204,17 @@ class OrderDetailsScreen extends StatelessWidget {
             /// Delivery Address
             Text(
               AppLocalizations.of(context)!.yourLocation,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.sp,
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
             ),
             SizedBox(height: 8.h),
             Row(
               children: [
-                Icon(
-                  Icons.location_on,
-                  color: Colors.green,
-                  size: 24.sp,
-                ),
+                Icon(Icons.location_on, color: Colors.green, size: 24.sp),
                 SizedBox(width: 8.w),
                 Expanded(
                   child: Text(
-                    userAddress ?? AppLocalizations.of(context)!.deliveryAddress,
+                    userAddress ??
+                        AppLocalizations.of(context)!.deliveryAddress,
                     style: TextStyle(fontSize: 15.sp),
                   ),
                 ),
@@ -263,10 +243,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   ),
                   child: Text(
                     AppLocalizations.of(context)!.liveTrack,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.sp,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 16.sp),
                   ),
                 ),
               ),

@@ -29,36 +29,35 @@ class _ChatScreenState extends State<ChatScreen> {
       time: "9:41",
     ),
     ChatMessage(
-      text: "There are many programming languages in the market that are used in designing and building websites, various applications and other tasks. All these languages are popular in their place and in the way they are used, and many programmers learn and use them.",
+      text:
+          "There are many programming languages in the market that are used in designing and building websites, various applications and other tasks. All these languages are popular in their place and in the way they are used, and many programmers learn and use them.",
       isUser: false,
       time: "9:41",
     ),
-    ChatMessage(
-      text: "So explain to me more",
-      isUser: true,
-      time: "9:41",
-    ),
+    ChatMessage(text: "So explain to me more", isUser: true, time: "9:41"),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Column(
         children: [
           Container(
-            color: Colors.white,
+            color: Theme.of(context).cardColor,
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).padding.top + 18.h,
             ),
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.w,
+                    vertical: 18.h,
+                  ),
                   child: Row(
                     children: [
                       IconButton(
-                        icon: Icon(Icons.arrow_back, color: Colors.black, size: 24.sp),
+                        icon: Icon(Icons.arrow_back, size: 24.sp),
                         onPressed: () {
                           Navigator.pop(context);
                         },
@@ -67,7 +66,6 @@ class _ChatScreenState extends State<ChatScreen> {
                       Text(
                         AppLocalizations.of(context)!.chat, // Translated
                         style: TextStyle(
-                          color: Colors.black,
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w600,
                         ),
@@ -75,11 +73,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ],
                   ),
                 ),
-                Divider(
-                  height: 1.h,
-                  thickness: 1.h,
-                  color: Color(0xFFECECEC),
-                ),
+                Divider(height: 1.h, thickness: 1.h, color: Color(0xFFECECEC)),
               ],
             ),
           ),
@@ -101,46 +95,34 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Widget _buildMessage(ChatMessage message) {
     return Column(
-      crossAxisAlignment: message.isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          message.isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
         Container(
           margin: EdgeInsets.symmetric(vertical: 4.h),
           child: Row(
-            mainAxisAlignment: message.isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+            mainAxisAlignment:
+                message.isUser
+                    ? MainAxisAlignment.end
+                    : MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Container(
-                constraints: BoxConstraints(
-                  maxWidth: 0.75.sw,
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 14.w,
-                  vertical: 10.h,
-                ),
+                constraints: BoxConstraints(maxWidth: 0.75.sw),
+                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
                 decoration: BoxDecoration(
-                  color: message.isUser
-                      ? Color(0xFF4CAF50)
-                      : Color(0xFFEEEEEE),
+                  color:
+                      message.isUser
+                          ? Color(0xFF4CAF50)
+                          : const Color.fromARGB(145, 97, 97, 97),
                   borderRadius: _getBorderRadius(message.isUser),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      message.text,
-                      style: TextStyle(
-                        color: message.isUser ? Colors.white : Colors.black,
-                        fontSize: 14.sp,
-                      ),
-                    ),
+                    Text(message.text, style: TextStyle(fontSize: 14.sp)),
                     SizedBox(height: 4.h),
-                    Text(
-                      message.time,
-                      style: TextStyle(
-                        color: message.isUser ? Colors.white : Colors.black,
-                        fontSize: 10.sp,
-                      ),
-                    ),
+                    Text(message.time, style: TextStyle(fontSize: 10.sp)),
                   ],
                 ),
               ),
@@ -167,7 +149,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Container(
           width: 0.79.sw,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(30.r),
             boxShadow: [
               BoxShadow(
@@ -175,7 +157,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 spreadRadius: 1,
                 blurRadius: 3,
                 offset: Offset(0, -1),
-              )
+              ),
             ],
           ),
           child: Row(
@@ -186,7 +168,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: TextField(
                     controller: _messageController,
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.writeYourMessage, // Translated
+                      hintText:
+                          AppLocalizations.of(
+                            context,
+                          )!.writeYourMessage, // Translated
                       border: InputBorder.none,
                       hintStyle: TextStyle(
                         color: Color(0xFFA1A1A1),
@@ -201,18 +186,17 @@ class _ChatScreenState extends State<ChatScreen> {
               Container(
                 margin: EdgeInsets.all(6.r),
                 child: IconButton(
-                  icon: Icon(Icons.send,
-                    color: Color(0xFF25AE4B),
-                    size: 24.sp,
-                  ),
+                  icon: Icon(Icons.send, color: Color(0xFF25AE4B), size: 24.sp),
                   onPressed: () {
                     if (_messageController.text.isNotEmpty) {
                       setState(() {
-                        _messages.add(ChatMessage(
-                          text: _messageController.text,
-                          isUser: true,
-                          time: "now",
-                        ));
+                        _messages.add(
+                          ChatMessage(
+                            text: _messageController.text,
+                            isUser: true,
+                            time: "now",
+                          ),
+                        );
                         _messageController.clear();
                       });
                     }

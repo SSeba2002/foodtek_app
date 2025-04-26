@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import 'package:foodtek_project/view/screens/home/cart/checkout/add_card_screen.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../../../widgets/cart/price_details_widget.dart';
@@ -29,10 +30,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 25.h),
+      // appBar: AppBar(toolbarHeight: 25.h),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 50.h),
           child: Column(
             children: [
               Align(
@@ -71,24 +72,25 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   if (paymentMethod == 'card') buildCardTypeSection(),
                   SizedBox(height: 20.h),
                   PriceDetailsWidget(
-                    subtotal: widget.subtotal,
+                    subtotal: 100,
                     onPlaceOrder: () {
-
-                      if (selectedLocation == null) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(AppLocalizations.of(context)!.pleaseSelectLocation)),
-                        );
-                        return;
-                      }
+                      // if (selectedLocation == null) {
+                      //   ScaffoldMessenger.of(context).showSnackBar(
+                      //     SnackBar(
+                      //       content: Text(
+                      //         AppLocalizations.of(
+                      //           context,
+                      //         )!.pleaseSelectLocation,
+                      //       ),
+                      //     ),
+                      //   );
+                      //   return;
+                      // }
 
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => OrderDoneScreen(
-                            estimatedDeliveryTime: 30,
-                            selectedLocation: selectedLocation!,
-                            userAddress: userLocation!,
-                          ),
+                          builder: (context) => AddCardScreen(),
                         ),
                       );
                     },
@@ -110,7 +112,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           children: [
             Icon(Icons.my_location_outlined, color: Colors.grey, size: 20.sp),
             SizedBox(width: 9.w),
-            Text(AppLocalizations.of(context)!.alJamaaStreet,
+            Text(
+              AppLocalizations.of(context)!.alJamaaStreet,
               style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w400),
             ),
           ],
@@ -156,7 +159,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       ],
     );
   }
-
 
   Widget buildPromoCodeSection() {
     return Column(
@@ -248,7 +250,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             Text(
               AppLocalizations.of(context)!.card,
               style: TextStyle(
-                color: paymentMethod == 'card' ? Colors.black : Colors.grey,
+                //   color: paymentMethod == 'card' ? Colors.black : Colors.grey,
                 fontSize: 16.sp,
               ),
             ),
@@ -271,7 +273,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             Text(
               AppLocalizations.of(context)!.cash,
               style: TextStyle(
-                color: paymentMethod == AppLocalizations.of(context)!.cash ? Colors.black : Colors.grey,
+                // color:
+                //     paymentMethod == AppLocalizations.of(context)!.cash
+                //         ? Colors.black
+                //         : Colors.grey,
                 fontSize: 16.sp,
               ),
             ),
@@ -302,7 +307,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               },
               activeColor: Color(0xFF25AE4B),
               fillColor: WidgetStateColor.resolveWith((states) {
-                return cardType == AppLocalizations.of(context)!.visa ? Color(0xFF25AE4B) : Colors.grey;
+                return cardType == AppLocalizations.of(context)!.visa
+                    ? Color(0xFF25AE4B)
+                    : Colors.grey;
               }),
             ),
             SvgPicture.asset(
@@ -337,18 +344,18 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     );
   }
 
-  void _goToMapScreen()  async {
+  void _goToMapScreen() async {
     final selectedLocation = await Navigator.push<LatLng>(
-    context,
-    MaterialPageRoute(builder: (context) => MapScreen()),
+      context,
+      MaterialPageRoute(builder: (context) => MapScreen()),
     );
 
     if (selectedLocation != null) {
-    final address = await _getAddressFromLatLng(selectedLocation);
-    setState(() {
-      this.selectedLocation = selectedLocation;
-     userLocation = address;
-    });
+      final address = await _getAddressFromLatLng(selectedLocation);
+      setState(() {
+        this.selectedLocation = selectedLocation;
+        userLocation = address;
+      });
     }
   }
 

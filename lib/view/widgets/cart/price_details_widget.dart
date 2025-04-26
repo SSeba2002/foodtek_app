@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import 'package:foodtek_project/view/screens/home/cart/checkout/map_screen.dart';
 import 'package:foodtek_project/view/screens/home/cart/checkout/order_done_Screen.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -9,8 +10,8 @@ class PriceDetailsWidget extends StatelessWidget {
   final VoidCallback onPlaceOrder;
   final double? deliveryCharge;
   final double? discount;
-  final String? userLocation;
- final LatLng? selectedLocation;
+  //   final String? userLocation;
+  //  final LatLng? selectedLocation;
 
   const PriceDetailsWidget({
     super.key,
@@ -18,8 +19,8 @@ class PriceDetailsWidget extends StatelessWidget {
     required this.onPlaceOrder,
     this.deliveryCharge,
     this.discount,
-    this.selectedLocation,
-    this.userLocation
+    // this.selectedLocation,
+    // this.userLocation
   });
 
   double calculateDeliveryCharge(double subtotal) {
@@ -35,9 +36,6 @@ class PriceDetailsWidget extends StatelessWidget {
         (deliveryCharge ?? calculateDeliveryCharge(subtotal)) -
         (discount ?? calculateDiscount(subtotal));
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +56,10 @@ class PriceDetailsWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildPaymentRow(AppLocalizations.of(context)!.subTotal, subtotal.toStringAsFixed(2)),
+          _buildPaymentRow(
+            AppLocalizations.of(context)!.subTotal,
+            subtotal.toStringAsFixed(2),
+          ),
           SizedBox(height: 2.h),
           _buildPaymentRow(
             AppLocalizations.of(context)!.deliveryCharge,
@@ -70,7 +71,11 @@ class PriceDetailsWidget extends StatelessWidget {
             '-${calculatedDiscount.toStringAsFixed(2)}',
           ),
           SizedBox(height: 2.h),
-          _buildPaymentRow(AppLocalizations.of(context)!.total, total.toStringAsFixed(2), isTotal: true),
+          _buildPaymentRow(
+            AppLocalizations.of(context)!.total,
+            total.toStringAsFixed(2),
+            isTotal: true,
+          ),
           SizedBox(height: 14.h),
           SizedBox(
             height: 48.h,
@@ -83,18 +88,7 @@ class PriceDetailsWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.r),
                 ),
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) => OrderDoneScreen(
-                    estimatedDeliveryTime: 30,
-                    selectedLocation: selectedLocation!,
-                    userAddress: userLocation!,)
-                  ),
-                );
-              },
+              onPressed: onPlaceOrder,
 
               child: Text(
                 AppLocalizations.of(context)!.placeOrder,
