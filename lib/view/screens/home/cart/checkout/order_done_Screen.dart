@@ -106,8 +106,9 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
                       fit: BoxFit.contain,
                     ),
                   ),
-                  Positioned(
+                  Positioned
                     bottom: 65.h,
+                    
                     child: AnimatedBuilder(
                       animation: _animation,
                       builder: (context, child) {
