@@ -11,13 +11,11 @@ import '../../../../../model/user_profile_model.dart';
 
 class OrderDoneScreen extends StatefulWidget {
   final int estimatedDeliveryTime;
-  // final LatLng selectedLocation;
   final String userAddress;
 
   const OrderDoneScreen({
     super.key,
     required this.estimatedDeliveryTime,
-    //  required this.selectedLocation,
     required this.userAddress,
   });
 
@@ -108,8 +106,9 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
                       fit: BoxFit.contain,
                     ),
                   ),
-                  Positioned(
-                    bottom: 55.h,
+                  Positioned
+                    bottom: 65.h,
+                    
                     child: AnimatedBuilder(
                       animation: _animation,
                       builder: (context, child) {
