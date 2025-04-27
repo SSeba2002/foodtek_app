@@ -9,7 +9,6 @@ import 'package:foodtek_project/view/screens/home/cart/tracking/tracking_screen.
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
-import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
@@ -76,11 +75,7 @@ class _MyAppState extends State<MyApp> {
                   supportedLocales: const [Locale('en'), Locale('ar')],
                   debugShowCheckedModeBanner: false,
                   title: 'FoodTek',
-                  home: SplashScreen(),
-                  // TrackingScreen(
-                  //   driverProfile: driverProfile,
-                  //   userProfile: userProfile,
-                  // ),
+                  home: TrackingScreen(driverProfile: driverProfile, userProfile: userProfile),
                   builder: (context, child) {
                     return Directionality(
                       textDirection:

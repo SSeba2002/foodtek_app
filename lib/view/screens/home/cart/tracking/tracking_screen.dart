@@ -141,9 +141,15 @@ class _TrackingScreenState extends State<TrackingScreen> {
                   ),
                   markers: _markers,
                   polylines: _polylines,
-                  onMapCreated: (controller) => _mapController = controller,
+                  onMapCreated: (controller) {
+                    _mapController = controller;
+                  controller.animateCamera(
+                    CameraUpdate.newLatLngZoom(_driverLocation, 15),
+                  );},
                   myLocationEnabled: true,
                   myLocationButtonEnabled: true,
+                  compassEnabled: true,
+                  buildingsEnabled: true,
                 ),
               ),
               Padding(
