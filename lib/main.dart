@@ -5,6 +5,7 @@ import 'package:foodtek_project/constant/functions/bloc_observer.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
 import 'package:foodtek_project/state/theme_state.dart';
+import 'package:foodtek_project/view/screens/home/cart/checkout/order_done_Screen.dart';
 import 'package:foodtek_project/view/screens/home/cart/tracking/tracking_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
@@ -75,7 +76,7 @@ class _MyAppState extends State<MyApp> {
                   supportedLocales: const [Locale('en'), Locale('ar')],
                   debugShowCheckedModeBanner: false,
                   title: 'FoodTek',
-                  home: TrackingScreen(driverProfile: driverProfile, userProfile: userProfile),
+                  home: OrderDoneScreen(estimatedDeliveryTime: 30 , userAddress: "Amman-Jordan"),
                   builder: (context, child) {
                     return Directionality(
                       textDirection:
