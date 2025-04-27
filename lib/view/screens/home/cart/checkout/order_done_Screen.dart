@@ -109,14 +109,14 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
                     ),
                   ),
                   Positioned(
-                    bottom: 44.h,
+                    bottom: 55.h,
                     child: AnimatedBuilder(
                       animation: _animation,
                       builder: (context, child) {
                         return Transform.scale(
                           scale: _animation.value,
                           child: Container(
-                            width: 55.w,
+                            width: 57.w,
                             height: 58.h,
                             decoration: BoxDecoration(
                               color: Colors.green,
