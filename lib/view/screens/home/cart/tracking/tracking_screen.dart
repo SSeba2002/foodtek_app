@@ -8,6 +8,9 @@ import 'package:foodtek_project/model/user_profile_model.dart';
 import '../../../../widgets/tracking/driver_info_card.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/home/cart/tracking/order_details_screen.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+
+
 
 class TrackingScreen extends StatefulWidget {
   final UserProfile driverProfile;
@@ -134,7 +137,8 @@ class _TrackingScreenState extends State<TrackingScreen> {
             children: [
               Expanded(
                 flex: 2,
-                child: GoogleMap(
+                child: kIsWeb
+                    ? GoogleMap(
                   initialCameraPosition: CameraPosition(
                     target: _driverLocation,
                     zoom: 15,
@@ -143,14 +147,32 @@ class _TrackingScreenState extends State<TrackingScreen> {
                   polylines: _polylines,
                   onMapCreated: (controller) {
                     _mapController = controller;
-                  controller.animateCamera(
-                    CameraUpdate.newLatLngZoom(_driverLocation, 15),
-                  );},
+                    controller.animateCamera(
+                      CameraUpdate.newLatLngZoom(_driverLocation, 15),
+                    );
+                  },
+                  compassEnabled: true,
+                  buildingsEnabled: true,
+                )
+                    : GoogleMap(
+                  initialCameraPosition: CameraPosition(
+                    target: _driverLocation,
+                    zoom: 15,
+                  ),
+                  markers: _markers,
+                  polylines: _polylines,
+                  onMapCreated: (controller) {
+                    _mapController = controller;
+                    controller.animateCamera(
+                      CameraUpdate.newLatLngZoom(_driverLocation, 15),
+                    );
+                  },
                   myLocationEnabled: true,
                   myLocationButtonEnabled: true,
                   compassEnabled: true,
                   buildingsEnabled: true,
                 ),
+
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
