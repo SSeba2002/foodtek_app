@@ -5,6 +5,9 @@ import 'package:foodtek_project/view/screens/home/cart/checkout/Checkout_Screen.
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
+import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
+
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -47,22 +50,32 @@ class _MapScreenState extends State<MapScreen> {
     super.initState();
     _determinePosition()
         .then((position) async {
-          final location = LatLng(position.latitude, position.longitude);
-          String address = await getAddressFromLatLng(location);
-          setState(() {
-            selectedLocation = location;
-            isLoading = false;
-            locationAddress = address;
-          });
-        })
-        .catchError((error) {
-          setState(() {
-            locationAddress =
-                "${AppLocalizations.of(context)!.failedToGetLocation} $error";
-            isLoading = false;
-          });
+      final location = LatLng(position.latitude, position.longitude);
+      String address = await getAddressFromLatLng(location);
+      setState(() {
+        selectedLocation = location;
+        isLoading = false;
+        locationAddress = address;
+      });
+
+      // ✅ أضف هذا الجزء بعد setState لتحريك الكاميرا
+      if (mapController != null) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          mapController!.animateCamera(
+            CameraUpdate.newLatLngZoom(location, 15),
+          );
         });
+      }
+    })
+        .catchError((error) {
+      setState(() {
+        locationAddress =
+        "${AppLocalizations.of(context)!.failedToGetLocation} $error";
+        isLoading = false;
+      });
+    });
   }
+
 
   Future<Position> _determinePosition() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
@@ -96,9 +109,8 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          GoogleMap(
-            myLocationButtonEnabled: true,
-            myLocationEnabled: true,
+          kIsWeb
+              ? GoogleMap(
             onMapCreated: (GoogleMapController controller) {
               mapController = controller;
             },
@@ -109,25 +121,58 @@ class _MapScreenState extends State<MapScreen> {
                 locationAddress = address;
               });
             },
-            markers:
-                selectedLocation != null
-                    ? {
-                      Marker(
-                        markerId: MarkerId(
-                          AppLocalizations.of(context)!.selected,
-                        ),
-                        position: selectedLocation!,
-                        icon: BitmapDescriptor.defaultMarkerWithHue(
-                          BitmapDescriptor.hueGreen,
-                        ),
-                      ),
-                    }
-                    : {},
             initialCameraPosition: CameraPosition(
               target: selectedLocation ?? const LatLng(31.710566, 35.218088),
               zoom: 15,
             ),
+            markers: selectedLocation != null
+                ? {
+              Marker(
+                markerId:
+                MarkerId(AppLocalizations.of(context)!.selected),
+                position: selectedLocation!,
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                  BitmapDescriptor.hueGreen,
+                ),
+              ),
+            }
+                : {},
+            compassEnabled: true,
+            buildingsEnabled: true,
+          )
+              : GoogleMap(
+            onMapCreated: (GoogleMapController controller) {
+              mapController = controller;
+            },
+            onTap: (LatLng latLng) async {
+              String address = await getAddressFromLatLng(latLng);
+              setState(() {
+                selectedLocation = latLng;
+                locationAddress = address;
+              });
+            },
+            initialCameraPosition: CameraPosition(
+              target: selectedLocation ?? const LatLng(31.710566, 35.218088),
+              zoom: 15,
+            ),
+            markers: selectedLocation != null
+                ? {
+              Marker(
+                markerId:
+                MarkerId(AppLocalizations.of(context)!.selected),
+                position: selectedLocation!,
+                icon: BitmapDescriptor.defaultMarkerWithHue(
+                  BitmapDescriptor.hueGreen,
+                ),
+              ),
+            }
+                : {},
+            myLocationEnabled: true,
+            myLocationButtonEnabled: true,
+            compassEnabled: true,
+            buildingsEnabled: true,
           ),
+
 
           Positioned(
             top: 55.h,
