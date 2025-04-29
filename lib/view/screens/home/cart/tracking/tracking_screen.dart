@@ -119,7 +119,10 @@ class _TrackingScreenState extends State<TrackingScreen> {
       };
     });
 
-    _mapController?.animateCamera(CameraUpdate.newLatLng(newLocation));
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _mapController?.animateCamera(CameraUpdate.newLatLng(newLocation));
+    });
+
   }
 
   @override
@@ -147,9 +150,12 @@ class _TrackingScreenState extends State<TrackingScreen> {
                   polylines: _polylines,
                   onMapCreated: (controller) {
                     _mapController = controller;
-                    controller.animateCamera(
-                      CameraUpdate.newLatLngZoom(_driverLocation, 15),
-                    );
+
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      _mapController?.animateCamera(
+                        CameraUpdate.newLatLngZoom(_driverLocation, 15),
+                      );
+                    });
                   },
                   compassEnabled: true,
                   buildingsEnabled: true,

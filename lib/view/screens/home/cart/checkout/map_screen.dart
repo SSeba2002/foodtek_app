@@ -47,21 +47,29 @@ class _MapScreenState extends State<MapScreen> {
     super.initState();
     _determinePosition()
         .then((position) async {
-          final location = LatLng(position.latitude, position.longitude);
-          String address = await getAddressFromLatLng(location);
-          setState(() {
-            selectedLocation = location;
-            isLoading = false;
-            locationAddress = address;
-          });
-        })
-        .catchError((error) {
-          setState(() {
-            locationAddress =
-                "${AppLocalizations.of(context)!.failedToGetLocation} $error";
-            isLoading = false;
-          });
+      final location = LatLng(position.latitude, position.longitude);
+      String address = await getAddressFromLatLng(location);
+      setState(() {
+        selectedLocation = location;
+        isLoading = false;
+        locationAddress = address;
+      });
+      
+      if (mapController != null) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          mapController!.animateCamera(
+            CameraUpdate.newLatLngZoom(location, 15),
+          );
         });
+      }
+    })
+        .catchError((error) {
+      setState(() {
+        locationAddress =
+        "${AppLocalizations.of(context)!.failedToGetLocation} $error";
+        isLoading = false;
+      });
+    });
   }
 
   Future<Position> _determinePosition() async {
