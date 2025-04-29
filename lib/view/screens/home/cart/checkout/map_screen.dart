@@ -58,7 +58,6 @@ class _MapScreenState extends State<MapScreen> {
         locationAddress = address;
       });
 
-      // ✅ أضف هذا الجزء بعد setState لتحريك الكاميرا
       if (mapController != null) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           mapController!.animateCamera(
