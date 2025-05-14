@@ -30,7 +30,7 @@ class FoodCard extends StatelessWidget {
       cartDescription: 'Delicious burger with extra cheese and sauce',
       detailedDescription:
           'A premium burger with a juicy patty, fresh lettuce, and tomato.',
-      price: 5.99,
+      price: 5,
       oldPrice: 7.99,
       imageUrl:
           'https://media.istockphoto.com/id/2148672887/photo/beef-patty-burger-with-vegetables-and-lettuce-on-white-background-file-contains-clipping-path.jpg?s=2048x2048&w=is&k=20&c=I0IuONNkgrR2bWa7VazV04DsbqpgCEaHd26N3i7zjeg=',

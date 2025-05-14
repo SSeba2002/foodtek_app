@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodtek_project/constant/main_screens/home_screen_data.dart';
 import 'package:foodtek_project/data/cart_item_list.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
-
 import 'package:foodtek_project/model/category_model.dart';
 import 'package:foodtek_project/view/screens/home/home/item_details_screen.dart';
 import 'package:foodtek_project/view/widgets/home/banner_widget.dart';
@@ -10,6 +10,10 @@ import 'package:foodtek_project/view/widgets/home/category_cell.dart';
 import 'package:foodtek_project/view/widgets/home/view_all_title.dart';
 import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+
+import '../../../../cubit/home/get_all_category_cubit.dart';
+import '../../../../state/home/get_all_category_state.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,97 +23,101 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String? selectedCategory; // Null means nothing is selected
+  String? selectedCategory;
   TextEditingController txtSearch = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    List<Category> filteredItems = // to filter the items
-        selectedCategory == null || selectedCategory == "All"
-            ? allItems(context)
-            : allItems(
-              context,
-            ).where((item) => item.title.contains(selectedCategory!)).toList();
+    List<Category> filteredItems =
+    selectedCategory == null || selectedCategory == "All"
+        ? allItems(context)
+        : allItems(context)
+        .where((item) => item.title.contains(selectedCategory!))
+        .toList();
 
     return Scaffold(
-      // backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
             LocationNotificationSrearch(showSearchBar: true),
             const SizedBox(height: 15),
-            SizedBox(
-              height: 50,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: categories(context).length,
-                itemBuilder: (context, index) {
-                  bool isSelected =
-                      selectedCategory == categories(context)[index] ||
-                      (categories(context)[index] ==
-                              AppLocalizations.of(context)!.all &&
-                          selectedCategory == null);
 
-                  // Icons for each category
-                  Map<String, String> categoryIcons = {
-                    AppLocalizations.of(context)!.all: "",
-                    AppLocalizations.of(context)!.burger: "🍔",
-                    AppLocalizations.of(context)!.pizza: "🍕",
-                    AppLocalizations.of(context)!.sandwich: "🌭",
-                  };
 
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedCategory =
-                            categories(context)[index] ==
-                                    AppLocalizations.of(context)!.all
-                                ? null
-                                : categories(context)[index];
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 8,
-                      ),
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.green),
-                        color: isSelected ? Colors.green[400] : null,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Row(
-                        children: [
-                          if (categoryIcons[categories(context)[index]]!
-                              .isNotEmpty) ...[
-                            Text(
-                              categoryIcons[categories(context)[index]]!,
-                              style: TextStyle(fontSize: 16),
+            BlocBuilder<CategoryCubit, CategoryState>(
+              builder: (context, state) {
+                if (state is CategoryLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state is CategoryLoaded) {
+                  final tabs = state.categories;
+
+                  return SizedBox(
+                    height: 50,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: tabs.length,
+                      itemBuilder: (context, index) {
+                        final category = tabs[index];
+                        final locale = Localizations.localeOf(context).languageCode;
+                        final isArabic = locale == 'ar';
+                        final categoryName = isArabic ? category.nameAr : category.nameEn;
+
+                        final isSelected = selectedCategory == categoryName ||
+                            (categoryName == AppLocalizations.of(context)!.all &&
+                                selectedCategory == null);
+
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selectedCategory = categoryName == AppLocalizations.of(context)!.all
+                                  ? null
+                                  : categoryName;
+                            });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.green),
+                              color: isSelected ? Colors.green[400] : null,
+                              borderRadius: BorderRadius.circular(15),
                             ),
-                            SizedBox(width: 5),
-                          ],
-                          Text(
-                            categories(context)[index],
-                            style: TextStyle(fontWeight: FontWeight.w500),
+                            child: Row(
+                              children: [
+                                if (category.image!.isNotEmpty) ...[
+                                  Image.network(
+                                    category.image!,
+                                    width: 24,
+                                    height: 24,
+                                    errorBuilder: (context, error, stackTrace) => SizedBox(),
+                                  ),
+                                  const SizedBox(width: 5),
+                                ],
+                                Text(
+                                  categoryName!,
+                                  style: const TextStyle(fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
                   );
-                },
-              ),
+                } else if (state is CategoryError) {
+                  return Center(child: Text('Error: ${state.message}'));
+                } else {
+                  return const SizedBox();
+                }
+              },
             ),
 
             const SizedBox(height: 20),
 
-            // Show main screen if All is selected
             if (selectedCategory == null) ...[
-              PromoBanner(), // Promo banner
+              PromoBanner(),
               const SizedBox(height: 20),
 
-              // Top Rated
+              /// Top Rated
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ViewAllTitleRow(
@@ -129,11 +137,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       return CategoryCell(
                         onAddTap: () {
                           cartItems(context).add(topRatedItems(context)[index]);
-                          cartItems(context).add(topRatedItems(context)[index]);
-                          cartItems(context).add(topRatedItems(context)[index]);
-                          print(
-                            "تمت الاضاااافة =============================================${cartItems(context)[0].title}",
-                          );
                           setState(() {});
                         },
                         isRecommended: false,
@@ -149,40 +152,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               name: topRatedItems(context)[index].title,
                               image: topRatedItems(context)[index].image,
                               price: topRatedItems(context)[index].price,
-                              // Example price list
-                              description:
-                                  topRatedItems(context)[index].description,
-                              // Example description list
+                              description: topRatedItems(context)[index].description,
                               rating: topRatedItems(context)[index].rating,
-                              id:
-                                  topRatedItems(
-                                    context,
-                                  )[index].id, // Example ratings list
+                              id: topRatedItems(context)[index].id,
                             ),
-                            withNavBar:
-                                false, // OPTIONAL VALUE. True by default.
-                            pageTransitionAnimation:
-                                PageTransitionAnimation.cupertino,
+                            withNavBar: false,
+                            pageTransitionAnimation: PageTransitionAnimation.cupertino,
                           );
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder:
-                          //         (context) => ItemDetailsScreen(
-                          //           name: topRatedItems[index].title,
-                          //           image: topRatedItems[index].image,
-                          //           price: topRatedItems[index].price,
-                          //           // Example price list
-                          //           description:
-                          //               topRatedItems[index].description,
-                          //           // Example description list
-                          //           rating: topRatedItems[index].rating,
-                          //           id:
-                          //               topRatedItems[index]
-                          //                   .id, // Example ratings list
-                          //         ),
-                          //   ),
-                          // );
                         },
                       );
                     },
@@ -190,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // Recommended
+              /// Recommended
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ViewAllTitleRow(
@@ -218,15 +194,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             name: recommendedItems[index].title,
                             image: recommendedItems[index].image,
                             price: recommendedItems[index].price,
-
                             description: recommendedItems[index].description,
-
                             rating: recommendedItems[index].rating,
                             id: recommendedItems[index].id,
                           ),
                           withNavBar: false,
-                          pageTransitionAnimation:
-                              PageTransitionAnimation.cupertino,
+                          pageTransitionAnimation: PageTransitionAnimation.cupertino,
                         );
                       },
                       image: recommendedItems[index].image,

@@ -16,7 +16,7 @@ class HistoryScreen extends StatelessWidget {
       cartDescription: AppLocalizations.of(context)!.spicyShawarma,
       detailedDescription:
         AppLocalizations.of(context)!.shawarma_full_description,
-      price: 15.0,
+      price: 15,
       oldPrice: 18.0,
       imageUrl: 'assets/images/spicy_shawarma.png',
       rating: 4.7,

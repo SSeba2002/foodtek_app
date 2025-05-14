@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
-import 'package:foodtek_project/model/explore_item_model.dart';
-import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
+import 'package:foodtek_project/model/get_favorite_item.dart';
+
+import '../../../../cubit/home/favorites/add_remove_favorite_cubit.dart';
+import '../../../../cubit/home/favorites/favorite_cubit.dart';
+import '../../../../state/home/favorites/add_remove_favorite_state.dart';
+import '../../../../state/home/favorites/favorite_state.dart';
+import '../../../widgets/home/location_widget.dart';
+import '../../../widgets/home/notification_icon_widget.dart';
+import '../../../widgets/home/search_bar_widget.dart';
+
 
 class FavoritesScreen extends StatefulWidget {
   const FavoritesScreen({super.key});
@@ -11,122 +21,95 @@ class FavoritesScreen extends StatefulWidget {
   State<FavoritesScreen> createState() => _FavoritesScreenState();
 }
 
+
 class _FavoritesScreenState extends State<FavoritesScreen> {
-  List<ExploreItem> exploreItems(BuildContext context) {
-    return [
-      ExploreItem(
-        name: AppLocalizations.of(context)!.pepperoniPizza,
-        description: AppLocalizations.of(context)!.pizzaDesc,
-        price: 29,
-        imageUrl:
-            'https://media.istockphoto.com/id/1460915397/photo/food-photos-various-entrees-appetizers-deserts-etc.jpg?s=1024x1024&w=is&k=20&c=-78F8r26L_INzYltHXcqqrEqG4z6MIlKb0awxJDUU04=',
-      ),
-      ExploreItem(
-        name: AppLocalizations.of(context)!.peppyPaneer,
-        description: AppLocalizations.of(context)!.peppyPaneerDesc,
-        price: 13,
-        imageUrl:
-            'https://media.istockphoto.com/id/663909704/photo/pizza-with-mushrooms-and-fresh-basil.jpg?s=1024x1024&w=is&k=20&c=pPSWV5y4AXKYGT0Vn9ZvxC4sT04BMrhLPg8Asp10Szw=',
-      ),
-      ExploreItem(
-        name: AppLocalizations.of(context)!.mexicanGreenWave,
-        description: AppLocalizations.of(context)!.mexicanGreenWaveDesc,
-        price: 23,
-        imageUrl:
-            'https://media.istockphoto.com/id/2158544491/photo/sous-vide-chicken-pizza-on-melted-cheese-base-with-corn-and-arugula.jpg?s=1024x1024&w=is&k=20&c=WnIQJm-eXgtWCpSuP4-piaI2c_yUXKAfh0prYGs4OIs=',
-      ),
-      ExploreItem(
-        name: AppLocalizations.of(context)!.pizzaCheese,
-        description: AppLocalizations.of(context)!.pizzaTags,
-        price: 23,
-        imageUrl:
-            'https://media.istockphoto.com/id/1414575281/photo/a-delicious-and-tasty-italian-pizza-margherita-with-tomatoes-and-buffalo-mozzarella.jpg?s=1024x1024&w=is&k=20&c=bwoUzONnFgIK65TQ7uUeSAlM78h-gCmKSR3nnGhb6AI=',
-      ),
-    ];
+  List<GetFavoriteItem> _favoritesList = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    context.read<FavoritesCubit>().fetchFavorites();
   }
 
-  List<bool> isFavorite = [true, true, true, true];
-
-  void toggleFavorite(int index) {
-    if (isFavorite[index]) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 24.h,
-              horizontal: 20.w,
-            ),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.removeFromFavorites,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
+  void _showRemoveDialog(BuildContext context, GetFavoriteItem item) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          contentPadding: EdgeInsets.symmetric(
+            vertical: 24.h,
+            horizontal: 20.w,
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.removeFromFavorites,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w500,
                 ),
-                SizedBox(height: 20.h),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF25AE4B),
-                      foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(vertical: 14.h),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+              ),
+              SizedBox(height: 20.h),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF25AE4B),
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(vertical: 14.h),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        isFavorite[index] = false;
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(
-                      AppLocalizations.of(context)!.yes,
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _favoritesList.remove(item);
+                    });
+
+                    context.read<AddRemoveFavoriteCubit>().removeFromFavorite(item.id.toString());
+
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.yes,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              ],
-            ),
-          );
-        },
-      );
-    } else {
-      setState(() {
-        isFavorite[index] = true;
-      });
-    }
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
-  void _navigateToProductDetail(ExploreItem product) {
-    // TODO: Replace with actual navigation
-    debugPrint('${AppLocalizations.of(context)!.tappedOn} ${product.name}');
+
+  void _navigateToProductDetail(GetFavoriteItem product) {
+    debugPrint('${AppLocalizations.of(context)!.tappedOn} ${product.nameEn}');
   }
+
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: const Size(360, 690));
-
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Header widgets
-            LocationNotificationSrearch(showSearchBar: true),
+            LocationWidget(),
+            NotificationIconWidget(),
+            SizedBox(height: 3),
+            SearchBarWidget(onFilterPressed: () {}),
             SizedBox(height: 20.h),
             Text(
               AppLocalizations.of(context)!.favorites,
@@ -134,18 +117,30 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             ),
             SizedBox(height: 25.h),
             Expanded(
-              child: GridView.builder(
-                padding: EdgeInsets.zero,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 20.w,
-                  mainAxisSpacing: 25.h,
-                  childAspectRatio: 0.75,
-                ),
-                itemCount: exploreItems(context).length,
-                itemBuilder: (context, index) {
-                  if (!isFavorite[index]) return const SizedBox.shrink();
-                  return _buildProductCard(exploreItems(context)[index], index);
+              child: BlocBuilder<FavoritesCubit, FavoritesState>(
+                builder: (context, state) {
+                  if (state is FavoritesLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (state is FavoritesError) {
+                    return Center(child: Text(state.message));
+                  } else if (state is FavoritesLoaded) {
+                    _favoritesList = state.favorites;
+
+                    return GridView.builder(
+                      padding: EdgeInsets.zero,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 20.w,
+                        mainAxisSpacing: 25.h,
+                        childAspectRatio: 0.75,
+                      ),
+                      itemCount: _favoritesList.length,
+                      itemBuilder: (context, index) {
+                        return _buildProductCard(_favoritesList[index], context);
+                      },
+                    );
+                  }
+                  return const Center(child: Text('No favorites yet'));
                 },
               ),
             ),
@@ -155,12 +150,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     );
   }
 
-  Widget _buildProductCard(ExploreItem product, int index) {
+  Widget _buildProductCard(GetFavoriteItem product, BuildContext context) {
     return Container(
       margin: EdgeInsets.all(6.w),
       padding: EdgeInsets.only(bottom: 35.h),
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFFDBF4D1), width: 1.w),
+        border: Border.all(color: Color(0xFFDBF4D1), width: 1.w),
         borderRadius: BorderRadius.circular(25.r),
       ),
       child: Stack(
@@ -176,7 +171,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 backgroundColor: Colors.transparent,
                 child: CircleAvatar(
                   radius: 38.r,
-                  backgroundImage: NetworkImage(product.imageUrl),
+                  backgroundImage: NetworkImage('https://example.com/image.jpg'),
                 ),
               ),
             ),
@@ -190,12 +185,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 shape: BoxShape.circle,
               ),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.favorite,
-                  color: isFavorite[index] ? Colors.red : Colors.grey,
-                  size: 18.w,
+                  color: Colors.red,
+                  size: 18,
                 ),
-                onPressed: () => toggleFavorite(index),
+                onPressed: () => _showRemoveDialog(context, product),
               ),
             ),
           ),
@@ -208,7 +203,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   child: Padding(
                     padding: EdgeInsets.all(8.w),
                     child: Text(
-                      product.name,
+                      product.nameEn ?? 'No name',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
@@ -231,7 +226,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                         SizedBox(width: 5.w),
                         Expanded(
                           child: Text(
-                            product.description,
+                            product.descriptionEn ?? 'No description',
                             style: TextStyle(
                               fontSize: 10.sp,
                               color: Colors.grey,
@@ -250,7 +245,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   child: Padding(
                     padding: EdgeInsets.all(8.w),
                     child: Text(
-                      product.formattedPrice,
+                      '\$${product.price?.toStringAsFixed(2) ?? '0.00'}',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w600,
@@ -271,7 +266,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF25AE4B),
                   padding: EdgeInsets.symmetric(
-                    horizontal: 14.w,
+                    horizontal: 8.w,
                     vertical: 6.h,
                   ),
                   shape: RoundedRectangleBorder(

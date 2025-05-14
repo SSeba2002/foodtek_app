@@ -5,12 +5,20 @@ import 'package:foodtek_project/constant/functions/bloc_observer.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
 import 'package:foodtek_project/state/theme_state.dart';
-import 'package:foodtek_project/view/screens/home/cart/checkout/order_done_Screen.dart';
-import 'package:foodtek_project/view/screens/home/cart/tracking/tracking_screen.dart';
+import 'package:foodtek_project/view/screens/explore_screen.dart';
+import 'package:foodtek_project/view/screens/home/cart/checkout/Checkout_Screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
+import 'package:foodtek_project/view/screens/home/favorites/favorite_screen.dart';
+import 'package:foodtek_project/view/screens/home/home/home_screen.dart';
+import 'package:foodtek_project/view/widgets/product_card.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'cubit/home/favorites/add_remove_favorite_cubit.dart';
+import 'cubit/home/favorites/favorite_cubit.dart';
+import 'cubit/home/get_all_category_cubit.dart';
+import 'model/product_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +40,14 @@ class _MyAppState extends State<MyApp> {
       _locale = locale;
     });
   }
+  void onFavoritePressed() {
+    print('Favorite toggled');
+  }
+
+  void onOrderPressed() {
+    print('Order pressed');
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +69,32 @@ class _MyAppState extends State<MyApp> {
       phoneNumber: '078011111',
     );
 
+    final product = Product(
+      id: '123',
+      name: 'Pizza Margherita',
+      description: 'Delicious cheese and tomato pizza',
+      price: 9.99,
+      imageUrl: 'https://images.unsplash.com/photo-1601924928376-b4f87c1a17a1',
+      isFavorite: false,
+      cartDescription: "",
+      detailedDescription: ""
+
+    );
+
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AppCubit())],
+      providers: [BlocProvider(create: (context) => AppCubit()),
+        BlocProvider(
+          create: (context) =>FavoritesCubit(userProfile.userId)..fetchFavorites(),
+        ),
+        BlocProvider(
+          create: (context) {
+            final cubit = CategoryCubit();
+            cubit.fetchCategories();
+            return cubit;
+          },
+        ),
+    BlocProvider(
+      create: (context) => AddRemoveFavoriteCubit(userId: userProfile.userId),),],
       child: ScreenUtilInit(
         designSize: const Size(428, 926),
         splitScreenMode: true,
@@ -76,7 +116,7 @@ class _MyAppState extends State<MyApp> {
                   supportedLocales: const [Locale('en'), Locale('ar')],
                   debugShowCheckedModeBanner: false,
                   title: 'FoodTek',
-                  home: TrackingScreen(driverProfile: driverProfile, userProfile: userProfile),
+                  home: ExploreScreen(),
                   builder: (context, child) {
                     return Directionality(
                       textDirection:
