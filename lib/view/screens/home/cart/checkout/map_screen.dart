@@ -58,8 +58,11 @@ class _MapScreenState extends State<MapScreen> {
         locationAddress = address;
       });
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> cd58aa0 ( some modifications in map)
       if (mapController != null) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           mapController!.animateCamera(
