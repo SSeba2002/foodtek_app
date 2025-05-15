@@ -83,6 +83,15 @@ class _MyAppState extends State<MyApp> {
             create: (context) => AppCubit(),
           ),
           BlocProvider(
+          create: (context) => CategoryCubit()..fetchCategories(),),
+
+          BlocProvider(
+            create: (context) => FavoritesCubit(userProfile.userId)..fetchFavorites(),),
+
+          BlocProvider(
+              create: (_) => AddRemoveFavoriteCubit(userId: userProfile.userId)),
+
+          BlocProvider(
             create: (context) => TopRatedCubit(
               context.read<ItemRepository>(),
             ),
@@ -139,5 +148,4 @@ class _MyAppState extends State<MyApp> {
       detailedDescription: ""
 
     );
-
 
