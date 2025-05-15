@@ -6,27 +6,24 @@ import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class NavBarCubit extends Cubit<NavBarStates> {
-  NavBarCubit() : super(InitNavBareState());
+  NavBarCubit() : super(InitNavBareState()) {
 
-  late PersistentTabController controller = PersistentTabController(
-    initialIndex: 0,
-  );
+    controller = PersistentTabController(initialIndex: 0);
 
-  bool hasActiveOrder = false;
-
-  void change() {
     controller.addListener(() {
       emit(ChangeNavBareState());
     });
   }
 
+  late PersistentTabController controller;
+
+  bool hasActiveOrder = false;
+
   void setActiveOrder(bool value) {
-    // method to change the state
     hasActiveOrder = value;
     emit(ChangeNavBareState());
   }
 
-  // the function to change Icon
   void toggleHistoryToTrack() {
     hasActiveOrder = !hasActiveOrder;
     emit(ChangeNavBareState());
@@ -43,28 +40,27 @@ class NavBarCubit extends Cubit<NavBarStates> {
 
       return PersistentBottomNavBarItem(
         icon:
-            isCart
-                ? Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: const BoxDecoration(shape: BoxShape.circle),
-                  child: Center(
-                    child: Icon(
-                      bottomNavIcons[index],
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                  ),
-                )
-                : Icon(
-                  isHistory && hasActiveOrder
-                      ? Icons
-                          .location_on_outlined // Track icon if has avtive order
-                      : bottomNavIcons[index],
-                ),
+        isCart
+            ? Container(
+          padding: const EdgeInsets.all(8),
+          decoration: const BoxDecoration(shape: BoxShape.circle),
+          child: Center(
+            child: Icon(
+              bottomNavIcons[index],
+              size: 30,
+              color: Colors.white,
+            ),
+          ),
+        )
+            : Icon(
+          isHistory && hasActiveOrder
+              ? Icons.location_on_outlined
+              : bottomNavIcons[index],
+        ),
         title: bottomNavLabels(context)[index],
         textStyle: TextStyle(
           color:
-              index == controller.index ? AppColors.primaryColor : Colors.grey,
+          index == controller.index ? AppColors.primaryColor : Colors.grey,
         ),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,

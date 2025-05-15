@@ -6,7 +6,6 @@ import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/home/cart/tracking/tracking_screen.dart';
 import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import '../../../../../model/user_profile_model.dart';
 
 class OrderDoneScreen extends StatefulWidget {
