@@ -8,7 +8,7 @@ class TopRatedInitial extends TopRatedState {}
 class TopRatedLoading extends TopRatedState {}
 
 class TopRatedLoaded extends TopRatedState {
-  final List<RecommendedItem> items;
+  final List<TopRatedItem> items;
   TopRatedLoaded(this.items);
 }
 

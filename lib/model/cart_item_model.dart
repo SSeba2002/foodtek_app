@@ -19,7 +19,7 @@ class CartItem {
     this.quantity = 1,
   });
 
-  factory CartItem.fromTopRatedItem(RecommendedItem item) {
+  factory CartItem.fromTopRatedItem(TopRatedItem item) {
     return CartItem(
       id: item.id ?? 0,
       title: item.nameEn ?? '',

@@ -1,4 +1,4 @@
-class RecommendedItem {
+class TopRatedItem {
   final int id;
   final String nameAr;
   final String nameEn;
@@ -8,7 +8,7 @@ class RecommendedItem {
   final double itemRate;
   final String image;
 
-  RecommendedItem({
+  TopRatedItem({
     required this.id,
     required this.nameAr,
     required this.nameEn,
@@ -19,8 +19,8 @@ class RecommendedItem {
     required this.image,
   });
 
-  factory RecommendedItem.fromJson(Map<String, dynamic> json) {
-    return RecommendedItem(
+  factory TopRatedItem.fromJson(Map<String, dynamic> json) {
+    return TopRatedItem(
       id: json['id'],
       nameAr: json['nameAr']?.toString() ?? '',
       nameEn: json['nameEn']?.toString() ?? '',
