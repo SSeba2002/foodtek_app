@@ -15,6 +15,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
 import 'package:foodtek_project/view/screens/home/home/home_screen.dart';
+import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'cubit/home/favorites/add_remove_favorite_cubit.dart';
 import 'cubit/home/favorites/favorite_cubit.dart';
@@ -117,7 +118,7 @@ class _MyAppState extends State<MyApp> {
                 supportedLocales: const [Locale('en'), Locale('ar')],
                 debugShowCheckedModeBanner: false,
                 title: 'FoodTek',
-                home: HomeScreen(),
+                home: SplashScreen(),
                 builder: (context, child) {
                   return Directionality(
                     textDirection: context.read<AppCubit>().locale.toString() == "en"

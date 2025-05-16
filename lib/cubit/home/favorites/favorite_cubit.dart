@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
+import 'package:foodtek_project/constant/api_constants.dart';
 import 'package:http/http.dart' as https;
 import 'package:foodtek_project/model/get_favorite_item.dart';
 import '../../../state/home/favorites/favorite_state.dart';
@@ -9,13 +10,13 @@ class FavoritesCubit extends Cubit<FavoritesState> {
 
   FavoritesCubit(this.userId) : super(FavoritesInitial());
 
-  String get apiUrl => 'https://team12.zero1planet.com/api/Item/GetFavoriteItemByUserID?userID=$userId';
+  Uri get apiUrl => Uri.parse(ApiConstants.getFavoriteItemsByUserId(userId));
 
   Future<void> fetchFavorites() async {
     emit(FavoritesLoading());
     try {
       final response = await https.get(
-        Uri.parse(apiUrl),
+        apiUrl,
         headers: {'Content-Type': 'application/json'},
       );
 
@@ -34,18 +35,25 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   Future<void> toggleFavorite(GetFavoriteItem item) async {
     try {
       final currentState = state;
+      final itemId = item.id;
+
+      if (itemId == null) {
+        emit(FavoritesError("Item ID is null"));
+        return;
+      }
+
       if (currentState is FavoritesLoaded) {
-        final isFavorite = currentState.favorites.any((fav) => fav.id == item.id);
+        final isFavorite = currentState.favorites.any((fav) => fav.id == itemId);
 
         if (isFavorite) {
           // Remove from favorites
           final response = await https.delete(
-            Uri.parse('https://team12.zero1planet.com/api/Item/GetFavoriteItemByUserID?userID=$userId&itemID=${item.id}'),
+            Uri.parse(ApiConstants.deleteItemFromFavorite(userId, itemId.toString())),
             headers: {'Content-Type': 'application/json'},
           );
 
           if (response.statusCode == 200) {
-            final updatedFavorites = currentState.favorites.where((fav) => fav.id != item.id).toList();
+            final updatedFavorites = currentState.favorites.where((fav) => fav.id != itemId).toList();
             emit(FavoritesLoaded(updatedFavorites));
           } else {
             emit(FavoritesError('Failed to remove favorite: ${response.statusCode}'));
@@ -53,11 +61,11 @@ class FavoritesCubit extends Cubit<FavoritesState> {
         } else {
           // Add to favorites
           final response = await https.post(
-            Uri.parse('https://team12.zero1planet.com/api/Item/GetFavoriteItem'),
+            Uri.parse(ApiConstants.postFavoriteItem),
             headers: {'Content-Type': 'application/json'},
             body: json.encode({
               'userID': userId,
-              'itemID': item.id,
+              'itemID': itemId.toString(),
             }),
           );
 

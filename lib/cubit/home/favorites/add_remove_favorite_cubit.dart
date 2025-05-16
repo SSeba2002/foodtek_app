@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:foodtek_project/constant/api_constants.dart';
 import 'package:http/http.dart' as https;
 
 
@@ -13,8 +14,8 @@ class AddRemoveFavoriteCubit extends Cubit<AddRemoveFavoriteState> {
     emit(AddRemoveFavoriteLoading());
 
     try {
-      final url = Uri.parse(
-        'https://team12.zero1planet.com/api/Favorite/AddItemToFavorite?userID=$userId&itemID=$productId',
+        final url = Uri.parse(ApiConstants.addItemToFavorite(userId, productId)
+
       );
 
       final response = await https.post(
@@ -42,7 +43,7 @@ class AddRemoveFavoriteCubit extends Cubit<AddRemoveFavoriteState> {
 
     try {
       final url = Uri.parse(
-        'https://team12.zero1planet.com/api/Favorite/DeleteItemFromFavorite?userID=$userId&itemID=$productId',
+        ApiConstants.deleteItemFromFavorite(userId, productId)
       );
 
       final response = await https.delete(

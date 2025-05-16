@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodtek_project/constant/api_constants.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../model/get_all_category_model.dart';
@@ -12,8 +13,8 @@ class CategoryCubit extends Cubit<CategoryState> {
     emit(CategoryLoading());
     try {
       final response = await http.get(
-        Uri.parse("https://team12.zero1planet.com/api/Category/GetAllCategory"),
-      );
+  Uri.parse(ApiConstants.getAllCategories),
+);
 
       if (response.statusCode == 200) {
         final List<dynamic> data = json.decode(response.body);
