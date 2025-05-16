@@ -7,7 +7,6 @@ import 'package:foodtek_project/model/get_favorite_item.dart';
 
 import '../../../../cubit/home/favorites/add_remove_favorite_cubit.dart';
 import '../../../../cubit/home/favorites/favorite_cubit.dart';
-import '../../../../state/home/favorites/add_remove_favorite_state.dart';
 import '../../../../state/home/favorites/favorite_state.dart';
 import '../../../widgets/home/location_widget.dart';
 import '../../../widgets/home/notification_icon_widget.dart';

@@ -3,7 +3,6 @@ import 'package:http/http.dart' as https;
 
 
 import '../../../state/home/favorites/add_remove_favorite_state.dart';
-import 'favorite_cubit.dart';
 
 class AddRemoveFavoriteCubit extends Cubit<AddRemoveFavoriteState> {
   final String userId;

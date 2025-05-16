@@ -11,19 +11,14 @@ import 'package:foodtek_project/data/item_repository.dart';
 import 'package:foodtek_project/data/recommended_item_repository.dart';
 import 'package:foodtek_project/services/recommended_item_service.dart';
 import 'package:foodtek_project/state/theme_state.dart';
-import 'package:foodtek_project/view/screens/explore_screen.dart';
-import 'package:foodtek_project/view/screens/home/cart/checkout/Checkout_Screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
-import 'package:foodtek_project/view/screens/home/favorites/favorite_screen.dart';
 import 'package:foodtek_project/view/screens/home/home/home_screen.dart';
-import 'package:foodtek_project/view/widgets/product_card.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'cubit/home/favorites/add_remove_favorite_cubit.dart';
 import 'cubit/home/favorites/favorite_cubit.dart';
 import 'cubit/home/get_all_category_cubit.dart';
-import 'model/product_model.dart';
 
 void main() {
   Bloc.observer = MyBlocObserver();
@@ -137,15 +132,4 @@ class _MyAppState extends State<MyApp> {
     )));
   }
 }
-    final product = Product(
-      id: '123',
-      name: 'Pizza Margherita',
-      description: 'Delicious cheese and tomato pizza',
-      price: 9.99,
-      imageUrl: 'https://images.unsplash.com/photo-1601924928376-b4f87c1a17a1',
-      isFavorite: false,
-      cartDescription: "",
-      detailedDescription: ""
-
-    );
-
+  

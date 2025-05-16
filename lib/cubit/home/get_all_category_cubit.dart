@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodtek_project/model/category_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../model/get_all_category_model.dart';

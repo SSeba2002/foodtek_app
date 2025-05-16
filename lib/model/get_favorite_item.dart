@@ -27,14 +27,14 @@ class GetFavoriteItem {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['nameEn'] = this.nameEn;
-    data['nameAr'] = this.nameAr;
-    data['descriptionEn'] = this.descriptionEn;
-    data['descriptionAr'] = this.descriptionAr;
-    data['price'] = this.price;
-    data['creationDate'] = this.creationDate;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['nameEn'] = nameEn;
+    data['nameAr'] = nameAr;
+    data['descriptionEn'] = descriptionEn;
+    data['descriptionAr'] = descriptionAr;
+    data['price'] = price;
+    data['creationDate'] = creationDate;
     return data;
   }
 }

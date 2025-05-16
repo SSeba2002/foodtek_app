@@ -1,12 +1,12 @@
-import 'package\:flutter/material.dart';
-import 'package\:flutter\_bloc/flutter\_bloc.dart';
-import 'package\:flutter\_screenutil/flutter\_screenutil.dart';
-import 'package\:foodtek\_project/l10n/generated/app\_localizations.dart';
-import 'package\:foodtek\_project/model/product\_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodtek_project/l10n/generated/app_localizations.dart';
+import 'package:foodtek_project/model/product_model.dart';
 
-import '../../cubit/home/favorites/add\_remove\_favorite\_cubit.dart';
-import '../../cubit/home/favorites/favorite\_cubit.dart';
-import '../../state/home/favorites/add\_remove\_favorite\_state.dart';
+import '../../cubit/home/favorites/add_remove_favorite_cubit.dart';
+import '../../cubit/home/favorites/favorite_cubit.dart';
+import '../../state/home/favorites/add_remove_favorite_state.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;

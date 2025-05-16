@@ -14,11 +14,11 @@ class GetAllCategory {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['nameEn'] = this.nameEn;
-    data['nameAr'] = this.nameAr;
-    data['image'] = this.image;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['nameEn'] = nameEn;
+    data['nameAr'] = nameAr;
+    data['image'] = image;
     return data;
   }
 }
