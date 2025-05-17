@@ -96,7 +96,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [LocationWidget(), NotificationIconWidget()],
+                children: [LocationWidget(), NotificationIconWidget(userId: '2',)],
               ),
             ),
             SizedBox(height: 5),

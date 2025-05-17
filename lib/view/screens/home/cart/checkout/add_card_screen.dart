@@ -32,7 +32,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
           children: [
             Align(
               alignment: Alignment.topRight,
-              child: NotificationIconWidget(),
+              child: NotificationIconWidget(userId: '',),
             ),
             SizedBox(height: 8.h),
             Align(

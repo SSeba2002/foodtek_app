@@ -89,7 +89,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [LocationWidget(), NotificationIconWidget()],
+              children: [LocationWidget(), NotificationIconWidget(userId: '',)],
             ),
           ),
           SizedBox(height: 2),

@@ -6,12 +6,11 @@ class ApiConstants {
   static const String getTopRecommendedItems =
       '$baseUrl/Item/GetTopRecomendedItem';
 
-static const String getAllCategories = '$baseUrl/Category/GetAllCategory';
-static const String postFavoriteItem = '$baseUrl/Item/GetFavoriteItem';
-
+  static const String getAllCategories = '$baseUrl/Category/GetAllCategory';
+  static const String postFavoriteItem = '$baseUrl/Item/GetFavoriteItem';
 
   // Favorite Endpoints
-static String addItemToFavorite(String userId, String itemId) =>
+  static String addItemToFavorite(String userId, String itemId) =>
       '$baseUrl/Favorite/AddItemToFavorite?userID=$userId&itemID=$itemId';
 
   static String deleteItemFromFavorite(String userId, String itemId) =>
@@ -23,11 +22,8 @@ static String addItemToFavorite(String userId, String itemId) =>
   static String getFavoriteItemDeleteUri(String userId, String itemId) =>
       '$baseUrl/Item/GetFavoriteItemByUserID?userID=$userId&itemID=$itemId';
 
+static String getNotificationsByUserId(String userId) =>
+      '$baseUrl/Notification/GetAllNotificationByUserID?userID=$userId';
 
-
-
-
-
-  
 
 }

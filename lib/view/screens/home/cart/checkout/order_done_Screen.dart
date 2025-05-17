@@ -77,7 +77,7 @@ class _OrderDoneScreenState extends State<OrderDoneScreen>
               alignment: Alignment.topRight,
               child: Padding(
                 padding: EdgeInsets.only(top: 30.h, right: 5.w),
-                child: NotificationIconWidget(),
+                child: NotificationIconWidget(userId: '',),
               ),
             ),
             SizedBox(height: 8),

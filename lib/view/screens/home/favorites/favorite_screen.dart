@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/get_favorite_item.dart';
-
 import '../../../../cubit/home/favorites/add_remove_favorite_cubit.dart';
 import '../../../../cubit/home/favorites/favorite_cubit.dart';
 import '../../../../state/home/favorites/favorite_state.dart';
 import '../../../widgets/home/location_widget.dart';
 import '../../../widgets/home/notification_icon_widget.dart';
 import '../../../widgets/home/search_bar_widget.dart';
-
 
 class FavoritesScreen extends StatefulWidget {
   const FavoritesScreen({super.key});
@@ -20,21 +17,19 @@ class FavoritesScreen extends StatefulWidget {
   State<FavoritesScreen> createState() => _FavoritesScreenState();
 }
 
-
 class _FavoritesScreenState extends State<FavoritesScreen> {
   List<GetFavoriteItem> _favoritesList = [];
 
   @override
   void initState() {
     super.initState();
-
     context.read<FavoritesCubit>().fetchFavorites();
   }
 
   void _showRemoveDialog(BuildContext context, GetFavoriteItem item) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (ctx) {
         return AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
@@ -49,10 +44,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               Text(
                 AppLocalizations.of(context)!.removeFromFavorites,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
               ),
               SizedBox(height: 20.h),
               SizedBox(
@@ -66,14 +58,14 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     setState(() {
                       _favoritesList.remove(item);
                     });
-
-                    context.read<AddRemoveFavoriteCubit>().removeFromFavorite(item.id.toString());
-
-                    Navigator.of(context).pop();
+                    await context
+                        .read<AddRemoveFavoriteCubit>()
+                        .removeFromFavorite(item.id.toString());
+                    Navigator.of(ctx).pop();
                   },
                   child: Text(
                     AppLocalizations.of(context)!.yes,
@@ -91,11 +83,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     );
   }
 
-
   void _navigateToProductDetail(GetFavoriteItem product) {
     debugPrint('${AppLocalizations.of(context)!.tappedOn} ${product.nameEn}');
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -105,9 +95,15 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            LocationWidget(),
-            NotificationIconWidget(),
-            SizedBox(height: 3),
+            const LocationWidget(),
+            SizedBox(height: 3.h),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
+              child: IconButton(
+                onPressed: () => openNotificationSheet(context, '1'),
+                icon: Icon(Icons.notifications_active_outlined),
+              ),
+            ),
             SearchBarWidget(onFilterPressed: () {}),
             SizedBox(height: 20.h),
             Text(
@@ -124,7 +120,6 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                     return Center(child: Text(state.message));
                   } else if (state is FavoritesLoaded) {
                     _favoritesList = state.favorites;
-
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -135,11 +130,14 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       ),
                       itemCount: _favoritesList.length,
                       itemBuilder: (context, index) {
-                        return _buildProductCard(_favoritesList[index], context);
+                        return _buildProductCard(
+                          _favoritesList[index],
+                          context,
+                        );
                       },
                     );
                   }
-                  return const Center(child: Text('No favorites yet'));
+                  return Center(child: Text('No favorites yet'));
                 },
               ),
             ),
@@ -154,7 +152,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       margin: EdgeInsets.all(6.w),
       padding: EdgeInsets.only(bottom: 35.h),
       decoration: BoxDecoration(
-        border: Border.all(color: Color(0xFFDBF4D1), width: 1.w),
+        border: Border.all(color: const Color(0xFFDBF4D1), width: 1.w),
         borderRadius: BorderRadius.circular(25.r),
       ),
       child: Stack(
@@ -170,7 +168,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 backgroundColor: Colors.transparent,
                 child: CircleAvatar(
                   radius: 38.r,
-                  backgroundImage: NetworkImage('https://example.com/image.jpg'),
+                  backgroundImage: NetworkImage(
+                    product.imageUrl ?? 'https://example.com/image.jpg',
+                  ),
                 ),
               ),
             ),
@@ -179,16 +179,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             top: -8.h,
             right: -8.w,
             child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFFDBF4D1),
+              decoration: const BoxDecoration(
+                color: Color(0xFFDBF4D1),
                 shape: BoxShape.circle,
               ),
               child: IconButton(
-                icon: const Icon(
-                  Icons.favorite,
-                  color: Colors.red,
-                  size: 18,
-                ),
+                icon: const Icon(Icons.favorite, color: Colors.red, size: 18),
                 onPressed: () => _showRemoveDialog(context, product),
               ),
             ),
@@ -264,10 +260,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 onPressed: () => _navigateToProductDetail(product),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF25AE4B),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 8.w,
-                    vertical: 6.h,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 6.h),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.r),
                   ),

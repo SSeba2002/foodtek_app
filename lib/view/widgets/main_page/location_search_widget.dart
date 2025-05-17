@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/view/screens/home/home/filter_screen.dart';
+import 'package:foodtek_project/view/widgets/home/notification_icon_widget.dart';
 import 'package:foodtek_project/view/widgets/main_page/main_text_field.dart';
 import 'package:foodtek_project/view/widgets/main_page/notification_widget.dart';
 
@@ -109,7 +110,7 @@ class _LocationNotificationSrearchState
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: IconButton(
-                  onPressed: () => openNotificationSheet(context),
+                  onPressed: () => openNotificationSheet(context,'1'),
                   icon: Icon(Icons.notifications_active_outlined),
                 ),
               ),

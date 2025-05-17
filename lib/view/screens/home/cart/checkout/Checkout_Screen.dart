@@ -37,7 +37,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             children: [
               Align(
                 alignment: Alignment.topRight,
-                child: NotificationIconWidget(),
+                child: NotificationIconWidget(userId: '',),
               ),
               SizedBox(height: 8.h),
               Align(
