@@ -9,6 +9,11 @@ class ApiConstants {
   static const String getAllCategories = '$baseUrl/Category/GetAllCategory';
   static const String postFavoriteItem = '$baseUrl/Item/GetFavoriteItem';
 
+
+// Offers
+  static const getAllOffers = '$baseUrl/Offers/GetAllOffer';
+  static const uploadBaseUrl = 'https://team12.zero1planet.com/Uploads/';
+
   // Favorite Endpoints
   static String addItemToFavorite(String userId, String itemId) =>
       '$baseUrl/Favorite/AddItemToFavorite?userID=$userId&itemID=$itemId';

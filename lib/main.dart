@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/constant/functions/bloc_observer.dart';
 import 'package:foodtek_project/constant/theme.dart';
 import 'package:foodtek_project/cubit/notification/notification_cubit.dart';
+import 'package:foodtek_project/cubit/offer/offer_cubit.dart';
 import 'package:foodtek_project/cubit/recommended_item/recommended_item_cubit.dart';
 import 'package:foodtek_project/cubit/theme_cubit.dart';
 import 'package:foodtek_project/cubit/top_rated/top_rated_cubit.dart';
@@ -11,11 +12,13 @@ import 'package:foodtek_project/data/item_repository.dart';
 import 'package:foodtek_project/data/notification_repository.dart';
 import 'package:foodtek_project/data/recommended_item_repository.dart';
 import 'package:foodtek_project/services/notification_service.dart';
+import 'package:foodtek_project/services/offer_service.dart';
 import 'package:foodtek_project/services/recommended_item_service.dart';
 import 'package:foodtek_project/state/theme_state.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/user_profile_model.dart';
+import 'package:foodtek_project/view/screens/home/home/home_screen.dart';
 import 'package:foodtek_project/view/screens/splash_screen.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'cubit/home/favorites/add_remove_favorite_cubit.dart';
@@ -111,6 +114,9 @@ class _MyAppState extends State<MyApp> {
                 (context) =>
                     NotificationCubit(context.read<NotificationRepository>()),
           ),
+                  BlocProvider(
+                    create: (_) => OfferCubit(OfferService())),
+
         ],
         child: ScreenUtilInit(
           designSize: const Size(428, 926),
