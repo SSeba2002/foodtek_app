@@ -6,9 +6,8 @@ import 'package:foodtek_project/model/get_favorite_item.dart';
 import '../../../state/home/favorites/favorite_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesState> {
-  final String userId;
-
-  FavoritesCubit(this.userId) : super(FavoritesInitial());
+final String userId = "1"; 
+  FavoritesCubit() : super(FavoritesInitial());
 
   Uri get apiUrl => Uri.parse(ApiConstants.getFavoriteItemsByUserId(userId));
 

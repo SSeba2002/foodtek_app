@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodtek_project/l10n/generated/app_localizations.dart';
 import 'package:foodtek_project/model/get_favorite_item.dart';
+import 'package:foodtek_project/view/widgets/main_page/location_search_widget.dart';
 import '../../../../cubit/home/favorites/add_remove_favorite_cubit.dart';
 import '../../../../cubit/home/favorites/favorite_cubit.dart';
 import '../../../../state/home/favorites/favorite_state.dart';
@@ -95,17 +96,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const LocationWidget(),
-            SizedBox(height: 3.h),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: IconButton(
-                onPressed: () => openNotificationSheet(context, '1'),
-                icon: Icon(Icons.notifications_active_outlined),
-              ),
-            ),
-            SearchBarWidget(onFilterPressed: () {}),
-            SizedBox(height: 20.h),
+            LocationNotificationSrearch(showSearchBar: true),
+            const SizedBox(height: 15),
             Text(
               AppLocalizations.of(context)!.favorites,
               style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
@@ -120,6 +112,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                     return Center(child: Text(state.message));
                   } else if (state is FavoritesLoaded) {
                     _favoritesList = state.favorites;
+                    //Add
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

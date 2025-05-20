@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,6 +42,7 @@ class _MyAppState extends State<MyApp> {
       _locale = locale;
     });
   }
+
   void onFavoritePressed() {
     print('Favorite toggled');
   }
@@ -51,10 +51,9 @@ class _MyAppState extends State<MyApp> {
     print('Order pressed');
   }
 
-
   @override
   Widget build(BuildContext context) {
-    UserProfile driverProfile = UserProfile(
+ UserProfile driverProfile = UserProfile(
       userId: '1',
       name: 'Driver Name',
       address: '123 Driver Street',
@@ -72,84 +71,82 @@ class _MyAppState extends State<MyApp> {
       phoneNumber: '078011111',
     );
 
-
-return MultiRepositoryProvider(
-  providers: [
-    RepositoryProvider<ItemRepository>(
-      create: (context) => ItemRepository(),
-    ),
-  RepositoryProvider<NotificationApiService>(
-      create: (_) => NotificationApiService(),
-    ),
-    RepositoryProvider<NotificationRepository>(
-      create: (context) => NotificationRepository(
-        context.read<NotificationApiService>(),
-      ),
-    )
-  ],      
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<ItemRepository>(
+          create: (context) => ItemRepository(),
+        ),
+        RepositoryProvider<NotificationApiService>(
+          create: (_) => NotificationApiService(),
+        ),
+        RepositoryProvider<NotificationRepository>(
+          create:
+              (context) => NotificationRepository(
+                context.read<NotificationApiService>(),
+              ),
+        ),
+      ],
       child: MultiBlocProvider(
         providers: [
+          BlocProvider(create: (context) => AppCubit()),
+          BlocProvider(create: (context) => CategoryCubit()..fetchCategories()),
+
+          BlocProvider(create: (context) => FavoritesCubit()..fetchFavorites()),
+
           BlocProvider(
-            create: (context) => AppCubit(),
+            create: (_) => AddRemoveFavoriteCubit(userId: userProfile.userId),
+          ),
+
+          BlocProvider(
+            create: (context) => TopRatedCubit(context.read<ItemRepository>()),
           ),
           BlocProvider(
-          create: (context) => CategoryCubit()..fetchCategories(),),
-
-          BlocProvider(
-            create: (context) => FavoritesCubit(userProfile.userId)..fetchFavorites(),),
-
-          BlocProvider(
-              create: (_) => AddRemoveFavoriteCubit(userId: userProfile.userId)),
-
-          BlocProvider(
-            create: (context) => TopRatedCubit(
-              context.read<ItemRepository>(),
-            ),
-            
+            create:
+                (context) => RecommendedItemCubit(
+                  RecommendedItemRepository(RecommendedItemService()),
+                ),
           ),
-           BlocProvider(
-      create: (context) => RecommendedItemCubit(
-        RecommendedItemRepository(RecommendedItemService()),
-      ),
-           ),
-             BlocProvider(
-            create: (context) => NotificationCubit(
-              context.read<NotificationRepository>(),
-            ),
-             )
+          BlocProvider(
+            create:
+                (context) =>
+                    NotificationCubit(context.read<NotificationRepository>()),
+          ),
         ],
         child: ScreenUtilInit(
           designSize: const Size(428, 926),
           splitScreenMode: true,
           builder: (context, child) {
             return BlocBuilder<AppCubit, AppStates>(
-              builder: (context, state) => MaterialApp(
-                theme: AppTheme.lightTheme,
-                darkTheme: AppTheme.darkTheme,
-                themeMode: context.read<AppCubit>().themeMode,
-                locale: context.read<AppCubit>().locale,
-                localizationsDelegates: const [
-                  AppLocalizations.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: const [Locale('en'), Locale('ar')],
-                debugShowCheckedModeBanner: false,
-                title: 'FoodTek',
-                home: SplashScreen(),
-                builder: (context, child) {
-                  return Directionality(
-                    textDirection: context.read<AppCubit>().locale.toString() == "en"
-                        ? TextDirection.ltr
-                        : TextDirection.rtl,
-                    child: child!,
-                  );
-                },
-              ),
+              builder:
+                  (context, state) => MaterialApp(
+                    theme: AppTheme.lightTheme,
+                    darkTheme: AppTheme.darkTheme,
+                    themeMode: context.read<AppCubit>().themeMode,
+                    locale: context.read<AppCubit>().locale,
+                    localizationsDelegates: const [
+                      AppLocalizations.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    supportedLocales: const [Locale('en'), Locale('ar')],
+                    debugShowCheckedModeBanner: false,
+                    title: 'FoodTek',
+                    home: SplashScreen(),
+                    builder: (context, child) {
+                      return Directionality(
+                        textDirection:
+                            context.read<AppCubit>().locale.toString() == "en"
+                                ? TextDirection.ltr
+                                : TextDirection.rtl,
+                        child: child!,
+                      );
+                    },
+                  ),
             );
           },
-    )));
+        ),
+      ),
+    );
   }
 }
-  

@@ -6,23 +6,24 @@ import 'package:foodtek_project/cubit/notification/notification_state.dart';
 import 'package:foodtek_project/view/widgets/home/notifications_widget.dart';
 import 'package:foodtek_project/cubit/notification/notification_cubit.dart';
 
+import 'package:flutter/material.dart';
+
 void openNotificationSheet(BuildContext context, String userId) {
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Colors.transparent,
-  builder: (_) => NotificationsWidget(
-  userId: userId,
-  scrollController: ScrollController(),
-  onNotificationsUpdated: (bool hasUnread) {
-    // handle update
-  },
-  onClose: () {
-    // handle close
-  },
-),
-
-
+    backgroundColor: Theme.of(context).cardColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    builder: (context) => SizedBox(
+      height: MediaQuery.of(context).size.height * 0.75, 
+      child: NotificationsWidget(
+        userId: userId,
+        onNotificationsUpdated: (_) {},
+        onClose: () => Navigator.pop(context), 
+      ),
+    ),
   );
 }
 

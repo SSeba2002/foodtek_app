@@ -9,13 +9,11 @@ class NotificationsWidget extends StatefulWidget {
   final Function(bool) onNotificationsUpdated;
   final VoidCallback onClose;
   final String userId;
-  final ScrollController? scrollController;
 
   const NotificationsWidget({
     required this.onNotificationsUpdated,
     required this.onClose,
     required this.userId,
-    this.scrollController,
     super.key,
   });
 
@@ -45,73 +43,79 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 16.h),
-      decoration: BoxDecoration(
-        color: Colors.green[50], 
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
-      ),
-      child: Column(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Container(
+            padding: EdgeInsets.all(16.w),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+            ),
+            child: Column(
               children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.black),
-                  onPressed: widget.onClose,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.arrow_back, color: Colors.black),
+                      onPressed: widget.onClose,
+                    ),
+                    Text(
+                      'Notifications',
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.more_vert, color: Colors.black),
+                      onPressed: () {},
+                    ),
+                  ],
                 ),
-                Text(
-                  'Notifications',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+                SizedBox(height: 16.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _buildTab('All', isSelected: _selectedTab == 'All'),
+                    _buildTab('Unread', isSelected: _selectedTab == 'Unread'),
+                    _buildTab('Read', isSelected: _selectedTab == 'Read'),
+                  ],
                 ),
-                const Icon(Icons.more_vert, color: Colors.black),
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildTab('All'),
-                _buildTab('Unread'),
-                _buildTab('Read'),
-              ],
-            ),
-          ),
-          SizedBox(height: 10.h),
+          SizedBox(height: 16.h),
           Expanded(
-            child: BlocBuilder<NotificationCubit, NotificationState>(
-              builder: (context, state) {
-                if (state is NotificationLoaded) {
-                  final filtered = _filterNotifications(state.notifications);
-                  widget.onNotificationsUpdated(
-                      state.notifications.any((n) => !n.isRead));
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[50],
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+              ),
+              child: BlocBuilder<NotificationCubit, NotificationState>(
+                builder: (context, state) {
+                  if (state is NotificationLoaded) {
+                    final filtered = _filterNotifications(state.notifications);
 
-                  if (filtered.isEmpty) {
-                    return const Center(child: Text('No notifications'));
+                    return ListView.builder(
+                      physics: NeverScrollableScrollPhysics(), 
+                      shrinkWrap: true,
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      itemCount: filtered.length,
+                      itemBuilder: (context, index) {
+                        return _buildNotificationItem(filtered[index]);
+                      },
+                    );
+                  } else if (state is NotificationError) {
+                    return Center(child: Text(state.message));
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
                   }
-
-                  return ListView.builder(
-                    controller: widget.scrollController,
-                    itemCount: filtered.length,
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    itemBuilder: (context, index) {
-                      return _buildNotificationItem(filtered[index]);
-                    },
-                  );
-                } else if (state is NotificationError) {
-                  return Center(child: Text(state.message));
-                } else {
-                  return const Center(child: CircularProgressIndicator());
-                }
-              },
+                },
+              ),
             ),
           ),
         ],
@@ -119,22 +123,25 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
     );
   }
 
-  Widget _buildTab(String title) {
-    final isSelected = _selectedTab == title;
+  Widget _buildTab(String text, {bool isSelected = false}) {
     return GestureDetector(
-      onTap: () => setState(() => _selectedTab = title),
+      onTap: () {
+        setState(() {
+          _selectedTab = text;
+        });
+      },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 16.w),
+        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.green[100] : Colors.transparent,
+          color: isSelected ? Colors.white : Colors.transparent,
           borderRadius: BorderRadius.circular(20.r),
         ),
         child: Text(
-          title,
+          text,
           style: TextStyle(
-            fontSize: 14.sp,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            fontSize: 16.sp,
             color: isSelected ? Colors.green : Colors.grey,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
           ),
         ),
       ),
@@ -143,14 +150,14 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
 
   Widget _buildNotificationItem(NotificationModel notification) {
     return Container(
-      margin: EdgeInsets.only(bottom: 12.h),
+      margin: EdgeInsets.only(bottom: 16.h),
       padding: EdgeInsets.all(12.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
-          color: Colors.green.shade100,
-          width: 1,
+          color: Colors.green[100]!,
+          width: 1.w,
         ),
       ),
       child: Row(
@@ -161,7 +168,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
               width: 8.w,
               height: 8.h,
               margin: EdgeInsets.only(top: 4.h, right: 8.w),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.green,
                 shape: BoxShape.circle,
               ),
@@ -183,7 +190,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   notification.description,
                   style: TextStyle(
                     fontSize: 14.sp,
-                    color: Colors.grey[800],
+                    color: Colors.grey[700],
                   ),
                 ),
               ],
