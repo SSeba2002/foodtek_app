@@ -1,28 +1,59 @@
-## Mobile Team UI Implementation - Foodtek App
-The first phase is designing the interfaces for the foodtek app. This was designed and implemented by the mobile team. 
-The first phase focuses on UI design only, without linking to a database or backend.
-As the mobile team, we designed the *Foodtek app's UI screens* in the first phase based on the *Figma design*. We divided the section screens among ourselves as follows:
+# 🍔 Foodtek App
 
-### Team Members
-- *Saba*
-- *Baraa*
+A cross-platform restaurant app built with Flutter, offering customers a smooth food ordering experience with real-time delivery tracking via Google Maps. The app features separate flows for customers and drivers to efficiently manage orders and deliveries.
 
-### Screen Division
-
-| Section | Saba Screens     | Baraa Screens    |
-|---------|------------------|------------------|
-| 1       | 1, 2, 3          | 4, 5             |
-| 2       | 2, 4, 6          | 1, 3, 5          |
-| 3       | 2, 3, 6, 7       | 1, 4, 5          |
-| 4       | 1, 2, 4          | 3, 5             |
-| 5       | 2, 4             | 1, 3             |
-| 6       | 1, 2             | 3, 4, 5          |
 
 ---
 
-We organized our work and structured the code using the *MVC principle*, making it easy to maintain and modify.
+## 📸 Screenshots
 
-We held a meeting to divide responsibilities and ensure everyone was aligned and supported in case of any challenges. The UI code was fully implemented, and all screens were properly connected.
+<p align="center">
+<img width="150"  alt="Login page" src="https://github.com/user-attachments/assets/1214ebbe-0a13-4312-9fd7-cef22365fcb3" />
+<img width="150"  alt="Home Page" src="https://github.com/user-attachments/assets/1598ee0c-fe39-4c1b-ba7d-88dc64299bbf" />
+  <img width="150" alt="iPhone 16 Plus - 50" src="https://github.com/user-attachments/assets/3d0c3c4c-fff5-4ea5-b216-d571ccc92c1a" />
+<img width="150" height="932" alt="Cart" src="https://github.com/user-attachments/assets/f13ed64f-b6cb-456c-80d3-a862889bcdd8" />
+<img width="150" alt="iPhone 16 Plus - 15" src="https://github.com/user-attachments/assets/377fc863-3452-44e3-8dd5-2cef7fba4491" />
 
-> *Note:*  
-> We encountered an error when displaying the map. We believe the issue is related to Kotlin, but we are confident that it will be resolved with help from the engineer.
+
+
+
+
+</p>
+
+---
+
+##  Features:
+
+- **OTP-based login authentication** 
+- **Real-time delivery tracking** using Google Maps  
+- **Dual flow**: customer and driver apps 
+- **Cart management, favorite meals, and instant notifications**
+- **Smooth, responsive, and interactive UI**  
+
+---
+
+
+##  Tech Stack
+
+- **Flutter**
+- **Dart**
+- **Google Maps API**
+- **Firebase Authentication**
+- **Bloc / Cubit**
+
+---
+
+## 📦 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/SSeba2002/foodtek_app.git
+
+# Navigate to the project folder
+cd foodtek
+
+# Install dependencies
+flutter pub get
+
+# Run the app
+flutter run
